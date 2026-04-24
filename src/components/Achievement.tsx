@@ -75,16 +75,18 @@ const credentialsData = [
 ];
 
 export default function CredentialsSlider() {
-  const scrollContainerRef = useRef(null);
+  // 🔥 PERBAIKAN 1: Tambahkan tipe HTMLDivElement
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const [isCardHovered, setIsCardHovered] = useState(false);
-  const autoSlideInterval = useRef(null);
+  const autoSlideInterval = useRef<NodeJS.Timeout | null>(null);
 
-  // Function to scroll
+  // 🔥 PERBAIKAN 2: Tambahkan tipe parameter direction
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const cardWidth = 344; // 320px card + 24px gap
+      const cardWidth = 344;
       const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
       scrollContainerRef.current.scrollBy({
         left: scrollAmount,
@@ -93,6 +95,7 @@ export default function CredentialsSlider() {
     }
   };
 
+  // 🔥 PERBAIKAN 3: handleScroll sudah aman
   const handleScroll = () => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } =
@@ -102,7 +105,7 @@ export default function CredentialsSlider() {
     }
   };
 
-  // 🔥 PERUBAHAN UTAMA DI SINI: Looping seamless
+  // 🔥 PERBAIKAN 4: startAutoSlide dengan pengecekan tipe
   const startAutoSlide = () => {
     if (autoSlideInterval.current) clearInterval(autoSlideInterval.current);
 
@@ -111,16 +114,13 @@ export default function CredentialsSlider() {
         const el = scrollContainerRef.current;
         const { scrollLeft, scrollWidth, clientWidth } = el;
         const cardWidth = 344;
-        const originalWidth = scrollWidth / 2; // karena data di-duplicate
+        const originalWidth = scrollWidth / 2;
 
-        // Jika sudah di ujung (mendekati akhir dari duplicate data)
         if (scrollLeft + clientWidth >= scrollWidth - 100) {
-          // Lompat ke posisi awal (tanpa animasi, seamless)
           el.style.scrollBehavior = "auto";
           el.scrollLeft = scrollLeft - originalWidth;
           el.style.scrollBehavior = "smooth";
         } else {
-          // Geser normal ke kanan
           el.scrollBy({ left: cardWidth, behavior: "smooth" });
         }
       }

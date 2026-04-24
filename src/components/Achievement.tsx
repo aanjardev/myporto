@@ -81,9 +81,10 @@ export default function CredentialsSlider() {
   const [isCardHovered, setIsCardHovered] = useState(false);
   const autoSlideInterval = useRef(null);
 
-  const scroll = (direction) => {
+  // Function to scroll
+  const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const cardWidth = 344;
+      const cardWidth = 344; // 320px card + 24px gap
       const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
       scrollContainerRef.current.scrollBy({
         left: scrollAmount,

@@ -74,181 +74,38 @@ const credentialsData = [
   },
 ];
 
-export default function CredentialsSlider() {
-  // 🔥 PERBAIKAN 1: Tambahkan tipe HTMLDivElement
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(true);
-  const [isCardHovered, setIsCardHovered] = useState(false);
-  const autoSlideInterval = useRef<NodeJS.Timeout | null>(null);
-
-  // 🔥 PERBAIKAN 2: Tambahkan tipe parameter direction
-  const scroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const cardWidth = 344;
-      const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
-      scrollContainerRef.current.scrollBy({
-        left: scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  // 🔥 PERBAIKAN 3: handleScroll sudah aman
-  const handleScroll = () => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } =
-        scrollContainerRef.current;
-      setShowLeftArrow(scrollLeft > 0);
-      setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 10);
-    }
-  };
-
-  // 🔥 PERBAIKAN 4: startAutoSlide dengan pengecekan tipe
-  const startAutoSlide = () => {
-    if (autoSlideInterval.current) clearInterval(autoSlideInterval.current);
-
-    autoSlideInterval.current = setInterval(() => {
-      if (!isCardHovered && scrollContainerRef.current) {
-        const el = scrollContainerRef.current;
-        const { scrollLeft, scrollWidth, clientWidth } = el;
-        const cardWidth = 344;
-        const originalWidth = scrollWidth / 2;
-
-        if (scrollLeft + clientWidth >= scrollWidth - 100) {
-          el.style.scrollBehavior = "auto";
-          el.scrollLeft = scrollLeft - originalWidth;
-          el.style.scrollBehavior = "smooth";
-        } else {
-          el.scrollBy({ left: cardWidth, behavior: "smooth" });
-        }
-      }
-    }, 1000);
-  };
-
-  const stopAutoSlide = () => {
-    if (autoSlideInterval.current) {
-      clearInterval(autoSlideInterval.current);
-      autoSlideInterval.current = null;
-    }
-  };
-
-  useEffect(() => {
-    startAutoSlide();
-    return () => stopAutoSlide();
-  }, []);
-
-  useEffect(() => {
-    if (!isCardHovered) {
-      startAutoSlide();
-    } else {
-      stopAutoSlide();
-    }
-  }, [isCardHovered]);
-
-  return (
-    <section className="py-20 md:py-28 bg-gray-50 relative overflow-hidden">
-      {/* Decorative elements - sama */}
-      <div className="absolute inset-0 bg-[#1E3A5F]/[0.01] pointer-events-none" />
-      <div className="absolute -top-40 left-40 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-40 right-40 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header - sama */}
-        <div className="text-center mb-10 md:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E3A5F]/10 text-[#1E3A5F] text-sm font-semibold mb-4">
-            <Award className="w-4 h-4" />
-            <span>Credentials & Achievements</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Certifications & Awards
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            Professional certifications and competition achievements that
-            validate my skills and dedication.
-          </p>
-        </div>
-
-        {/* Slider Container */}
-        <div className="relative group">
-          {/* Left Arrow */}
-          <button
-            onClick={() => scroll("left")}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white rounded-full p-2 shadow-lg border border-gray-200 text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white transition-all duration-300 -translate-x-1/2 ${
-              showLeftArrow ? "opacity-100 visible" : "opacity-0 invisible"
-            }`}
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          {/* Right Arrow */}
-          <button
-            onClick={() => scroll("right")}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white rounded-full p-2 shadow-lg border border-gray-200 text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white transition-all duration-300 translate-x-1/2 ${
-              showRightArrow ? "opacity-100 visible" : "opacity-0 invisible"
-            }`}
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
-          {/* 🔥 PERUBAHAN: Horizontal Scroll Container dengan duplicate data */}
-          <div
-            ref={scrollContainerRef}
-            onScroll={handleScroll}
-            className="flex overflow-x-auto gap-6 pb-4 scroll-smooth hide-scrollbar"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {/* Duplicate data 2x untuk seamless looping */}
-            {[...credentialsData, ...credentialsData].map((cred, idx) => (
-              <CredentialCard
-                key={`${cred.id}-${idx}`}
-                credential={cred}
-                onHoverChange={(isHovered) => setIsCardHovered(isHovered)}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* View All Link */}
-        <div className="text-center mt-8">
-          <Link
-            href="/credentials"
-            className="group inline-flex items-center gap-2 text-[#1E3A5F] font-semibold hover:gap-3 transition-all"
-          >
-            View All Certifications & Achievements
-            <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-      </div>
-
-      <style jsx>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
-    </section>
-  );
+// Interface untuk Credential
+interface Credential {
+  id: number;
+  title: string;
+  issuer: string;
+  year: string;
+  type: string;
+  slug: string;
+  image: string;
+  description: string;
 }
 
-// Card Component (sama seperti sebelumnya)
-function CredentialCard({ credential, onHoverChange }) {
+// Interface untuk CredentialCard Props
+interface CredentialCardProps {
+  credential: Credential;
+  onHoverChange: (isHovered: boolean) => void;
+}
+
+// Card Component
+function CredentialCard({ credential, onHoverChange }: CredentialCardProps) {
   const [imageError, setImageError] = useState(false);
   const [isCardHovered, setIsCardHovered] = useState(false);
   const isCertification = credential.type === "certification";
 
   const handleMouseEnter = () => {
     setIsCardHovered(true);
-    if (typeof onHoverChange === "function") onHoverChange(true);
+    onHoverChange(true);
   };
 
   const handleMouseLeave = () => {
     setIsCardHovered(false);
-    if (typeof onHoverChange === "function") onHoverChange(false);
+    onHoverChange(false);
   };
 
   return (
@@ -304,5 +161,160 @@ function CredentialCard({ credential, onHoverChange }) {
         )}
       </div>
     </Link>
+  );
+}
+
+export default function CredentialsSlider() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
+  const [isCardHovered, setIsCardHovered] = useState(false);
+  const autoSlideInterval = useRef<NodeJS.Timeout | null>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollContainerRef.current) {
+      const cardWidth = 344;
+      const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
+      scrollContainerRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } =
+        scrollContainerRef.current;
+      setShowLeftArrow(scrollLeft > 0);
+      setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 10);
+    }
+  };
+
+  const startAutoSlide = () => {
+    if (autoSlideInterval.current) clearInterval(autoSlideInterval.current);
+
+    autoSlideInterval.current = setInterval(() => {
+      if (!isCardHovered && scrollContainerRef.current) {
+        const el = scrollContainerRef.current;
+        const { scrollLeft, scrollWidth, clientWidth } = el;
+        const cardWidth = 344;
+        const originalWidth = scrollWidth / 2;
+
+        if (scrollLeft + clientWidth >= scrollWidth - 100) {
+          el.style.scrollBehavior = "auto";
+          el.scrollLeft = scrollLeft - originalWidth;
+          el.style.scrollBehavior = "smooth";
+        } else {
+          el.scrollBy({ left: cardWidth, behavior: "smooth" });
+        }
+      }
+    }, 1000);
+  };
+
+  const stopAutoSlide = () => {
+    if (autoSlideInterval.current) {
+      clearInterval(autoSlideInterval.current);
+      autoSlideInterval.current = null;
+    }
+  };
+
+  useEffect(() => {
+    startAutoSlide();
+    return () => stopAutoSlide();
+  }, []);
+
+  useEffect(() => {
+    if (!isCardHovered) {
+      startAutoSlide();
+    } else {
+      stopAutoSlide();
+    }
+  }, [isCardHovered]);
+
+  return (
+    <section className="py-20 md:py-28 bg-gray-50 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 bg-[#1E3A5F]/[0.01] pointer-events-none" />
+      <div className="absolute -top-40 left-40 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-40 right-40 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-10 md:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E3A5F]/10 text-[#1E3A5F] text-sm font-semibold mb-4">
+            <Award className="w-4 h-4" />
+            <span>Credentials & Achievements</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Certifications & Awards
+          </h2>
+          <p className="text-gray-500 max-w-2xl mx-auto">
+            Professional certifications and competition achievements that
+            validate my skills and dedication.
+          </p>
+        </div>
+
+        {/* Slider Container */}
+        <div className="relative group">
+          {/* Left Arrow */}
+          <button
+            onClick={() => scroll("left")}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white rounded-full p-2 shadow-lg border border-gray-200 text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white transition-all duration-300 -translate-x-1/2 ${
+              showLeftArrow ? "opacity-100 visible" : "opacity-0 invisible"
+            }`}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          {/* Right Arrow */}
+          <button
+            onClick={() => scroll("right")}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white rounded-full p-2 shadow-lg border border-gray-200 text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white transition-all duration-300 translate-x-1/2 ${
+              showRightArrow ? "opacity-100 visible" : "opacity-0 invisible"
+            }`}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+
+          {/* Horizontal Scroll Container */}
+          <div
+            ref={scrollContainerRef}
+            onScroll={handleScroll}
+            className="flex overflow-x-auto gap-6 pb-4 scroll-smooth hide-scrollbar"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {[...credentialsData, ...credentialsData].map((cred, idx) => (
+              <CredentialCard
+                key={`${cred.id}-${idx}`}
+                credential={cred}
+                onHoverChange={setIsCardHovered}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* View All Link */}
+        <div className="text-center mt-8">
+          <Link
+            href="/credentials"
+            className="group inline-flex items-center gap-2 text-[#1E3A5F] font-semibold hover:gap-3 transition-all"
+          >
+            View All Certifications & Achievements
+            <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      </div>
+
+      <style jsx>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
+    </section>
   );
 }

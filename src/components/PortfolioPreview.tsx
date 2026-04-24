@@ -11,6 +11,25 @@ import {
 } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 
+// Interface untuk Project
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  client?: string;
+  description: string;
+  image: string;
+  tech: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  type: "freelance" | "side";
+}
+
+// Interface untuk ProjectCard Props
+interface ProjectCardProps {
+  project: Project;
+}
+
 // Data dummy untuk featured projects
 const featuredProjects = {
   freelance: [
@@ -24,7 +43,7 @@ const featuredProjects = {
       image: "/images/projects/laundry-app.jpg",
       tech: ["Next.js", "TailwindCSS", "Supabase"],
       liveUrl: "https://example.com",
-      type: "freelance",
+      type: "freelance" as const,
     },
     {
       id: 2,
@@ -36,7 +55,7 @@ const featuredProjects = {
       image: "/images/projects/school-web.jpg",
       tech: ["React", "TailwindCSS", "EmailJS"],
       liveUrl: "https://example.com",
-      type: "freelance",
+      type: "freelance" as const,
     },
     {
       id: 3,
@@ -48,7 +67,7 @@ const featuredProjects = {
       image: "/images/projects/ecommerce-dashboard.jpg",
       tech: ["Next.js", "TailwindCSS", "Prisma", "PostgreSQL"],
       liveUrl: "https://example.com",
-      type: "freelance",
+      type: "freelance" as const,
     },
   ],
   side: [
@@ -62,7 +81,7 @@ const featuredProjects = {
       tech: ["Next.js", "TailwindCSS", "Framer Motion"],
       liveUrl: "https://english-game.vercel.app",
       githubUrl: "https://github.com/aanjardev/english-game",
-      type: "side",
+      type: "side" as const,
     },
     {
       id: 5,
@@ -74,7 +93,7 @@ const featuredProjects = {
       tech: ["React", "TailwindCSS", "LocalStorage"],
       liveUrl: "https://typing-test.vercel.app",
       githubUrl: "https://github.com/aanjardev/typing-test",
-      type: "side",
+      type: "side" as const,
     },
     {
       id: 6,
@@ -86,7 +105,7 @@ const featuredProjects = {
       tech: ["Next.js", "TailwindCSS", "API"],
       liveUrl: "https://quote-generator.vercel.app",
       githubUrl: "https://github.com/aanjardev/quote-generator",
-      type: "side",
+      type: "side" as const,
     },
   ],
 };
@@ -178,8 +197,8 @@ export default function PortfolioPreview() {
   );
 }
 
-// Sub-component untuk Project Card
-function ProjectCard({ project }) {
+// Sub-component untuk Project Card dengan TypeScript
+function ProjectCard({ project }: ProjectCardProps) {
   const isSideProject = project.type === "side";
   const [imageError, setImageError] = useState(false);
 
@@ -244,7 +263,7 @@ function ProjectCard({ project }) {
 
         {/* Tech stack */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.tech.slice(0, 3).map((tech) => (
+          {project.tech.slice(0, 3).map((tech: string) => (
             <span
               key={tech}
               className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-md"

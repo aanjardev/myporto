@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { experiences } from "./workExperienceData";
+import { experiences, Experience } from "./workExperienceData";
 import { Briefcase, Calendar, MapPin, ArrowRight } from "lucide-react";
 
 export default function WorkExperienceSummary() {
@@ -26,7 +26,7 @@ export default function WorkExperienceSummary() {
 
         {/* Experience Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {summary.map((ex, index) => (
+          {summary.map((ex: Experience, index: number) => (
             <div
               key={ex.title}
               className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
@@ -59,7 +59,7 @@ export default function WorkExperienceSummary() {
               {ex.tech && ex.tech.length > 0 && (
                 <div className="mb-4">
                   <div className="flex flex-wrap gap-2">
-                    {ex.tech.slice(0, 3).map((t) => (
+                    {ex.tech.slice(0, 3).map((t: string) => (
                       <span
                         key={t}
                         className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-md font-medium"
@@ -73,15 +73,6 @@ export default function WorkExperienceSummary() {
                       </span>
                     )}
                   </div>
-                </div>
-              )}
-
-              {/* Optional: Achievement highlight */}
-              {ex.highlight && (
-                <div className="mb-4 p-2 bg-emerald-50 rounded-lg border border-emerald-100">
-                  <p className="text-xs text-emerald-700 font-medium">
-                    ✨ {ex.highlight}
-                  </p>
                 </div>
               )}
 

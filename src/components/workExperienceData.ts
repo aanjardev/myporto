@@ -1,50 +1,40 @@
-export type Experience = {
+// workExperienceData.ts
+export interface Experience {
   title: string;
   company: string;
   period: string;
+  slug?: string;
   description: string;
   tech?: string[];
-};
+}
 
 export const experiences: Experience[] = [
   {
     title: "Freelance Web Developer",
-    company: "Self-employed",
+    company: "Self-employed / Upwork",
     period: "2023 - Present",
+    slug: "freelance-web-developer",
     description:
       "Build responsive websites for small businesses and individual clients. Handle full project from design to deployment.",
-    tech: ["Next.js", "TailwindCSS", "Laravel", "React"],
+    tech: ["Next.js", "TailwindCSS", "Laravel", "Node.js"],
   },
   {
     title: "Math & English Tutor",
     company: "Private Tutoring",
-    period: "2025 - Present",
+    period: "2024 - Present",
+    slug: "math-english-tutor",
     description:
-      "Teach 2+ students, improve average grades by 15%. Create personalized learning materials.",
-    tech: ["Lesson Plans", "Assessment", "1:1 Coaching"],
+      "Teach students from elementary to high school level. Create personalized learning materials and track progress.",
+    tech: ["Curriculum Design", "Student Assessment"],
   },
   {
-    title: "Finance Staff",
-    company: "Dinoyo Kamera",
-    period: "August 2024 – July 2025",
+    title: "Web Development Intern",
+    company: "Tech Company XYZ",
+    period: "2022 - 2023",
+    slug: "web-development-intern",
     description:
-      "Managed financial reporting, prepared balance sheets, cash flow statements, and reconciled records with high attention to detail.",
-    tech: ["Reporting", "Reconciliation", "Financial Ops"],
+      "Assisted senior developers in building internal tools and fixing bugs. Gained hands-on experience with React and Laravel.",
+    tech: ["React", "Laravel", "MySQL"],
   },
-  {
-    title: "Website & Social Media Admin",
-    company: "Dinoyo Kamera",
-    period: "August 2023 – July 2024",
-    description:
-      "Managed customer service, product listings, photography, and scheduled social content to improve engagement.",
-    tech: ["Content Ops", "Photography", "E‑commerce"],
-  },
-  {
-    title: "Software Engineering Intern",
-    company: "PT Universal Big Data",
-    period: "May – October 2022",
-    description:
-      "Built web applications and reporting templates; contributed to educational and development teams.",
-    tech: [".NET", "TypeScript", "Reporting"],
-  },
+  // Tambahkan data lain sesuai kebutuhan
 ];

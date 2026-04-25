@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ExternalLink, ArrowRight, Briefcase, Gamepad2 } from "lucide-react";
 import { SiGithub } from "react-icons/si";
@@ -11,11 +11,19 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const router = useRouter();
   const [imageError, setImageError] = useState(false);
   const isFreelance = project.type === "freelance";
 
+  const handleCardClick = () => {
+    router.push(`/projects/${project.slug}`);
+  };
+
   return (
-    <div className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+    <div
+      onClick={handleCardClick}
+      className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 block cursor-pointer"
+    >
       {/* Image Container */}
       <div className="relative h-52 overflow-hidden bg-gray-100">
         {imageError ? (
@@ -65,8 +73,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-white/90 backdrop-blur-sm rounded-lg text-gray-600 hover:text-[#1E3A5F] hover:bg-white transition-all"
+              className="p-2 bg-white/90 backdrop-blur-sm rounded-lg text-gray-600 hover:text-[#1E3A5F] hover:bg-white transition-all z-10 relative"
               title="Live Demo"
+              onClick={(e) => e.stopPropagation()}
             >
               <ExternalLink className="w-4 h-4" />
             </a>
@@ -76,8 +85,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-white/90 backdrop-blur-sm rounded-lg text-gray-600 hover:text-gray-900 hover:bg-white transition-all"
+              className="p-2 bg-white/90 backdrop-blur-sm rounded-lg text-gray-600 hover:text-gray-900 hover:bg-white transition-all z-10 relative"
               title="Source Code"
+              onClick={(e) => e.stopPropagation()}
             >
               <SiGithub className="w-4 h-4" />
             </a>
@@ -119,14 +129,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           )}
         </div>
 
-        {/* View Details Link */}
-        <Link
-          href={`/projects/${project.slug}`}
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1E3A5F] hover:gap-2 transition-all"
-        >
+        {/* View Details Indicator */}
+        <div className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1E3A5F] group-hover:gap-2 transition-all">
           View Details
           <ArrowRight className="w-4 h-4" />
-        </Link>
+        </div>
       </div>
     </div>
   );

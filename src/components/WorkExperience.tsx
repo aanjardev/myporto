@@ -7,9 +7,7 @@ import {
   GraduationCap,
   Calendar,
   MapPin,
-  ArrowRight,
 } from "lucide-react";
-import Link from "next/link";
 import { experiences } from "./workExperienceData";
 
 const getIcon = (index: number) => {
@@ -37,7 +35,7 @@ const getIconColor = (index: number) => {
 export default function WorkExperience() {
   return (
     <div className="relative">
-      {/* Vertical Timeline Line - Hidden on mobile, visible on md+ */}
+      {/* Vertical Timeline Line */}
       <div className="hidden md:block absolute left-[23px] top-3 bottom-3 w-px bg-gradient-to-b from-[#1E3A5F]/20 via-[#1E3A5F]/40 to-[#1E3A5F]/20" />
 
       <div className="space-y-8 md:space-y-0 relative">
@@ -54,12 +52,12 @@ export default function WorkExperience() {
 
             {/* Content Card */}
             <div className="ml-16 md:ml-16 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group">
-              {/* Header with accent bar */}
               <div className="relative">
+                {/* Accent bar */}
                 <div className="absolute top-0 left-0 w-1 h-full bg-[#1E3A5F] rounded-l-2xl group-hover:w-2 transition-all duration-300" />
 
                 <div className="p-6 md:p-7">
-                  {/* Title & Period Row */}
+                  {/* Title & Period */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div>
                       <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#1E3A5F] transition-colors">
@@ -85,37 +83,17 @@ export default function WorkExperience() {
 
                   {/* Tech Stack */}
                   {exp.tech && exp.tech.length > 0 && (
-                    <div className="mb-4">
-                      <div className="flex flex-wrap gap-2">
-                        {exp.tech.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-medium"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-medium"
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   )}
-
-                  {/* Highlight / Achievement
-                  {exp.highlight && (
-                    <div className="mb-4 p-3 bg-emerald-50 rounded-xl border border-emerald-100">
-                      <p className="text-xs text-emerald-700 font-medium">
-                        ✨ {exp.highlight}
-                      </p>
-                    </div>
-                  )} */}
-
-                  {/* View Details Link */}
-                  <Link
-                    href={`/work/${exp.slug || exp.title.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1E3A5F] hover:gap-2 transition-all mt-2"
-                  >
-                    View Details
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
                 </div>
               </div>
             </div>

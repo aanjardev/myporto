@@ -1,72 +1,127 @@
 "use client";
-import { Briefcase, BookOpen, Camera, Code, DollarSign } from "lucide-react";
+import {
+  Briefcase,
+  BookOpen,
+  Code,
+  DollarSign,
+  GraduationCap,
+  Calendar,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
+import Link from "next/link";
 import { experiences } from "./workExperienceData";
 
-const iconFor = (idx: number) => {
-  switch (idx) {
-    case 0:
-      return <Briefcase className="w-5 h-5" />;
-    case 1:
-      return <BookOpen className="w-5 h-5" />;
-    case 2:
-      return <DollarSign className="w-5 h-5" />;
-    case 3:
-      return <Camera className="w-5 h-5" />;
-    default:
-      return <Code className="w-5 h-5" />;
-  }
+const getIcon = (index: number) => {
+  const icons = [
+    <Briefcase key="briefcase" className="w-5 h-5" />,
+    <BookOpen key="book" className="w-5 h-5" />,
+    <DollarSign key="dollar" className="w-5 h-5" />,
+    <GraduationCap key="grad" className="w-5 h-5" />,
+    <Code key="code" className="w-5 h-5" />,
+  ];
+  return icons[index % icons.length];
+};
+
+const getIconColor = (index: number) => {
+  const colors = [
+    "bg-blue-100 text-blue-600",
+    "bg-emerald-100 text-emerald-600",
+    "bg-amber-100 text-amber-600",
+    "bg-purple-100 text-purple-600",
+    "bg-rose-100 text-rose-600",
+  ];
+  return colors[index % colors.length];
 };
 
 export default function WorkExperience() {
   return (
-    <section className="py-12">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative">
-          {/* vertical line */}
-          <div className="hidden md:block absolute left-5 top-0 bottom-0 w-px bg-gray-200" />
+    <div className="relative">
+      {/* Vertical Timeline Line - Hidden on mobile, visible on md+ */}
+      <div className="hidden md:block absolute left-[23px] top-3 bottom-3 w-px bg-gradient-to-b from-[#1E3A5F]/20 via-[#1E3A5F]/40 to-[#1E3A5F]/20" />
 
-          <ul className="space-y-10">
-            {experiences.map((ex, idx) => (
-              <li key={ex.title} className="relative md:pl-12">
-                <div className="absolute -left-1.5 md:left-[-10px] top-1">
-                  <div className="flex items-center justify-center w-9 h-9 rounded-full bg-white border border-gray-200 shadow-sm text-[#1E3A5F]">
-                    {iconFor(idx)}
-                  </div>
-                </div>
+      <div className="space-y-8 md:space-y-0 relative">
+        {experiences.map((exp, index) => (
+          <div key={exp.title} className="relative md:pb-12 last:pb-0">
+            {/* Timeline Dot with Icon */}
+            <div className="absolute left-0 top-0 md:left-[7px] z-10">
+              <div
+                className={`flex items-center justify-center w-12 h-12 md:w-10 md:h-10 rounded-full shadow-md ${getIconColor(index)} border-4 border-white`}
+              >
+                {getIcon(index)}
+              </div>
+            </div>
 
-                <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
-                  <div className="flex items-start justify-between gap-4">
+            {/* Content Card */}
+            <div className="ml-16 md:ml-16 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group">
+              {/* Header with accent bar */}
+              <div className="relative">
+                <div className="absolute top-0 left-0 w-1 h-full bg-[#1E3A5F] rounded-l-2xl group-hover:w-2 transition-all duration-300" />
+
+                <div className="p-6 md:p-7">
+                  {/* Title & Period Row */}
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        {ex.title}
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#1E3A5F] transition-colors">
+                        {exp.title}
                       </h3>
-                      <p className="text-sm text-gray-500">{ex.company}</p>
+                      <div className="flex items-center gap-2 mt-1">
+                        <MapPin className="w-3.5 h-3.5 text-gray-400" />
+                        <p className="text-sm text-gray-500">{exp.company}</p>
+                      </div>
                     </div>
-                    <div className="text-sm text-gray-400 whitespace-nowrap">
-                      {ex.period}
+
+                    {/* Period Badge */}
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 rounded-lg text-xs font-medium text-gray-600 whitespace-nowrap">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {exp.period}
                     </div>
                   </div>
 
-                  <p className="mt-3 text-gray-600 text-sm">{ex.description}</p>
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    {exp.description}
+                  </p>
 
-                  {ex.tech && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {ex.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="text-xs bg-[#1E3A5F]/10 text-[#1E3A5F] px-2 py-1 rounded-full"
-                        >
-                          {t}
-                        </span>
-                      ))}
+                  {/* Tech Stack */}
+                  {exp.tech && exp.tech.length > 0 && (
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2">
+                        {exp.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   )}
+
+                  {/* Highlight / Achievement
+                  {exp.highlight && (
+                    <div className="mb-4 p-3 bg-emerald-50 rounded-xl border border-emerald-100">
+                      <p className="text-xs text-emerald-700 font-medium">
+                        ✨ {exp.highlight}
+                      </p>
+                    </div>
+                  )} */}
+
+                  {/* View Details Link */}
+                  <Link
+                    href={`/work/${exp.slug || exp.title.toLowerCase().replace(/\s+/g, "-")}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1E3A5F] hover:gap-2 transition-all mt-2"
+                  >
+                    View Details
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

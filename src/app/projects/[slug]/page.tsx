@@ -19,7 +19,7 @@ import {
   Heart,
 } from "lucide-react";
 import { SiGithub } from "react-icons/si";
-import { projectsData } from "@/components/projectsData";
+import { projectsData } from "@/data/projectsData";
 import type { Project } from "@/types/project";
 import ImageCarousel from "@/components/ImageCarousel";
 

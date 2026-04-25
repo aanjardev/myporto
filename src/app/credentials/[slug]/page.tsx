@@ -17,7 +17,7 @@ import {
   Globe,
   Hash,
 } from "lucide-react";
-import { credentialsData } from "@/components/credentialsData";
+import { credentialsData } from "@/data/credentialsData";
 import { Credential } from "@/types/credential";
 
 // Generate static params for all credentials

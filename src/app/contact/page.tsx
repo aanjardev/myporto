@@ -37,10 +37,10 @@ export default function ContactPage() {
               Email Me
             </h2>
             <a
-              href="mailto:aanjar@example.com"
+              href="mailto:aanjardev@gmail.com"
               className="text-2xl md:text-3xl font-bold text-[#1E3A5F] hover:underline break-all"
             >
-              aanjar@example.com
+              aanjardev@gmail.com
             </a>
             <div className="flex items-center justify-center gap-2 mt-4 text-gray-500 text-sm">
               <Clock className="w-4 h-4" />
@@ -68,7 +68,7 @@ export default function ContactPage() {
                 </span>
               </a>
               <a
-                href="https://linkedin.com/in/aanjar"
+                href="https://linkedin.com/in/aan-anjar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center gap-2 group"

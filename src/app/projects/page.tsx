@@ -1,10 +1,16 @@
 "use client";
 import { useState, useMemo } from "react";
-import { Search, X, Award, Briefcase, Gamepad2, ChevronDown } from "lucide-react";
+import {
+  Search,
+  X,
+  Award,
+  Briefcase,
+  Gamepad2,
+  ChevronDown,
+} from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
-import { projectsData } from "@/components/projectsData";
+import { projectsData } from "@/data/projectsData";
 import { Project } from "@/types/project";
-
 
 export default function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState("");

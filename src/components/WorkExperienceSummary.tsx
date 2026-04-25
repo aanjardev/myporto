@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { experiences, Experience } from "./workExperienceData";
+import { experiences, Experience } from "../data/workExperienceData";
 import { Briefcase, Calendar, MapPin, ArrowRight } from "lucide-react";
 
 export default function WorkExperienceSummary() {
@@ -76,14 +76,6 @@ export default function WorkExperienceSummary() {
                 </div>
               )}
 
-              {/* View Details Link */}
-              <Link
-                href={`/work/${ex.slug || ex.title.toLowerCase().replace(/\s+/g, "-")}`}
-                className="inline-flex items-center gap-1 text-sm font-semibold text-[#1E3A5F] hover:gap-2 transition-all mt-2"
-              >
-                View Details
-                <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
           ))}
         </div>

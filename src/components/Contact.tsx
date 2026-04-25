@@ -39,11 +39,11 @@ export default function ContactCTA() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
           <Link
-            href="mailto:aanjar@example.com"
+            href="mailto:aanjardev@gmail.com"
             className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-all duration-300 hover:-translate-y-0.5"
           >
             <Mail className="w-4 h-4" />
-            aanjar@example.com
+            aanjardev@gmail.com
           </Link>
         </div>
 
@@ -57,14 +57,14 @@ export default function ContactCTA() {
             <FaGithub className="w-5 h-5" />
           </Link>
           <Link
-            href="https://linkedin.com/in/aanjar"
+            href="https://linkedin.com/in/aan-anjar"
             target="_blank"
             className="text-white/60 hover:text-white transition-colors"
           >
             <FaLinkedin className="w-5 h-5" />
           </Link>
           <Link
-            href="mailto:aanjar@example.com"
+            href="mailto:aanjardev@gmail.com"
             className="text-white/60 hover:text-white transition-colors"
           >
             <Mail className="w-5 h-5" />

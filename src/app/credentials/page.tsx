@@ -10,7 +10,7 @@ import {
   Target,
 } from "lucide-react";
 import CredentialCard from "@/components/CredentialCard";
-import { credentialsData } from "@/components/credentialsData";
+import { credentialsData } from "@/data/credentialsData";
 import { Credential } from "@/types/credential";
 
 export default function CredentialsPage() {

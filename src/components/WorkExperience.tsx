@@ -5,16 +5,18 @@ import {
   Code,
   DollarSign,
   GraduationCap,
+  MonitorSmartphone,
   Calendar,
   MapPin,
 } from "lucide-react";
-import { experiences } from "./workExperienceData";
+import { experiences } from "../data/workExperienceData";
 
 const getIcon = (index: number) => {
   const icons = [
     <Briefcase key="briefcase" className="w-5 h-5" />,
     <BookOpen key="book" className="w-5 h-5" />,
     <DollarSign key="dollar" className="w-5 h-5" />,
+    <MonitorSmartphone key="phone" className="w-5 h-5" />,
     <GraduationCap key="grad" className="w-5 h-5" />,
     <Code key="code" className="w-5 h-5" />,
   ];

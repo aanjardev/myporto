@@ -121,12 +121,11 @@ export default function PortfolioPreview() {
   );
 }
 
-// Sub-component untuk Project Card dengan TypeScript
+// Sub-component untuk Project Card - Style match dengan halaman /projects
 function ProjectCard({ project }: ProjectCardProps) {
   const isSideProject = project.type === "side";
   const [imageError, setImageError] = useState(false);
 
-  // Handle click to navigate to project detail
   const handleCardClick = () => {
     window.location.href = `/projects/${project.slug}`;
   };
@@ -136,99 +135,62 @@ function ProjectCard({ project }: ProjectCardProps) {
       onClick={handleCardClick}
       className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 h-full flex flex-col cursor-pointer"
     >
-      {/* Category badge */}
-      <div className="absolute top-4 left-4 z-10">
-        <span
-          className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
-            isSideProject
-              ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
-              : "bg-[#1E3A5F]/10 text-[#1E3A5F] border border-[#1E3A5F]/20"
-          }`}
-        >
-          {isSideProject ? (
-            <Gamepad2 className="w-3 h-3" />
-          ) : (
-            <Briefcase className="w-3 h-3" />
-          )}
-          {isSideProject ? "Side Project" : "Freelance"}
-        </span>
-      </div>
-
-      {/* Image Container with 16:9 Aspect Ratio */}
+      {/* Image Container - 16:9 */}
       <div
-        className="relative w-full bg-gray-100 flex-shrink-0"
+        className="relative w-full bg-gray-100 overflow-hidden"
         style={{ aspectRatio: "16 / 9" }}
       >
         {imageError ? (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gray-100">
-            <Layers className="w-10 h-10 text-gray-300" />
+            <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+              <span className="text-2xl text-gray-400">📷</span>
+            </div>
             <span className="text-gray-400 text-sm">No image</span>
           </div>
         ) : (
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-            onError={() => setImageError(true)}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        )}
-      </div>
-
-      {/* Content - flex-grow untuk tinggi seragam */}
-      <div className="p-5 flex flex-col flex-grow">
-        {/* Client name (for freelance) */}
-        {project.client && (
-          <p className="text-xs text-gray-400 mb-1">{project.client}</p>
+          <>
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              onError={() => setImageError(true)}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+          </>
         )}
 
-        {/* My Role */}
-        {project.myRole && (
-          <p className="text-xs text-[#1E3A5F] mb-1 font-medium">
-            {project.myRole}
-          </p>
-        )}
-
-        {/* Title */}
-        <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#1E3A5F] transition-colors line-clamp-1">
-          {project.title}
-        </h4>
-
-        {/* Description */}
-        <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-2 flex-grow">
-          {project.description}
-        </p>
-
-        {/* Tech stack */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tech.slice(0, 3).map((tech: string) => (
-            <span
-              key={tech}
-              className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-md"
-            >
-              {tech}
-            </span>
-          ))}
-          {project.tech.length > 3 && (
-            <span className="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-md">
-              +{project.tech.length - 3}
-            </span>
-          )}
+        {/* Type Badge - Style sama dengan di /projects */}
+        <div className="absolute top-4 left-4">
+          <span
+            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
+              isSideProject
+                ? "bg-emerald-900/80 text-emerald-100 border border-emerald-700"
+                : "bg-blue-900/80 text-blue-100 border border-blue-700"
+            }`}
+          >
+            {isSideProject ? (
+              <Gamepad2 className="w-3 h-3" />
+            ) : (
+              <Briefcase className="w-3 h-3" />
+            )}
+            {isSideProject ? "Side Project" : "Client Project"}
+          </span>
         </div>
 
-        {/* Action buttons - prevent event propagation to avoid double navigation */}
-        <div className="flex items-center gap-4 pt-2 mt-auto">
+        {/* Action Icons - Top Right (sama dengan di /projects) */}
+        <div className="absolute top-4 right-4 flex gap-2">
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1E3A5F] hover:gap-2 transition-all"
+              className="p-2 bg-white/90 backdrop-blur-sm rounded-lg text-gray-600 hover:text-[#1E3A5F] hover:bg-white transition-all z-10 relative"
+              title="Live Demo"
               onClick={(e) => e.stopPropagation()}
             >
-              Live Demo
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-4 h-4" />
             </a>
           )}
           {project.githubUrl && (
@@ -236,13 +198,54 @@ function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-500 hover:text-[#1E3A5F] transition-all"
+              className="p-2 bg-white/90 backdrop-blur-sm rounded-lg text-gray-600 hover:text-gray-900 hover:bg-white transition-all z-10 relative"
+              title="Source Code"
               onClick={(e) => e.stopPropagation()}
             >
-              <SiGithub className="w-3.5 h-3.5" />
-              Code
+              <SiGithub className="w-4 h-4" />
             </a>
           )}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-5 flex flex-col flex-grow">
+        {/* Client Name */}
+        {project.client && (
+          <p className="text-xs text-gray-400 mb-1">{project.client}</p>
+        )}
+
+        {/* Title */}
+        <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#1E3A5F] transition-colors line-clamp-1">
+          {project.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2 flex-grow">
+          {project.description}
+        </p>
+
+        {/* Tech Stack Tags */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tech.slice(0, 3).map((tech) => (
+            <span
+              key={tech}
+              className="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-md font-medium"
+            >
+              {tech}
+            </span>
+          ))}
+          {project.tech.length > 3 && (
+            <span className="px-2 py-1 bg-gray-100 text-gray-400 text-xs rounded-md">
+              +{project.tech.length - 3}
+            </span>
+          )}
+        </div>
+
+        {/* View Details Indicator */}
+        <div className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1E3A5F] group-hover:gap-2 transition-all cursor-pointer">
+          View Details
+          <ArrowRight className="w-4 h-4" />
         </div>
       </div>
     </div>

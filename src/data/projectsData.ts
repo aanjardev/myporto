@@ -15,7 +15,7 @@ export const projectsData: Project[] = [
     longDescription: `Sebuah website e-commerce katalog untuk Dinoyo Kamera, toko kamera di Malang. Website ini memungkinkan customer untuk melihat dan mencari produk kamera beserta aksesorisnya dengan status ketersediaan realtime. Setiap produk dilengkapi dengan aksi langsung yang mengarahkan customer ke WhatsApp admin untuk proses pembelian.`,
     challenge: `Toko kamera Dinoyo Kamera mengalami kesulitan dalam menampilkan katalog produk secara digital dan realtime. Customer sering bertanya tentang ketersediaan stok produk, yang memakan waktu admin.`,
     solution: `Membangun website katalog dengan sistem manajemen produk yang update stok secara realtime. Customer bisa langsung melihat ketersediaan produk dan terhubung ke WhatsApp admin untuk pembelian.`,
-    myRole: "Fullstack Developer (40% kontribusi)",
+    myRole: "Fullstack Developer",
     teamSize: "3 orang",
     responsibilities: [
       "Mengembangkan fitur katalog produk dengan filtering dan pencarian",

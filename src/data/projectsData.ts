@@ -211,14 +211,14 @@ export const projectsData: Project[] = [
     type: "freelance",
     category: "News / Content Aggregator",
     client: null,
-    period: "2024",
+    period: "2026",
     description:
       "Web aggregator berita dari berbagai sumber menggunakan feed RSS.",
     longDescription: `Web application yang mengumpulkan dan menampilkan berita dari berbagai sumber menggunakan teknologi RSS feed. Pengguna dapat melihat berita terbaru dari berbagai sumber dalam satu platform yang terintegrasi.`,
     challenge: null,
     solution: null,
     myRole: "Assistant Frontend Developer",
-    teamSize: "Tim kecil",
+    teamSize: "Team",
     responsibilities: [
       "Membantu pengembangan frontend dengan React + Vite",
       "Memastikan tampilan responsif dan user-friendly",

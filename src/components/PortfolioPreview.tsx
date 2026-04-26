@@ -10,107 +10,27 @@ import {
   Layers,
 } from "lucide-react";
 import { SiGithub } from "react-icons/si";
-
-// Interface untuk Project
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  client?: string;
-  description: string;
-  image: string;
-  tech: string[];
-  liveUrl?: string;
-  githubUrl?: string;
-  type: "freelance" | "side";
-}
+import { projectsData } from "@/data/projectsData";
+import type { Project } from "@/types/project";
 
 // Interface untuk ProjectCard Props
 interface ProjectCardProps {
   project: Project;
 }
 
-// Data dummy untuk featured projects
-const featuredProjects = {
-  freelance: [
-    {
-      id: 1,
-      title: "Laundry Management System",
-      category: "Freelance Project",
-      client: "LaundryKilat UMKM",
-      description:
-        "Sistem manajemen laundry online dengan fitur tracking pesanan, invoice otomatis, dan laporan keuangan.",
-      image: "/images/projects/laundry-app.jpg",
-      tech: ["Next.js", "TailwindCSS", "Supabase"],
-      liveUrl: "https://example.com",
-      type: "freelance" as const,
-    },
-    {
-      id: 2,
-      title: "School Landing Page",
-      category: "Freelance Project",
-      client: "SDIT Bina Bangsa",
-      description:
-        "Landing page profesional untuk sekolah dengan formulir pendaftaran online dan galeri kegiatan.",
-      image: "/images/projects/school-web.jpg",
-      tech: ["React", "TailwindCSS", "EmailJS"],
-      liveUrl: "https://example.com",
-      type: "freelance" as const,
-    },
-    {
-      id: 3,
-      title: "E-Commerce Dashboard",
-      category: "Freelance Project",
-      client: "Toko Maju Jaya",
-      description:
-        "Dashboard admin untuk manajemen produk, pesanan, dan laporan penjualan real-time.",
-      image: "/images/projects/ecommerce-dashboard.jpg",
-      tech: ["Next.js", "TailwindCSS", "Prisma", "PostgreSQL"],
-      liveUrl: "https://example.com",
-      type: "freelance" as const,
-    },
-  ],
-  side: [
-    {
-      id: 4,
-      title: "English Test Game",
-      category: "Side Project",
-      description:
-        "Game interaktif untuk tes bahasa Inggris dengan timer, skor, dan level kesulitan berbeda.",
-      image: "/images/projects/english-game.jpg",
-      tech: ["Next.js", "TailwindCSS", "Framer Motion"],
-      liveUrl: "https://english-game.vercel.app",
-      githubUrl: "https://github.com/aanjardev/english-game",
-      type: "side" as const,
-    },
-    {
-      id: 5,
-      title: "Typing Speed Test",
-      category: "Side Project",
-      description:
-        "Uji kecepatan mengetik dengan kutipan random, statistik WPM, dan riwayat percobaan.",
-      image: "/images/projects/typing-test.jpg",
-      tech: ["React", "TailwindCSS", "LocalStorage"],
-      liveUrl: "https://typing-test.vercel.app",
-      githubUrl: "https://github.com/aanjardev/typing-test",
-      type: "side" as const,
-    },
-    {
-      id: 6,
-      title: "Daily Quote Generator",
-      category: "Side Project",
-      description:
-        "Generator kutipan inspiratif harian dengan fitur copy & share ke media sosial.",
-      image: "/images/projects/quote-generator.jpg",
-      tech: ["Next.js", "TailwindCSS", "API"],
-      liveUrl: "https://quote-generator.vercel.app",
-      githubUrl: "https://github.com/aanjardev/quote-generator",
-      type: "side" as const,
-    },
-  ],
-};
-
 export default function PortfolioPreview() {
+  // Filter projects by type
+  const freelanceProjects = projectsData.filter(
+    (project) => project.type === "freelance",
+  );
+  const sideProjects = projectsData.filter(
+    (project) => project.type === "side",
+  );
+
+  // Take only first 3 projects for each category (or all if less than 3)
+  const featuredFreelance = freelanceProjects.slice(0, 3);
+  const featuredSide = sideProjects.slice(0, 3);
+
   return (
     <section className="py-20 md:py-28 bg-white relative overflow-hidden">
       {/* Decorative elements */}
@@ -135,52 +55,56 @@ export default function PortfolioPreview() {
         </div>
 
         {/* FREELANCE PROJECTS SECTION */}
-        <div className="mb-16">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <Briefcase className="w-5 h-5 text-[#1E3A5F]" />
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Freelance Projects
-                </h3>
+        {featuredFreelance.length > 0 && (
+          <div className="mb-16">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <Briefcase className="w-5 h-5 text-[#1E3A5F]" />
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Freelance Projects
+                  </h3>
+                </div>
+                <p className="text-gray-500 text-sm ml-7">
+                  Real client work with measurable results
+                </p>
               </div>
-              <p className="text-gray-500 text-sm ml-7">
-                Real client work with measurable results
-              </p>
+              <div className="w-12 h-0.5 bg-[#1E3A5F]/20 hidden md:block" />
             </div>
-            <div className="w-12 h-0.5 bg-[#1E3A5F]/20 hidden md:block" />
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProjects.freelance.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featuredFreelance.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* SIDE PROJECTS SECTION */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <Gamepad2 className="w-5 h-5 text-[#1E3A5F]" />
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Side Projects
-                </h3>
+        {featuredSide.length > 0 && (
+          <div className="mb-12">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <Gamepad2 className="w-5 h-5 text-[#1E3A5F]" />
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Side Projects
+                  </h3>
+                </div>
+                <p className="text-gray-500 text-sm ml-7">
+                  Fun, interactive tools for everyone to try
+                </p>
               </div>
-              <p className="text-gray-500 text-sm ml-7">
-                Fun, interactive tools for everyone to try
-              </p>
+              <div className="w-12 h-0.5 bg-[#1E3A5F]/20 hidden md:block" />
             </div>
-            <div className="w-12 h-0.5 bg-[#1E3A5F]/20 hidden md:block" />
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProjects.side.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featuredSide.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* CTA Button */}
         <div className="text-center mt-12">
@@ -202,8 +126,16 @@ function ProjectCard({ project }: ProjectCardProps) {
   const isSideProject = project.type === "side";
   const [imageError, setImageError] = useState(false);
 
+  // Handle click to navigate to project detail
+  const handleCardClick = () => {
+    window.location.href = `/projects/${project.slug}`;
+  };
+
   return (
-    <div className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 h-full flex flex-col">
+    <div
+      onClick={handleCardClick}
+      className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 h-full flex flex-col cursor-pointer"
+    >
       {/* Category badge */}
       <div className="absolute top-4 left-4 z-10">
         <span
@@ -251,6 +183,13 @@ function ProjectCard({ project }: ProjectCardProps) {
           <p className="text-xs text-gray-400 mb-1">{project.client}</p>
         )}
 
+        {/* My Role */}
+        {project.myRole && (
+          <p className="text-xs text-[#1E3A5F] mb-1 font-medium">
+            {project.myRole}
+          </p>
+        )}
+
         {/* Title */}
         <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#1E3A5F] transition-colors line-clamp-1">
           {project.title}
@@ -278,27 +217,31 @@ function ProjectCard({ project }: ProjectCardProps) {
           )}
         </div>
 
-        {/* Action buttons */}
+        {/* Action buttons - prevent event propagation to avoid double navigation */}
         <div className="flex items-center gap-4 pt-2 mt-auto">
           {project.liveUrl && (
-            <Link
+            <a
               href={project.liveUrl}
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1E3A5F] hover:gap-2 transition-all"
+              onClick={(e) => e.stopPropagation()}
             >
               Live Demo
               <ExternalLink className="w-3.5 h-3.5" />
-            </Link>
+            </a>
           )}
           {project.githubUrl && (
-            <Link
+            <a
               href={project.githubUrl}
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-500 hover:text-[#1E3A5F] transition-all"
+              onClick={(e) => e.stopPropagation()}
             >
               <SiGithub className="w-3.5 h-3.5" />
               Code
-            </Link>
+            </a>
           )}
         </div>
       </div>

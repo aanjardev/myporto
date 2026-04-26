@@ -2,7 +2,13 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { ExternalLink, ArrowRight, Briefcase, Gamepad2 } from "lucide-react";
+import {
+  ExternalLink,
+  ArrowRight,
+  Briefcase,
+  Gamepad2,
+  Users,
+} from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import { Project } from "@/types/project";
 
@@ -106,6 +112,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#1E3A5F] transition-colors line-clamp-1">
           {project.title}
         </h3>
+
+        {/* My Role & Team Size */}
+        <div className="flex items-center gap-3 mb-3">
+          {project.myRole && (
+            <p className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-md">
+              {project.myRole}
+            </p>
+          )}
+          {project.teamSize && (
+            <div className="flex items-center gap-1 text-xs text-gray-400">
+              <Users className="w-3 h-3" />
+              <span>{project.teamSize}</span>
+            </div>
+          )}
+        </div>
 
         {/* Description */}
         <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">

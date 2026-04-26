@@ -3,88 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Award, ExternalLink } from "lucide-react";
-
-// Data dummy untuk credentials (sertifikat & achievement)
-const credentialsData = [
-  {
-    id: 1,
-    title: "Microsoft Certified: Data Analyst Associate",
-    issuer: "Microsoft",
-    year: "2024",
-    type: "certification",
-    slug: "microsoft-data-analyst",
-    image: "/images/credentials/microsoft-data-analyst.jpg",
-    description:
-      "Validated skills in data analysis, visualization, and business intelligence using Microsoft Power BI.",
-  },
-  {
-    id: 2,
-    title: "English Proficiency Certificate",
-    issuer: "University Language Center",
-    year: "2023",
-    type: "certification",
-    slug: "english-proficiency",
-    image: "/images/credentials/english-certificate.jpg",
-    description:
-      "TOEFL equivalent score of 550. Demonstrates professional working proficiency in English.",
-  },
-  {
-    id: 3,
-    title: "Web Development Competition",
-    issuer: "National Informatics Competition",
-    year: "2024",
-    type: "achievement",
-    slug: "web-dev-competition",
-    image: "/images/credentials/web-comp-award.jpg",
-    description:
-      "2nd Place Winner. Built a waste management platform with integrated maps and real-time reporting.",
-  },
-  {
-    id: 4,
-    title: "Hackathon Finalist",
-    issuer: "TechFest 2024",
-    year: "2024",
-    type: "achievement",
-    slug: "hackathon-finalist",
-    image: "/images/credentials/hackathon.jpg",
-    description:
-      "Top 10 finalist among 200+ teams. Developed an AI-powered learning assistant.",
-  },
-  {
-    id: 5,
-    title: "Next.js & TailwindCSS Course",
-    issuer: "BuildWith Angga",
-    year: "2023",
-    type: "certification",
-    slug: "nextjs-tailwind-course",
-    image: "/images/credentials/nextjs-course.jpg",
-    description:
-      "Completed full-stack development course with multiple real-world projects.",
-  },
-  {
-    id: 6,
-    title: "Best Graduation Project",
-    issuer: "Faculty of Computer Science",
-    year: "2024",
-    type: "achievement",
-    slug: "best-graduation-project",
-    image: "/images/credentials/best-project.jpg",
-    description:
-      "Awarded for innovative e-learning platform with gamification features.",
-  },
-];
-
-// Interface untuk Credential
-interface Credential {
-  id: number;
-  title: string;
-  issuer: string;
-  year: string;
-  type: string;
-  slug: string;
-  image: string;
-  description: string;
-}
+import { credentialsData } from "@/data/credentialsData";
+import { Credential } from "@/types/credential";
 
 // Interface untuk CredentialCard Props
 interface CredentialCardProps {
@@ -97,6 +17,9 @@ function CredentialCard({ credential, onHoverChange }: CredentialCardProps) {
   const [imageError, setImageError] = useState(false);
   const [isCardHovered, setIsCardHovered] = useState(false);
   const isCertification = credential.type === "certification";
+
+  // Extract year from date string for display
+  const year = new Date(credential.date).getFullYear().toString();
 
   const handleMouseEnter = () => {
     setIsCardHovered(true);
@@ -151,7 +74,7 @@ function CredentialCard({ credential, onHoverChange }: CredentialCardProps) {
               {credential.title}
             </h4>
             <p className="text-white/80 text-sm mb-4">
-              {credential.issuer} • {credential.year}
+              {credential.issuer} • {year}
             </p>
             <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white text-[#1E3A5F] rounded-lg text-sm font-semibold hover:gap-2 transition-all">
               View Details
@@ -170,6 +93,9 @@ export default function CredentialsSlider() {
   const [showRightArrow, setShowRightArrow] = useState(true);
   const [isCardHovered, setIsCardHovered] = useState(false);
   const autoSlideInterval = useRef<NodeJS.Timeout | null>(null);
+
+  // Limit to top credentials for slider (misal 8 teratas)
+  const sliderCredentials = credentialsData.slice(0, 11);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
@@ -209,7 +135,7 @@ export default function CredentialsSlider() {
           el.scrollBy({ left: cardWidth, behavior: "smooth" });
         }
       }
-    }, 1000);
+    }, 1500);
   };
 
   const stopAutoSlide = () => {
@@ -250,8 +176,8 @@ export default function CredentialsSlider() {
             Certifications & Awards
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Professional certifications and competition achievements that
-            validate my skills and dedication.
+            Professional certifications, awards, and competition achievements
+            that validate my skills and dedication.
           </p>
         </div>
 
@@ -284,7 +210,7 @@ export default function CredentialsSlider() {
             className="flex overflow-x-auto gap-6 pb-4 scroll-smooth hide-scrollbar"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {[...credentialsData, ...credentialsData].map((cred, idx) => (
+            {[...sliderCredentials, ...sliderCredentials].map((cred, idx) => (
               <CredentialCard
                 key={`${cred.id}-${idx}`}
                 credential={cred}

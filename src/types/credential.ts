@@ -1,22 +1,15 @@
 // types/credential.ts
 export interface Credential {
   id: number;
-  slug: string;
   title: string;
+  slug: string;
+  type: "certification" | "award" | "achievement" | "competition" | "course" | "license";
   issuer: string;
-  type:
-    | "certification"
-    | "award"
-    | "achievement"
-    | "competition"
-    | "course"
-    | "license";
+  date: string;
+  expiryDate: string | null;
+  credentialId: string | null;
+  credentialUrl: string | null;
   description: string;
-  image: string;
-  date: string; // ISO date string
-  expiryDate?: string; // Optional expiry date
-  credentialId?: string;
-  credentialUrl?: string;
   skills: string[];
-  featured?: boolean;
+  image: string;
 }

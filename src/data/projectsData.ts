@@ -102,6 +102,65 @@ export const projectsData: Project[] = [
       "Data bisnis lebih akurat, proses lebih cepat, dan pengambilan keputusan lebih mudah.",
   },
 
+  {
+    id: 7,
+    title: "Guess The Song - Music Quiz Game",
+    slug: "guess-the-song",
+    category: "Web Game",
+    client: null,
+    description:
+      "Interactive music quiz game where players guess song titles from 7-second audio previews. Built with Next.js and iTunes API.",
+    longDescription:
+      "Guess The Song is a fun, interactive web game that tests your music knowledge. Players choose their favorite artist, listen to a 7-second audio preview from the middle of a random song, and guess the correct title from three multiple-choice options. The game features a scoring system, progress tracking, and supports 10 rounds per session with stats calculation at the end.",
+    challenge:
+      "The main challenge was working with the iTunes API which only provides 30-second previews starting from the beginning of songs. The goal was to create a fair 'middle of the song' experience without access to the full track or custom preview points. Additionally, handling HTTP preview URLs on HTTPS websites and ensuring smooth audio playback across different browsers required careful implementation.",
+    solution:
+      "I implemented a custom audio player with timeline control that attempts to start playback from the 10-second mark. A fallback mechanism automatically plays from the beginning if seeking fails due to CORS restrictions. The iTunes API is proxied through Next.js rewrites to solve HTTPS mixed-content issues. The game also features a debounced search for artists, glassmorphic UI design, and real-time progress tracking to enhance user experience.",
+    image: "/images/projects/7/1.png", // Sesuaikan dengan path gambar kamu
+    screenshots: ["/images/projects/7/2.png", "/images/projects/7/3.png"],
+    tech: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "iTunes API",
+      "Lucide Icons",
+      "Vercel",
+    ],
+    liveUrl: "https://guess-song.aanjar.web.id", // Ganti dengan URL deploy kamu
+    githubUrl: "https://github.com/aanjardev/guess-song", // Ganti dengan repo kamu
+    period: "2026",
+    features: [
+      "Search and select from various music artists",
+      "7-second audio preview from the middle of songs",
+      "Multiple choice quiz system with 3 options",
+      "Real-time score tracking (10 rounds total)",
+      "Progress bar and round counter",
+      "Audio player with timeline and mute controls",
+      "Instant visual feedback (green for correct, red for wrong answers)",
+      "Detailed results page with accuracy and time stats",
+      "Responsive design with glassmorphism effects",
+      "Animated background with floating music notes",
+    ],
+    type: "side", // Karena ini side project
+    myRole: "Solo Developer - Full Stack",
+    teamSize: "1",
+    responsibilities: [
+      "Designed and developed the entire application from scratch",
+      "Integrated iTunes API for music preview and artist search",
+      "Implemented audio playback system with custom controls",
+      "Created responsive UI with Tailwind CSS and animations",
+    ],
+    highlights: [
+      "Successfully solved HTTP to HTTPS proxy issues using Next.js rewrites",
+      "Implemented debounced search for optimal API usage",
+      "Created consistent glassmorphic design across all pages",
+      "Achieved smooth audio playback with fallback mechanisms",
+    ],
+    goal: "To build a fun, accessible music quiz game that anyone can play without requiring Spotify or Apple Music subscriptions. The goal was to create an engaging experience that tests music knowledge while maintaining a clean, modern UI.",
+    outcome:
+      "A fully functional web game that allows users to test their music knowledge across various artists. The game features smooth audio playback, intuitive UI, and comprehensive game statistics. It's deployed and accessible to anyone with an internet connection.",
+  },
+
   // ========== SIDE PROJECTS (Personal) ==========
   {
     id: 3,
@@ -126,12 +185,9 @@ export const projectsData: Project[] = [
     ],
     tech: ["HTML5", "CSS3", "JavaScript", "TailwindCSS"],
     image: "/images/projects/3/1.png",
-    screenshots: [
-      "/images/projects/3/2.png",
-      "/images/projects/3/3.png",
-    ],
-    liveUrl: null,
-    githubUrl: null,
+    screenshots: ["/images/projects/3/2.png", "/images/projects/3/3.png"],
+    liveUrl: "https://aanjardev.github.io/Challenge-PI-Markoding/",
+    githubUrl: "https://github.com/aanjardev/Challenge-PI-Markoding",
     features: [
       "Landing page informatif",
       "Desain responsif dan mobile-friendly",
@@ -226,7 +282,7 @@ export const projectsData: Project[] = [
     tech: ["React", "Vite", "CSS3", "RSS Feed API"],
     image: "/images/projects/5/1.jpeg",
     screenshots: null,
-    liveUrl: null,
+    liveUrl: "papua.news",
     githubUrl: null,
     features: [
       "Menampilkan berita dari multiple RSS feeds",
@@ -265,7 +321,12 @@ export const projectsData: Project[] = [
       "Google Sheets API",
     ],
     image: "/images/projects/6/1.png",
-    screenshots: ["/images/projects/6/2.png", "/images/projects/6/3.png", "/images/projects/6/4.png", "/images/projects/6/5.png" ],
+    screenshots: [
+      "/images/projects/6/2.png",
+      "/images/projects/6/3.png",
+      "/images/projects/6/4.png",
+      "/images/projects/6/5.png",
+    ],
     liveUrl: null,
     githubUrl: null,
     features: [

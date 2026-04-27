@@ -43,7 +43,7 @@ const skillCategories = [
         name: "Next.js",
         icon: <SiNextdotjs className="w-5 h-5" />,
         experience: "> 1 years",
-        projects: "1+ projects",
+        projects: "3+ projects",
       },
       {
         name: "React",

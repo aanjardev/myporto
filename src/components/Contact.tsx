@@ -38,13 +38,13 @@ export default function ContactCTA() {
             Contact Me
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link
+          {/* <Link
             href="mailto:aanjardev@gmail.com"
             className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-all duration-300 hover:-translate-y-0.5"
           >
             <Mail className="w-4 h-4" />
             aanjardev@gmail.com
-          </Link>
+          </Link> */}
         </div>
 
         {/* Social Links */}

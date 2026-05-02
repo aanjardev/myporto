@@ -161,6 +161,62 @@ export const projectsData: Project[] = [
       "A fully functional web game that allows users to test their music knowledge across various artists. The game features smooth audio playback, intuitive UI, and comprehensive game statistics. It's deployed and accessible to anyone with an internet connection.",
   },
 
+  {
+    id: 8,
+    title: "YBLP Digital Beneficiary & Program Management System",
+    slug: "yblp-digital-beneficiary-program-management-system",
+    type: "side",
+    category: "Social Impact / Web Information System",
+    client: "Yayasan Bumi Langgat Peduli",
+    period: "2026",
+    description:
+      "Sistem pendataan digital untuk manajemen data penerima manfaat dan program sosial yayasan secara terpusat.",
+    longDescription: `Sistem ini dikembangkan untuk mendigitalisasi proses pendataan di Yayasan Bumi Langgat Peduli, mencakup master data Anak Yatim dan Duafa, pengelolaan sesi program (Santunan, Khitan Masal, Bedah Rumah), manajemen peserta per program, dashboard ringkasan, serta laporan dan ekspor data. Sistem dibangun berbasis Google Apps Script + Google Sheets dengan antarmuka web admin yang responsif.`,
+    challenge: `Proses pendataan sebelumnya rawan duplikasi data, sulit dipantau lintas program, dan tidak efisien saat membuat laporan berkala.`,
+    solution: `Membangun sistem admin terintegrasi dengan autentikasi sesi, struktur data terstandar per program, validasi input, pencegahan duplikasi peserta, serta fitur laporan dan ekspor untuk operasional harian yayasan.`,
+    myRole: "Fullstack Developer",
+    teamSize: "Solo",
+    responsibilities: [
+      "Merancang arsitektur data master dan data program berbasis Google Sheets",
+      "Membangun dashboard admin responsif dengan vanilla HTML/CSS/JavaScript",
+      "Mengembangkan fitur CRUD master data Anak Yatim dan Duafa",
+      "Membangun modul program Santunan, Khitan Masal, dan Bedah Rumah",
+      "Membuat fitur laporan, filter periode, dan ekspor CSV",
+    ],
+    tech: [
+      "Google Apps Script",
+      "Google Sheets",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Lucide Icons",
+    ],
+    image: "/images/projects/8/1.png",
+    screenshots: [
+      "/images/projects/8/2.png",
+      "/images/projects/8/3.png",
+      "/images/projects/8/4.png",
+      "/images/projects/8/5.png",
+      "/images/projects/8/6.png",
+    ],
+    liveUrl: null,
+    githubUrl: "https://github.com/aanjardev/yblp",
+    features: [
+      "Login admin dengan session token",
+      "Master data Anak Yatim & Duafa (CRUD)",
+      "Manajemen sesi program Santunan, Khitan Masal, Bedah Rumah",
+      "Dashboard statistik, laporan, filter, dan ekspor CSV",
+    ],
+    highlights: [
+      "Digitalisasi operasional yayasan dari proses manual ke sistem terpusat",
+      "Struktur data lintas program yang konsisten dan mudah diaudit",
+      "Data quality improvement dengan validasi dan duplicate prevention",
+    ],
+    goal: "Membangun sistem pendataan yayasan yang rapi, cepat, dan minim error untuk mendukung pengambilan keputusan program sosial.",
+    outcome:
+      "Sistem membantu admin mengelola data penerima dan program secara lebih efisien, mengurangi duplikasi, serta mempercepat pembuatan laporan operasional.",
+  },
+
   // ========== SIDE PROJECTS (Personal) ==========
   {
     id: 3,
@@ -282,7 +338,7 @@ export const projectsData: Project[] = [
     tech: ["React", "Vite", "CSS3", "RSS Feed API"],
     image: "/images/projects/5/1.jpeg",
     screenshots: null,
-    liveUrl: "papua.news",
+    liveUrl: "https://papua.news",
     githubUrl: null,
     features: [
       "Menampilkan berita dari multiple RSS feeds",

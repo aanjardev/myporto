@@ -6,6 +6,7 @@ import {
   Award,
   Briefcase,
   Gamepad2,
+  Heart,
   ChevronDown,
 } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
@@ -15,7 +16,7 @@ import { Project } from "@/types/project";
 export default function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedType, setSelectedType] = useState<
-    "all" | "freelance" | "side"
+    "all" | "freelance" | "side" | "social"
   >("all");
   const [selectedStacks, setSelectedStacks] = useState<string[]>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -65,6 +66,33 @@ export default function ProjectsPage() {
   const hasActiveFilters =
     searchQuery !== "" || selectedType !== "all" || selectedStacks.length > 0;
 
+  // Helper untuk mendapatkan icon dan label type
+  const getTypeIcon = (type: string) => {
+    switch (type) {
+      case "freelance":
+        return <Briefcase className="w-3.5 h-3.5" />;
+      case "side":
+        return <Gamepad2 className="w-3.5 h-3.5" />;
+      case "social":
+        return <Heart className="w-3.5 h-3.5" />;
+      default:
+        return null;
+    }
+  };
+
+  const getTypeLabel = (type: string) => {
+    switch (type) {
+      case "freelance":
+        return "Client Project";
+      case "side":
+        return "Side Project";
+      case "social":
+        return "Social Impact";
+      default:
+        return "";
+    }
+  };
+
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -72,12 +100,12 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/90 text-sm font-semibold mb-4">
             <Award className="w-4 h-4" />
-            <span>Featured Work</span>
+            <span>My Portfolio</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">All Projects</h1>
           <p className="text-white/80 text-lg max-w-2xl mx-auto">
-            Explore my complete portfolio of freelance work and side projects.
-            Each project is built with care and purpose.
+            Explore my complete portfolio — from professional client work and
+            experimental side projects to social impact initiatives.
           </p>
         </div>
       </section>
@@ -86,7 +114,7 @@ export default function ProjectsPage() {
       <section className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col md:flex-row gap-4">
-            {/* Search Bar - Expanded */}
+            {/* Search Bar */}
             <div className="flex-1 relative">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
@@ -107,7 +135,7 @@ export default function ProjectsPage() {
             </div>
 
             {/* Type Filters - Compact Chips */}
-            <div className="flex gap-2 items-center">
+            <div className="flex flex-wrap gap-2 items-center">
               <button
                 onClick={() => setSelectedType("all")}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
@@ -139,6 +167,17 @@ export default function ProjectsPage() {
               >
                 <Gamepad2 className="w-3.5 h-3.5" />
                 For Fun
+              </button>
+              <button
+                onClick={() => setSelectedType("social")}
+                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  selectedType === "social"
+                    ? "bg-[#1E3A5F] text-white shadow-md"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                <Heart className="w-3.5 h-3.5" />
+                Social
               </button>
 
               {/* Stack Filter Toggle Button */}

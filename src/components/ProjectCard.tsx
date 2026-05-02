@@ -7,6 +7,7 @@ import {
   ArrowRight,
   Briefcase,
   Gamepad2,
+  Heart,
   Users,
 } from "lucide-react";
 import { SiGithub } from "react-icons/si";
@@ -19,7 +20,46 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   const router = useRouter();
   const [imageError, setImageError] = useState(false);
-  const isFreelance = project.type === "freelance";
+
+  // Helper untuk mendapatkan icon berdasarkan type
+  const getTypeIcon = () => {
+    switch (project.type) {
+      case "freelance":
+        return <Briefcase className="w-3 h-3" />;
+      case "side":
+        return <Gamepad2 className="w-3 h-3" />;
+      case "social":
+        return <Heart className="w-3 h-3" />;
+      default:
+        return <Briefcase className="w-3 h-3" />;
+    }
+  };
+
+  const getTypeLabel = () => {
+    switch (project.type) {
+      case "freelance":
+        return "Client Project";
+      case "side":
+        return "Side Project";
+      case "social":
+        return "Social Impact";
+      default:
+        return "Project";
+    }
+  };
+
+  const getTypeColor = () => {
+    switch (project.type) {
+      case "freelance":
+        return "bg-blue-900/80 text-blue-100 border border-blue-700";
+      case "side":
+        return "bg-emerald-900/80 text-emerald-100 border border-emerald-700";
+      case "social":
+        return "bg-purple-900/80 text-purple-100 border border-purple-700";
+      default:
+        return "bg-gray-900/80 text-gray-100 border border-gray-700";
+    }
+  };
 
   const handleCardClick = () => {
     router.push(`/projects/${project.slug}`);
@@ -57,18 +97,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {/* Type Badge */}
         <div className="absolute top-4 left-4">
           <span
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-              isFreelance
-                ? "bg-blue-900/80 text-blue-100 border border-blue-700"
-                : "bg-emerald-900/80 text-emerald-100 border border-emerald-700"
-            }`}
+            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${getTypeColor()}`}
           >
-            {isFreelance ? (
-              <Briefcase className="w-3 h-3" />
-            ) : (
-              <Gamepad2 className="w-3 h-3" />
-            )}
-            {isFreelance ? "Client Project" : "Side Project"}
+            {getTypeIcon()}
+            {getTypeLabel()}
           </span>
         </div>
 

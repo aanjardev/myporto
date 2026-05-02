@@ -16,7 +16,7 @@ export interface Project {
   githubUrl?: string | null;
   period?: string | null;
   features?: string[] | null;
-  type: "freelance" | "side";
+  type: "freelance" | "side" | "social";
 
   // Additional fields for portfolio
   myRole?: string | null; // Peranmu dalam project

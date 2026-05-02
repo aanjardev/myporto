@@ -2,53 +2,7 @@ import { Project } from "@/types/project";
 
 export const projectsData: Project[] = [
   // ========== FREELANCE PROJECTS ==========
-  {
-    id: 1,
-    title: "Dinoyo Kamera - Catalog & Profile Website",
-    slug: "dinoyo-kamera-catalog-website",
-    type: "freelance",
-    category: "E-commerce",
-    client: "Dinoyo Kamera",
-    period: "2025",
-    description:
-      "Website katalog dan profile toko kamera yang memudahkan customer melihat dan mencari produk secara realtime.",
-    longDescription: `Sebuah website e-commerce katalog untuk Dinoyo Kamera, toko kamera di Malang. Website ini memungkinkan customer untuk melihat dan mencari produk kamera beserta aksesorisnya dengan status ketersediaan realtime. Setiap produk dilengkapi dengan aksi langsung yang mengarahkan customer ke WhatsApp admin untuk proses pembelian.`,
-    challenge: `Toko kamera Dinoyo Kamera mengalami kesulitan dalam menampilkan katalog produk secara digital dan realtime. Customer sering bertanya tentang ketersediaan stok produk, yang memakan waktu admin.`,
-    solution: `Membangun website katalog dengan sistem manajemen produk yang update stok secara realtime. Customer bisa langsung melihat ketersediaan produk dan terhubung ke WhatsApp admin untuk pembelian.`,
-    myRole: "Fullstack Developer",
-    teamSize: "3 orang",
-    responsibilities: [
-      "Mengembangkan fitur katalog produk dengan filtering dan pencarian",
-      "Implementasi status stok realtime",
-      "Integrasi WhatsApp API untuk direct checkout",
-      "Membantu deployment dan maintenance website",
-    ],
-    tech: ["Laravel 10", "Bootstrap", "MySQL", "WhatsApp API"],
-    image: "/images/projects/1/1.png",
-    screenshots: [
-      "/images/projects/1/2.png",
-      "/images/projects/1/3.png",
-      "/images/projects/1/4.png",
-      "/images/projects/1/5.png",
-      "/images/projects/1/6.png",
-    ],
-    liveUrl: "https://dinoyokamera.com",
-    githubUrl: null,
-    features: [
-      "Katalog produk dengan filtering dan pencarian",
-      "Status stok realtime",
-      "Direct WhatsApp checkout",
-      "Responsive design",
-      "Admin panel untuk manajemen produk",
-    ],
-    highlights: [
-      "Mempermudah customer melihat ketersediaan produk secara realtime",
-      "Meningkatkan efisiensi penjualan dengan direct WhatsApp integration",
-    ],
-    goal: "Mendigitalisasi katalog produk Dinoyo Kamera agar customer mudah melihat produk dan stok secara realtime.",
-    outcome:
-      "Customer dapat melihat ketersediaan produk tanpa perlu bertanya admin, meningkatkan efisiensi penjualan.",
-  },
+
   {
     id: 2,
     title: "Dinoyo Kamera - Integrated Business Information System",
@@ -165,7 +119,7 @@ export const projectsData: Project[] = [
     id: 8,
     title: "YBLP Digital Beneficiary & Program Management System",
     slug: "yblp-digital-beneficiary-program-management-system",
-    type: "side",
+    type: "social",
     category: "Social Impact / Web Information System",
     client: "Yayasan Bumi Langgat Peduli",
     period: "2026",
@@ -217,12 +171,60 @@ export const projectsData: Project[] = [
       "Sistem membantu admin mengelola data penerima dan program secara lebih efisien, mengurangi duplikasi, serta mempercepat pembuatan laporan operasional.",
   },
 
+  {
+    id: 1,
+    title: "Dinoyo Kamera - Catalog & Profile Website",
+    slug: "dinoyo-kamera-catalog-website",
+    type: "freelance",
+    category: "E-commerce",
+    client: "Dinoyo Kamera",
+    period: "2025",
+    description:
+      "Website katalog dan profile toko kamera yang memudahkan customer melihat dan mencari produk secara realtime.",
+    longDescription: `Sebuah website e-commerce katalog untuk Dinoyo Kamera, toko kamera di Malang. Website ini memungkinkan customer untuk melihat dan mencari produk kamera beserta aksesorisnya dengan status ketersediaan realtime. Setiap produk dilengkapi dengan aksi langsung yang mengarahkan customer ke WhatsApp admin untuk proses pembelian.`,
+    challenge: `Toko kamera Dinoyo Kamera mengalami kesulitan dalam menampilkan katalog produk secara digital dan realtime. Customer sering bertanya tentang ketersediaan stok produk, yang memakan waktu admin.`,
+    solution: `Membangun website katalog dengan sistem manajemen produk yang update stok secara realtime. Customer bisa langsung melihat ketersediaan produk dan terhubung ke WhatsApp admin untuk pembelian.`,
+    myRole: "Fullstack Developer",
+    teamSize: "3 orang",
+    responsibilities: [
+      "Mengembangkan fitur katalog produk dengan filtering dan pencarian",
+      "Implementasi status stok realtime",
+      "Integrasi WhatsApp API untuk direct checkout",
+      "Membantu deployment dan maintenance website",
+    ],
+    tech: ["Laravel 10", "Bootstrap", "MySQL", "WhatsApp API"],
+    image: "/images/projects/1/1.png",
+    screenshots: [
+      "/images/projects/1/2.png",
+      "/images/projects/1/3.png",
+      "/images/projects/1/4.png",
+      "/images/projects/1/5.png",
+      "/images/projects/1/6.png",
+    ],
+    liveUrl: "https://dinoyokamera.com",
+    githubUrl: null,
+    features: [
+      "Katalog produk dengan filtering dan pencarian",
+      "Status stok realtime",
+      "Direct WhatsApp checkout",
+      "Responsive design",
+      "Admin panel untuk manajemen produk",
+    ],
+    highlights: [
+      "Mempermudah customer melihat ketersediaan produk secara realtime",
+      "Meningkatkan efisiensi penjualan dengan direct WhatsApp integration",
+    ],
+    goal: "Mendigitalisasi katalog produk Dinoyo Kamera agar customer mudah melihat produk dan stok secara realtime.",
+    outcome:
+      "Customer dapat melihat ketersediaan produk tanpa perlu bertanya admin, meningkatkan efisiensi penjualan.",
+  },
+
   // ========== SIDE PROJECTS (Personal) ==========
   {
     id: 3,
     title: "Setiap Suara Perempuan Harus Didengar",
     slug: "perempuan-suaraku",
-    type: "side",
+    type: "social",
     category: "Social Campaign",
     client: null,
     period: "2025",
@@ -262,7 +264,7 @@ export const projectsData: Project[] = [
     id: 4,
     title: "Ar-Rahman Mosque Visitor Management System",
     slug: "mosque-visitor-management-system",
-    type: "side",
+    type: "social",
     category: "Smart Building / IoT",
     client: "Ar-Rahman Mosque Kitakyushu Japan",
     period: "2025",
@@ -315,7 +317,6 @@ export const projectsData: Project[] = [
       "Sistem berhasil diimplementasikan dan membantu pengurus masjid memantau pengunjung serta memberikan informasi digital.",
   },
 
-  // ========== SIDE PROJECTS (Assistance) ==========
   {
     id: 5,
     title: "RSS News Aggregator",

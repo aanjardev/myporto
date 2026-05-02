@@ -7,6 +7,7 @@ import {
   ExternalLink,
   Briefcase,
   Gamepad2,
+  Heart,
   Layers,
 } from "lucide-react";
 import { SiGithub } from "react-icons/si";
@@ -19,17 +20,48 @@ interface ProjectCardProps {
 }
 
 export default function PortfolioPreview() {
-  // Filter projects by type
-  const freelanceProjects = projectsData.filter(
-    (project) => project.type === "freelance",
-  );
-  const sideProjects = projectsData.filter(
-    (project) => project.type === "side",
-  );
+  // Ambil 3 project teratas (sudah diurutkan berdasarkan prioritas di projectsData)
+  const featuredProjects = projectsData.slice(0, 3);
 
-  // Take only first 3 projects for each category (or all if less than 3)
-  const featuredFreelance = freelanceProjects.slice(0, 3);
-  const featuredSide = sideProjects.slice(0, 3);
+  // Helper untuk mendapatkan icon berdasarkan type
+  const getTypeIcon = (type: string) => {
+    switch (type) {
+      case "freelance":
+        return <Briefcase className="w-3 h-3" />;
+      case "side":
+        return <Gamepad2 className="w-3 h-3" />;
+      case "social":
+        return <Heart className="w-3 h-3" />;
+      default:
+        return <Briefcase className="w-3 h-3" />;
+    }
+  };
+
+  const getTypeLabel = (type: string) => {
+    switch (type) {
+      case "freelance":
+        return "Freelance";
+      case "side":
+        return "Side Project";
+      case "social":
+        return "Social Impact";
+      default:
+        return "Project";
+    }
+  };
+
+  const getTypeColor = (type: string) => {
+    switch (type) {
+      case "freelance":
+        return "bg-blue-900/80 text-blue-100 border border-blue-700";
+      case "side":
+        return "bg-emerald-900/80 text-emerald-100 border border-emerald-700";
+      case "social":
+        return "bg-purple-900/80 text-purple-100 border border-purple-700";
+      default:
+        return "bg-gray-900/80 text-gray-100 border border-gray-700";
+    }
+  };
 
   return (
     <section className="py-20 md:py-28 bg-white relative overflow-hidden">
@@ -46,65 +78,26 @@ export default function PortfolioPreview() {
             <span>Featured Work</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Projects I've Built
+            My Best Projects
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            From professional client work to experimental fun tools — each
-            project is built with care and purpose.
+            A curated selection of my most impactful work — from professional
+            freelance projects to experimental tools and social initiatives.
           </p>
         </div>
 
-        {/* FREELANCE PROJECTS SECTION */}
-        {featuredFreelance.length > 0 && (
-          <div className="mb-16">
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Briefcase className="w-5 h-5 text-[#1E3A5F]" />
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    Freelance Projects
-                  </h3>
-                </div>
-                <p className="text-gray-500 text-sm ml-7">
-                  Real client work with measurable results
-                </p>
-              </div>
-              <div className="w-12 h-0.5 bg-[#1E3A5F]/20 hidden md:block" />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredFreelance.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* SIDE PROJECTS SECTION */}
-        {featuredSide.length > 0 && (
-          <div className="mb-12">
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Gamepad2 className="w-5 h-5 text-[#1E3A5F]" />
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    Side Projects
-                  </h3>
-                </div>
-                <p className="text-gray-500 text-sm ml-7">
-                  Fun, interactive tools for everyone to try
-                </p>
-              </div>
-              <div className="w-12 h-0.5 bg-[#1E3A5F]/20 hidden md:block" />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredSide.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
-            </div>
-          </div>
-        )}
+        {/* Featured Projects Grid - 3 teratas campur */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredProjects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              getTypeIcon={getTypeIcon}
+              getTypeLabel={getTypeLabel}
+              getTypeColor={getTypeColor}
+            />
+          ))}
+        </div>
 
         {/* CTA Button */}
         <div className="text-center mt-12">
@@ -121,9 +114,18 @@ export default function PortfolioPreview() {
   );
 }
 
-// Sub-component untuk Project Card - Style match dengan halaman /projects
-function ProjectCard({ project }: ProjectCardProps) {
-  const isSideProject = project.type === "side";
+// Sub-component untuk Project Card
+function ProjectCard({
+  project,
+  getTypeIcon,
+  getTypeLabel,
+  getTypeColor,
+}: {
+  project: Project;
+  getTypeIcon: (type: string) => JSX.Element;
+  getTypeLabel: (type: string) => string;
+  getTypeColor: (type: string) => string;
+}) {
   const [imageError, setImageError] = useState(false);
 
   const handleCardClick = () => {
@@ -161,25 +163,17 @@ function ProjectCard({ project }: ProjectCardProps) {
           </>
         )}
 
-        {/* Type Badge - Style sama dengan di /projects */}
+        {/* Type Badge */}
         <div className="absolute top-4 left-4">
           <span
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-              isSideProject
-                ? "bg-emerald-900/80 text-emerald-100 border border-emerald-700"
-                : "bg-blue-900/80 text-blue-100 border border-blue-700"
-            }`}
+            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${getTypeColor(project.type)}`}
           >
-            {isSideProject ? (
-              <Gamepad2 className="w-3 h-3" />
-            ) : (
-              <Briefcase className="w-3 h-3" />
-            )}
-            {isSideProject ? "Side Project" : "Client Project"}
+            {getTypeIcon(project.type)}
+            {getTypeLabel(project.type)}
           </span>
         </div>
 
-        {/* Action Icons - Top Right (sama dengan di /projects) */}
+        {/* Action Icons - Top Right */}
         <div className="absolute top-4 right-4 flex gap-2">
           {project.liveUrl && (
             <a
@@ -210,7 +204,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Content */}
       <div className="p-5 flex flex-col flex-grow">
-        {/* Client Name */}
+        {/* Client Name (for freelance) */}
         {project.client && (
           <p className="text-xs text-gray-400 mb-1">{project.client}</p>
         )}

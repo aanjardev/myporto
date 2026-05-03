@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import React from "react";
 import {
   ArrowRight,
   ExternalLink,
@@ -122,7 +123,7 @@ function ProjectCard({
   getTypeColor,
 }: {
   project: Project;
-  getTypeIcon: (type: string) => JSX.Element;
+  getTypeIcon: (type: string) => React.ReactNode;
   getTypeLabel: (type: string) => string;
   getTypeColor: (type: string) => string;
 }) {

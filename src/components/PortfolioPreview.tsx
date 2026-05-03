@@ -79,11 +79,11 @@ export default function PortfolioPreview() {
             <span>Featured Work</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            My Best Projects
+            Featured Work
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            A curated selection of my most impactful work — from professional
-            freelance projects to experimental tools and social initiatives.
+            A selection of projects from freelance, side experiments, and social
+            initiatives.
           </p>
         </div>
 

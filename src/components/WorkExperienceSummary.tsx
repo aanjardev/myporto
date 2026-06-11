@@ -1,93 +1,233 @@
 "use client";
 import Link from "next/link";
 import { experiences, Experience } from "../data/workExperienceData";
-import { Briefcase, Calendar, MapPin, ArrowRight } from "lucide-react";
+import { Briefcase, ExternalLink, Calendar, MapPin, ArrowRight } from "lucide-react";
 
 export default function WorkExperienceSummary() {
   const summary = experiences.slice(0, 3);
 
   return (
-    <section className="py-20 md:py-28 bg-gray-100" id="work">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section
+      id="work"
+      style={{
+        padding: "96px 24px",
+        background: "var(--canvas-light)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Subtle background accent */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 1,
+          background: "var(--hairline-cloud)",
+          pointerEvents: "none",
+        }}
+      />
+
+      <div style={{ maxWidth: 1152, margin: "0 auto" }}>
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E3A5F]/10 text-[#1E3A5F] text-sm font-semibold mb-4">
-            <Briefcase className="w-4 h-4" />
+        <div style={{ textAlign: "center", marginBottom: 30 }}>
+          <span
+            className="eyebrow-pill"
+            style={{
+              background: "rgba(12,31,63,0.07)",
+              color: "var(--canvas-dark)",
+              marginBottom: 5,
+              display: "inline-flex",
+            }}
+          >
+            <Briefcase style={{ width: 12, height: 12 }} />
             My Journey
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Work Experience
+          </span>
+          <h2
+            className="text-heading-xl"
+            style={{
+              color: "var(--ink)",
+              margin: "0 0 8px",
+              fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+              fontWeight: 600,
+              fontSize: "clamp(24px, 3vw, 32px)",
+            }}
+          >
+           - Work Experience -
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          {/* <div className="section-divider" /> */}
+          {/* <p
+            style={{
+              color: "#64748b",
+              maxWidth: 520,
+              margin: "16px auto 0",
+              fontSize: 15,
+              lineHeight: 1.7,
+            }}
+          >
             3+ years of professional experience across freelance, tutoring, and
-            internships. Building real solutions for real people.
-          </p>
+            internships — building real solutions for real people.
+          </p> */}
         </div>
 
-        {/* Experience Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        {/* Cards */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 24,
+          }}
+        >
           {summary.map((ex: Experience, index: number) => (
             <div
               key={ex.title}
-              className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="card-light"
+              style={{
+                padding: 28,
+                position: "relative",
+                overflow: "hidden",
+              }}
             >
-              {/* Card accent line on hover */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#1E3A5F] rounded-t-2xl scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              {/* Top accent bar (appears on hover via CSS) */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: 3,
+                  background: "var(--canvas-dark)",
+                  borderRadius: "var(--r-xl) var(--r-xl) 0 0",
+                  opacity: 0.8,
+                }}
+              />
 
               {/* Period Badge */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-medium mb-4">
-                <Calendar className="w-3 h-3" />
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  padding: "4px 10px",
+                  borderRadius: "var(--r-xs)",
+                  background: "rgba(12,31,63,0.07)",
+                  color: "var(--canvas-dark)",
+                  fontSize: 12,
+                  fontWeight: 600,
+                  letterSpacing: "0.04em",
+                  marginBottom: 16,
+                }}
+              >
+                <Calendar style={{ width: 11, height: 11 }} />
                 {ex.period}
               </div>
 
-              {/* Title & Company */}
-              <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-[#1E3A5F] transition-colors">
+              {/* Title */}
+              <h3
+                className="text-heading-sm"
+                style={{
+                  color: "var(--ink)",
+                  margin: "0 0 4px",
+                  fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+                }}
+              >
                 {ex.title}
               </h3>
-              <div className="flex items-center gap-1 text-gray-500 text-sm mb-4">
-                <MapPin className="w-3.5 h-3.5" />
+
+              {/* Company */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 4,
+                  color: "#64748b",
+                  fontSize: 13,
+                  marginBottom: 14,
+                }}
+              >
+                <MapPin style={{ width: 12, height: 12 }} />
                 {ex.company}
               </div>
 
               {/* Description */}
-              <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+              <p
+                style={{
+                  color: "#475569",
+                  fontSize: 14,
+                  lineHeight: 1.7,
+                  marginBottom: 16,
+                  display: "-webkit-box",
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: "vertical" as const,
+                  overflow: "hidden",
+                }}
+              >
                 {ex.description}
               </p>
 
-              {/* Tech Stack */}
+              {/* Tech Tags */}
               {ex.tech && ex.tech.length > 0 && (
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-2">
-                    {ex.tech.slice(0, 3).map((t: string) => (
-                      <span
-                        key={t}
-                        className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-md font-medium"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                    {ex.tech.length > 3 && (
-                      <span className="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-md">
-                        +{ex.tech.length - 3}
-                      </span>
-                    )}
-                  </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                  {ex.tech.slice(0, 3).map((t: string) => (
+                    <span
+                      key={t}
+                      style={{
+                        padding: "3px 10px",
+                        borderRadius: "var(--r-xs)",
+                        background: "var(--canvas-press)",
+                        color: "var(--canvas-dark)",
+                        fontSize: 11,
+                        fontWeight: 600,
+                        letterSpacing: "0.03em",
+                        border: "1px solid var(--hairline-cloud)",
+                      }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                  {ex.tech.length > 3 && (
+                    <span
+                      style={{
+                        padding: "3px 10px",
+                        borderRadius: "var(--r-xs)",
+                        background: "var(--canvas-press)",
+                        color: "#94a3b8",
+                        fontSize: 11,
+                        border: "1px solid var(--hairline-cloud)",
+                      }}
+                    >
+                      +{ex.tech.length - 3}
+                    </span>
+                  )}
                 </div>
               )}
-
             </div>
           ))}
         </div>
 
-        {/* CTA Button */}
-        <div className="mt-12 text-center">
+        {/* View All */}
+        <div style={{ textAlign: "center", marginTop: 32 }}>
           <Link
             href="/work"
-            className="group inline-flex items-center gap-2 px-8 py-3.5 bg-[#1E3A5F] text-white font-semibold rounded-xl hover:bg-[#152C48] transition-all duration-300 shadow-lg shadow-[#1E3A5F]/20 hover:shadow-xl hover:shadow-[#1E3A5F]/30 hover:-translate-y-0.5"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              fontSize: 13,
+              fontWeight: 700,
+              letterSpacing: "0.05em",
+              textTransform: "uppercase" as const,
+              color: "var(--canvas-dark)",
+              textDecoration: "none",
+              borderBottom: "2px solid var(--canvas-dark)",
+              paddingBottom: 2,
+              transition: "gap 0.2s",
+            }}
           >
             View Full Work History
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ExternalLink style={{ width: 13, height: 13 }} />
           </Link>
         </div>
       </div>

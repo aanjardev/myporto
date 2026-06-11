@@ -5,282 +5,178 @@ import {
   Server,
   Database,
   Terminal,
-  Cloud,
   CheckCircle2,
-  FileSpreadsheet,
 } from "lucide-react";
 import {
-  SiNextdotjs,
-  SiTailwindcss,
-  SiLaravel,
-  SiReact,
-  SiTypescript,
-  SiJavascript,
-  SiNodedotjs,
-  SiPhp,
-  SiPython,
-  SiOpenjdk,
-  SiCplusplus,
-  SiMysql,
-  SiSupabase,
-  SiGit,
-  SiGithub,
-  SiFigma,
-  SiVercel,
-  SiGooglesheets,
-  SiEspressif,
-  SiFirebase,
-  SiWordpress,
+  SiNextdotjs, SiTailwindcss, SiLaravel, SiReact, SiTypescript,
+  SiJavascript, SiNodedotjs, SiPhp, SiPython, SiOpenjdk, SiCplusplus,
+  SiMysql, SiSupabase, SiGit, SiGithub, SiFigma, SiVercel,
+  SiGooglesheets, SiEspressif, SiFirebase, SiWordpress,
 } from "react-icons/si";
 
-// Data skills - berdasarkan project & experience real
 const skillCategories = [
   {
-    name: "Frontend Development",
-    icon: <Layout className="w-5 h-5" />,
+    name: "Frontend & UI",
+    icon: <Layout style={{ width: 18, height: 18 }} />,
     skills: [
-      {
-        name: "Next.js",
-        icon: <SiNextdotjs className="w-5 h-5" />,
-        experience: "> 1 years",
-        projects: "3+ projects",
-      },
-      {
-        name: "React",
-        icon: <SiReact className="w-5 h-5" />,
-        experience: "1+ years",
-        projects: "3+ projects",
-      },
-      {
-        name: "TailwindCSS",
-        icon: <SiTailwindcss className="w-5 h-5" />,
-        experience: "2+ years",
-        projects: "4+ projects",
-      },
-      {
-        name: "TypeScript",
-        icon: <SiTypescript className="w-5 h-5" />,
-        experience: "1+ years",
-        projects: "3+ projects",
-      },
-      {
-        name: "JavaScript",
-        icon: <SiJavascript className="w-5 h-5" />,
-        experience: "3+ years",
-        projects: "10+ projects",
-      },
-      // {
-      //   name: "HTML/CSS",
-      //   icon: <Code2 className="w-5 h-5" />,
-      //   experience: "3+ years",
-      //   projects: "10+ projects",
-      // },
-      {
-        name: "WordPress",
-        icon: <SiWordpress className="w-5 h-5" />,
-        experience: "3+ years",
-        projects: "7+ projects",
-      },
+      { name: "Next.js", icon: <SiNextdotjs style={{ width: 18, height: 18 }} />, experience: ">1 years", projects: "3+ projects" },
+      { name: "React", icon: <SiReact style={{ width: 18, height: 18 }} />, experience: "1+ years", projects: "3+ projects" },
+      { name: "TailwindCSS", icon: <SiTailwindcss style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "4+ projects" },
+      { name: "TypeScript", icon: <SiTypescript style={{ width: 18, height: 18 }} />, experience: "1+ years", projects: "3+ projects" },
+      { name: "JavaScript", icon: <SiJavascript style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "10+ projects" },
+      { name: "Figma", icon: <SiFigma style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "5+ projects" },
     ],
   },
   {
-    name: "Backend Development",
-    icon: <Server className="w-5 h-5" />,
+    name: "Backend & DB",
+    icon: <Server style={{ width: 18, height: 18 }} />,
     skills: [
-      {
-        name: "Laravel",
-        icon: <SiLaravel className="w-5 h-5" />,
-        experience: "3+ years",
-        projects: "6+ projects",
-      },
-      {
-        name: "Node.js",
-        icon: <SiNodedotjs className="w-5 h-5" />,
-        experience: "2+ years",
-        projects: "3+ projects",
-      },
-      {
-        name: "PHP",
-        icon: <SiPhp className="w-5 h-5" />,
-        experience: "3+ years",
-        projects: "5+ projects",
-      },
-      {
-        name: "Python",
-        icon: <SiPython className="w-5 h-5" />,
-        experience: "2+ years",
-        projects: "2+ projects",
-      },
-      {
-        name: "Java",
-        icon: <SiOpenjdk className="w-5 h-5" />,
-        experience: "1+ years",
-        projects: "2+ projects",
-      },
-      {
-        name: "C++",
-        icon: <SiCplusplus className="w-5 h-5" />,
-        experience: "1+ years",
-        projects: "1+ projects",
-      },
+      { name: "Laravel", icon: <SiLaravel style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "6+ projects" },
+      { name: "Node.js", icon: <SiNodedotjs style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "3+ projects" },
+      { name: "PHP", icon: <SiPhp style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "5+ projects" },
+      { name: "MySQL", icon: <SiMysql style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "10+ projects" },
+      { name: "Firebase / Supabase", icon: <SiFirebase style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "7+ projects" },
+      { name: "Python", icon: <SiPython style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "2+ projects" },
     ],
   },
   {
-    name: "Database & Cloud",
-    icon: <Database className="w-5 h-5" />,
+    name: "Tools & Others",
+    icon: <Terminal style={{ width: 18, height: 18 }} />,
     skills: [
-      {
-        name: "MySQL",
-        icon: <SiMysql className="w-5 h-5" />,
-        experience: "3+ years",
-        projects: "10+ projects",
-      },
-      {
-        name: "Firebase",
-        icon: <SiFirebase className="w-5 h-5" />,
-        experience: "2+ years",
-        projects: "3+ projects",
-      },
-      {
-        name: "Supabase",
-        icon: <SiSupabase className="w-5 h-5" />,
-        experience: "2+ years",
-        projects: "4+ projects",
-      },
-      {
-        name: "Google Sheets API",
-        icon: <SiGooglesheets className="w-5 h-5" />,
-        experience: "2+ years",
-        projects: "4+ projects",
-      },
-    ],
-  },
-  {
-    name: "Tools & IoT",
-    icon: <Terminal className="w-5 h-5" />,
-    skills: [
-      {
-        name: "Git/GitHub",
-        icon: <SiGithub className="w-5 h-5" />,
-        experience: "3+ years",
-        projects: "15+ projects",
-      },
-      {
-        name: "Figma",
-        icon: <SiFigma className="w-5 h-5" />,
-        experience: "2+ years",
-        projects: "5+ projects",
-      },
-      // {
-      //   name: "Vercel",
-      //   icon: <SiVercel className="w-5 h-5" />,
-      //   experience: "1+ years",
-      //   projects: "3+ projects",
-      // },
-      {
-        name: "ESP32 / IoT",
-        icon: <SiEspressif className="w-5 h-5" />,
-        experience: "1+ years",
-        projects: "3+ projects",
-      },
-      {
-        name: "Google Apps Script",
-        icon: <SiGooglesheets className="w-5 h-5" />,
-        experience: "1+ years",
-        projects: "5+ projects",
-      },
+      { name: "Git & GitHub", icon: <SiGithub style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "15+ projects" },
+      { name: "WordPress", icon: <SiWordpress style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "7+ projects" },
+      { name: "Sheets & Apps Script", icon: <SiGooglesheets style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "9+ projects" },
+      { name: "ESP32 / IoT", icon: <SiEspressif style={{ width: 18, height: 18 }} />, experience: "1+ years", projects: "3+ projects" },
+      { name: "Java", icon: <SiOpenjdk style={{ width: 18, height: 18 }} />, experience: "1+ years", projects: "2+ projects" },
+      { name: "C++", icon: <SiCplusplus style={{ width: 18, height: 18 }} />, experience: "1+ years", projects: "1+ projects" },
     ],
   },
 ];
 
-// Technology logos untuk marquee
 const techLogos = [
-  {
-    name: "Next.js",
-    icon: <SiNextdotjs className="w-8 h-8 md:w-10 md:h-10" />,
-  },
-  {
-    name: "TailwindCSS",
-    icon: <SiTailwindcss className="w-8 h-8 md:w-10 md:h-10" />,
-  },
-  { name: "Laravel", icon: <SiLaravel className="w-8 h-8 md:w-10 md:h-10" /> },
-  { name: "React", icon: <SiReact className="w-8 h-8 md:w-10 md:h-10" /> },
-  {
-    name: "TypeScript",
-    icon: <SiTypescript className="w-8 h-8 md:w-10 md:h-10" />,
-  },
-  {
-    name: "JavaScript",
-    icon: <SiJavascript className="w-8 h-8 md:w-10 md:h-10" />,
-  },
-  {
-    name: "Node.js",
-    icon: <SiNodedotjs className="w-8 h-8 md:w-10 md:h-10" />,
-  },
-  { name: "PHP", icon: <SiPhp className="w-8 h-8 md:w-10 md:h-10" /> },
-  { name: "Python", icon: <SiPython className="w-8 h-8 md:w-10 md:h-10" /> },
-  { name: "Java", icon: <SiOpenjdk className="w-8 h-8 md:w-10 md:h-10" /> },
-  { name: "C++", icon: <SiCplusplus className="w-8 h-8 md:w-10 md:h-10" /> },
-  { name: "MySQL", icon: <SiMysql className="w-8 h-8 md:w-10 md:h-10" /> },
-  {
-    name: "WordPress",
-    icon: <SiWordpress className="w-8 h-8 md:w-10 md:h-10" />,
-  },
-  {
-    name: "Firebase",
-    icon: <SiFirebase className="w-8 h-8 md:w-10 md:h-10" />,
-  },
-  {
-    name: "Supabase",
-    icon: <SiSupabase className="w-8 h-8 md:w-10 md:h-10" />,
-  },
-  { name: "Git", icon: <SiGit className="w-8 h-8 md:w-10 md:h-10" /> },
-  { name: "GitHub", icon: <SiGithub className="w-8 h-8 md:w-10 md:h-10" /> },
-  { name: "Figma", icon: <SiFigma className="w-8 h-8 md:w-10 md:h-10" /> },
-  { name: "Vercel", icon: <SiVercel className="w-8 h-8 md:w-10 md:h-10" /> },
+  { name: "Next.js", icon: <SiNextdotjs style={{ width: 32, height: 32 }} /> },
+  { name: "TailwindCSS", icon: <SiTailwindcss style={{ width: 32, height: 32 }} /> },
+  { name: "Laravel", icon: <SiLaravel style={{ width: 32, height: 32 }} /> },
+  { name: "React", icon: <SiReact style={{ width: 32, height: 32 }} /> },
+  { name: "TypeScript", icon: <SiTypescript style={{ width: 32, height: 32 }} /> },
+  { name: "JavaScript", icon: <SiJavascript style={{ width: 32, height: 32 }} /> },
+  { name: "Node.js", icon: <SiNodedotjs style={{ width: 32, height: 32 }} /> },
+  { name: "PHP", icon: <SiPhp style={{ width: 32, height: 32 }} /> },
+  { name: "Python", icon: <SiPython style={{ width: 32, height: 32 }} /> },
+  { name: "MySQL", icon: <SiMysql style={{ width: 32, height: 32 }} /> },
+  { name: "WordPress", icon: <SiWordpress style={{ width: 32, height: 32 }} /> },
+  { name: "Firebase", icon: <SiFirebase style={{ width: 32, height: 32 }} /> },
+  { name: "Supabase", icon: <SiSupabase style={{ width: 32, height: 32 }} /> },
+  { name: "Git", icon: <SiGit style={{ width: 32, height: 32 }} /> },
+  { name: "GitHub", icon: <SiGithub style={{ width: 32, height: 32 }} /> },
+  { name: "Figma", icon: <SiFigma style={{ width: 32, height: 32 }} /> },
+  { name: "Vercel", icon: <SiVercel style={{ width: 32, height: 32 }} /> },
+];
+
+const otherTools = [
+  "RESTful APIs", "JWT Authentication", "IoT (ESP32)",
+  "Google Apps Script", "WordPress Dev", "Firebase Integration",
 ];
 
 export default function SkillsTools() {
   return (
-    <section className="py-20 md:py-28 bg-gray-50 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 bg-[#1E3A5F]/[0.01] pointer-events-none" />
-      <div className="absolute top-1/4 -left-40 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-40 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl pointer-events-none" />
+    <section
+      style={{
+        padding: "96px 24px",
+        background: "var(--canvas-press)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 1,
+          background: "var(--hairline-cloud)",
+          pointerEvents: "none",
+        }}
+      />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E3A5F]/10 text-[#1E3A5F] text-sm font-semibold mb-4">
-            <Code2 className="w-4 h-4" />
-            <span>Tech Stack & Tools</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Skills & Technologies
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            Tools and technologies I actively use to build web applications,
-            from frontend to backend and IoT integration.
-          </p>
+      <div style={{ maxWidth: 1152, margin: "0 auto" }}>
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: 30 }}>
+          <span
+            className="eyebrow-pill"
+            style={{
+              background: "rgba(12,31,63,0.07)",
+              color: "var(--canvas-dark)",
+              marginBottom: 5,
+              display: "inline-flex",
+            }}
+          >
+            <Code2 style={{ width: 12, height: 12 }} />
+            Tech Stack & Tools
+          </span>
+          <h2
+            style={{
+              fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+              fontSize: "clamp(24px, 3vw, 32px)",
+              fontWeight: 600,
+              color: "var(--ink)",
+              margin: "0 0 8px",
+            }}
+          >
+            - Skills & Technologies -
+          </h2>          
         </div>
 
-        {/* MARQUEE */}
-        <div className="mb-16">
-          <div className="relative overflow-hidden py-6">
-            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
-
+        {/* Marquee */}
+        <div style={{ marginBottom: 56 }}>
+          <div style={{ position: "relative", overflow: "hidden", padding: "20px 0" }}>
+            {/* Fade masks */}
+            <div
+              style={{
+                position: "absolute",
+                inset: "0 auto 0 0",
+                width: 80,
+                background: "linear-gradient(to right, var(--canvas-press), transparent)",
+                zIndex: 10,
+                pointerEvents: "none",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                inset: "0 0 0 auto",
+                width: 80,
+                background: "linear-gradient(to left, var(--canvas-press), transparent)",
+                zIndex: 10,
+                pointerEvents: "none",
+              }}
+            />
             <div className="marquee-wrapper">
               <div className="marquee-track">
                 {[...techLogos, ...techLogos, ...techLogos].map((tech, idx) => (
                   <div
                     key={idx}
-                    className="inline-flex flex-col items-center gap-2 mx-4 md:mx-6 group"
+                    style={{
+                      display: "inline-flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: 8,
+                      margin: "0 24px",
+                      color: "var(--hairline-cool)",
+                      cursor: "default",
+                      transition: "color 0.25s",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.color = "var(--canvas-dark)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.color = "var(--hairline-cool)";
+                    }}
                   >
-                    <div className="text-gray-400 group-hover:text-[#1E3A5F] transition-colors duration-300">
-                      {tech.icon}
-                    </div>
-                    <span className="text-xs text-gray-400 group-hover:text-gray-600 transition-colors">
+                    {tech.icon}
+                    <span style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.03em" }}>
                       {tech.name}
                     </span>
                   </div>
@@ -291,43 +187,99 @@ export default function SkillsTools() {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {skillCategories.map((category, idx) => (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 20,
+          }}
+        >
+          {skillCategories.map((category) => (
             <div
               key={category.name}
-              className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
+              className="card-light"
+              style={{ padding: 24 }}
             >
-              <div className="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
-                <div className="p-2 rounded-lg bg-[#1E3A5F]/10 text-[#1E3A5F]">
+              {/* Category Header */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  paddingBottom: 16,
+                  marginBottom: 16,
+                  borderBottom: "1px solid var(--hairline-cloud)",
+                }}
+              >
+                <div
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: "var(--r-md)",
+                    background: "rgba(12,31,63,0.07)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--canvas-dark)",
+                    flexShrink: 0,
+                  }}
+                >
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">
+                <h3
+                  style={{
+                    fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+                    fontSize: 16,
+                    fontWeight: 600,
+                    color: "var(--ink)",
+                    margin: 0,
+                  }}
+                >
                   {category.name}
                 </h3>
               </div>
 
-              <div className="space-y-4">
+              {/* Skills List */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="group flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 transition-colors"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "8px 10px",
+                      borderRadius: "var(--r-md)",
+                      transition: "background 0.18s",
+                      cursor: "default",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.background = "var(--canvas-press)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.background = "transparent";
+                    }}
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="text-gray-500 group-hover:text-[#1E3A5F] transition-colors">
-                        {skill.icon}
-                      </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <span style={{ color: "#94a3b8", flexShrink: 0 }}>{skill.icon}</span>
                       <div>
-                        <span className="font-semibold text-gray-700 text-sm">
+                        <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)" }}>
                           {skill.name}
-                        </span>
-                        <div className="flex items-center gap-3 mt-0.5">
-                          <span className="text-xs text-gray-400 flex items-center gap-1">
-                            <CheckCircle2 className="w-3 h-3" />
+                        </div>
+                        <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 2 }}>
+                          <span
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 4,
+                              fontSize: 11,
+                              color: "#94a3b8",
+                            }}
+                          >
+                            <CheckCircle2 style={{ width: 10, height: 10 }} />
                             {skill.experience}
                           </span>
-                          <span className="text-xs text-gray-400">
-                            {skill.projects}
-                          </span>
+                          <span style={{ fontSize: 11, color: "#94a3b8" }}>{skill.projects}</span>
                         </div>
                       </div>
                     </div>
@@ -338,53 +290,44 @@ export default function SkillsTools() {
           ))}
         </div>
 
-        {/* Tools Cloud - Disesuaikan dengan skill real */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex flex-wrap justify-center gap-2">
-            <span className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-xs text-gray-600 hover:border-[#1E3A5F] hover:text-[#1E3A5F] transition-all cursor-default">
-              RESTful APIs
-            </span>
-            <span className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-xs text-gray-600 hover:border-[#1E3A5F] hover:text-[#1E3A5F] transition-all cursor-default">
-              JWT Authentication
-            </span>
-            <span className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-xs text-gray-600 hover:border-[#1E3A5F] hover:text-[#1E3A5F] transition-all cursor-default">
-              IoT (ESP32)
-            </span>
-            <span className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-xs text-gray-600 hover:border-[#1E3A5F] hover:text-[#1E3A5F] transition-all cursor-default">
-              Google Apps Script
-            </span>
-            <span className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-xs text-gray-600 hover:border-[#1E3A5F] hover:text-[#1E3A5F] transition-all cursor-default">
-              WordPress Development
-            </span>
-            <span className="px-3 py-1.5 bg-white border border-gray-200 rounded-full text-xs text-gray-600 hover:border-[#1E3A5F] hover:text-[#1E3A5F] transition-all cursor-default">
-              Firebase Integration
-            </span>
+        {/* Other Tools */}
+        <div style={{ marginTop: 40, textAlign: "center" }}>
+          <p
+            className="text-eyebrow"
+            style={{ color: "#94a3b8", marginBottom: 14 }}
+          >
+            Also familiar with
+          </p>
+          <div style={{ display: "inline-flex", flexWrap: "wrap", justifyContent: "center", gap: 8 }}>
+            {otherTools.map((tool) => (
+              <span
+                key={tool}
+                style={{
+                  padding: "5px 14px",
+                  borderRadius: "var(--r-full)",
+                  border: "1px solid var(--hairline-cloud)",
+                  background: "var(--canvas-light)",
+                  fontSize: 12,
+                  fontWeight: 500,
+                  color: "#475569",
+                  transition: "border-color 0.2s, color 0.2s",
+                  cursor: "default",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = "var(--canvas-dark)";
+                  (e.currentTarget as HTMLElement).style.color = "var(--canvas-dark)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = "var(--hairline-cloud)";
+                  (e.currentTarget as HTMLElement).style.color = "#475569";
+                }}
+              >
+                {tool}
+              </span>
+            ))}
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .marquee-wrapper {
-          overflow: hidden;
-          width: 100%;
-        }
-        .marquee-track {
-          display: flex;
-          width: fit-content;
-          animation: marquee 30s linear infinite;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-33.33%);
-          }
-        }
-      `}</style>
     </section>
   );
 }

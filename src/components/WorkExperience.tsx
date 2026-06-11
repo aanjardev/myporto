@@ -1,95 +1,184 @@
 "use client";
 import {
-  Briefcase,
-  BookOpen,
-  Code,
-  DollarSign,
-  GraduationCap,
-  MonitorSmartphone,
-  Calendar,
-  MapPin,
+  Briefcase, BookOpen, Code, DollarSign, GraduationCap,
+  MonitorSmartphone, Calendar, MapPin,
 } from "lucide-react";
 import { experiences } from "../data/workExperienceData";
 
-const getIcon = (index: number) => {
-  const icons = [
-    <Briefcase key="briefcase" className="w-5 h-5" />,
-    <BookOpen key="book" className="w-5 h-5" />,
-    <DollarSign key="dollar" className="w-5 h-5" />,
-    <MonitorSmartphone key="phone" className="w-5 h-5" />,
-    <GraduationCap key="grad" className="w-5 h-5" />,
-    <Code key="code" className="w-5 h-5" />,
-  ];
-  return icons[index % icons.length];
-};
+// const ICONS = [
+//   <Briefcase key="b" style={{ width: 16, height: 16 }} />,
+//   <BookOpen key="bo" style={{ width: 16, height: 16 }} />,
+//   <DollarSign key="d" style={{ width: 16, height: 16 }} />,
+//   <MonitorSmartphone key="m" style={{ width: 16, height: 16 }} />,
+//   <GraduationCap key="g" style={{ width: 16, height: 16 }} />,
+//   <Code key="c" style={{ width: 16, height: 16 }} />,
+// ];
 
-const getIconColor = (index: number) => {
-  const colors = [
-    "bg-blue-100 text-blue-600",
-    "bg-emerald-100 text-emerald-600",
-    "bg-amber-100 text-amber-600",
-    "bg-purple-100 text-purple-600",
-    "bg-rose-100 text-rose-600",
-  ];
-  return colors[index % colors.length];
-};
+// const getIcon = (i: number) => ICONS[i % ICONS.length];
 
 export default function WorkExperience() {
   return (
-    <div className="relative">
-      {/* Vertical Timeline Line */}
-      <div className="hidden md:block absolute left-[23px] top-3 bottom-3 w-px bg-gradient-to-b from-[#1E3A5F]/20 via-[#1E3A5F]/40 to-[#1E3A5F]/20" />
+    <div style={{ position: "relative" }}>
+      {/* Timeline line */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          left: 19,
+          top: 24,
+          bottom: 24,
+          width: 1,
+          background: "linear-gradient(to bottom, transparent, var(--hairline-cloud) 10%, var(--hairline-cloud) 90%, transparent)",
+        }}
+        className="hidden md:block"
+      />
 
-      <div className="space-y-8 md:space-y-0 relative">
+      <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
         {experiences.map((exp, index) => (
-          <div key={exp.title} className="relative md:pb-12 last:pb-0">
-            {/* Timeline Dot with Icon */}
-            <div className="absolute left-0 top-0 md:left-[7px] z-10">
+          <div
+            key={exp.title}
+            style={{
+              position: "relative",
+              paddingBottom: index < experiences.length - 1 ? 24 : 0,
+            }}
+          >
+            {/* Dot
+            <div
+              className="hidden md:flex"
+              style={{
+                position: "absolute",
+                left: 7,
+                top: 0,
+                width: 26,
+                height: 26,
+                borderRadius: "50%",
+                background: "var(--canvas-dark)",
+                border: "3px solid var(--canvas-light)",
+                boxShadow: "0 0 0 1px var(--hairline-cloud)",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "var(--on-dark)",
+                zIndex: 2,
+                flexShrink: 0,
+              }}
+            >
+              
+             {getIcon(index)} 
+            </div> */}
+
+            {/* Card */}
+            <div
+              className="card-light"
+              style={{
+                marginLeft: 0,
+                overflow: "hidden",
+              }}
+              /* md:ml-12 handled by className below */
+            >
               <div
-                className={`flex items-center justify-center w-12 h-12 md:w-10 md:h-10 rounded-full shadow-md ${getIconColor(index)} border-4 border-white`}
+                style={{
+                  display: "flex",
+                  position: "relative",
+                }}
               >
-                {getIcon(index)}
-              </div>
-            </div>
+                {/* Left accent */}
+                <div
+                  style={{
+                    width: 3,
+                    flexShrink: 0,
+                    background: "var(--canvas-dark)",
+                    borderRadius: "var(--r-xl) 0 0 var(--r-xl)",
+                    minHeight: "100%",
+                    opacity: 0.7,
+                  }}
+                />
 
-            {/* Content Card */}
-            <div className="ml-16 md:ml-16 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group">
-              <div className="relative">
-                {/* Accent bar */}
-                <div className="absolute top-0 left-0 w-1 h-full bg-[#1E3A5F] rounded-l-2xl group-hover:w-2 transition-all duration-300" />
-
-                <div className="p-6 md:p-7">
-                  {/* Title & Period */}
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                <div style={{ padding: "22px 24px", width: "100%" }}>
+                  {/* Header row */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      justifyContent: "space-between",
+                      alignItems: "flex-start",
+                      gap: 12,
+                      marginBottom: 12,
+                    }}
+                  >
                     <div>
-                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-[#1E3A5F] transition-colors">
+                      <h3
+                        style={{
+                          fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+                          fontSize: 18,
+                          fontWeight: 600,
+                          color: "var(--ink)",
+                          margin: "0 0 4px",
+                        }}
+                      >
                         {exp.title}
                       </h3>
-                      <div className="flex items-center gap-2 mt-1">
-                        <MapPin className="w-3.5 h-3.5 text-gray-400" />
-                        <p className="text-sm text-gray-500">{exp.company}</p>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 4,
+                          fontSize: 13,
+                          color: "#64748b",
+                        }}
+                      >
+                        <MapPin style={{ width: 12, height: 12 }} />
+                        {exp.company}
                       </div>
                     </div>
 
-                    {/* Period Badge */}
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 rounded-lg text-xs font-medium text-gray-600 whitespace-nowrap">
-                      <Calendar className="w-3.5 h-3.5" />
+                    {/* Period */}
+                    <div
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 5,
+                        padding: "4px 10px",
+                        borderRadius: "var(--r-xs)",
+                        background: "rgba(12,31,63,0.07)",
+                        color: "var(--canvas-dark)",
+                        fontSize: 11,
+                        fontWeight: 600,
+                        letterSpacing: "0.04em",
+                        whiteSpace: "nowrap" as const,
+                      }}
+                    >
+                      <Calendar style={{ width: 11, height: 11 }} />
                       {exp.period}
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  <p
+                    style={{
+                      color: "#475569",
+                      fontSize: 14,
+                      lineHeight: 1.7,
+                      marginBottom: 14,
+                    }}
+                  >
                     {exp.description}
                   </p>
 
-                  {/* Tech Stack */}
+                  {/* Tech tags */}
                   {exp.tech && exp.tech.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                       {exp.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-medium"
+                          style={{
+                            padding: "3px 10px",
+                            borderRadius: "var(--r-xs)",
+                            background: "var(--canvas-press)",
+                            color: "var(--canvas-dark)",
+                            fontSize: 11,
+                            fontWeight: 600,
+                            border: "1px solid var(--hairline-cloud)",
+                          }}
                         >
                           {tech}
                         </span>

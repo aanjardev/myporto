@@ -78,27 +78,63 @@ export default function CredentialsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-[#1E3A5F] text-white py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/90 text-sm font-semibold mb-4">
-            <Award className="w-4 h-4" />
-            <span>My Journey</span>
-          </div>
-          <h1 className="text-3xl md:text-5xl font-bold mb-3">
+    <main style={{ minHeight: "100vh", background: "var(--canvas-press)" }}>
+      {/* Hero Banner */}
+      {/* <section
+        style={{
+          background: "var(--canvas-dark)",
+          padding: "72px 24px 80px",
+          position: "relative",
+          overflow: "hidden",
+          textAlign: "center",
+        }}
+      >
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)",
+            backgroundSize: "32px 32px",
+            pointerEvents: "none",
+          }}
+        />
+        <div style={{ maxWidth: 720, margin: "0 auto", position: "relative", zIndex: 10 }}>
+          <span
+            className="eyebrow-pill"
+            style={{
+              background: "var(--on-dark-faint)",
+              color: "var(--on-dark-muted)",
+              border: "1px solid rgba(255,255,255,0.10)",
+              marginBottom: 20,
+              display: "inline-flex",
+            }}
+          >
+            <Award style={{ width: 12, height: 12 }} />
+            My Journey
+          </span>
+          <h1
+            style={{
+              fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+              fontSize: "clamp(32px, 6vw, 52px)",
+              fontWeight: 700,
+              color: "var(--on-dark)",
+              margin: "0 0 12px",
+              letterSpacing: "-0.02em",
+            }}
+          >
             Credentials & Achievements
           </h1>
-          <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-body-lg" style={{ color: "var(--on-dark-muted)", maxWidth: 520, margin: "0 auto" }}>
             Professional certifications, awards, and achievements that validate
             my skills and dedication to continuous learning.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* Search & Filter Section */}
-      <section className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <section style={{ position: "sticky", top: 64, zIndex: 20, background: "rgba(255,255,255,0.97)", backdropFilter: "blur(8px)", borderBottom: "1px solid var(--hairline-cloud)", boxShadow: "0 1px 8px rgba(0,0,0,0.06)" }}>
+        <div className="px-6 lg:px-0 py-4" style={{ maxWidth: 1152, margin: "0 auto" }}>
           <div className="flex flex-col md:flex-row gap-4">
             {/* Search Bar */}
             <div className="flex-1 relative">
@@ -189,8 +225,8 @@ export default function CredentialsPage() {
       </section>
 
       {/* Results Section */}
-      <section className="py-8 md:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="px-6 lg:px-0" style={{ padding: "40px 0 80px" }}>
+        <div style={{ maxWidth: 1152, margin: "0 auto" }}>
           {/* Results Header */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
             <p className="text-gray-500 text-sm">

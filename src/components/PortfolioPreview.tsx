@@ -3,92 +3,105 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import React from "react";
-import {
-  ArrowRight,
-  ExternalLink,
-  Briefcase,
-  Gamepad2,
-  Heart,
-  Layers,
-} from "lucide-react";
+import { ArrowRight, ExternalLink, Briefcase, Gamepad2, Heart, Layers } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import { projectsData } from "@/data/projectsData";
 import type { Project } from "@/types/project";
 
-// Interface untuk ProjectCard Props
 interface ProjectCardProps {
   project: Project;
+  getTypeIcon: (type: string) => React.ReactNode;
+  getTypeLabel: (type: string) => string;
+  getTypeColor: (type: string) => { bg: string; text: string; border: string };
 }
 
 export default function PortfolioPreview() {
-  // Ambil 3 project teratas (sudah diurutkan berdasarkan prioritas di projectsData)
   const featuredProjects = projectsData.slice(0, 3);
 
-  // Helper untuk mendapatkan icon berdasarkan type
   const getTypeIcon = (type: string) => {
     switch (type) {
-      case "freelance":
-        return <Briefcase className="w-3 h-3" />;
-      case "side":
-        return <Gamepad2 className="w-3 h-3" />;
-      case "social":
-        return <Heart className="w-3 h-3" />;
-      default:
-        return <Briefcase className="w-3 h-3" />;
+      case "freelance": return <Briefcase style={{ width: 11, height: 11 }} />;
+      case "side":      return <Gamepad2 style={{ width: 11, height: 11 }} />;
+      case "social":    return <Heart style={{ width: 11, height: 11 }} />;
+      default:          return <Briefcase style={{ width: 11, height: 11 }} />;
     }
   };
 
   const getTypeLabel = (type: string) => {
     switch (type) {
-      case "freelance":
-        return "Freelance";
-      case "side":
-        return "Side Project";
-      case "social":
-        return "Social Impact";
-      default:
-        return "Project";
+      case "freelance": return "Freelance";
+      case "side":      return "Side Project";
+      case "social":    return "Social Impact";
+      default:          return "Project";
     }
   };
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case "freelance":
-        return "bg-blue-900/80 text-blue-100 border border-blue-700";
-      case "side":
-        return "bg-emerald-900/80 text-emerald-100 border border-emerald-700";
-      case "social":
-        return "bg-purple-900/80 text-purple-100 border border-purple-700";
-      default:
-        return "bg-gray-900/80 text-gray-100 border border-gray-700";
+      case "freelance": return { bg: "rgba(12,31,63,0.85)", text: "#fff", border: "rgba(255,255,255,0.15)" };
+      case "side":      return { bg: "rgba(8,23,46,0.85)", text: "#94d4ff", border: "rgba(148,212,255,0.2)" };
+      case "social":    return { bg: "rgba(45,90,142,0.85)", text: "#fff", border: "rgba(255,255,255,0.15)" };
+      default:          return { bg: "rgba(12,31,63,0.85)", text: "#fff", border: "rgba(255,255,255,0.15)" };
     }
   };
 
   return (
-    <section className="py-20 md:py-28 bg-white relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 bg-[#1E3A5F]/[0.01] pointer-events-none" />
-      <div className="absolute top-40 right-0 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-40 left-0 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+    <section
+      style={{
+        padding: "96px 24px",
+        background: "var(--canvas-press)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <div style={{ maxWidth: 1152, margin: "0 auto" }}>
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E3A5F]/10 text-[#1E3A5F] text-sm font-semibold mb-4">
-            <Layers className="w-4 h-4" />
-            <span>Featured Work</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div style={{ textAlign: "center", marginBottom: 30 }}>
+          <span
+            className="eyebrow-pill"
+            style={{
+              background: "rgba(12,31,63,0.07)",
+              color: "var(--canvas-dark)",
+              marginBottom: 5,
+              display: "inline-flex",
+            }}
+          >
+            <Layers style={{ width: 12, height: 12 }} />
             Featured Work
+          </span>
+          <h2
+            style={{
+              fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+              fontSize: "clamp(24px, 3vw, 32px)",
+              fontWeight: 600,
+              color: "var(--ink)",
+              margin: "0 0 8px",
+            }}
+          >
+            - Selected Projects -
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          {/* <p
+            style={{
+              color: "#64748b",
+              maxWidth: 480,
+              margin: "16px auto 0",
+              fontSize: 15,
+              lineHeight: 1.7,
+            }}
+          >
             A selection of projects from freelance, side experiments, and social
             initiatives.
-          </p>
+          </p> */}
         </div>
 
-        {/* Featured Projects Grid - 3 teratas campur */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: 24,
+          }}
+        >
           {featuredProjects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -100,14 +113,27 @@ export default function PortfolioPreview() {
           ))}
         </div>
 
-        {/* CTA Button */}
-        <div className="text-center mt-12">
+        {/* View All */}
+        <div style={{ textAlign: "center", marginTop: 32 }}>
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-2 px-8 py-3.5 bg-[#1E3A5F] text-white font-semibold rounded-xl hover:bg-[#152C48] transition-all duration-300 shadow-lg shadow-[#1E3A5F]/20 hover:shadow-xl hover:shadow-[#1E3A5F]/30 hover:-translate-y-0.5"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              fontSize: 13,
+              fontWeight: 700,
+              letterSpacing: "0.05em",
+              textTransform: "uppercase" as const,
+              color: "var(--canvas-dark)",
+              textDecoration: "none",
+              borderBottom: "2px solid var(--canvas-dark)",
+              paddingBottom: 2,
+              transition: "gap 0.2s",
+            }}
           >
             View All Projects
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ExternalLink style={{ width: 13, height: 13 }} />
           </Link>
         </div>
       </div>
@@ -115,40 +141,61 @@ export default function PortfolioPreview() {
   );
 }
 
-// Sub-component untuk Project Card
-function ProjectCard({
-  project,
-  getTypeIcon,
-  getTypeLabel,
-  getTypeColor,
-}: {
-  project: Project;
-  getTypeIcon: (type: string) => React.ReactNode;
-  getTypeLabel: (type: string) => string;
-  getTypeColor: (type: string) => string;
-}) {
+function ProjectCard({ project, getTypeIcon, getTypeLabel, getTypeColor }: ProjectCardProps) {
   const [imageError, setImageError] = useState(false);
-
-  const handleCardClick = () => {
-    window.location.href = `/projects/${project.slug}`;
-  };
+  const typeColor = getTypeColor(project.type);
 
   return (
     <div
-      onClick={handleCardClick}
-      className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 h-full flex flex-col cursor-pointer"
+      onClick={() => { window.location.href = `/projects/${project.slug}`; }}
+      className="card-light"
+      style={{
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        cursor: "pointer",
+        height: "100%",
+      }}
     >
-      {/* Image Container - 16:9 */}
+      {/* Image */}
       <div
-        className="relative w-full bg-gray-100 overflow-hidden"
-        style={{ aspectRatio: "16 / 9" }}
+        style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: "16/9",
+          background: "var(--canvas-press)",
+          overflow: "hidden",
+          flexShrink: 0,
+        }}
       >
         {imageError ? (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gray-100">
-            <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
-              <span className="text-2xl text-gray-400">📷</span>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              background: "var(--canvas-press)",
+            }}
+          >
+            <div
+              style={{
+                width: 40,
+                height: 40,
+                background: "var(--hairline-cloud)",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 18,
+              }}
+            >
+              📷
             </div>
-            <span className="text-gray-400 text-sm">No image</span>
+            <span style={{ color: "#94a3b8", fontSize: 12 }}>No image</span>
           </div>
         ) : (
           <>
@@ -156,36 +203,71 @@ function ProjectCard({
               src={project.image}
               alt={project.title}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              className="object-cover"
+              style={{ transition: "transform 0.5s ease" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.05)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
               onError={() => setImageError(true)}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 50%)",
+                pointerEvents: "none",
+              }}
+            />
           </>
         )}
 
-        {/* Type Badge */}
-        <div className="absolute top-4 left-4">
+        {/* Type badge */}
+        <div style={{ position: "absolute", top: 12, left: 12 }}>
           <span
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${getTypeColor(project.type)}`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 5,
+              padding: "4px 10px",
+              borderRadius: "var(--r-xs)",
+              fontSize: 11,
+              fontWeight: 600,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase" as const,
+              background: typeColor.bg,
+              color: typeColor.text,
+              border: `1px solid ${typeColor.border}`,
+              backdropFilter: "blur(4px)",
+            }}
           >
             {getTypeIcon(project.type)}
             {getTypeLabel(project.type)}
           </span>
         </div>
 
-        {/* Action Icons - Top Right */}
-        <div className="absolute top-4 right-4 flex gap-2">
+        {/* Action icons */}
+        <div style={{ position: "absolute", top: 12, right: 12, display: "flex", gap: 6 }}>
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-white/90 backdrop-blur-sm rounded-lg text-gray-600 hover:text-[#1E3A5F] hover:bg-white transition-all z-10 relative"
               title="Live Demo"
               onClick={(e) => e.stopPropagation()}
+              style={{
+                width: 32,
+                height: 32,
+                background: "rgba(255,255,255,0.9)",
+                backdropFilter: "blur(4px)",
+                borderRadius: "var(--r-md)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "var(--canvas-dark)",
+                transition: "background 0.2s",
+              }}
             >
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink style={{ width: 14, height: 14 }} />
             </a>
           )}
           {project.githubUrl && (
@@ -193,54 +275,114 @@ function ProjectCard({
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-white/90 backdrop-blur-sm rounded-lg text-gray-600 hover:text-gray-900 hover:bg-white transition-all z-10 relative"
               title="Source Code"
               onClick={(e) => e.stopPropagation()}
+              style={{
+                width: 32,
+                height: 32,
+                background: "rgba(255,255,255,0.9)",
+                backdropFilter: "blur(4px)",
+                borderRadius: "var(--r-md)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#1a1a1a",
+                transition: "background 0.2s",
+              }}
             >
-              <SiGithub className="w-4 h-4" />
+              <SiGithub style={{ width: 14, height: 14 }} />
             </a>
           )}
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-5 flex flex-col flex-grow">
-        {/* Client Name (for freelance) */}
+      <div style={{ padding: "20px 22px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
         {project.client && (
-          <p className="text-xs text-gray-400 mb-1">{project.client}</p>
+          <p style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>{project.client}</p>
         )}
 
-        {/* Title */}
-        <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#1E3A5F] transition-colors line-clamp-1">
+        <h3
+          style={{
+            fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+            fontSize: 17,
+            fontWeight: 600,
+            color: "var(--ink)",
+            margin: "0 0 8px",
+            display: "-webkit-box",
+            WebkitLineClamp: 1,
+            WebkitBoxOrient: "vertical" as const,
+            overflow: "hidden",
+          }}
+        >
           {project.title}
         </h3>
 
-        {/* Description */}
-        <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2 flex-grow">
+        <p
+          style={{
+            color: "#64748b",
+            fontSize: 14,
+            lineHeight: 1.65,
+            marginBottom: 14,
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical" as const,
+            overflow: "hidden",
+            flexGrow: 1,
+          }}
+        >
           {project.description}
         </p>
 
-        {/* Tech Stack Tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        {/* Tech tags */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
           {project.tech.slice(0, 3).map((tech) => (
             <span
               key={tech}
-              className="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-md font-medium"
+              style={{
+                padding: "3px 10px",
+                borderRadius: "var(--r-xs)",
+                background: "var(--canvas-press)",
+                color: "var(--canvas-dark)",
+                fontSize: 11,
+                fontWeight: 600,
+                border: "1px solid var(--hairline-cloud)",
+              }}
             >
               {tech}
             </span>
           ))}
           {project.tech.length > 3 && (
-            <span className="px-2 py-1 bg-gray-100 text-gray-400 text-xs rounded-md">
+            <span
+              style={{
+                padding: "3px 10px",
+                borderRadius: "var(--r-xs)",
+                background: "var(--canvas-press)",
+                color: "#94a3b8",
+                fontSize: 11,
+                border: "1px solid var(--hairline-cloud)",
+              }}
+            >
               +{project.tech.length - 3}
             </span>
           )}
         </div>
 
-        {/* View Details Indicator */}
-        <div className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1E3A5F] group-hover:gap-2 transition-all cursor-pointer">
+        {/* View Details */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: "0.04em",
+            textTransform: "uppercase" as const,
+            color: "var(--canvas-dark)",
+          }}
+        >
           View Details
-          <ArrowRight className="w-4 h-4" />
+          <ArrowRight style={{ width: 14, height: 14 }} />
         </div>
       </div>
     </div>

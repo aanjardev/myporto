@@ -6,82 +6,137 @@ import { ChevronLeft, ChevronRight, Award, ExternalLink } from "lucide-react";
 import { credentialsData } from "@/data/credentialsData";
 import { Credential } from "@/types/credential";
 
-// Interface untuk CredentialCard Props
 interface CredentialCardProps {
   credential: Credential;
   onHoverChange: (isHovered: boolean) => void;
 }
 
-// Card Component
 function CredentialCard({ credential, onHoverChange }: CredentialCardProps) {
   const [imageError, setImageError] = useState(false);
-  const [isCardHovered, setIsCardHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const isCertification = credential.type === "certification";
-
-  // Extract year from date string for display
   const year = new Date(credential.date).getFullYear().toString();
 
-  const handleMouseEnter = () => {
-    setIsCardHovered(true);
-    onHoverChange(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsCardHovered(false);
-    onHoverChange(false);
-  };
+  const handleMouseEnter = () => { setIsHovered(true); onHoverChange(true); };
+  const handleMouseLeave = () => { setIsHovered(false); onHoverChange(false); };
 
   return (
     <Link
       href={`/credentials/${credential.slug}`}
-      className="group relative flex-shrink-0 w-72 md:w-80 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 block"
+      style={{
+        flexShrink: 0,
+        width: 288,
+        borderRadius: "var(--r-xl)",
+        overflow: "hidden",
+        background: "var(--canvas-light)",
+        border: "1px solid var(--hairline-cloud)",
+        // boxShadow: isHovered ? "var(--shadow-2)" : "var(--shadow-1)",
+        // transform: isHovered ? "translateY(-4px)" : "none",
+        // transition: "box-shadow 0.3s, transform 0.3s",
+        display: "block",
+        textDecoration: "none",
+      }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div
-        className="relative w-full bg-gray-100"
-        style={{ aspectRatio: "4 / 3" }}
-      >
+      <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", background: "var(--canvas-press)" }}>
         {imageError ? (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gray-100">
-            <Award className="w-10 h-10 text-gray-300" />
-            <span className="text-gray-400 text-sm">No image</span>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+            }}
+          >
+            <Award style={{ width: 36, height: 36, color: "var(--hairline-cool)" }} />
+            <span style={{ fontSize: 12, color: "#94a3b8" }}>No image</span>
           </div>
         ) : (
           <Image
             src={credential.image}
             alt={credential.title}
             fill
-            className="object-cover transition-transform duration-500"
-            style={{ transform: isCardHovered ? "scale(1.05)" : "scale(1)" }}
+            className="object-cover"
+            // style={{ transform: isHovered ? "scale(1.05)" : "scale(1)", transition: "transform 0.5s ease" }}
             onError={() => setImageError(true)}
-            sizes="(max-width: 768px) 80vw, 320px"
+            sizes="288px"
           />
         )}
 
-        {isCardHovered && (
-          <div className="absolute inset-0 bg-[#1E3A5F]/95 transition-all duration-300 flex flex-col items-center justify-center p-6 text-center">
-            <span
-              className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold mb-3 ${
-                isCertification
-                  ? "bg-emerald-500 text-white"
-                  : "bg-amber-500 text-white"
-              }`}
-            >
-              {isCertification ? "Certification" : "Achievement"}
-            </span>
-            <h4 className="text-white font-bold text-lg mb-2 line-clamp-2">
-              {credential.title}
-            </h4>
-            <p className="text-white/80 text-sm mb-4">
-              {credential.issuer} • {year}
-            </p>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white text-[#1E3A5F] rounded-lg text-sm font-semibold hover:gap-2 transition-all">
-              View Details
-              <ExternalLink className="w-3.5 h-3.5" />
-            </span>
+        {/* Hover overlay */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "var(--canvas-dark)",
+            opacity: isHovered ? 0.90 : 0,
+            transition: "opacity 0.3s ease",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 24,
+            textAlign: "center",
+          }}
+        >
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 5,
+              padding: "3px 10px",
+              borderRadius: "var(--r-xs)",
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.06em",
+              textTransform: "uppercase" as const,
+              background: isCertification ? "rgba(74,222,128,0.2)" : "rgba(250,204,21,0.2)",
+              color: isCertification ? "#4ade80" : "#facc15",
+              border: `1px solid ${isCertification ? "rgba(74,222,128,0.3)" : "rgba(250,204,21,0.3)"}`,
+              marginBottom: 12,
+            }}
+          >
+            {isCertification ? "Certification" : "Achievement"}
+          </span>
+          <h4
+            style={{
+              fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+              fontSize: 16,
+              fontWeight: 600,
+              color: "var(--on-dark)",
+              marginBottom: 8,
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical" as const,
+              overflow: "hidden",
+            }}
+          >
+            {credential.title}
+          </h4>
+          <p style={{ fontSize: 13, color: "var(--on-dark-muted)", marginBottom: 16 }}>
+            {credential.issuer} · {year}
+          </p>
+          <div
+            style={{
+              position: "absolute",
+              top: 20,
+              right: 20,
+              width: 28,
+              height: 28,
+              borderRadius: "10%",
+              background: "var(--canvas-light)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <ExternalLink style={{ width: 16, height: 16, color: "var(--canvas-dark)" }} />
           </div>
-        )}
+        </div>
       </div>
     </Link>
   );
@@ -94,15 +149,13 @@ export default function CredentialsSlider() {
   const [isCardHovered, setIsCardHovered] = useState(false);
   const autoSlideInterval = useRef<NodeJS.Timeout | null>(null);
 
-  // Limit to top credentials for slider (misal 8 teratas)
   const sliderCredentials = credentialsData.slice(0, 11);
+  const CARD_WIDTH = 312;
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const cardWidth = 344;
-      const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
       scrollContainerRef.current.scrollBy({
-        left: scrollAmount,
+        left: direction === "left" ? -CARD_WIDTH : CARD_WIDTH,
         behavior: "smooth",
       });
     }
@@ -110,8 +163,7 @@ export default function CredentialsSlider() {
 
   const handleScroll = () => {
     if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } =
-        scrollContainerRef.current;
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
       setShowLeftArrow(scrollLeft > 0);
       setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 10);
     }
@@ -119,96 +171,168 @@ export default function CredentialsSlider() {
 
   const startAutoSlide = () => {
     if (autoSlideInterval.current) clearInterval(autoSlideInterval.current);
-
     autoSlideInterval.current = setInterval(() => {
       if (!isCardHovered && scrollContainerRef.current) {
         const el = scrollContainerRef.current;
         const { scrollLeft, scrollWidth, clientWidth } = el;
-        const cardWidth = 344;
         const originalWidth = scrollWidth / 2;
-
         if (scrollLeft + clientWidth >= scrollWidth - 100) {
           el.style.scrollBehavior = "auto";
           el.scrollLeft = scrollLeft - originalWidth;
           el.style.scrollBehavior = "smooth";
         } else {
-          el.scrollBy({ left: cardWidth, behavior: "smooth" });
+          el.scrollBy({ left: CARD_WIDTH, behavior: "smooth" });
         }
       }
-    }, 1500);
+    }, 1800);
   };
 
   const stopAutoSlide = () => {
-    if (autoSlideInterval.current) {
-      clearInterval(autoSlideInterval.current);
-      autoSlideInterval.current = null;
-    }
+    if (autoSlideInterval.current) { clearInterval(autoSlideInterval.current); autoSlideInterval.current = null; }
   };
 
-  useEffect(() => {
-    startAutoSlide();
-    return () => stopAutoSlide();
-  }, []);
-
-  useEffect(() => {
-    if (!isCardHovered) {
-      startAutoSlide();
-    } else {
-      stopAutoSlide();
-    }
-  }, [isCardHovered]);
+  useEffect(() => { startAutoSlide(); return () => stopAutoSlide(); }, []);
+  useEffect(() => { if (!isCardHovered) startAutoSlide(); else stopAutoSlide(); }, [isCardHovered]);
 
   return (
-    <section className="py-20 md:py-28 bg-gray-50 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 bg-[#1E3A5F]/[0.01] pointer-events-none" />
-      <div className="absolute -top-40 left-40 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-40 right-40 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl pointer-events-none" />
+    <section
+      style={{
+        padding: "96px 24px",
+        background: "var(--canvas-light)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 1,
+          background: "var(--hairline-cloud)",
+        }}
+      />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E3A5F]/10 text-[#1E3A5F] text-sm font-semibold mb-4">
-            <Award className="w-4 h-4" />
-            <span>Credentials & Achievements</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Certifications & Awards
+      <div style={{ maxWidth: 1152, margin: "0 auto" }}>
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: 30 }}>
+          <span
+            className="eyebrow-pill"
+            style={{
+              background: "rgba(12,31,63,0.07)",
+              color: "var(--canvas-dark)",
+              marginBottom: 5,
+              display: "inline-flex",
+            }}
+          >
+            <Award style={{ width: 12, height: 12 }} />
+            Credentials
+          </span>
+          <h2
+            style={{
+              fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+              fontSize: "clamp(24px, 3vw, 32px)",
+              fontWeight: 600,
+              color: "var(--ink)",
+              margin: "0 0 8px",
+            }}
+          >
+            - Certifications & Awards -
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          {/* <p
+            style={{
+              color: "#64748b",
+              maxWidth: 480,
+              margin: "16px auto 0",
+              fontSize: 15,
+              lineHeight: 1.7,
+            }}
+          >
             Professional certifications, awards, and competition achievements
             that validate my skills and dedication.
-          </p>
+          </p> */}
         </div>
 
-        {/* Slider Container */}
-        <div className="relative group">
-          {/* Left Arrow */}
+        {/* Slider */}
+        <div style={{ position: "relative" }}>
+          {/* Left arrow */}
           <button
             onClick={() => scroll("left")}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white rounded-full p-2 shadow-lg border border-gray-200 text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white transition-all duration-300 -translate-x-1/2 ${
-              showLeftArrow ? "opacity-100 visible" : "opacity-0 invisible"
-            }`}
+            id="cred-scroll-left"
+            aria-label="Scroll left"
+            style={{
+              position: "absolute",
+              left: -20,
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 20,
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              background: "var(--canvas-light)",
+              border: "1px solid var(--hairline-cloud)",
+              boxShadow: "var(--shadow-1)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              color: "var(--canvas-dark)",
+              opacity: showLeftArrow ? 1 : 0,
+              visibility: showLeftArrow ? "visible" : "hidden",
+              transition: "opacity 0.2s, background 0.2s",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--canvas-dark)"; (e.currentTarget as HTMLElement).style.color = "#fff"; (e.currentTarget as HTMLElement).style.borderColor = "var(--canvas-dark)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--canvas-light)"; (e.currentTarget as HTMLElement).style.color = "var(--canvas-dark)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--hairline-cloud)"; }}
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft style={{ width: 18, height: 18 }} />
           </button>
 
-          {/* Right Arrow */}
+          {/* Right arrow */}
           <button
             onClick={() => scroll("right")}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white rounded-full p-2 shadow-lg border border-gray-200 text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white transition-all duration-300 translate-x-1/2 ${
-              showRightArrow ? "opacity-100 visible" : "opacity-0 invisible"
-            }`}
+            id="cred-scroll-right"
+            aria-label="Scroll right"
+            style={{
+              position: "absolute",
+              right: -20,
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 20,
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              background: "var(--canvas-light)",
+              border: "1px solid var(--hairline-cloud)",
+              boxShadow: "var(--shadow-1)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              color: "var(--canvas-dark)",
+              opacity: showRightArrow ? 1 : 0,
+              visibility: showRightArrow ? "visible" : "hidden",
+              transition: "opacity 0.2s, background 0.2s",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--canvas-dark)"; (e.currentTarget as HTMLElement).style.color = "#fff"; (e.currentTarget as HTMLElement).style.borderColor = "var(--canvas-dark)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--canvas-light)"; (e.currentTarget as HTMLElement).style.color = "var(--canvas-dark)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--hairline-cloud)"; }}
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight style={{ width: 18, height: 18 }} />
           </button>
 
-          {/* Horizontal Scroll Container */}
+          {/* Scroll container */}
           <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
-            className="flex overflow-x-auto gap-6 pb-4 scroll-smooth hide-scrollbar"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            className="hide-scrollbar"
+            style={{
+              display: "flex",
+              gap: 20,
+              overflowX: "auto",
+              paddingBottom: 4,
+              scrollBehavior: "smooth",
+            }}
           >
             {[...sliderCredentials, ...sliderCredentials].map((cred, idx) => (
               <CredentialCard
@@ -220,27 +344,30 @@ export default function CredentialsSlider() {
           </div>
         </div>
 
-        {/* View All Link */}
-        <div className="text-center mt-8">
+        {/* View All */}
+        <div style={{ textAlign: "center", marginTop: 32 }}>
           <Link
             href="/credentials"
-            className="group inline-flex items-center gap-2 text-[#1E3A5F] font-semibold hover:gap-3 transition-all"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              fontSize: 13,
+              fontWeight: 700,
+              letterSpacing: "0.05em",
+              textTransform: "uppercase" as const,
+              color: "var(--canvas-dark)",
+              textDecoration: "none",
+              borderBottom: "2px solid var(--canvas-dark)",
+              paddingBottom: 2,
+              transition: "gap 0.2s",
+            }}
           >
             View All Certifications & Achievements
-            <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ExternalLink style={{ width: 13, height: 13 }} />
           </Link>
         </div>
       </div>
-
-      <style jsx>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </section>
   );
 }

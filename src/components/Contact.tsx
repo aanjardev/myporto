@@ -5,70 +5,155 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function ContactCTA() {
   return (
-    <section className="py-20 md:py-28 bg-[#1E3A5F] relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 bg-[#0F2A40] pointer-events-none" />
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+    <section
+      style={{
+        background: "var(--canvas-dark)",
+        padding: "96px 24px",
+        position: "relative",
+        overflow: "hidden",
+        textAlign: "center",
+      }}
+    >
+      {/* Grid texture */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)",
+          backgroundSize: "32px 32px",
+          pointerEvents: "none",
+        }}
+      />
+      {/* Glow orb */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: 600,
+          height: 400,
+          background: "radial-gradient(ellipse, rgba(45,90,142,0.3) 0%, transparent 65%)",
+          borderRadius: "50%",
+          pointerEvents: "none",
+        }}
+      />
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/90 text-sm font-semibold mb-6">
-          <MessageCircle className="w-4 h-4" />
-          <span>Get in Touch</span>
-        </div>
+      <div style={{ maxWidth: 720, margin: "0 auto", position: "relative", zIndex: 10 }}>
+        {/* Eyebrow */}
+        {/* <span
+          className="eyebrow-pill"
+          style={{
+            background: "var(--on-dark-faint)",
+            color: "var(--on-dark-muted)",
+            border: "1px solid rgba(255,255,255,0.10)",
+            marginBottom: 24,
+            display: "inline-flex",
+          }}
+        >
+          <MessageCircle style={{ width: 12, height: 12 }} />
+          Get in Touch
+        </span> */}
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-          Let's Work Together
+        <h2
+          style={{
+            fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+            fontSize: "clamp(28px, 5vw, 52px)",
+            fontWeight: 700,
+            color: "var(--on-dark)",
+            margin: "0 0 16px",
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Let&apos;s Work Together
         </h2>
 
-        {/* Description */}
-        <p className="text-white/70 text-lg max-w-2xl mx-auto mb-8">
-          Have a project in mind? Looking for a freelance web developer? I'm
+        {/* Body */}
+        <p
+          className="text-body-lg"
+          style={{
+            color: "var(--on-dark-muted)",
+            maxWidth: 480,
+            margin: "0 auto 36px",
+          }}
+        >
+          Have a project in mind? Looking for a freelance web developer? I&apos;m
           just a message away.
         </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Link
-            href="/contact"
-            className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-[#1E3A5F] font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-xl hover:-translate-y-0.5"
-          >
+        {/* Buttons */}
+        {/* <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 12,
+            justifyContent: "center",
+            marginBottom: 40,
+          }}
+        >
+          <Link href="/contact" className="btn-inverted" style={{ textDecoration: "none" }}>
             Contact Me
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight style={{ width: 16, height: 16 }} />
           </Link>
-          {/* <Link
+          <Link
             href="mailto:aanjardev@gmail.com"
-            className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-all duration-300 hover:-translate-y-0.5"
+            className="btn-ghost-dark"
+            style={{ textDecoration: "none" }}
           >
-            <Mail className="w-4 h-4" />
-            aanjardev@gmail.com
-          </Link> */}
-        </div>
+            <Mail style={{ width: 16, height: 16 }} />
+            Email Directly
+          </Link>
+        </div> */}
 
-        {/* Social Links */}
-        <div className="flex items-center justify-center gap-6">
-          <Link
-            href="https://github.com/aanjardev"
-            target="_blank"
-            className="text-white/60 hover:text-white transition-colors"
-          >
-            <FaGithub className="w-5 h-5" />
-          </Link>
-          <Link
-            href="https://linkedin.com/in/aan-anjar"
-            target="_blank"
-            className="text-white/60 hover:text-white transition-colors"
-          >
-            <FaLinkedin className="w-5 h-5" />
-          </Link>
-          <Link
-            href="mailto:aanjardev@gmail.com"
-            className="text-white/60 hover:text-white transition-colors"
-          >
-            <Mail className="w-5 h-5" />
-          </Link>
+        {/* Social */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 20,
+          }}
+        >
+          {[
+            { href: "https://github.com/aanjardev", icon: <FaGithub style={{ width: 18, height: 18 }} />, label: "GitHub" },
+            { href: "https://linkedin.com/in/aan-anjar", icon: <FaLinkedin style={{ width: 18, height: 18 }} />, label: "LinkedIn" },
+            { href: "mailto:aanjardev@gmail.com", icon: <Mail style={{ width: 18, height: 18 }} />, label: "Email" },
+          ].map((social) => (
+            <Link
+              key={social.label}
+              href={social.href}
+              target={social.href.startsWith("http") ? "_blank" : undefined}
+              aria-label={social.label}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 42,
+                height: 42,
+                borderRadius: "50%",
+                background: "var(--on-dark-faint)",
+                border: "1px solid rgba(255,255,255,0.10)",
+                color: "var(--on-dark-muted)",
+                transition: "background 0.2s, color 0.2s",
+                textDecoration: "none",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "var(--canvas-light)";
+                (e.currentTarget as HTMLElement).style.color = "var(--canvas-dark)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "var(--on-dark-faint)";
+                (e.currentTarget as HTMLElement).style.color = "var(--on-dark-muted)";
+              }}
+            >
+              {social.icon}
+            </Link>
+          ))}
         </div>
       </div>
     </section>

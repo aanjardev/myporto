@@ -94,25 +94,63 @@ export default function ProjectsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-[#1E3A5F] text-white py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/90 text-sm font-semibold mb-4">
-            <Award className="w-4 h-4" />
-            <span>My Portfolio</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">All Projects</h1>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">
+    <main style={{ minHeight: "100vh", background: "var(--canvas-press)" }}>
+      {/* Hero Banner */}
+      {/* <section
+        style={{
+          background: "var(--canvas-dark)",
+          padding: "72px 24px 80px",
+          position: "relative",
+          overflow: "hidden",
+          textAlign: "center",
+        }}
+      >
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)",
+            backgroundSize: "32px 32px",
+            pointerEvents: "none",
+          }}
+        />
+        <div style={{ maxWidth: 720, margin: "0 auto", position: "relative", zIndex: 10 }}>
+          <span
+            className="eyebrow-pill"
+            style={{
+              background: "var(--on-dark-faint)",
+              color: "var(--on-dark-muted)",
+              border: "1px solid rgba(255,255,255,0.10)",
+              marginBottom: 20,
+              display: "inline-flex",
+            }}
+          >
+            <Award style={{ width: 12, height: 12 }} />
+            My Portfolio
+          </span>
+          <h1
+            style={{
+              fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+              fontSize: "clamp(32px, 6vw, 52px)",
+              fontWeight: 700,
+              color: "var(--on-dark)",
+              margin: "0 0 12px",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            All Projects
+          </h1>
+          <p className="text-body-lg" style={{ color: "var(--on-dark-muted)", maxWidth: 520, margin: "0 auto" }}>
             Explore my complete portfolio — from professional client work and
             experimental side projects to social impact initiatives.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* Search & Filter Section */}
-      <section className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <section style={{ position: "sticky", top: 64, zIndex: 20, background: "rgba(255,255,255,0.97)", backdropFilter: "blur(8px)", borderBottom: "1px solid var(--hairline-cloud)", boxShadow: "0 1px 8px rgba(0,0,0,0.06)" }}>
+        <div className="px-6 lg:px-0 py-4" style={{ maxWidth: 1152, margin: "0 auto" }}>
           <div className="flex flex-col md:flex-row gap-4">
             {/* Search Bar */}
             <div className="flex-1 relative">
@@ -122,7 +160,7 @@ export default function ProjectsPage() {
                 placeholder="Search projects by name or technology..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 bg-gray-100 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#1E3A5F] focus:bg-white focus:border-transparent outline-none transition-all"
+                style={{ width: "100%", padding: "10px 16px 10px 44px", background: "var(--canvas-press)", border: "1px solid var(--hairline-cloud)", borderRadius: "var(--r-md)", fontSize: 14, fontFamily: "var(--font-body)", outline: "none", transition: "border-color 0.2s, box-shadow 0.2s" }}
               />
               {searchQuery && (
                 <button
@@ -138,63 +176,64 @@ export default function ProjectsPage() {
             <div className="flex flex-wrap gap-2 items-center">
               <button
                 onClick={() => setSelectedType("all")}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  selectedType === "all"
-                    ? "bg-[#1E3A5F] text-white shadow-md"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
+                style={{
+                  padding: "6px 16px",
+                  borderRadius: "var(--r-full)",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  border: "none",
+                  cursor: "pointer",
+                  background: selectedType === "all" ? "var(--canvas-dark)" : "var(--canvas-press)",
+                  color: selectedType === "all" ? "#fff" : "#475569",
+                  transition: "background 0.18s, color 0.18s",
+                }}
               >
                 All
               </button>
-              <button
-                onClick={() => setSelectedType("freelance")}
-                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  selectedType === "freelance"
-                    ? "bg-[#1E3A5F] text-white shadow-md"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
-              >
-                <Briefcase className="w-3.5 h-3.5" />
-                Client
-              </button>
-              <button
-                onClick={() => setSelectedType("side")}
-                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  selectedType === "side"
-                    ? "bg-[#1E3A5F] text-white shadow-md"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
-              >
-                <Gamepad2 className="w-3.5 h-3.5" />
-                For Fun
-              </button>
-              <button
-                onClick={() => setSelectedType("social")}
-                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  selectedType === "social"
-                    ? "bg-[#1E3A5F] text-white shadow-md"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
-              >
-                <Heart className="w-3.5 h-3.5" />
-                Social
-              </button>
+              {(["freelance", "side", "social"] as const).map((type) => (
+                <button
+                  key={type}
+                  onClick={() => setSelectedType(type)}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 5,
+                    padding: "6px 14px",
+                    borderRadius: "var(--r-full)",
+                    fontSize: 13,
+                    fontWeight: 600,
+                    border: "none",
+                    cursor: "pointer",
+                    background: selectedType === type ? "var(--canvas-dark)" : "var(--canvas-press)",
+                    color: selectedType === type ? "#fff" : "#475569",
+                    transition: "background 0.18s, color 0.18s",
+                  }}
+                >
+                  {getTypeIcon(type)}
+                  {type === "freelance" ? "Client" : type === "side" ? "For Fun" : "Social"}
+                </button>
+              ))}
 
-              {/* Stack Filter Toggle Button */}
               <button
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
-                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  selectedStacks.length > 0
-                    ? "bg-[#1E3A5F] text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 5,
+                  padding: "6px 14px",
+                  borderRadius: "var(--r-full)",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  border: "none",
+                  cursor: "pointer",
+                  background: selectedStacks.length > 0 ? "var(--canvas-dark)" : "var(--canvas-press)",
+                  color: selectedStacks.length > 0 ? "#fff" : "#475569",
+                }}
               >
-                <span>Stack</span>
-                <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform ${isFilterOpen ? "rotate-180" : ""}`}
-                />
+                Stack
+                <ChevronDown style={{ width: 13, height: 13, transform: isFilterOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
                 {selectedStacks.length > 0 && (
-                  <span className="ml-1 bg-white/20 px-1.5 py-0.5 rounded-full text-xs">
+                  <span style={{ marginLeft: 2, background: "rgba(255,255,255,0.25)", padding: "1px 6px", borderRadius: 999, fontSize: 11 }}>
                     {selectedStacks.length}
                   </span>
                 )}
@@ -202,19 +241,23 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          {/* Stack Filter Dropdown */}
           {isFilterOpen && (
-            <div className="mt-4 pt-4 border-t border-gray-100">
-              <div className="flex flex-wrap gap-2">
+            <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid var(--hairline-cloud)" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                 {allStacks.map((stack) => (
                   <button
                     key={stack}
                     onClick={() => handleStackToggle(stack)}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                      selectedStacks.includes(stack)
-                        ? "bg-[#1E3A5F] text-white"
-                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                    }`}
+                    style={{
+                      padding: "4px 12px",
+                      borderRadius: "var(--r-xs)",
+                      fontSize: 12,
+                      fontWeight: 600,
+                      border: "1px solid var(--hairline-cloud)",
+                      cursor: "pointer",
+                      background: selectedStacks.includes(stack) ? "var(--canvas-dark)" : "var(--canvas-light)",
+                      color: selectedStacks.includes(stack) ? "#fff" : "#475569",
+                    }}
                   >
                     {stack}
                   </button>
@@ -226,8 +269,8 @@ export default function ProjectsPage() {
       </section>
 
       {/* Results Section */}
-      <section className="py-8 md:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="px-6 lg:px-0" style={{ padding: "40px 0 80px" }}>
+        <div style={{ maxWidth: 1152, margin: "0 auto" }}>
           {/* Results Header */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
             <p className="text-gray-500 text-sm">

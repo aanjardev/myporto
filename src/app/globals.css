@@ -2,27 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+/* ─── Design Tokens (DESIGN.md — Navy adaptation) ────────── */
+:root {
+  /* Canvas / Surface */
+  --canvas-dark:   #0c1f3f;   /* surface-canvas-dark (navy) */
+  --canvas-night:  #08172e;   /* surface-night / primary (deep navy) */
+  --canvas-light:  #ffffff;   /* surface-canvas-light */
+  --canvas-press:  #f0f2f5;   /* surface-press-light */
+  --canvas-press-strong: #efefef;
+
+  /* Ink / Text */
+  --ink:           #0c1f3f;   /* ink (body text on light) */
+  --ink-deep:      #08172e;   /* ink-deep */
+  --ink-press:     #1a1a1a;
+  --on-dark:       #ffffff;   /* on-primary */
+  --on-dark-muted: rgba(255,255,255,0.70);
+  --on-dark-faint: rgba(255,255,255,0.12);
+
+  /* Hairlines / Borders */
+  --hairline-navy:  #1e3a5f;  /* hairline-violet adapted */
+  --hairline-cool:  #cbd5e1;
+  --hairline-cloud: #e5e7eb;
+
+  /* Accent */
+  --accent-navy-mid: #2d5a8e; /* mid-accent for tags/chips */
+  --ring-focus:     rgba(59,130,246,0.5);
+
+  /* Typography — Rubik body, Space Grotesk display */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Rubik', -apple-system, system-ui, sans-serif;
+  --font-mono:    'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+
+  /* Radii */
+  --r-xs:  4px;
+  --r-sm:  6px;
+  --r-md:  8px;
+  --r-lg:  10px;
+  --r-xl:  12px;
+  --r-xxl: 18px;
+  --r-full: 9999px;
+
+  /* Shadows */
+  --shadow-1: rgba(0,0,0,0.08) 0 2px 8px 0;
+  --shadow-2: rgba(0,0,0,0.10) 0 10px 15px -3px, rgba(0,0,0,0.10) 0 4px 6px -4px;
+}
+
+/* ─── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
   height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #ffffff;
-  color: #1f2937;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--canvas-light);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 a {
@@ -35,37 +80,266 @@ img {
   height: auto;
 }
 
-/* Custom animations */
+/* ─── Typography Utilities (DESIGN.md tokens) ─────────────── */
+.text-display-hero {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 88px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-display-large {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.text-heading-xl {
+  font-family: var(--font-body);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.text-heading-md {
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.text-heading-sm {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.text-eyebrow {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.text-button {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.text-body-lg {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 2.0;
+}
+
+.text-body-md {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.text-caption {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+}
+
+/* ─── Button Variants (DESIGN.md) ────────────────────────── */
+.btn-primary {
+  background-color: var(--canvas-dark);
+  color: var(--on-dark);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: var(--r-md);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+  background-color: var(--canvas-night);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-2);
+}
+
+.btn-inverted {
+  background-color: var(--canvas-light);
+  color: var(--ink-deep);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: var(--r-md);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-1);
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-inverted:hover {
+  background-color: var(--canvas-press);
+  transform: translateY(-1px);
+}
+
+.btn-ghost-dark {
+  background-color: var(--on-dark-faint);
+  color: var(--on-dark);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-ghost-dark:hover {
+  background-color: rgba(255,255,255,0.18);
+  transform: translateY(-1px);
+}
+
+/* ─── Pill / Badge (DESIGN.md) ───────────────────────────── */
+.pill-dark {
+  background-color: var(--canvas-night);
+  color: var(--on-dark);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: var(--r-xs);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: var(--r-full);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ─── Card (DESIGN.md) ────────────────────────────────────── */
+.card-light {
+  background-color: var(--canvas-light);
+  border: 1px solid var(--hairline-cloud);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-1);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.card-light:hover {
+  box-shadow: var(--shadow-2);
+  transform: translateY(-2px);
+}
+
+.card-dark {
+  background-color: var(--canvas-night);
+  border: 1px solid var(--hairline-navy);
+  border-radius: var(--r-xl);
+}
+
+/* ─── Animations ──────────────────────────────────────────── */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+  animation: fadeInUp 0.6s ease-out both;
 }
 
-/* Scrollbar styling */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out both;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--canvas-press);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 5px;
+  background: var(--hairline-cool);
+  border-radius: var(--r-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hairline-navy);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+/* ─── Marquee ─────────────────────────────────────────────── */
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+.marquee-track {
+  display: flex;
+  width: fit-content;
+  animation: marquee 35s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Hide scrollbar utility ──────────────────────────────── */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Section divider ─────────────────────────────────────── */
+.section-divider {
+  width: 48px;
+  height: 3px;
+  background-color: var(--canvas-dark);
+  border-radius: var(--r-full);
+  margin: 12px auto 0;
 }

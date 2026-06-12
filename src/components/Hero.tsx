@@ -305,9 +305,9 @@ const Hero = () => {
           >
             {/* Frame */}
             <div
+              className="hero-photo-wrapper"
               style={{
                 position: "relative",
-                width: "min(440px, 90vw)",
               }}
             >
               {/* Decorative back layers */}
@@ -315,10 +315,10 @@ const Hero = () => {
                 aria-hidden
                 style={{
                   position: "absolute",
-                  top: -12,
-                  left: -12,
-                  right: 12,
-                  bottom: 12,
+                  top: -20,
+                  left: -20,
+                  right: 20,
+                  bottom: 20,
                   border: "1px solid rgba(255,255,255,0.32)",
                   borderRadius: "var(--r-xxl)",
                   pointerEvents: "none",
@@ -328,10 +328,10 @@ const Hero = () => {
                 aria-hidden
                 style={{
                   position: "absolute",
-                  top: -6,
-                  left: -6,
-                  right: 6,
-                  bottom: 6,
+                  top: -10,
+                  left: -10,
+                  right: 10,
+                  bottom: 10,
                   border: "1px solid rgba(255, 255, 255, 0.32)",
                   borderRadius: "var(--r-xxl)",
                   pointerEvents: "none",
@@ -340,10 +340,10 @@ const Hero = () => {
 
               {/* Photo container */}
               <div
+                className="hero-photo-container"
                 style={{
                   position: "relative",
                   width: "100%",
-                  height: 560,
                   borderRadius: "var(--r-xxl)",
                   overflow: "hidden",
                   border: "1px solid rgba(255,255,255,0.12)",
@@ -432,6 +432,12 @@ const Hero = () => {
       </div>
 
       <style jsx>{`
+        .hero-photo-wrapper {
+          width: min(440px, 90vw);
+        }
+        .hero-photo-container {
+          height: 560px;
+        }
         @keyframes pulse {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.4; }
@@ -444,6 +450,12 @@ const Hero = () => {
         @media (max-width: 767px) {
           .hero-photo-col {
             order: -1;
+          }
+          .hero-photo-wrapper {
+            width: min(300px, 80vw);
+          }
+          .hero-photo-container {
+            height: 380px;
           }
         }
       `}</style>

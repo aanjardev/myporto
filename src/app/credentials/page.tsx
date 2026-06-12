@@ -225,7 +225,7 @@ export default function CredentialsPage() {
       </section>
 
       {/* Results Section */}
-      <section className="px-6 lg:px-0" style={{ padding: "40px 0 80px" }}>
+      <section style={{ padding: "40px 24px 80px" }}>
         <div style={{ maxWidth: 1152, margin: "0 auto" }}>
           {/* Results Header */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">

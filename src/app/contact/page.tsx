@@ -26,7 +26,7 @@ export default function ContactPage() {
           }}
         />
         <div style={{ maxWidth: 720, margin: "0 auto", position: "relative", zIndex: 10 }}>
-          <span
+          {/* <span
             className="eyebrow-pill"
             style={{
               background: "var(--on-dark-faint)",
@@ -38,7 +38,7 @@ export default function ContactPage() {
           >
             <MessageCircle style={{ width: 12, height: 12 }} />
             Get in Touch
-          </span>
+          </span> */}
           <h1
             style={{
               fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",

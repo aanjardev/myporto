@@ -17,67 +17,89 @@ interface ProjectCardProps {
   project: Project;
 }
 
+const getTypeIcon = (type: string) => {
+  switch (type) {
+    case "freelance": return <Briefcase style={{ width: 11, height: 11 }} />;
+    case "side":      return <Gamepad2 style={{ width: 11, height: 11 }} />;
+    case "social":    return <Heart style={{ width: 11, height: 11 }} />;
+    default:          return <Briefcase style={{ width: 11, height: 11 }} />;
+  }
+};
+
+const getTypeLabel = (type: string) => {
+  switch (type) {
+    case "freelance": return "Client Project";
+    case "side":      return "Side Project";
+    case "social":    return "Social Impact";
+    default:          return "Project";
+  }
+};
+
+const getTypeColor = (type: string): { bg: string; text: string; border: string } => {
+  switch (type) {
+    case "freelance": return { bg: "rgba(12,31,63,0.85)", text: "#fff",     border: "rgba(255,255,255,0.15)" };
+    case "side":      return { bg: "rgba(8,23,46,0.85)",  text: "#94d4ff",  border: "rgba(148,212,255,0.2)" };
+    case "social":    return { bg: "rgba(45,90,142,0.85)",text: "#fff",     border: "rgba(255,255,255,0.15)" };
+    default:          return { bg: "rgba(12,31,63,0.85)", text: "#fff",     border: "rgba(255,255,255,0.15)" };
+  }
+};
+
 export default function ProjectCard({ project }: ProjectCardProps) {
   const router = useRouter();
   const [imageError, setImageError] = useState(false);
-
-  // Helper untuk mendapatkan icon berdasarkan type
-  const getTypeIcon = () => {
-    switch (project.type) {
-      case "freelance":
-        return <Briefcase className="w-3 h-3" />;
-      case "side":
-        return <Gamepad2 className="w-3 h-3" />;
-      case "social":
-        return <Heart className="w-3 h-3" />;
-      default:
-        return <Briefcase className="w-3 h-3" />;
-    }
-  };
-
-  const getTypeLabel = () => {
-    switch (project.type) {
-      case "freelance":
-        return "Client Project";
-      case "side":
-        return "Side Project";
-      case "social":
-        return "Social Impact";
-      default:
-        return "Project";
-    }
-  };
-
-  const getTypeColor = () => {
-    switch (project.type) {
-      case "freelance":
-        return "bg-blue-900/80 text-blue-100 border border-blue-700";
-      case "side":
-        return "bg-emerald-900/80 text-emerald-100 border border-emerald-700";
-      case "social":
-        return "bg-purple-900/80 text-purple-100 border border-purple-700";
-      default:
-        return "bg-gray-900/80 text-gray-100 border border-gray-700";
-    }
-  };
-
-  const handleCardClick = () => {
-    router.push(`/projects/${project.slug}`);
-  };
+  const typeColor = getTypeColor(project.type);
 
   return (
     <div
-      onClick={handleCardClick}
-      className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 block cursor-pointer"
+      onClick={() => router.push(`/projects/${project.slug}`)}
+      className="card-light"
+      style={{
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        cursor: "pointer",
+        height: "100%",
+      }}
     >
       {/* Image Container */}
-      <div className="relative h-52 overflow-hidden bg-gray-100">
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: 208,
+          background: "var(--canvas-press)",
+          overflow: "hidden",
+          flexShrink: 0,
+        }}
+      >
         {imageError ? (
-          <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-gray-100">
-            <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
-              <span className="text-2xl text-gray-400">📷</span>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              background: "var(--canvas-press)",
+            }}
+          >
+            <div
+              style={{
+                width: 40,
+                height: 40,
+                background: "var(--hairline-cloud)",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 18,
+              }}
+            >
+              📷
             </div>
-            <span className="text-gray-400 text-sm">No image</span>
+            <span style={{ color: "#94a3b8", fontSize: 12 }}>No image</span>
           </div>
         ) : (
           <>
@@ -85,37 +107,71 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               src={project.image}
               alt={project.title}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              className="object-cover"
+              style={{ transition: "transform 0.5s ease" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.05)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
               onError={() => setImageError(true)}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 50%)",
+                pointerEvents: "none",
+              }}
+            />
           </>
         )}
 
         {/* Type Badge */}
-        <div className="absolute top-4 left-4">
+        <div style={{ position: "absolute", top: 12, left: 12 }}>
           <span
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${getTypeColor()}`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 5,
+              padding: "4px 10px",
+              borderRadius: "var(--r-xs)",
+              fontSize: 11,
+              fontWeight: 600,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
+              background: typeColor.bg,
+              color: typeColor.text,
+              border: `1px solid ${typeColor.border}`,
+              backdropFilter: "blur(4px)",
+            }}
           >
-            {getTypeIcon()}
-            {getTypeLabel()}
+            {getTypeIcon(project.type)}
+            {getTypeLabel(project.type)}
           </span>
         </div>
 
         {/* Action Icons - Top Right */}
-        <div className="absolute top-4 right-4 flex gap-2">
+        <div style={{ position: "absolute", top: 12, right: 12, display: "flex", gap: 6 }}>
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-white/90 backdrop-blur-sm rounded-lg text-gray-600 hover:text-[#1E3A5F] hover:bg-white transition-all z-10 relative"
               title="Live Demo"
               onClick={(e) => e.stopPropagation()}
+              style={{
+                width: 32,
+                height: 32,
+                background: "rgba(255,255,255,0.9)",
+                backdropFilter: "blur(4px)",
+                borderRadius: "var(--r-md)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "var(--canvas-dark)",
+                transition: "background 0.2s",
+              }}
             >
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink style={{ width: 14, height: 14 }} />
             </a>
           )}
           {project.githubUrl && (
@@ -123,69 +179,143 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-white/90 backdrop-blur-sm rounded-lg text-gray-600 hover:text-gray-900 hover:bg-white transition-all z-10 relative"
               title="Source Code"
               onClick={(e) => e.stopPropagation()}
+              style={{
+                width: 32,
+                height: 32,
+                background: "rgba(255,255,255,0.9)",
+                backdropFilter: "blur(4px)",
+                borderRadius: "var(--r-md)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#1a1a1a",
+                transition: "background 0.2s",
+              }}
             >
-              <SiGithub className="w-4 h-4" />
+              <SiGithub style={{ width: 14, height: 14 }} />
             </a>
           )}
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div style={{ padding: "20px 22px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
         {/* Client Name */}
         {project.client && (
-          <p className="text-xs text-gray-400 mb-1">{project.client}</p>
+          <p style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>{project.client}</p>
         )}
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#1E3A5F] transition-colors line-clamp-1">
+        <h3
+          style={{
+            fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+            fontSize: 17,
+            fontWeight: 600,
+            color: "var(--ink)",
+            margin: "0 0 8px",
+            display: "-webkit-box",
+            WebkitLineClamp: 1,
+            WebkitBoxOrient: "vertical" as const,
+            overflow: "hidden",
+          }}
+        >
           {project.title}
         </h3>
 
         {/* My Role & Team Size */}
-        <div className="flex items-center gap-3 mb-3">
-          {project.myRole && (
-            <p className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-md">
-              {project.myRole}
-            </p>
-          )}
-          {project.teamSize && (
-            <div className="flex items-center gap-1 text-xs text-gray-400">
-              <Users className="w-3 h-3" />
-              <span>{project.teamSize}</span>
-            </div>
-          )}
-        </div>
+        {(project.myRole || project.teamSize) && (
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+            {project.myRole && (
+              <p
+                style={{
+                  fontSize: 11,
+                  color: "#64748b",
+                  background: "var(--canvas-press)",
+                  padding: "2px 8px",
+                  borderRadius: "var(--r-xs)",
+                  border: "1px solid var(--hairline-cloud)",
+                }}
+              >
+                {project.myRole}
+              </p>
+            )}
+            {project.teamSize && (
+              <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: "#94a3b8" }}>
+                <Users style={{ width: 11, height: 11 }} />
+                <span>{project.teamSize}</span>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Description */}
-        <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">
+        <p
+          style={{
+            color: "#64748b",
+            fontSize: 14,
+            lineHeight: 1.65,
+            marginBottom: 14,
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical" as const,
+            overflow: "hidden",
+            flexGrow: 1,
+          }}
+        >
           {project.description}
         </p>
 
         {/* Tech Stack Tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
           {project.tech.slice(0, 3).map((tech) => (
             <span
               key={tech}
-              className="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-md font-medium"
+              style={{
+                padding: "3px 10px",
+                borderRadius: "var(--r-xs)",
+                background: "var(--canvas-press)",
+                color: "var(--canvas-dark)",
+                fontSize: 11,
+                fontWeight: 600,
+                border: "1px solid var(--hairline-cloud)",
+              }}
             >
               {tech}
             </span>
           ))}
           {project.tech.length > 3 && (
-            <span className="px-2 py-1 bg-gray-100 text-gray-400 text-xs rounded-md">
+            <span
+              style={{
+                padding: "3px 10px",
+                borderRadius: "var(--r-xs)",
+                background: "var(--canvas-press)",
+                color: "#94a3b8",
+                fontSize: 11,
+                border: "1px solid var(--hairline-cloud)",
+              }}
+            >
               +{project.tech.length - 3}
             </span>
           )}
         </div>
 
-        {/* View Details Indicator */}
-        <div className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1E3A5F] group-hover:gap-2 transition-all">
+        {/* View Details */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: "0.04em",
+            textTransform: "uppercase" as const,
+            color: "var(--canvas-dark)",
+          }}
+        >
           View Details
-          <ArrowRight className="w-4 h-4" />
+          <ArrowRight style={{ width: 14, height: 14 }} />
         </div>
       </div>
     </div>

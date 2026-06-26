@@ -20,39 +20,25 @@ interface CredentialCardProps {
 
 const getTypeIcon = (type: Credential["type"]) => {
   switch (type) {
-    case "certification":
-      return <Award className="w-3.5 h-3.5" />;
-    case "award":
-      return <Trophy className="w-3.5 h-3.5" />;
-    case "achievement":
-      return <Target className="w-3.5 h-3.5" />;
-    case "competition":
-      return <Trophy className="w-3.5 h-3.5" />;
-    case "course":
-      return <BookOpen className="w-3.5 h-3.5" />;
-    case "license":
-      return <FileText className="w-3.5 h-3.5" />;
-    default:
-      return <Award className="w-3.5 h-3.5" />;
+    case "certification": return <Award style={{ width: 11, height: 11 }} />;
+    case "award":         return <Trophy style={{ width: 11, height: 11 }} />;
+    case "achievement":   return <Target style={{ width: 11, height: 11 }} />;
+    case "competition":   return <Trophy style={{ width: 11, height: 11 }} />;
+    case "course":        return <BookOpen style={{ width: 11, height: 11 }} />;
+    case "license":       return <FileText style={{ width: 11, height: 11 }} />;
+    default:              return <Award style={{ width: 11, height: 11 }} />;
   }
 };
 
-const getTypeColor = (type: Credential["type"]) => {
+const getTypeColor = (type: Credential["type"]): { bg: string; text: string; border: string } => {
   switch (type) {
-    case "certification":
-      return "bg-blue-900/80 text-blue-100 border border-blue-700";
-    case "award":
-      return "bg-amber-900/80 text-amber-100 border border-amber-700";
-    case "achievement":
-      return "bg-emerald-900/80 text-emerald-100 border border-emerald-700";
-    case "competition":
-      return "bg-purple-900/80 text-purple-100 border border-purple-700";
-    case "course":
-      return "bg-indigo-900/80 text-indigo-100 border border-indigo-700";
-    case "license":
-      return "bg-gray-900/80 text-gray-100 border border-gray-700";
-    default:
-      return "bg-gray-900/80 text-gray-100 border border-gray-700";
+    case "certification": return { bg: "rgba(12,31,63,0.85)",   text: "#fff",    border: "rgba(255,255,255,0.15)" };
+    case "award":         return { bg: "rgba(120,70,0,0.85)",   text: "#fde68a", border: "rgba(253,230,138,0.25)" };
+    case "achievement":   return { bg: "rgba(6,78,59,0.85)",    text: "#6ee7b7", border: "rgba(110,231,183,0.25)" };
+    case "competition":   return { bg: "rgba(59,7,100,0.85)",   text: "#e9d5ff", border: "rgba(233,213,255,0.25)" };
+    case "course":        return { bg: "rgba(29,31,97,0.85)",   text: "#c7d2fe", border: "rgba(199,210,254,0.25)" };
+    case "license":       return { bg: "rgba(8,23,46,0.85)",    text: "#94d4ff", border: "rgba(148,212,255,0.2)"  };
+    default:              return { bg: "rgba(12,31,63,0.85)",   text: "#fff",    border: "rgba(255,255,255,0.15)" };
   }
 };
 
@@ -71,26 +57,59 @@ export default function CredentialCard({ credential }: CredentialCardProps) {
     ? new Date(credential.expiryDate) < new Date()
     : false;
 
-  const handleCardClick = () => {
-    router.push(`/credentials/${credential.slug}`);
-  };
+  const typeColor = getTypeColor(credential.type);
+  const typeLabel = credential.type.charAt(0).toUpperCase() + credential.type.slice(1);
 
   return (
     <div
-      onClick={handleCardClick}
-      className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 cursor-pointer"
+      onClick={() => router.push(`/credentials/${credential.slug}`)}
+      className="card-light"
+      style={{
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        cursor: "pointer",
+        height: "100%",
+      }}
     >
-      {/* Image Container - A4 Landscape Ratio (7:5) */}
+      {/* Image Container — A4 Landscape Ratio (7:5) */}
       <div
-        className="relative w-full bg-gray-100 overflow-hidden"
-        style={{ aspectRatio: "7 / 5" }}
+        style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: "7 / 5",
+          background: "var(--canvas-press)",
+          overflow: "hidden",
+          flexShrink: 0,
+        }}
       >
         {imageError ? (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gray-100">
-            <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
-              <Award className="w-6 h-6 text-gray-400" />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              background: "var(--canvas-press)",
+            }}
+          >
+            <div
+              style={{
+                width: 40,
+                height: 40,
+                background: "var(--hairline-cloud)",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Award style={{ width: 20, height: 20, color: "#94a3b8" }} />
             </div>
-            <span className="text-gray-400 text-sm">Certificate Image</span>
+            <span style={{ color: "#94a3b8", fontSize: 12 }}>Certificate Image</span>
           </div>
         ) : (
           <>
@@ -98,76 +117,134 @@ export default function CredentialCard({ credential }: CredentialCardProps) {
               src={credential.image}
               alt={credential.title}
               fill
-              className="object-contain bg-white p-2 group-hover:scale-105 transition-transform duration-500"
+              className="object-contain"
+              style={{
+                background: "white",
+                padding: 8,
+                transition: "transform 0.5s ease",
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.05)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
               onError={() => setImageError(true)}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
-            {/* Subtle frame effect like real certificate */}
-            <div className="absolute inset-1 pointer-events-none rounded-lg border border-gray-200" />
-            <div className="absolute inset-2 pointer-events-none rounded-md border border-gray-100" />
+            {/* Subtle frame effect */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 4,
+                pointerEvents: "none",
+                borderRadius: "var(--r-lg)",
+                border: "1px solid var(--hairline-cloud)",
+              }}
+            />
           </>
         )}
 
         {/* Type Badge */}
-        <div className="absolute top-3 left-3 z-10">
+        <div style={{ position: "absolute", top: 12, left: 12, zIndex: 10 }}>
           <span
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${getTypeColor(credential.type)}`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 5,
+              padding: "4px 10px",
+              borderRadius: "var(--r-xs)",
+              fontSize: 11,
+              fontWeight: 600,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
+              background: typeColor.bg,
+              color: typeColor.text,
+              border: `1px solid ${typeColor.border}`,
+              backdropFilter: "blur(4px)",
+            }}
           >
             {getTypeIcon(credential.type)}
-            {credential.type.charAt(0).toUpperCase() + credential.type.slice(1)}
+            {typeLabel}
           </span>
         </div>
 
         {/* Expiry Status Badge */}
         {credential.expiryDate && (
-          <div className="absolute top-3 right-3 z-10">
+          <div style={{ position: "absolute", top: 12, right: 12, zIndex: 10 }}>
             <span
-              className={`inline-flex items-center px-2 py-1 rounded-lg text-xs font-medium backdrop-blur-sm ${
-                isExpired
-                  ? "bg-red-900/80 text-red-100 border border-red-700"
-                  : "bg-emerald-900/80 text-emerald-100 border border-emerald-700"
-              }`}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                padding: "4px 10px",
+                borderRadius: "var(--r-xs)",
+                fontSize: 11,
+                fontWeight: 600,
+                backdropFilter: "blur(4px)",
+                background: isExpired ? "rgba(127,29,29,0.85)" : "rgba(6,78,59,0.85)",
+                color: isExpired ? "#fca5a5" : "#6ee7b7",
+                border: isExpired ? "1px solid rgba(252,165,165,0.25)" : "1px solid rgba(110,231,183,0.25)",
+              }}
             >
               {isExpired ? "Expired" : "Active"}
             </span>
           </div>
         )}
 
-        {/* External Link Button - Top Right if no expiry */}
+        {/* External Link Button — top right if no expiry */}
         {credential.credentialUrl && !credential.expiryDate && (
-          <div className="absolute top-3 right-3 z-10">
+          <div style={{ position: "absolute", top: 12, right: 12, zIndex: 10 }}>
             <a
               href={credential.credentialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-8 h-8 bg-white/90 backdrop-blur-sm rounded-lg text-gray-600 hover:text-[#1E3A5F] hover:bg-white transition-all"
               title="Verify Credential"
               onClick={(e) => e.stopPropagation()}
+              style={{
+                width: 32,
+                height: 32,
+                background: "rgba(255,255,255,0.9)",
+                backdropFilter: "blur(4px)",
+                borderRadius: "var(--r-md)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "var(--canvas-dark)",
+                transition: "background 0.2s",
+              }}
             >
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink style={{ width: 14, height: 14 }} />
             </a>
           </div>
         )}
       </div>
 
       {/* Content */}
-      <div className="p-4">
+      <div style={{ padding: "20px 22px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
         {/* Issuer */}
-        <p className="text-xs text-gray-400 mb-1">{credential.issuer}</p>
+        <p style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>{credential.issuer}</p>
 
         {/* Title */}
-        <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#1E3A5F] transition-colors line-clamp-1">
+        <h3
+          style={{
+            fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+            fontSize: 17,
+            fontWeight: 600,
+            color: "var(--ink)",
+            margin: "0 0 8px",
+            display: "-webkit-box",
+            WebkitLineClamp: 1,
+            WebkitBoxOrient: "vertical" as const,
+            overflow: "hidden",
+          }}
+        >
           {credential.title}
         </h3>
 
         {/* Date */}
-        <div className="flex items-center gap-1 text-xs text-gray-400 mb-3">
-          <Calendar className="w-3.5 h-3.5" />
+        <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 12, color: "#94a3b8", marginBottom: 12 }}>
+          <Calendar style={{ width: 13, height: 13 }} />
           <span>{formatDate(credential.date)}</span>
           {credential.expiryDate && (
             <>
-              <span className="mx-1">→</span>
-              <span className={isExpired ? "text-red-400" : ""}>
+              <span style={{ margin: "0 2px" }}>→</span>
+              <span style={{ color: isExpired ? "#f87171" : undefined }}>
                 {formatDate(credential.expiryDate)}
               </span>
             </>
@@ -175,31 +252,71 @@ export default function CredentialCard({ credential }: CredentialCardProps) {
         </div>
 
         {/* Description */}
-        <p className="text-gray-500 text-sm leading-relaxed mb-3 line-clamp-2">
+        <p
+          style={{
+            color: "#64748b",
+            fontSize: 14,
+            lineHeight: 1.65,
+            marginBottom: 14,
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical" as const,
+            overflow: "hidden",
+            flexGrow: 1,
+          }}
+        >
           {credential.description}
         </p>
 
         {/* Skills Tags */}
-        <div className="flex flex-wrap gap-1.5 mb-3">
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
           {credential.skills.slice(0, 3).map((skill) => (
             <span
               key={skill}
-              className="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-md font-medium"
+              style={{
+                padding: "3px 10px",
+                borderRadius: "var(--r-xs)",
+                background: "var(--canvas-press)",
+                color: "var(--canvas-dark)",
+                fontSize: 11,
+                fontWeight: 600,
+                border: "1px solid var(--hairline-cloud)",
+              }}
             >
               {skill}
             </span>
           ))}
           {credential.skills.length > 3 && (
-            <span className="px-2 py-0.5 bg-gray-100 text-gray-400 text-xs rounded-md">
+            <span
+              style={{
+                padding: "3px 10px",
+                borderRadius: "var(--r-xs)",
+                background: "var(--canvas-press)",
+                color: "#94a3b8",
+                fontSize: 11,
+                border: "1px solid var(--hairline-cloud)",
+              }}
+            >
               +{credential.skills.length - 3}
             </span>
           )}
         </div>
 
-        {/* View Details Indicator */}
-        <div className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1E3A5F] group-hover:gap-2 transition-all cursor-pointer">
+        {/* View Details */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: "0.04em",
+            textTransform: "uppercase" as const,
+            color: "var(--canvas-dark)",
+          }}
+        >
           View Details
-          <ArrowRight className="w-4 h-4" />
+          <ArrowRight style={{ width: 14, height: 14 }} />
         </div>
       </div>
     </div>

@@ -50,10 +50,11 @@ export default function Breadcrumbs() {
 
   return (
     <nav
-      className="py-3 px-4 sm:px-6 lg:px-8 bg-gray-50 border-b border-gray-100"
+      className="bg-gray-50 border-b border-gray-100"
+      style={{ padding: "12px 24px" }}
       aria-label="Breadcrumb"
     >
-      <div className="max-w-7xl mx-auto">
+      <div style={{ maxWidth: 1152, margin: "0 auto" }}>
         <ol className="flex items-center flex-wrap gap-1 text-sm">
           {breadcrumbs.map((item, index) => {
             const isLast = index === breadcrumbs.length - 1;

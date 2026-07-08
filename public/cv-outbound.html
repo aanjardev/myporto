@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic CV — Aan Anjar Setyowati</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Design Tokens ───────────────────────────────────────── */
+    :root {
+      --navy:         #0c1f3f;
+      --navy-deep:    #08172e;
+      --navy-mid:     #1e3a5f;
+      --navy-light:   #2d5a8e;
+      --navy-faint:   rgba(12,31,63,0.07);
+      --accent:       #4a7fb5;
+      --white:        #ffffff;
+      --surface:      #f0f2f5;
+      --ink:          #1e293b;
+      --ink-muted:    #475569;
+      --ink-faint:    #94a3b8;
+      --border:       #e2e8f0;
+      --border-dark:  #cbd5e1;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body:    'Rubik', -apple-system, system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: #d1d9e6;
+      font-family: var(--font-body);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+
+    /* ── Print / A4 Page ─────────────────────────────────────── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: var(--white);
+      box-shadow: 0 12px 48px rgba(8,23,46,0.22);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       TOP HEADER
+    ═══════════════════════════════════════════════════════════ */
+    .cv-header {
+      background: var(--navy);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: auto 1fr;
+    }
+
+    /* Decorative radial orbs */
+    .cv-header::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(45,90,142,0.60) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .cv-header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 140px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(8,23,46,0.80) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Dot texture */
+    .header-texture {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Photo column */
+    .header-photo-col {
+      position: relative;
+      z-index: 2;
+      padding: 28px 0 28px 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .photo-wrapper {
+      position: relative;
+      width: 108px;
+      height: 108px;
+      flex-shrink: 0;
+    }
+    .photo-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border: 1.5px solid rgba(255,255,255,0.28);
+      border-radius: 20px;
+    }
+    .photo-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 17px;
+    }
+    .photo-wrapper img {
+      width: 108px; height: 108px;
+      border-radius: 14px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      border: 1.5px solid rgba(255,255,255,0.15);
+    }
+
+    /* Text column */
+    .header-text-col {
+      position: relative;
+      z-index: 2;
+      padding: 28px 30px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .header-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.50);
+    }
+
+    .header-name {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .header-tagline {
+      font-size: 11.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.5;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      background: rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .meta-chip svg {
+      width: 10px; height: 10px;
+      fill: none;
+      stroke: rgba(255,255,255,0.65);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* GPA spotlight */
+    .gpa-badge {
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      transform: translateY(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      border: 2px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(4px);
+      text-align: center;
+    }
+    .gpa-value {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .gpa-sub {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-top: 2px;
+    }
+    .gpa-scale {
+      font-size: 9px;
+      color: rgba(255,255,255,0.40);
+      margin-top: 1px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CONTACT BAR
+    ═══════════════════════════════════════════════════════════ */
+    .contact-bar {
+      background: var(--navy-mid);
+      padding: 7px 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .contact-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9.5px;
+      color: rgba(255,255,255,0.72);
+    }
+    .contact-bar-item svg {
+      width: 10px; height: 10px;
+      fill: none;
+      stroke: rgba(255,255,255,0.50);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .contact-bar-item a { color: rgba(255,255,255,0.72); text-decoration: none; }
+
+    /* ═══════════════════════════════════════════════════════════
+       BODY — 2-column layout
+    ═══════════════════════════════════════════════════════════ */
+    .cv-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 62mm 1fr;
+    }
+
+    /* ── LEFT COLUMN ─────────────────────────────────────────── */
+    .col-left {
+      background: var(--surface);
+      padding: 20px 16px 24px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* ── RIGHT COLUMN ────────────────────────────────────────── */
+    .col-right {
+      padding: 20px 20px 24px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* ── Section headings ─────────────────────────────────────── */
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 9px;
+    }
+    .sec-head-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .sec-head-icon svg {
+      width: 12px; height: 12px;
+      fill: none;
+      stroke: rgba(255,255,255,0.85);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .sec-head-text {
+      font-family: var(--font-display);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .sec-head-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border-dark);
+    }
+
+    /* ── LEFT: Education ─────────────────────────────────────── */
+    .edu-item {
+      margin-bottom: 12px;
+    }
+    .edu-item:last-child { margin-bottom: 0; }
+
+    .edu-degree {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+    .edu-school {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      margin-bottom: 2px;
+    }
+    .edu-period-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 8.5px;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--navy-faint);
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 5px;
+    }
+    .edu-note {
+      font-size: 9px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    /* GPA highlight in left col */
+    .gpa-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 7px;
+      background: var(--navy);
+      margin-top: 5px;
+    }
+    .gpa-row-val {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .gpa-row-label {
+      font-size: 8.5px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.4;
+    }
+    .gpa-row-label strong {
+      display: block;
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+      font-size: 9px;
+    }
+
+    /* Stars for GPA */
+    .gpa-stars {
+      display: flex; gap: 2px; margin-top: 3px;
+    }
+    .gpa-star {
+      width: 8px; height: 8px;
+      background: rgba(255,255,255,0.70);
+      clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+    }
+    .gpa-star.empty { background: rgba(255,255,255,0.18); }
+
+    /* Divider */
+    .left-divider {
+      height: 1px;
+      background: var(--border-dark);
+    }
+
+    /* ── Language ────────────────────────────────────────────── */
+    .lang-item {
+      margin-bottom: 8px;
+    }
+    .lang-name {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+    .lang-level {
+      font-size: 9.5px;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+    }
+    .lang-bars {
+      display: flex;
+      gap: 2px;
+    }
+    .lang-bar {
+      height: 4px;
+      flex: 1;
+      border-radius: 2px;
+      background: var(--navy);
+    }
+    .lang-bar.empty {
+      background: var(--border-dark);
+    }
+
+    /* ── Skills ──────────────────────────────────────────────── */
+    .skill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .skill-label {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--ink);
+      width: 90px;
+      flex-shrink: 0;
+    }
+    .skill-track {
+      flex: 1;
+      height: 3.5px;
+      background: var(--border-dark);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
+    }
+
+    /* ── Soft skills ─────────────────────────────────────────── */
+    .soft-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .soft-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      color: var(--ink-muted);
+    }
+    .soft-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--navy);
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RIGHT COLUMN CONTENT
+    ═══════════════════════════════════════════════════════════ */
+
+    /* About */
+    .about-text {
+      font-size: 10px;
+      line-height: 1.75;
+      color: var(--ink-muted);
+    }
+
+    /* Academic timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .tl-item {
+      display: flex;
+      gap: 10px;
+      position: relative;
+    }
+    .tl-spine {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 14px;
+    }
+    .tl-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2.5px solid var(--navy);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .tl-dot.filled {
+      background: var(--navy);
+    }
+    .tl-line {
+      width: 1.5px;
+      flex: 1;
+      background: var(--border-dark);
+      min-height: 8px;
+      margin-top: 2px;
+    }
+    .tl-content {
+      flex: 1;
+      padding-bottom: 10px;
+    }
+    .tl-item:last-child .tl-content { padding-bottom: 0; }
+
+    .tl-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 1px;
+    }
+    .tl-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .tl-badge {
+      font-size: 8px;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--navy-faint);
+      padding: 2px 7px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      letter-spacing: 0.03em;
+      border: 1px solid rgba(12,31,63,0.12);
+    }
+    .tl-org {
+      font-size: 9.5px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      margin-bottom: 3px;
+    }
+    .tl-desc {
+      font-size: 9.5px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* Role label (Presenter, MC, TA, etc.) */
+    .role-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-bottom: 3px;
+    }
+    .role-label.presenter { background: #dbeafe; color: #1e40af; }
+    .role-label.mc        { background: #ede9fe; color: #5b21b6; }
+    .role-label.ta        { background: #dcfce7; color: #166534; }
+    .role-label.finalist  { background: #fef3c7; color: #92400e; }
+    .role-label.winner    { background: #fee2e2; color: #991b1b; }
+    .role-label.copyright { background: #f0fdf4; color: #14532d; }
+
+    /* ── Awards grid ─────────────────────────────────────────── */
+    .awards-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+    }
+    .award-card {
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--navy);
+      position: relative;
+    }
+    .award-type {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+    .award-title {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+    .award-org {
+      font-size: 8px;
+      color: var(--ink-faint);
+    }
+
+    /* ── Certs row ───────────────────────────────────────────── */
+    .certs-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 5px 8px;
+      border-radius: 5px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .cert-icon {
+      width: 20px; height: 20px;
+      border-radius: 5px;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cert-icon svg {
+      width: 10px; height: 10px;
+      fill: none; stroke: rgba(255,255,255,0.85);
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .cert-info { flex: 1; }
+    .cert-title {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .cert-issuer {
+      font-size: 8.5px;
+      color: var(--ink-faint);
+    }
+    .cert-score {
+      font-size: 8.5px;
+      font-weight: 700;
+      color: var(--navy);
+      flex-shrink: 0;
+      align-self: center;
+    }
+
+    /* ── Download button ─────────────────────────────────────── */
+    .download-bar {
+      position: fixed;
+      top: 14px; right: 14px;
+      z-index: 999;
+    }
+    .btn-dl {
+      background: var(--navy);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border: none; border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 16px rgba(8,23,46,0.28);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-dl:hover { background: var(--navy-deep); transform: translateY(-1px); }
+
+    @media print {
+      html, body { background: white; margin: 0; padding: 0; }
+      .download-bar { display: none !important; }
+      .page { margin: 0; box-shadow: none; width: 210mm; min-height: 297mm; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Download Button -->
+<div class="download-bar">
+  <button class="btn-dl" onclick="window.print()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    Download PDF
+  </button>
+</div>
+
+<!-- ══════════════════════ A4 PAGE ══════════════════════ -->
+<div class="page">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="cv-header">
+    <div class="header-texture"></div>
+
+    <!-- Photo -->
+    <div class="header-photo-col">
+      <div class="photo-wrapper">
+        <img src="/images/profil1.jpg" alt="Aan Anjar Setyowati" />
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="header-text-col">
+      <div class="header-eyebrow">
+        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        Curriculum Vitae — Outbound Mobility
+      </div>
+      <h1 class="header-name">Aan Anjar Setyowati</h1>
+      <div class="header-tagline">
+        S1 Informatics Engineering · Semester 4 · Universitas Negeri Malang
+      </div>
+      <div class="header-meta">
+        <span class="meta-chip">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Malang, East Java, Indonesia
+        </span>
+        <span class="meta-chip">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          aanjardev@gmail.com
+        </span>
+        <span class="meta-chip">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          github.com/aanjardev
+        </span>
+      </div>
+    </div>
+
+    <!-- GPA Badge -->
+    <div class="gpa-badge">
+      <div class="gpa-value">3.92</div>
+      <div class="gpa-sub">GPA / IPK</div>
+      <div class="gpa-scale">of 4.00</div>
+    </div>
+  </header>
+
+  <!-- ═══ CONTACT BAR ═══ -->
+  <div class="contact-bar">
+    <div class="contact-bar-item">
+      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      linkedin.com/in/aan-anjar
+    </div>
+    <div class="contact-bar-item" style="opacity:0.35">|</div>
+    <div class="contact-bar-item">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Active · June 2026
+    </div>
+    <div class="contact-bar-item" style="opacity:0.35">|</div>
+    <div class="contact-bar-item">
+      <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      Seeking Outbound Mobility 2026
+    </div>
+  </div>
+
+  <!-- ═══ BODY ═══ -->
+  <div class="cv-body">
+
+    <!-- ══ LEFT COLUMN ══ -->
+    <aside class="col-left">
+
+      <!-- Education -->
+      <div>
+        <div class="sec-head">
+          <div class="sec-head-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <span class="sec-head-text">Education</span>
+          <div class="sec-head-line"></div>
+        </div>
+
+        <!-- S1 -->
+        <div class="edu-item">
+          <div class="edu-degree">S1 Informatics Engineering</div>
+          <div class="edu-school">Universitas Negeri Malang</div>
+          <div class="edu-period-badge">
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            2023 – Present (Sem. 4)
+          </div>
+          <div class="gpa-row">
+            <div>
+              <div class="gpa-row-val">3.92</div>
+              <div class="gpa-stars">
+                <div class="gpa-star"></div>
+                <div class="gpa-star"></div>
+                <div class="gpa-star"></div>
+                <div class="gpa-star"></div>
+                <div class="gpa-star empty"></div>
+              </div>
+            </div>
+            <div class="gpa-row-label">
+              <strong>GPA / IPK</strong>
+              out of 4.00
+            </div>
+          </div>
+        </div>
+
+        <div class="left-divider"></div>
+
+        <!-- SMK -->
+        <div class="edu-item" style="margin-top:10px">
+          <div class="edu-degree">Software Engineering (RPL)</div>
+          <div class="edu-school">SMKN 2 Singosari</div>
+          <div class="edu-period-badge">2020 – 2023</div>
+          <div class="edu-note">🏆 Top 3 Graduate — Class of 2023<br/>2nd Place · LKS Web Technologies, Kab. Malang</div>
+        </div>
+      </div>
+
+      <div class="left-divider"></div>
+
+      <!-- Language Proficiency -->
+      <div>
+        <div class="sec-head">
+          <div class="sec-head-icon">
+            <svg viewBox="0 0 24 24"><path d="M5 8h14M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4m14 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4M3 8v11l9 3 9-3V8M12 8v13"/></svg>
+          </div>
+          <span class="sec-head-text">Languages</span>
+          <div class="sec-head-line"></div>
+        </div>
+
+        <div class="lang-item">
+          <div class="lang-name">Indonesian</div>
+          <div class="lang-level">Native Speaker</div>
+          <div class="lang-bars">
+            <div class="lang-bar"></div>
+            <div class="lang-bar"></div>
+            <div class="lang-bar"></div>
+            <div class="lang-bar"></div>
+            <div class="lang-bar"></div>
+          </div>
+        </div>
+
+        <div class="lang-item">
+          <div class="lang-name">English</div>
+          <div class="lang-level">Advanced Level · UKBIng Score 510</div>
+          <div class="lang-bars">
+            <div class="lang-bar"></div>
+            <div class="lang-bar"></div>
+            <div class="lang-bar"></div>
+            <div class="lang-bar"></div>
+            <div class="lang-bar empty"></div>
+          </div>
+          <div style="font-size:8.5px; color:var(--ink-faint); margin-top:3px; line-height:1.4;">
+            Listening · Structure · Reading<br/>
+            Universitas Negeri Malang, 2025
+          </div>
+        </div>
+      </div>
+
+      <div class="left-divider"></div>
+
+      <!-- Technical Skills -->
+      <div>
+        <div class="sec-head">
+          <div class="sec-head-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span class="sec-head-text">Tech Skills</span>
+          <div class="sec-head-line"></div>
+        </div>
+        <div class="skill-list">
+          <div class="skill-row">
+            <span class="skill-label">Web Dev</span>
+            <div class="skill-track"><div class="skill-fill" style="width:92%"></div></div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Laravel / PHP</span>
+            <div class="skill-track"><div class="skill-fill" style="width:88%"></div></div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">React / Next.js</span>
+            <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">MySQL / DB</span>
+            <div class="skill-track"><div class="skill-fill" style="width:85%"></div></div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Python</span>
+            <div class="skill-track"><div class="skill-fill" style="width:65%"></div></div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Data Analysis</span>
+            <div class="skill-track"><div class="skill-fill" style="width:75%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="left-divider"></div>
+
+      <!-- Soft Skills -->
+      <div>
+        <div class="sec-head">
+          <div class="sec-head-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="sec-head-text">Soft Skills</span>
+          <div class="sec-head-line"></div>
+        </div>
+        <div class="soft-grid">
+          <div class="soft-item"><span class="soft-dot"></span>Public Speaking &amp; Presentation</div>
+          <div class="soft-item"><span class="soft-dot"></span>Research &amp; Scientific Writing</div>
+          <div class="soft-item"><span class="soft-dot"></span>Academic Mentoring &amp; Teaching</div>
+          <div class="soft-item"><span class="soft-dot"></span>Critical Thinking &amp; Analysis</div>
+          <div class="soft-item"><span class="soft-dot"></span>Team Collaboration</div>
+          <div class="soft-item"><span class="soft-dot"></span>Time Management</div>
+          <div class="soft-item"><span class="soft-dot"></span>Event Moderation (MC)</div>
+          <div class="soft-item"><span class="soft-dot"></span>Cross-cultural Communication</div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ══ RIGHT COLUMN ══ -->
+    <main class="col-right">
+
+      <!-- About / Objective -->
+      <div>
+        <div class="sec-head">
+          <div class="sec-head-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <span class="sec-head-text">About Me</span>
+          <div class="sec-head-line"></div>
+        </div>
+        <p class="about-text">
+          I am a highly motivated 4th-semester Informatics Engineering student at Universitas Negeri Malang with a GPA of <strong style="color:var(--navy)">3.92/4.00</strong>. I have actively contributed to the academic community as a conference presenter at international venues, a teaching assistant, and a practicum lab assistant. My research has been recognized with national and international awards, and I hold registered intellectual property rights (Hak Cipta) for two software systems. I am eager to broaden my academic horizons through outbound mobility and contribute meaningfully to a global academic environment.
+        </p>
+      </div>
+
+      <!-- Academic Roles -->
+      <div>
+        <div class="sec-head">
+          <div class="sec-head-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <span class="sec-head-text">Academic Roles &amp; Activities</span>
+          <div class="sec-head-line"></div>
+        </div>
+
+        <div class="timeline">
+
+          <!-- TA Database -->
+          <div class="tl-item">
+            <div class="tl-spine"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <span class="role-label ta">Practicum Lab Assistant</span>
+              <div class="tl-header">
+                <div class="tl-title">Lab Assistant — Database Practicum</div>
+                <span class="tl-badge">2025 – Present</span>
+              </div>
+              <div class="tl-org">Dept. of Electrical Engineering &amp; Informatics · Universitas Negeri Malang</div>
+              <div class="tl-desc">Assist students in database practicum sessions, guide SQL and relational database exercises, and support the lead lecturer in practical course delivery during Semester 4.</div>
+            </div>
+          </div>
+
+          <!-- TA Web -->
+          <div class="tl-item">
+            <div class="tl-spine"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <span class="role-label ta">Teaching Assistant</span>
+              <div class="tl-header">
+                <div class="tl-title">Teaching Assistant — Web Programming</div>
+                <span class="tl-badge">Sep – Dec 2025</span>
+              </div>
+              <div class="tl-org">Dept. of Electrical Engineering &amp; Informatics · Universitas Negeri Malang</div>
+              <div class="tl-desc">Mentored students in web development concepts, assisted with HTML/CSS/JavaScript assignments, and evaluated practical work throughout the semester.</div>
+            </div>
+          </div>
+
+          <!-- Presenter ICTS -->
+          <div class="tl-item">
+            <div class="tl-spine"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <span class="role-label presenter">International Presenter</span>
+              <div class="tl-header">
+                <div class="tl-title">Presenter — 15th International Conference on ICTS 2025</div>
+                <span class="tl-badge">Nov 2025 · Bali</span>
+              </div>
+              <div class="tl-org">Institut Teknologi Sepuluh Nopember (ITS) Surabaya</div>
+              <div class="tl-desc">Presented original research at ICTS 2025, an international conference on Information, Communication Technology and Systems held in Bali.</div>
+            </div>
+          </div>
+
+          <!-- Presenter ICEEIE -->
+          <div class="tl-item">
+            <div class="tl-spine"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <span class="role-label presenter">International Presenter</span>
+              <div class="tl-header">
+                <div class="tl-title">Presenter — 9th International Conference on ICEEIE 2025</div>
+                <span class="tl-badge">Sep 2025</span>
+              </div>
+              <div class="tl-org">Universitas Negeri Malang</div>
+              <div class="tl-desc">Presented research at the 9th International Conference on Electrical, Electronics, and Information Engineering (ICEEIE), attended by academics and researchers internationally.</div>
+            </div>
+          </div>
+
+          <!-- MC -->
+          <div class="tl-item">
+            <div class="tl-spine"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <span class="role-label mc">Master of Ceremony</span>
+              <div class="tl-header">
+                <div class="tl-title">MC — Guest Lecture on Reinforcement Learning (UAV)</div>
+                <span class="tl-badge">Sep 2025</span>
+              </div>
+              <div class="tl-org">Universitas Negeri Malang × University of Malaya, Malaysia</div>
+              <div class="tl-desc">Served as MC for an international guest lecture collaboration between UM and University of Malaya on Reinforcement Learning for Autonomous UAV research. Moderated bilingual proceedings in English and Indonesian.</div>
+            </div>
+          </div>
+
+          <!-- Copyright 1 -->
+          <div class="tl-item">
+            <div class="tl-spine"><div class="tl-dot filled"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <span class="role-label copyright">Intellectual Property</span>
+              <div class="tl-header">
+                <div class="tl-title">Hak Cipta — Integrated Web Information System (UMKM)</div>
+                <span class="tl-badge">Dec 2025</span>
+              </div>
+              <div class="tl-org">Kementerian Hukum dan HAM RI · No. EC002025220238</div>
+              <div class="tl-desc">Registered copyright for a web-based integrated information system for automating business processes of UMKM Dinoyo Kamera. Valid for 50 years.</div>
+            </div>
+          </div>
+
+          <!-- Copyright 2 -->
+          <div class="tl-item">
+            <div class="tl-spine"><div class="tl-dot filled"></div></div>
+            <div class="tl-content">
+              <span class="role-label copyright">Intellectual Property</span>
+              <div class="tl-header">
+                <div class="tl-title">Hak Cipta — Database Management System (Dinoyo Camera)</div>
+                <span class="tl-badge">May 2025</span>
+              </div>
+              <div class="tl-org">Kementerian Hukum dan HAM RI · No. EC002025052325</div>
+              <div class="tl-desc">Registered copyright supporting MSME digitalization in Indonesia. Valid for 50 years from date of announcement (April 2025).</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Awards -->
+      <div>
+        <div class="sec-head">
+          <div class="sec-head-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <span class="sec-head-text">Awards &amp; Competitions</span>
+          <div class="sec-head-line"></div>
+        </div>
+        <div class="awards-wrap">
+
+          <div class="award-card">
+            <div class="award-type">🥇 Finalist</div>
+            <div class="award-title">GEMASTIK 2025 — Smart City Category</div>
+            <div class="award-org">Puspresnas · Kemendikbud, 2025</div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-type">🥇 1st Place</div>
+            <div class="award-title">FESMARO 2025 Essay Competition</div>
+            <div class="award-org">Dept. of Informatics, UM, 2025</div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-type">🏅 1st Honorable Mention</div>
+            <div class="award-title">LKTIEN 2025 National Scientific Paper</div>
+            <div class="award-org">Formadiksi, UM, 2025</div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-type">🏅 2nd Honorable Mention</div>
+            <div class="award-title">IGSC 2025 — International Green Scientific Competition</div>
+            <div class="award-org">Universitas Negeri Semarang, 2025</div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-type">🏆 Winner</div>
+            <div class="award-title">GERAIKITA Entrepreneurship Funding</div>
+            <div class="award-org">Faculty of Engineering, UM, 2025</div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-type">🥈 2nd Place</div>
+            <div class="award-title">LKS Web Technologies 2023 — Kab. Malang</div>
+            <div class="award-org">Lomba Kompetensi Siswa, 2023</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div>
+        <div class="sec-head">
+          <div class="sec-head-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <span class="sec-head-text">Certifications &amp; Training</span>
+          <div class="sec-head-line"></div>
+        </div>
+        <div class="certs-row">
+
+          <div class="cert-item">
+            <div class="cert-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <div class="cert-info">
+              <div class="cert-title">Certified Data Analyst — Microsoft Excel</div>
+              <div class="cert-issuer">IBLU Academy · 2025</div>
+            </div>
+            <div class="cert-score">963/1000</div>
+          </div>
+
+          <div class="cert-item">
+            <div class="cert-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <div class="cert-info">
+              <div class="cert-title">Perempuan Inovasi 2025 — Basic Course Graduate</div>
+              <div class="cert-issuer">Markoding · Dian Sastrowardoyo Foundation · 2025</div>
+            </div>
+          </div>
+
+          <div class="cert-item">
+            <div class="cert-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <div class="cert-info">
+              <div class="cert-title">Samsung Solve for Tomorrow 2025 — Design Thinking Workshop</div>
+              <div class="cert-issuer">Samsung Electronics Indonesia · 2025</div>
+            </div>
+          </div>
+
+          <div class="cert-item">
+            <div class="cert-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <div class="cert-info">
+              <div class="cert-title">Web Development Pemula — Gold Achievement</div>
+              <div class="cert-issuer">Skilvul · 2025</div>
+            </div>
+          </div>
+
+          <div class="cert-item">
+            <div class="cert-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <div class="cert-info">
+              <div class="cert-title">Python with AI — Course Completion</div>
+              <div class="cert-issuer">DQLab · 2025</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main><!-- /col-right -->
+  </div><!-- /cv-body -->
+
+</div><!-- /page -->
+
+<script>
+  // Tips for best print result
+  document.querySelector('.btn-dl').addEventListener('click', function() {
+    window.print();
+  });
+</script>
+</body>
+</html>

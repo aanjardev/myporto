@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculum Vitae — Aan Anjar Arifin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Design Tokens (matching portfolio globals.css) ──────── */
+    :root {
+      --canvas-dark:   #0c1f3f;
+      --canvas-night:  #08172e;
+      --canvas-light:  #ffffff;
+      --canvas-press:  #f0f2f5;
+      --ink:           #0c1f3f;
+      --ink-deep:      #08172e;
+      --on-dark:       #ffffff;
+      --on-dark-muted: rgba(255,255,255,0.72);
+      --on-dark-faint: rgba(255,255,255,0.12);
+      --hairline-navy: #1e3a5f;
+      --hairline-cool: #cbd5e1;
+      --hairline-cloud:#e5e7eb;
+      --accent-mid:    #2d5a8e;
+      --accent-light:  #4a7fb5;
+      --font-display:  'Space Grotesk', system-ui, sans-serif;
+      --font-body:     'Rubik', -apple-system, system-ui, sans-serif;
+    }
+
+    /* ── Reset ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: #e8ecf0;
+      font-family: var(--font-body);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+
+    /* ── Page shell ─────────────────────────────────────────── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: var(--canvas-light);
+      display: grid;
+      grid-template-columns: 68mm 1fr;
+      box-shadow: 0 8px 40px rgba(8,23,46,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── LEFT SIDEBAR ───────────────────────────────────────── */
+    .sidebar {
+      background: var(--canvas-dark);
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative orb top */
+    .sidebar::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(45,90,142,0.55) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    /* Decorative orb bottom */
+    .sidebar::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -50px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(12,31,63,1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Grid dot texture */
+    .sidebar-texture {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sidebar-inner {
+      position: relative;
+      z-index: 1;
+      padding: 32px 22px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Photo */
+    .photo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 110px;
+      height: 110px;
+    }
+
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      right: 6px;
+      bottom: 6px;
+      border: 1.5px solid rgba(255,255,255,0.30);
+      border-radius: 18px;
+    }
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: 3px;
+      bottom: 3px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+    }
+
+    .photo-frame img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 14px;
+      display: block;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .photo-name {
+      text-align: center;
+    }
+
+    .photo-name h1 {
+      font-family: var(--font-display);
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--on-dark);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin-bottom: 3px;
+    }
+
+    .photo-name .role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.10);
+      color: var(--on-dark-muted);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Sidebar section header */
+    .s-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .s-heading {
+      font-family: var(--font-display);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+
+    /* Contact items */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .contact-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .contact-icon svg {
+      width: 11px;
+      height: 11px;
+      fill: none;
+      stroke: rgba(255,255,255,0.60);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-label {
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.40);
+    }
+    .contact-value {
+      font-size: 10.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.4;
+      word-break: break-all;
+    }
+    .contact-value a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+    }
+
+    /* Skills in sidebar */
+    .skill-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .skill-tag {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .skill-name {
+      font-size: 10.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .skill-bar-wrap {
+      flex: 1;
+      height: 3px;
+      background: rgba(255,255,255,0.10);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .skill-bar {
+      height: 100%;
+      background: linear-gradient(90deg, rgba(74,127,181,0.9), rgba(45,90,142,0.6));
+      border-radius: 99px;
+    }
+
+    /* Language */
+    .lang-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .lang-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .lang-name {
+      font-size: 10.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .lang-level {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.40);
+    }
+
+    /* Soft skills pills */
+    .soft-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .soft-pill {
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 9.5px;
+      font-weight: 500;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.70);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    /* ── RIGHT MAIN CONTENT ─────────────────────────────────── */
+    .main {
+      padding: 32px 26px 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      background: var(--canvas-light);
+    }
+
+    /* Top header strip */
+    .main-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--canvas-dark);
+      position: relative;
+    }
+
+    .main-header-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--canvas-dark);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .main-header-title .highlight {
+      display: inline-block;
+      background: var(--canvas-dark);
+      color: var(--on-dark);
+      border-radius: 4px;
+      padding: 0 8px;
+    }
+
+    .main-header-subtitle {
+      font-family: var(--font-body);
+      font-size: 11.5px;
+      font-weight: 400;
+      color: #64748b;
+      letter-spacing: 0.02em;
+    }
+
+    .main-header-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 4px;
+    }
+
+    .header-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(12,31,63,0.07);
+      color: var(--canvas-dark);
+    }
+
+    /* Section heading (main area) */
+    .m-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .m-heading {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .m-heading-line {
+      flex: 1;
+      height: 1.5px;
+      background: var(--hairline-cloud);
+    }
+
+    .m-heading-text {
+      font-family: var(--font-display);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--canvas-dark);
+      white-space: nowrap;
+      padding: 3px 10px;
+      background: var(--canvas-dark);
+      color: var(--on-dark);
+      border-radius: 4px;
+    }
+
+    /* About me */
+    .about-text {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      font-weight: 400;
+      color: #475569;
+      line-height: 1.75;
+    }
+
+    /* Experience entries */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .exp-item {
+      display: flex;
+      gap: 10px;
+    }
+
+    .exp-timeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      gap: 0;
+    }
+
+    .exp-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--canvas-dark);
+      border: 2px solid var(--canvas-light);
+      box-shadow: 0 0 0 1.5px var(--canvas-dark);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .exp-line {
+      width: 1px;
+      flex: 1;
+      background: var(--hairline-cloud);
+      min-height: 10px;
+      margin-top: 3px;
+    }
+
+    .exp-content {
+      flex: 1;
+      padding-bottom: 2px;
+    }
+
+    .exp-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    .exp-title {
+      font-family: var(--font-display);
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .exp-period {
+      font-size: 8.5px;
+      font-weight: 600;
+      color: var(--canvas-dark);
+      background: rgba(12,31,63,0.07);
+      padding: 2px 7px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      letter-spacing: 0.03em;
+    }
+
+    .exp-company {
+      font-size: 10px;
+      font-weight: 500;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+
+    .exp-desc {
+      font-size: 10px;
+      font-weight: 400;
+      color: #475569;
+      line-height: 1.65;
+      margin-bottom: 5px;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .exp-tag {
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 8.5px;
+      font-weight: 600;
+      background: var(--canvas-press);
+      color: var(--canvas-dark);
+      border: 1px solid var(--hairline-cloud);
+    }
+
+    /* Education */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .edu-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .edu-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--canvas-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .edu-icon svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: rgba(255,255,255,0.90);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .edu-content { flex: 1; }
+
+    .edu-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .edu-sub {
+      font-size: 9.5px;
+      color: #64748b;
+      margin-bottom: 1px;
+    }
+
+    .edu-period {
+      font-size: 8.5px;
+      font-weight: 600;
+      color: var(--canvas-dark);
+      opacity: 0.7;
+    }
+
+    /* Awards grid */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .award-item {
+      padding: 8px 10px;
+      border-radius: 6px;
+      background: var(--canvas-press);
+      border: 1px solid var(--hairline-cloud);
+      border-left: 3px solid var(--canvas-dark);
+    }
+
+    .award-title {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+
+    .award-issuer {
+      font-size: 8.5px;
+      color: #94a3b8;
+    }
+
+    /* Tech skills grid */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 5px;
+    }
+
+    .tech-col-head {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--canvas-dark);
+      margin-bottom: 4px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--hairline-cloud);
+    }
+
+    .tech-items {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .tech-item {
+      font-size: 9.5px;
+      color: #475569;
+      padding: 2px 0;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .tech-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent-mid);
+      flex-shrink: 0;
+    }
+
+    /* ── Download button ────────────────────────────────────── */
+    .download-bar {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      gap: 8px;
+      z-index: 100;
+    }
+
+    .btn-download {
+      background: var(--canvas-dark);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(8,23,46,0.25);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-download:hover {
+      background: var(--canvas-night);
+      transform: translateY(-1px);
+    }
+
+    /* ── Print / PDF styles ──────────────────────────────────── */
+    @media print {
+      html, body {
+        background: white;
+        margin: 0;
+        padding: 0;
+      }
+      .download-bar { display: none !important; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 210mm;
+        min-height: 297mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Download Buttons -->
+  <div class="download-bar">
+    <button class="btn-download" onclick="window.print()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Download PDF
+    </button>
+  </div>
+
+  <!-- A4 Page -->
+  <div class="page">
+
+    <!-- ════════════════ SIDEBAR ════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-texture"></div>
+      <div class="sidebar-inner">
+
+        <!-- Photo & Name -->
+        <div class="photo-wrap">
+          <div class="photo-frame">
+            <img src="/images/profil1.jpg" alt="Aan Anjar Arifin" />
+          </div>
+          <div class="photo-name">
+            <h1>Aan Anjar Arifin</h1>
+            <span class="role-badge">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              Web Dev &amp; Tutor
+            </span>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="s-section">
+          <div class="s-heading">Contact</div>
+          <div class="contact-list">
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-text">
+                <span class="contact-label">Email</span>
+                <span class="contact-value"><a href="mailto:aanjardev@gmail.com">aanjardev@gmail.com</a></span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </div>
+              <div class="contact-text">
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value"><a href="https://github.com/aanjardev">github.com/aanjardev</a></span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </div>
+              <div class="contact-text">
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value"><a href="https://linkedin.com/in/aan-anjar">linkedin.com/in/aan-anjar</a></span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-text">
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Malang, East Java, Indonesia</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Core Skills -->
+        <div class="s-section">
+          <div class="s-heading">Core Skills</div>
+          <div class="skill-tags">
+            <div class="skill-tag">
+              <span class="skill-name">Laravel / PHP</span>
+              <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">JavaScript / TS</span>
+              <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">React / Next.js</span>
+              <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">MySQL / DB</span>
+              <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">Node.js</span>
+              <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">Python</span>
+              <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">WordPress</span>
+              <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+            </div>
+            <div class="skill-tag">
+              <span class="skill-name">Figma / UI/UX</span>
+              <div class="skill-bar-wrap"><div class="skill-bar" style="width:72%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="s-section">
+          <div class="s-heading">Languages</div>
+          <div class="lang-list">
+            <div class="lang-item">
+              <span class="lang-name">Indonesian</span>
+              <span class="lang-level">Native</span>
+            </div>
+            <div class="lang-item">
+              <span class="lang-name">English</span>
+              <span class="lang-level">Advanced · 510</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="s-section">
+          <div class="s-heading">Soft Skills</div>
+          <div class="soft-skills">
+            <span class="soft-pill">Problem Solving</span>
+            <span class="soft-pill">Public Speaking</span>
+            <span class="soft-pill">Teamwork</span>
+            <span class="soft-pill">Teaching</span>
+            <span class="soft-pill">Research</span>
+            <span class="soft-pill">Time Management</span>
+            <span class="soft-pill">Critical Thinking</span>
+            <span class="soft-pill">Mentoring</span>
+          </div>
+        </div>
+
+      </div><!-- /sidebar-inner -->
+    </aside>
+
+    <!-- ════════════════ MAIN ════════════════ -->
+    <main class="main">
+
+      <!-- Header -->
+      <div class="main-header">
+        <div class="main-header-title">
+          Web Developer<br/>&amp; <span class="highlight">Informatics</span> Student
+        </div>
+        <div class="main-header-subtitle">
+          Informatics Engineering · Universitas Negeri Malang
+        </div>
+        <div class="main-header-tags">
+          <span class="header-tag">Freelancer</span>
+          <span class="header-tag">Private Tutor</span>
+          <span class="header-tag">Open for Work</span>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="m-section">
+        <div class="m-heading">
+          <div class="m-heading-text">About Me</div>
+          <div class="m-heading-line"></div>
+        </div>
+        <p class="about-text">
+          I'm a passionate Informatics Engineering student and freelance web developer with 3+ years of experience building responsive, full-stack web applications for clients ranging from small businesses to NGOs. I specialize in Laravel, Next.js, and modern JavaScript ecosystems, and I'm deeply committed to creating clean, impactful digital experiences. Alongside development, I work as a private math &amp; English tutor and have co-authored published research presented at international conferences.
+        </p>
+      </div>
+
+      <!-- Experience -->
+      <div class="m-section">
+        <div class="m-heading">
+          <div class="m-heading-text">Experience</div>
+          <div class="m-heading-line"></div>
+        </div>
+        <div class="exp-list">
+
+          <!-- Freelance -->
+          <div class="exp-item">
+            <div class="exp-timeline">
+              <div class="exp-dot"></div>
+              <div class="exp-line"></div>
+            </div>
+            <div class="exp-content">
+              <div class="exp-row">
+                <div class="exp-title">Freelance Web Developer</div>
+                <span class="exp-period">2023 – Present</span>
+              </div>
+              <div class="exp-company">Self-employed</div>
+              <div class="exp-desc">Build responsive full-stack websites for clients. Handle full project lifecycle from design to deployment, delivering high-quality solutions that meet client needs and deadlines.</div>
+              <div class="exp-tags">
+                <span class="exp-tag">Next.js</span>
+                <span class="exp-tag">Laravel</span>
+                <span class="exp-tag">React</span>
+                <span class="exp-tag">TailwindCSS</span>
+                <span class="exp-tag">Node.js</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tutor -->
+          <div class="exp-item">
+            <div class="exp-timeline">
+              <div class="exp-dot"></div>
+              <div class="exp-line"></div>
+            </div>
+            <div class="exp-content">
+              <div class="exp-row">
+                <div class="exp-title">Math &amp; English Tutor</div>
+                <span class="exp-period">2025 – Present</span>
+              </div>
+              <div class="exp-company">Private Tutoring</div>
+              <div class="exp-desc">Teach students from elementary to high school level with personalized learning plans. Help students improve academic performance and build confidence in math and English.</div>
+              <div class="exp-tags">
+                <span class="exp-tag">Curriculum Design</span>
+                <span class="exp-tag">Student Assessment</span>
+                <span class="exp-tag">One-on-One Teaching</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Finance -->
+          <div class="exp-item">
+            <div class="exp-timeline">
+              <div class="exp-dot"></div>
+              <div class="exp-line"></div>
+            </div>
+            <div class="exp-content">
+              <div class="exp-row">
+                <div class="exp-title">Finance Staff</div>
+                <span class="exp-period">Aug 2024 – Jul 2025</span>
+              </div>
+              <div class="exp-company">Dinoyo Kamera</div>
+              <div class="exp-desc">Managed full-scope financial reporting including daily, monthly, and annual reports. Handled balance sheets, cash flow, and P&amp;L statements with high attention to detail.</div>
+              <div class="exp-tags">
+                <span class="exp-tag">Financial Reporting</span>
+                <span class="exp-tag">Balance Sheet</span>
+                <span class="exp-tag">P&amp;L Analysis</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Admin -->
+          <div class="exp-item">
+            <div class="exp-timeline">
+              <div class="exp-dot"></div>
+              <div class="exp-line"></div>
+            </div>
+            <div class="exp-content">
+              <div class="exp-row">
+                <div class="exp-title">Web &amp; Social Media Admin</div>
+                <span class="exp-period">Aug 2023 – Jul 2024</span>
+              </div>
+              <div class="exp-company">Dinoyo Kamera</div>
+              <div class="exp-desc">Managed customer service on social media &amp; e-commerce (Shopee, Instagram). Handled product photography, video editing, and marketing visuals.</div>
+              <div class="exp-tags">
+                <span class="exp-tag">E-commerce</span>
+                <span class="exp-tag">Content Creation</span>
+                <span class="exp-tag">Social Media</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Intern -->
+          <div class="exp-item">
+            <div class="exp-timeline">
+              <div class="exp-dot"></div>
+            </div>
+            <div class="exp-content">
+              <div class="exp-row">
+                <div class="exp-title">Software Engineering Intern</div>
+                <span class="exp-period">May – Oct 2022</span>
+              </div>
+              <div class="exp-company">PT Universal Big Data</div>
+              <div class="exp-desc">Built web apps using Serenity Framework (.NET, TypeScript). Designed ~60 FastReport templates integrated with enterprise database systems.</div>
+              <div class="exp-tags">
+                <span class="exp-tag">.NET</span>
+                <span class="exp-tag">TypeScript</span>
+                <span class="exp-tag">FastReport</span>
+                <span class="exp-tag">Serenity</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="m-section">
+        <div class="m-heading">
+          <div class="m-heading-text">Education</div>
+          <div class="m-heading-line"></div>
+        </div>
+        <div class="edu-list">
+
+          <div class="edu-item">
+            <div class="edu-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div class="edu-content">
+              <div class="edu-title">S1 Informatics Engineering</div>
+              <div class="edu-sub">Universitas Negeri Malang (UM)</div>
+              <div class="edu-period">2023 – Present (Expected 2027)</div>
+            </div>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div class="edu-content">
+              <div class="edu-title">Software Engineering (RPL)</div>
+              <div class="edu-sub">SMKN 2 Singosari — Top 3 Graduate of 2023</div>
+              <div class="edu-period">2020 – 2023</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="m-section">
+        <div class="m-heading">
+          <div class="m-heading-text">Tech Stack</div>
+          <div class="m-heading-line"></div>
+        </div>
+        <div class="tech-grid">
+          <div>
+            <div class="tech-col-head">Frontend</div>
+            <div class="tech-items">
+              <span class="tech-item"><span class="tech-dot"></span>Next.js</span>
+              <span class="tech-item"><span class="tech-dot"></span>React</span>
+              <span class="tech-item"><span class="tech-dot"></span>TypeScript</span>
+              <span class="tech-item"><span class="tech-dot"></span>JavaScript</span>
+              <span class="tech-item"><span class="tech-dot"></span>TailwindCSS</span>
+              <span class="tech-item"><span class="tech-dot"></span>Figma</span>
+            </div>
+          </div>
+          <div>
+            <div class="tech-col-head">Backend &amp; DB</div>
+            <div class="tech-items">
+              <span class="tech-item"><span class="tech-dot"></span>Laravel</span>
+              <span class="tech-item"><span class="tech-dot"></span>PHP</span>
+              <span class="tech-item"><span class="tech-dot"></span>Node.js</span>
+              <span class="tech-item"><span class="tech-dot"></span>MySQL</span>
+              <span class="tech-item"><span class="tech-dot"></span>Firebase/Supabase</span>
+              <span class="tech-item"><span class="tech-dot"></span>Python</span>
+            </div>
+          </div>
+          <div>
+            <div class="tech-col-head">Tools &amp; Other</div>
+            <div class="tech-items">
+              <span class="tech-item"><span class="tech-dot"></span>Git &amp; GitHub</span>
+              <span class="tech-item"><span class="tech-dot"></span>WordPress</span>
+              <span class="tech-item"><span class="tech-dot"></span>Apps Script</span>
+              <span class="tech-item"><span class="tech-dot"></span>ESP32 / IoT</span>
+              <span class="tech-item"><span class="tech-dot"></span>Java / C++</span>
+              <span class="tech-item"><span class="tech-dot"></span>RESTful APIs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Awards & Achievements -->
+      <div class="m-section">
+        <div class="m-heading">
+          <div class="m-heading-text">Awards &amp; Achievements</div>
+          <div class="m-heading-line"></div>
+        </div>
+        <div class="awards-grid">
+
+          <div class="award-item">
+            <div class="award-title">Hak Cipta (Copyright) — DBMS for Dinoyo Camera</div>
+            <div class="award-issuer">Kemenkumham RI · 2025</div>
+          </div>
+
+          <div class="award-item">
+            <div class="award-title">Presenter — ICTS 2025 International Conference</div>
+            <div class="award-issuer">ITS Surabaya · Bali, 2025</div>
+          </div>
+
+          <div class="award-item">
+            <div class="award-title">Presenter — ICEEIE 2025 International Conference</div>
+            <div class="award-issuer">Universitas Negeri Malang · 2025</div>
+          </div>
+
+          <div class="award-item">
+            <div class="award-title">Finalist — GEMASTIK 2025 Smart City Category</div>
+            <div class="award-issuer">Puspresnas, Kemendikbud · 2025</div>
+          </div>
+
+          <div class="award-item">
+            <div class="award-title">1st Place — FESMARO 2025 Essay Competition</div>
+            <div class="award-issuer">Dept. of Informatics, UM · 2025</div>
+          </div>
+
+          <div class="award-item">
+            <div class="award-title">1st Honorable Mention — LKTIEN 2025</div>
+            <div class="award-issuer">Formadiksi, Universitas Negeri Malang</div>
+          </div>
+
+          <div class="award-item">
+            <div class="award-title">2nd Place — LKS Web Technologies 2023</div>
+            <div class="award-issuer">Kabupaten Malang · 2023</div>
+          </div>
+
+          <div class="award-item">
+            <div class="award-title">Winner — GERAIKITA Entrepreneurship Fund</div>
+            <div class="award-issuer">Faculty of Engineering, UM · 2025</div>
+          </div>
+
+        </div>
+      </div>
+
+    </main><!-- /main -->
+
+  </div><!-- /page -->
+
+  <script>
+    // Auto-trigger print dialog hint
+    // window.addEventListener('load', () => {
+    //   setTimeout(() => window.print(), 800);
+    // });
+  </script>
+</body>
+</html>

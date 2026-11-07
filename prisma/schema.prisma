@@ -1,0 +1,228 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─────────────────────────────────────────────
+// HERO SECTION
+// ─────────────────────────────────────────────
+
+model HeroContent {
+  id           Int    @id @default(autoincrement())
+  name         String // "Aan Anjar Setyowati"
+  nickname     String // "Aanjar"
+  tagline      String // "Full Stack Web Developer & Tutor"
+  bio          String @db.Text
+  availability String // "Available for freelance"
+  cvUrl        String? // link to CV PDF
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  photos   HeroPhoto[]
+  stats    HeroStat[]
+  socials  SocialLink[]
+}
+
+model HeroPhoto {
+  id          Int     @id @default(autoincrement())
+  heroId      Int
+  src         String  // "/images/profil1.jpg"
+  label       String  // "Casual", "Professional", "Creative"
+  order       Int     @default(0)
+  hero        HeroContent @relation(fields: [heroId], references: [id], onDelete: Cascade)
+}
+
+model HeroStat {
+  id       Int    @id @default(autoincrement())
+  heroId   Int
+  label    String // "Projects", "Clients", etc.
+  value    String // "8+", "100%", etc.
+  icon     String // icon name string e.g. "Briefcase"
+  order    Int    @default(0)
+  hero     HeroContent @relation(fields: [heroId], references: [id], onDelete: Cascade)
+}
+
+model SocialLink {
+  id      Int    @id @default(autoincrement())
+  heroId  Int
+  label   String // "GitHub", "LinkedIn"
+  url     String
+  icon    String // icon identifier e.g. "SiGithub"
+  order   Int    @default(0)
+  hero    HeroContent @relation(fields: [heroId], references: [id], onDelete: Cascade)
+}
+
+// ─────────────────────────────────────────────
+// PROJECTS
+// ─────────────────────────────────────────────
+
+model Project {
+  id              Int      @id @default(autoincrement())
+  title           String
+  slug            String   @unique
+  type            ProjectType
+  category        String?
+  client          String?
+  period          String?
+  description     String   @db.Text
+  longDescription String?  @db.Text
+  challenge       String?  @db.Text
+  solution        String?  @db.Text
+  image           String
+  liveUrl         String?
+  githubUrl       String?
+  myRole          String?
+  teamSize        String?
+  goal            String?  @db.Text
+  outcome         String?  @db.Text
+  order           Int      @default(0)
+  isVisible       Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  screenshots     ProjectScreenshot[]
+  tech            ProjectTech[]
+  features        ProjectFeature[]
+  responsibilities ProjectResponsibility[]
+  highlights      ProjectHighlight[]
+}
+
+enum ProjectType {
+  freelance
+  side
+  social
+}
+
+model ProjectScreenshot {
+  id        Int     @id @default(autoincrement())
+  projectId Int
+  src       String
+  order     Int     @default(0)
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model ProjectTech {
+  id        Int     @id @default(autoincrement())
+  projectId Int
+  name      String
+  order     Int     @default(0)
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model ProjectFeature {
+  id        Int     @id @default(autoincrement())
+  projectId Int
+  text      String
+  order     Int     @default(0)
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model ProjectResponsibility {
+  id        Int     @id @default(autoincrement())
+  projectId Int
+  text      String
+  order     Int     @default(0)
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model ProjectHighlight {
+  id        Int     @id @default(autoincrement())
+  projectId Int
+  text      String
+  order     Int     @default(0)
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+// ─────────────────────────────────────────────
+// WORK EXPERIENCE
+// ─────────────────────────────────────────────
+
+model WorkExperience {
+  id          Int      @id @default(autoincrement())
+  title       String
+  company     String
+  period      String
+  description String   @db.Text
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  tech WorkExperienceTech[]
+}
+
+model WorkExperienceTech {
+  id         Int            @id @default(autoincrement())
+  expId      Int
+  name       String
+  order      Int            @default(0)
+  experience WorkExperience @relation(fields: [expId], references: [id], onDelete: Cascade)
+}
+
+// ─────────────────────────────────────────────
+// CREDENTIALS (Certifications, Awards, etc.)
+// ─────────────────────────────────────────────
+
+model Credential {
+  id            Int            @id @default(autoincrement())
+  title         String
+  slug          String         @unique
+  type          CredentialType
+  issuer        String
+  date          String         // stored as string "YYYY-MM-DD"
+  expiryDate    String?
+  credentialId  String?
+  credentialUrl String?
+  description   String         @db.Text
+  image         String
+  order         Int            @default(0)
+  isVisible     Boolean        @default(true)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  skills CredentialSkill[]
+}
+
+enum CredentialType {
+  certification
+  award
+  achievement
+  competition
+  course
+  license
+}
+
+model CredentialSkill {
+  id           Int        @id @default(autoincrement())
+  credentialId Int
+  name         String
+  order        Int        @default(0)
+  credential   Credential @relation(fields: [credentialId], references: [id], onDelete: Cascade)
+}
+
+// ─────────────────────────────────────────────
+// TECH STACK SECTION
+// ─────────────────────────────────────────────
+
+model TechStackItem {
+  id         Int     @id @default(autoincrement())
+  name       String
+  icon       String  // icon identifier or SVG string
+  category   String  // "Frontend & UI", "Backend & DB", "Tools & Others"
+  experience String  // e.g. ">1 years"
+  projects   String  // e.g. "3+ projects"
+  order      Int     @default(0)
+  isVisible  Boolean @default(true)
+}
+
+model FamiliarTech {
+  id    Int    @id @default(autoincrement())
+  name  String
+  order Int    @default(0)
+}

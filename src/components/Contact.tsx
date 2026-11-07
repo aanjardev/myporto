@@ -36,13 +36,21 @@ export default function ContactCTA() {
           transform: "translate(-50%, -50%)",
           width: 600,
           height: 400,
-          background: "radial-gradient(ellipse, rgba(45,90,142,0.3) 0%, transparent 65%)",
+          background:
+            "radial-gradient(ellipse, rgba(45,90,142,0.3) 0%, transparent 65%)",
           borderRadius: "50%",
           pointerEvents: "none",
         }}
       />
 
-      <div style={{ maxWidth: 720, margin: "0 auto", position: "relative", zIndex: 10 }}>
+      <div
+        style={{
+          maxWidth: 720,
+          margin: "0 auto",
+          position: "relative",
+          zIndex: 10,
+        }}
+      >
         {/* Eyebrow */}
         {/* <span
           className="eyebrow-pill"
@@ -82,8 +90,8 @@ export default function ContactCTA() {
             margin: "0 auto 36px",
           }}
         >
-          Have a project in mind? Looking for a freelance web developer? I&apos;m
-          just a message away.
+          Have a project in mind? Looking for a freelance web developer?
+          I&apos;m just a message away.
         </p>
 
         {/* Buttons */}
@@ -120,9 +128,21 @@ export default function ContactCTA() {
           }}
         >
           {[
-            { href: "https://github.com/aanjardev", icon: <FaGithub style={{ width: 18, height: 18 }} />, label: "GitHub" },
-            { href: "https://linkedin.com/in/aan-anjar", icon: <FaLinkedin style={{ width: 18, height: 18 }} />, label: "LinkedIn" },
-            { href: "mailto:aanjardev@gmail.com", icon: <Mail style={{ width: 18, height: 18 }} />, label: "Email" },
+            {
+              href: "https://github.com/aanjardev",
+              icon: <FaGithub style={{ width: 18, height: 18 }} />,
+              label: "GitHub",
+            },
+            {
+              href: "https://linkedin.com/in/aan-anjar",
+              icon: <FaLinkedin style={{ width: 18, height: 18 }} />,
+              label: "LinkedIn",
+            },
+            {
+              href: "mailto:aanjardev@gmail.com",
+              icon: <Mail style={{ width: 18, height: 18 }} />,
+              label: "Email",
+            },
           ].map((social) => (
             <Link
               key={social.label}
@@ -142,14 +162,7 @@ export default function ContactCTA() {
                 transition: "background 0.2s, color 0.2s",
                 textDecoration: "none",
               }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "var(--canvas-light)";
-                (e.currentTarget as HTMLElement).style.color = "var(--canvas-dark)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "var(--on-dark-faint)";
-                (e.currentTarget as HTMLElement).style.color = "var(--on-dark-muted)";
-              }}
+              className="interaction-link"
             >
               {social.icon}
             </Link>

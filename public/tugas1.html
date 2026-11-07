@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Personal Innovation Profile — Aan Anjar Setyowati</title>
+  <meta name="description" content="Aan Anjar Setyowati's personal profile for the Innovation Management course." />
+  <style>
+    :root {
+      --navy: #0c1f3f;
+      --paper: #ffffff;
+      --canvas: #0c1f3f;
+      --ink: #0c1f3f;
+      --muted: rgba(12,31,63,.7);
+      --line: rgba(12,31,63,.2);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        var(--canvas);
+      font-family: var(--sans);
+      line-height: 1.55;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      background: rgba(255,255,255,.88);
+      border-bottom: 1px solid rgba(12,31,63,.1);
+      backdrop-filter: blur(16px);
+    }
+    .toolbar a, .toolbar button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      color: var(--navy);
+      background: white;
+      font: 700 12px/1 var(--sans);
+      letter-spacing: .03em;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .toolbar .primary { color: white; border-color: var(--navy); background: var(--navy); }
+    .toolbar svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+    .document { display: grid; gap: 28px; justify-content: center; padding: 36px 16px 56px; }
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      padding: 15mm 17mm 14mm;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 22px 60px rgba(12,31,63,.16);
+    }
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: var(--navy);
+    }
+    .page::after {
+      content: attr(data-page);
+      position: absolute;
+      right: -10mm;
+      bottom: -21mm;
+      color: rgba(12,31,63,.035);
+      font: 800 115mm/1 var(--sans);
+      letter-spacing: -.1em;
+      pointer-events: none;
+    }
+
+    .masthead { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; }
+    .course { color: var(--navy); font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .issue { color: var(--muted); font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; text-align: right; }
+    .rule { height: 1px; margin: 9px 0 16px; background: var(--navy); }
+
+    .hero { display: grid; grid-template-columns: 1fr 65mm; gap: 9mm; align-items: end; }
+    .kicker { display: flex; gap: 8px; align-items: center; margin-bottom: 7px; color: var(--muted); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .13em; }
+    .kicker::before { content: ""; width: 23px; height: 2px; background: var(--navy); }
+    h1 { max-width: 122mm; margin: 0; color: var(--navy); font: 700 34px/1.02 var(--serif); letter-spacing: -.035em; }
+    h1 em { color: var(--navy); font-style: normal; font-weight: 700; }
+    .lead { max-width: 114mm; margin: 12px 0 0; color: var(--navy); font: 15px/1.55 var(--serif); }
+    .photo {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      height: auto;
+      overflow: hidden;
+      padding: 4px;
+      background: white;
+      border: 2px solid var(--navy);
+      border-radius: 3px;
+      box-shadow: 6px 6px 0 var(--navy);
+    }
+    .photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; border: 1px solid rgba(250, 242, 242, 0.24); filter: saturate(.82) contrast(1.03); }
+    .photo::after { content: ""; position: absolute; inset: auto 0 0; height: 35%; background: linear-gradient(transparent, rgba(12,31,63,.46)); }
+    .photo-mark { position: absolute; z-index: 2; left: 9px; bottom: 7px; color: white; font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+
+    .identity {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 6mm 0;
+      border: 1px solid var(--line);
+    }
+    .identity > div { min-height: 15mm; padding: 9px 12px; }
+    .identity > div:not(:nth-child(3n + 1)) { border-left: 1px solid var(--line); }
+    .identity > div:nth-child(n + 4) { border-top: 1px solid var(--line); }
+    .label { margin-bottom: 4px; color: var(--muted); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .value { color: var(--navy); font-size: 11.5px; font-weight: 750; overflow-wrap: anywhere; }
+    .editable { outline: none; border-radius: 3px; }
+    .editable:focus { background: rgba(12,31,63,.08); box-shadow: 0 0 0 3px rgba(12,31,63,.08); }
+    .placeholder { color: var(--muted); font-style: italic; }
+
+    .section-grid { display: grid; grid-template-columns: 31mm 1fr; column-gap: 8mm; margin-top: 4mm; }
+    .section-side { padding-top: 2px; }
+    .num { color: var(--navy); font: 700 24px/1 var(--serif); }
+    .side-title { margin-top: 5px; color: var(--navy); font-size: 9.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .section-body h2 { margin: 0 0 7px; color: var(--navy); font: 700 20px/1.15 var(--serif); letter-spacing: -.02em; }
+    .section-body p { margin: 0; color: var(--navy); font-size: 12px; line-height: 1.58; text-align: justify; }
+    .dropcap::first-letter { float: left; margin: 3px 6px 0 0; color: var(--navy); font: 700 35px/.75 var(--serif); }
+
+    .passion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+    .panel { min-height: 35mm; padding: 13px 14px; border: 1px solid var(--line); background: white; }
+    .panel.navy { color: white; border-color: var(--navy); background: var(--navy); }
+    .panel.navy h3, .panel.navy p { color: white; }
+    .panel h3 { margin: 0 0 8px; color: var(--navy); font-size: 9.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .panel p { font-size: 11px; line-height: 1.55; text-align: left; }
+    .interest-list { margin: 0; padding-left: 17px; color: var(--navy); columns: 2; column-gap: 15px; font-size: 11px; line-height: 1.65; }
+    .interest-list li { break-inside: avoid; padding-left: 2px; }
+
+    .evidence { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 7mm; background: var(--navy); color: white; }
+    .evidence-item { min-height: 22mm; padding: 10px 11px; }
+    .evidence-item + .evidence-item { border-left: 1px solid rgba(255,255,255,.14); }
+    .evidence strong { display: block; color: white; font: 700 18px/1 var(--serif); }
+    .evidence span { display: block; margin-top: 5px; color: rgba(255,255,255,.78); font-size: 9px; line-height: 1.35; text-transform: uppercase; letter-spacing: .05em; }
+
+    .commitment {
+      position: relative;
+      padding: 6mm 7mm;
+      border-radius: 4px;
+      color: white;
+      background: var(--navy);
+    }
+    .commitment::before { content: "“"; position: absolute; right: 17px; top: -4px; color: rgba(255,255,255,.08); font: 100px/1 var(--serif); }
+    .commitment p { position: relative; color: rgba(255,255,255,.86); font: 15px/1.6 var(--serif); text-align: left; }
+
+    .spotlight { display: grid; grid-template-columns: 44mm 1fr; border: 1px solid var(--line); background: white; }
+    .spotlight-label { display: flex; flex-direction: column; justify-content: space-between; padding: 16px; color: white; background: var(--navy); }
+    .spotlight-label .tiny { font-size: 9px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .spotlight-label strong { font: 700 21px/1.05 var(--serif); }
+    .spotlight-content { padding: 16px 18px; }
+    .spotlight-content h3 { margin: 0 0 7px; color: var(--navy); font: 700 19px/1.15 var(--serif); }
+    .spotlight-content p { font-size: 11px; line-height: 1.52; }
+    .source { margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line); color: var(--muted); font-size: 9.5px; line-height: 1.45; }
+    .source a { color: var(--navy); font-weight: 700; text-decoration: none; word-break: break-word; }
+
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .principle { padding: 11px 12px; border: 1px solid var(--line); border-top: 2px solid var(--navy); background: white; }
+    .principle b { display: block; margin-bottom: 5px; color: var(--navy); font: 700 12px/1.2 var(--serif); }
+    .principle p { font-size: 10px; line-height: 1.45; text-align: left; }
+
+    .footer { position: absolute; z-index: 2; left: 17mm; right: 17mm; bottom: 8mm; display: flex; justify-content: space-between; padding-top: 7px; border-top: 1px solid var(--line); color: var(--muted); font-size: 9px; letter-spacing: .07em; text-transform: uppercase; }
+
+    @page { size: A4; margin: 0; }
+    @media (max-width: 850px) {
+      .document { display: block; padding: 12px; overflow: auto; }
+      .page { transform-origin: top left; margin-bottom: 20px; }
+    }
+    @media print {
+      body { background: white; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .toolbar { display: none !important; }
+      .document { display: block; padding: 0; }
+      .page { margin: 0; box-shadow: none; break-after: page; page-break-after: always; }
+      .page:last-child { break-after: auto; page-break-after: auto; }
+      .editable:focus { background: transparent; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="toolbar" aria-label="Document actions">
+    <a href="/" aria-label="Return to portfolio">
+      <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>Back to Portfolio
+    </a>
+    <button class="primary" type="button" onclick="window.print()">
+      <svg viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>Save as PDF
+    </button>
+  </nav>
+
+  <main class="document">
+    <article class="page" data-page="1">
+      <header class="masthead">
+        <div class="course">Innovation Management · Student's Profile</div>
+        <div class="issue">Universitas Negeri Malang · 2026</div>
+      </header>
+      <div class="rule"></div>
+
+      <section class="hero">
+        <div>
+          <div class="kicker">Builder · Educator · Learner</div>
+          <h1>Hello, I am Anjar.</h1>
+          <p class="lead">I am an Informatics Engineering student who also works as a freelance web developer and academic private tutor. I enjoy developing websites because I can see how an idea becomes a practical tool that supports someone's work.</p>
+        </div>
+        <figure class="photo">
+          <img src="./images/tugas1.jpg" alt="Portrait of Anjar Setyowati" />
+          <figcaption class="photo-mark">Anjar / 2026</figcaption>
+        </figure>
+      </section>
+
+      <section class="identity" aria-label="Student identity and links">
+        <div><div class="label">Name</div><div class="value">Aan Anjar Setyowati</div></div>
+        <div><div class="label">Student ID</div><div class="value" spellcheck="false">240535603752</div></div>
+        <div><div class="label">Study Programme</div><div class="value">Informatics Engineering · UM</div></div>
+        <div><div class="label">Portfolio</div><div class="value"><a href="https://aanjar.web.id" target="_blank" rel="noreferrer">aanjar.web.id</a></div></div>
+        <div><div class="label">LinkedIn</div><div class="value"><a href="https://linkedin.com/in/aan-anjar" target="_blank" rel="noreferrer">linkedin.com/in/aan-anjar</a></div></div>
+        <div><div class="label">Location</div><div class="value">Malang, East Java, Indonesia</div></div>
+      </section>
+
+      <section class="section-grid">
+        <div class="section-side"><div class="num">01</div><div class="side-title">Personal Profile</div></div>
+        <div class="section-body">
+          <p class="dropcap">I am an undergraduate student of Informatics Engineering at Universitas Negeri Malang, a freelance web developer, and a private tutor. Since 2023, I have developed applications for small businesses, a social foundation, schools, and an international community-service programme. I have also led a development team, taught students, presented research at international conferences, and contributed to registered software copyrights and co-authored academic works. These experiences have shaped how I understand technology and its practical use.</p>
+        </div>
+      </section>
+
+      <section class="section-grid">
+        <div class="section-side"><div class="num">02</div><div class="side-title">Expectations for University</div></div>
+        <div class="section-body">
+          <p>Throughout my university studies, I expect to gain more than theoretical knowledge. I want opportunities to apply what I learn through projects, research, competitions, professional work, and activities beyond the classroom. I aim to improve my technical competence, communication, teamwork, and problem-solving skills. I also hope to meet people with different experiences and perspectives so that, after graduation, I will be prepared to work, pursue further study, or develop a technology-based business.</p>
+        </div>
+      </section>
+
+      <section class="section-grid">
+        <div class="section-side"><div class="num">03</div><div class="side-title">Interests &amp; Ambition</div></div>
+        <div class="section-body passion-grid">
+          <div class="panel">
+            <h3>Areas of Interest</h3>
+            <ul class="interest-list">
+              <li>Full-stack Web Development</li>
+              <li>Information Systems</li>
+              <li>UI/UX Design</li>
+              <li>Educational Technology</li>
+              <li>Game Development</li>
+              <li>Technical Teaching</li>
+            </ul>
+          </div>
+          <div class="panel navy">
+            <h3>Long-term Ambition</h3>
+            <p>I want to establish a stable career in software development while continuing to work on independent projects and teach. In the longer term, I would like to build my own technology product or business based on problems I understand through direct experience.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence" aria-label="Selected record">
+        <div class="evidence-item"><strong>8+</strong><span>Digital projects implemented for real users</span></div>
+        <div class="evidence-item"><strong>10+</strong><span>Registered software copyrights and co-authored academic works</span></div>
+        <div class="evidence-item"><strong>2025</strong><span>GEMASTIK Smart City finalist</span></div>
+        <div class="evidence-item"><strong>3.93</strong><span>GPA on a 4.00 scale</span></div>
+      </section>
+
+      <footer class="footer"><span>Aan Anjar Setyowati · 240535603752</span><span>01 / 02</span></footer>
+    </article>
+
+    <article class="page page-two" data-page="2">
+      <header class="masthead">
+        <div class="course">Innovation Management · Student's Profile</div>
+        <div class="issue">Universitas Negeri Malang · 2026</div>
+      </header>
+      <div class="rule"></div>
+
+      <section class="section-grid">
+        <div class="section-side"><div class="num">04</div><div class="side-title">My Commitment</div></div>
+        <div class="section-body commitment">
+          <p>I cannot expect every idea or project to succeed. My commitment is to keep learning, complete the work I begin, and improve my skills through actual projects. When I encounter a problem, I will try to understand it, ask for input when necessary, and make improvements within the time and resources available to me. I also intend to document my work honestly, including its limitations, rather than presenting unfinished ideas as successful innovations.</p>
+        </div>
+      </section>
+
+      <section class="section-grid">
+        <div class="section-side"><div class="num">05</div><div class="side-title">Innovation in My Field</div></div>
+        <div class="section-body">
+          <div class="spotlight">
+            <div class="spotlight-label"><span class="tiny">Scopus-indexed article</span><strong>AI in Software Engineering</strong></div>
+            <div class="spotlight-content">
+              <h3>AI-Driven Innovations in Software Engineering</h3>
+              <p>Alenezi and Akour (2025) examine the use of artificial intelligence across several stages of software development, including planning, code generation, testing, defect prediction, and software maintenance. AI can assist with repetitive work, analyse project data, and provide recommendations to developers.</p>
+              <p style="margin-top:7px">This development interests me because it is directly related to my field. Nevertheless, AI-generated results still require human review, particularly with regard to code correctness, security, bias, and alignment with user requirements.</p>
+              <div class="source"><b>Source:</b> Alenezi, M. &amp; Akour, M. (2025). <i>Applied Sciences</i>, 15(3), 1344. Scopus-indexed article. DOI: <a href="https://doi.org/10.3390/app15031344" target="_blank" rel="noreferrer">10.3390/app15031344</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-grid">
+        <div class="section-side"><div class="num">06</div><div class="side-title">Working Principles</div></div>
+        <div class="section-body">
+          <div class="principles">
+            <div class="principle"><b>Understand the problem</b><p>I need to understand the context and user requirements before selecting a technology.</p></div>
+            <div class="principle"><b>Work incrementally</b><p>I prefer to develop a functional version first and improve it through practical feedback.</p></div>
+            <div class="principle"><b>Recognise limitations</b><p>I should be clear about security concerns, technical constraints, and unfinished aspects of my work.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-grid">
+        <div class="section-side"><div class="num">07</div><div class="side-title">Practical Experience</div></div>
+        <div class="section-body">
+          <p>I have applied these principles while developing an integrated business system for Dinoyo Kamera, covering inventory, sales, purchasing, and quality control; a beneficiary and programme management system for Yayasan Bumi Langgat Peduli; and a real-time visitor management system with a smart LED board for Ar-Rahman Mosque in Kitakyushu, Japan. Each project began with an operational problem that required a workable solution.</p>
+        </div>
+      </section>
+
+      <footer class="footer"><span>Aan Anjar Setyowati · 240535603752</span><span>02 / 02</span></footer>
+    </article>
+  </main>
+</body>
+</html>

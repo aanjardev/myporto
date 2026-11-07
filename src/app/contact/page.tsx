@@ -55,7 +55,7 @@ export default function ContactPage() {
             className="text-body-lg"
             style={{ color: "var(--on-dark-muted)", maxWidth: 480, margin: "0 auto" }}
           >
-            Have a project in mind? Looking for a freelance developer? I&apos;d love to hear from you.
+            Have a project in mind? Looking for a freelance developer? <br /> I&apos;d love to hear from you.
           </p>
         </div>
       </section>
@@ -94,7 +94,7 @@ export default function ContactPage() {
             >
               Email Me
             </h2>
-            <a
+            <a className="interaction-contact"
               href="mailto:aanjardev@gmail.com"
               style={{
                 fontSize: "clamp(18px, 3vw, 26px)",
@@ -140,9 +140,9 @@ export default function ContactPage() {
               {[
                 { href: "https://github.com/aanjardev", icon: <FaGithub style={{ width: 22, height: 22 }} />, label: "GitHub" },
                 { href: "https://linkedin.com/in/aan-anjar", icon: <FaLinkedin style={{ width: 22, height: 22 }} />, label: "LinkedIn" },
-                { href: "https://twitter.com/aanjar", icon: <FaTwitter style={{ width: 22, height: 22 }} />, label: "Twitter" },
+                // { href: "https://twitter.com/aanjar", icon: <FaTwitter style={{ width: 22, height: 22 }} />, label: "Twitter" },
               ].map((social) => (
-                <a
+                <a className="interaction-contact"
                   key={social.label}
                   href={social.href}
                   target="_blank"
@@ -167,18 +167,6 @@ export default function ContactPage() {
                       justifyContent: "center",
                       color: "#64748b",
                       transition: "background 0.2s, color 0.2s, border-color 0.2s",
-                    }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.background = "var(--canvas-dark)";
-                      el.style.color = "#fff";
-                      el.style.borderColor = "var(--canvas-dark)";
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.background = "var(--canvas-press)";
-                      el.style.color = "#64748b";
-                      el.style.borderColor = "var(--hairline-cloud)";
                     }}
                   >
                     {social.icon}

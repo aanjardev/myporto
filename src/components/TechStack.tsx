@@ -1,84 +1,103 @@
 "use client";
+import React from "react";
+import Link from "next/link";
+import { Code2, Layout, Server, Terminal, CheckCircle2 } from "lucide-react";
 import {
-  Code2,
-  Layout,
-  Server,
-  Database,
-  Terminal,
-  CheckCircle2,
-} from "lucide-react";
-import {
-  SiNextdotjs, SiTailwindcss, SiLaravel, SiReact, SiTypescript,
-  SiJavascript, SiNodedotjs, SiPhp, SiPython, SiOpenjdk, SiCplusplus,
-  SiMysql, SiSupabase, SiGit, SiGithub, SiFigma, SiVercel,
-  SiGooglesheets, SiEspressif, SiFirebase, SiWordpress,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiLaravel,
+  SiReact,
+  SiTypescript,
+  SiJavascript,
+  SiNodedotjs,
+  SiPhp,
+  SiPython,
+  SiOpenjdk,
+  SiCplusplus,
+  SiMysql,
+  SiSupabase,
+  SiGit,
+  SiGithub,
+  SiFigma,
+  SiVercel,
+  SiGooglesheets,
+  SiEspressif,
+  SiFirebase,
+  SiWordpress,
 } from "react-icons/si";
 
-const skillCategories = [
-  {
-    name: "Frontend & UI",
-    icon: <Layout style={{ width: 18, height: 18 }} />,
-    skills: [
-      { name: "Next.js", icon: <SiNextdotjs style={{ width: 18, height: 18 }} />, experience: ">1 years", projects: "3+ projects" },
-      { name: "React", icon: <SiReact style={{ width: 18, height: 18 }} />, experience: "1+ years", projects: "3+ projects" },
-      { name: "TailwindCSS", icon: <SiTailwindcss style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "4+ projects" },
-      { name: "TypeScript", icon: <SiTypescript style={{ width: 18, height: 18 }} />, experience: "1+ years", projects: "3+ projects" },
-      { name: "JavaScript", icon: <SiJavascript style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "10+ projects" },
-      { name: "Figma", icon: <SiFigma style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "5+ projects" },
-    ],
-  },
-  {
-    name: "Backend & DB",
-    icon: <Server style={{ width: 18, height: 18 }} />,
-    skills: [
-      { name: "Laravel", icon: <SiLaravel style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "6+ projects" },
-      { name: "Node.js", icon: <SiNodedotjs style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "3+ projects" },
-      { name: "PHP", icon: <SiPhp style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "5+ projects" },
-      { name: "MySQL", icon: <SiMysql style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "10+ projects" },
-      { name: "Firebase / Supabase", icon: <SiFirebase style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "7+ projects" },
-      { name: "Python", icon: <SiPython style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "2+ projects" },
-    ],
-  },
-  {
-    name: "Tools & Others",
-    icon: <Terminal style={{ width: 18, height: 18 }} />,
-    skills: [
-      { name: "Git & GitHub", icon: <SiGithub style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "15+ projects" },
-      { name: "WordPress", icon: <SiWordpress style={{ width: 18, height: 18 }} />, experience: "3+ years", projects: "7+ projects" },
-      { name: "Sheets & Apps Script", icon: <SiGooglesheets style={{ width: 18, height: 18 }} />, experience: "2+ years", projects: "9+ projects" },
-      { name: "ESP32 / IoT", icon: <SiEspressif style={{ width: 18, height: 18 }} />, experience: "1+ years", projects: "3+ projects" },
-      { name: "Java", icon: <SiOpenjdk style={{ width: 18, height: 18 }} />, experience: "1+ years", projects: "2+ projects" },
-      { name: "C++", icon: <SiCplusplus style={{ width: 18, height: 18 }} />, experience: "1+ years", projects: "1+ projects" },
-    ],
-  },
-];
+type TechStackProps = {
+  techs: {
+    id: number;
+    name: string;
+    icon: string;
+    category: string;
+    experience: string;
+    projects: string;
+    order: number;
+  }[];
+  familiars: { id: number; name: string; order: number }[];
+};
 
-const techLogos = [
-  { name: "Next.js", icon: <SiNextdotjs style={{ width: 32, height: 32 }} /> },
-  { name: "TailwindCSS", icon: <SiTailwindcss style={{ width: 32, height: 32 }} /> },
-  { name: "Laravel", icon: <SiLaravel style={{ width: 32, height: 32 }} /> },
-  { name: "React", icon: <SiReact style={{ width: 32, height: 32 }} /> },
-  { name: "TypeScript", icon: <SiTypescript style={{ width: 32, height: 32 }} /> },
-  { name: "JavaScript", icon: <SiJavascript style={{ width: 32, height: 32 }} /> },
-  { name: "Node.js", icon: <SiNodedotjs style={{ width: 32, height: 32 }} /> },
-  { name: "PHP", icon: <SiPhp style={{ width: 32, height: 32 }} /> },
-  { name: "Python", icon: <SiPython style={{ width: 32, height: 32 }} /> },
-  { name: "MySQL", icon: <SiMysql style={{ width: 32, height: 32 }} /> },
-  { name: "WordPress", icon: <SiWordpress style={{ width: 32, height: 32 }} /> },
-  { name: "Firebase", icon: <SiFirebase style={{ width: 32, height: 32 }} /> },
-  { name: "Supabase", icon: <SiSupabase style={{ width: 32, height: 32 }} /> },
-  { name: "Git", icon: <SiGit style={{ width: 32, height: 32 }} /> },
-  { name: "GitHub", icon: <SiGithub style={{ width: 32, height: 32 }} /> },
-  { name: "Figma", icon: <SiFigma style={{ width: 32, height: 32 }} /> },
-  { name: "Vercel", icon: <SiVercel style={{ width: 32, height: 32 }} /> },
-];
+const iconMap: Record<string, React.ReactNode> = {
+  SiNextdotjs: <SiNextdotjs />,
+  SiTailwindcss: <SiTailwindcss />,
+  SiLaravel: <SiLaravel />,
+  SiReact: <SiReact />,
+  SiTypescript: <SiTypescript />,
+  SiJavascript: <SiJavascript />,
+  SiNodedotjs: <SiNodedotjs />,
+  SiPhp: <SiPhp />,
+  SiPython: <SiPython />,
+  SiOpenjdk: <SiOpenjdk />,
+  SiCplusplus: <SiCplusplus />,
+  SiMysql: <SiMysql />,
+  SiSupabase: <SiSupabase />,
+  SiGit: <SiGit />,
+  SiGithub: <SiGithub />,
+  SiFigma: <SiFigma />,
+  SiVercel: <SiVercel />,
+  SiGooglesheets: <SiGooglesheets />,
+  SiEspressif: <SiEspressif />,
+  SiFirebase: <SiFirebase />,
+  SiWordpress: <SiWordpress />,
+};
 
-const otherTools = [
-  "RESTful APIs", "JWT Authentication", "IoT (ESP32)",
-  "Google Apps Script", "WordPress Dev", "Firebase Integration",
-];
+const catIconMap: Record<string, React.ReactNode> = {
+  "Frontend & UI": <Layout style={{ width: 18, height: 18 }} />,
+  "Backend & DB": <Server style={{ width: 18, height: 18 }} />,
+  "Tools & Others": <Terminal style={{ width: 18, height: 18 }} />,
+};
 
-export default function SkillsTools() {
+export default function TechStack({ techs, familiars }: TechStackProps) {
+  const marqueeItems = techs.flatMap(tech => {
+    const separate: Record<string, { name: string; icon: string }[]> = {
+      "Firebase / Supabase": [{ name: "Firebase", icon: "SiFirebase" }, { name: "Supabase", icon: "SiSupabase" }],
+      "Git & GitHub": [{ name: "Git", icon: "SiGit" }, { name: "GitHub", icon: "SiGithub" }],
+      "Sheets & Apps Script": [{ name: "Google Sheets", icon: "SiGooglesheets" }, { name: "Google Apps Script", icon: "SiGooglesheets" }],
+      "ESP32 / IoT": [{ name: "ESP32", icon: "SiEspressif" }, { name: "IoT", icon: "SiEspressif" }],
+    };
+    return (separate[tech.name] || [{ name: tech.name, icon: tech.icon }]).map(item => ({ ...tech, ...item }));
+  });
+  // Group techs by category
+  const categoriesMap = techs.reduce(
+    (acc, curr) => {
+      if (!acc[curr.category]) acc[curr.category] = [];
+      acc[curr.category].push(curr);
+      return acc;
+    },
+    {} as Record<string, typeof techs>,
+  );
+
+  // Render icons with correct sizes
+  const getIcon = (name: string, size: number) => {
+    const el = iconMap[name] || <Code2 />;
+    return React.cloneElement(
+      el as React.ReactElement<{ style?: React.CSSProperties }>,
+      { style: { width: size, height: size } },
+    );
+  };
+
   return (
     <section
       style={{
@@ -113,8 +132,7 @@ export default function SkillsTools() {
               display: "inline-flex",
             }}
           >
-            <Code2 style={{ width: 12, height: 12 }} />
-            Tech Stack & Tools
+            <Code2 style={{ width: 12, height: 12 }} /> Tech Stack & Tools
           </span>
           <h2
             style={{
@@ -126,65 +144,85 @@ export default function SkillsTools() {
             }}
           >
             - Skills & Technologies -
-          </h2>          
+          </h2>
         </div>
 
         {/* Marquee */}
-        <div style={{ marginBottom: 56 }}>
-          <div style={{ position: "relative", overflow: "hidden", padding: "20px 0" }}>
-            {/* Fade masks */}
+        {techs.length > 0 && (
+          <div style={{ marginBottom: 56 }}>
             <div
               style={{
-                position: "absolute",
-                inset: "0 auto 0 0",
-                width: 80,
-                background: "linear-gradient(to right, var(--canvas-press), transparent)",
-                zIndex: 10,
-                pointerEvents: "none",
+                position: "relative",
+                overflow: "hidden",
+                padding: "20px 0",
               }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                inset: "0 0 0 auto",
-                width: 80,
-                background: "linear-gradient(to left, var(--canvas-press), transparent)",
-                zIndex: 10,
-                pointerEvents: "none",
-              }}
-            />
-            <div className="marquee-wrapper">
-              <div className="marquee-track">
-                {[...techLogos, ...techLogos, ...techLogos].map((tech, idx) => (
-                  <div
-                    key={idx}
-                    style={{
-                      display: "inline-flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      gap: 8,
-                      margin: "0 24px",
-                      color: "var(--hairline-cool)",
-                      cursor: "default",
-                      transition: "color 0.25s",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "var(--canvas-dark)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.color = "var(--hairline-cool)";
-                    }}
-                  >
-                    {tech.icon}
-                    <span style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.03em" }}>
-                      {tech.name}
-                    </span>
-                  </div>
-                ))}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  inset: "0 auto 0 0",
+                  width: 80,
+                  background:
+                    "linear-gradient(to right, var(--canvas-press), transparent)",
+                  zIndex: 10,
+                  pointerEvents: "none",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: "0 0 0 auto",
+                  width: 80,
+                  background:
+                    "linear-gradient(to left, var(--canvas-press), transparent)",
+                  zIndex: 10,
+                  pointerEvents: "none",
+                }}
+              />
+              <div className="marquee-wrapper">
+                <div className="marquee-track">
+                  {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((tech, idx) => (
+                    <Link
+                      href={`/projects?stack=${encodeURIComponent(tech.name)}`}
+                      className="skill-project-link"
+                      tabIndex={idx >= marqueeItems.length ? -1 : 0}
+                      key={idx}
+                      style={{
+                        display: "inline-flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: 8,
+                        margin: "0 24px",
+                        color: "var(--hairline-cool)",
+                        cursor: "pointer",
+                        transition: "color 0.25s",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLElement).style.color =
+                          "var(--canvas-dark)";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLElement).style.color =
+                          "var(--hairline-cool)";
+                      }}
+                    >
+                      {getIcon(tech.icon, 32)}
+                      <span className="skill-tool-name"
+                        style={{
+                          fontSize: 11,
+                          fontWeight: 500,
+                          letterSpacing: "0.03em",
+                        }}
+                      >
+                        {tech.name}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Skills Grid */}
         <div
@@ -194,12 +232,8 @@ export default function SkillsTools() {
             gap: 20,
           }}
         >
-          {skillCategories.map((category) => (
-            <div
-              key={category.name}
-              className="card-light"
-              style={{ padding: 24 }}
-            >
+          {Object.entries(categoriesMap).map(([catName, skills]) => (
+            <div key={catName} className="card-light" style={{ padding: 24 }}>
               {/* Category Header */}
               <div
                 style={{
@@ -224,26 +258,32 @@ export default function SkillsTools() {
                     flexShrink: 0,
                   }}
                 >
-                  {category.icon}
+                  {catIconMap[catName] || (
+                    <Terminal style={{ width: 18, height: 18 }} />
+                  )}
                 </div>
                 <h3
                   style={{
-                    fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)",
+                    fontFamily:
+                      "var(--font-display, 'Space Grotesk', sans-serif)",
                     fontSize: 16,
                     fontWeight: 600,
                     color: "var(--ink)",
                     margin: 0,
                   }}
                 >
-                  {category.name}
+                  {catName}
                 </h3>
               </div>
 
               {/* Skills List */}
               <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                {category.skills.map((skill) => (
-                  <div
-                    key={skill.name}
+                {skills.map((skill) => (
+                  <Link
+                    href={`/projects?stack=${encodeURIComponent(skill.name)}`}
+                    className="skill-project-link"
+                    aria-label={`View projects using ${skill.name}`}
+                    key={skill.id}
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -251,22 +291,41 @@ export default function SkillsTools() {
                       padding: "8px 10px",
                       borderRadius: "var(--r-md)",
                       transition: "background 0.18s",
-                      cursor: "default",
+                      cursor: "pointer",
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.background = "var(--canvas-press)";
+                      (e.currentTarget as HTMLElement).style.background =
+                        "var(--canvas-press)";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.background = "transparent";
+                      (e.currentTarget as HTMLElement).style.background =
+                        "transparent";
                     }}
                   >
-                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                      <span style={{ color: "#94a3b8", flexShrink: 0 }}>{skill.icon}</span>
+                    <div
+                      style={{ display: "flex", alignItems: "center", gap: 10 }}
+                    >
+                      <span style={{ color: "#94a3b8", flexShrink: 0 }}>
+                        {getIcon(skill.icon, 18)}
+                      </span>
                       <div>
-                        <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)" }}>
+                        <div className="skill-tool-name"
+                          style={{
+                            fontSize: 13,
+                            fontWeight: 600,
+                            color: "var(--ink)",
+                          }}
+                        >
                           {skill.name}
                         </div>
-                        <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 2 }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 8,
+                            marginTop: 2,
+                          }}
+                        >
                           <span
                             style={{
                               display: "flex",
@@ -276,14 +335,16 @@ export default function SkillsTools() {
                               color: "#94a3b8",
                             }}
                           >
-                            <CheckCircle2 style={{ width: 10, height: 10 }} />
+                            <CheckCircle2 style={{ width: 10, height: 10 }} />{" "}
                             {skill.experience}
                           </span>
-                          <span style={{ fontSize: 11, color: "#94a3b8" }}>{skill.projects}</span>
+                          <span style={{ fontSize: 11, color: "#94a3b8" }}>
+                            {skill.projects}
+                          </span>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -291,42 +352,56 @@ export default function SkillsTools() {
         </div>
 
         {/* Other Tools */}
-        <div style={{ marginTop: 40, textAlign: "center" }}>
-          <p
-            className="text-eyebrow"
-            style={{ color: "#94a3b8", marginBottom: 14 }}
-          >
-            Also familiar with
-          </p>
-          <div style={{ display: "inline-flex", flexWrap: "wrap", justifyContent: "center", gap: 8 }}>
-            {otherTools.map((tool) => (
-              <span
-                key={tool}
-                style={{
-                  padding: "5px 14px",
-                  borderRadius: "var(--r-full)",
-                  border: "1px solid var(--hairline-cloud)",
-                  background: "var(--canvas-light)",
-                  fontSize: 12,
-                  fontWeight: 500,
-                  color: "#475569",
-                  transition: "border-color 0.2s, color 0.2s",
-                  cursor: "default",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "var(--canvas-dark)";
-                  (e.currentTarget as HTMLElement).style.color = "var(--canvas-dark)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "var(--hairline-cloud)";
-                  (e.currentTarget as HTMLElement).style.color = "#475569";
-                }}
-              >
-                {tool}
-              </span>
-            ))}
+        {familiars.length > 0 && (
+          <div style={{ marginTop: 40, textAlign: "center" }}>
+            <p
+              className="text-eyebrow"
+              style={{ color: "#94a3b8", marginBottom: 14 }}
+            >
+              Also familiar with
+            </p>
+            <div
+              style={{
+                display: "inline-flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: 8,
+              }}
+            >
+              {familiars.map((tool) => (
+                <Link
+                  href={`/projects?stack=${encodeURIComponent(tool.name)}`}
+                  className="skill-project-link"
+                  key={tool.id}
+                  style={{
+                    padding: "5px 14px",
+                    borderRadius: "var(--r-full)",
+                    border: "1px solid var(--hairline-cloud)",
+                    background: "var(--canvas-light)",
+                    fontSize: 12,
+                    fontWeight: 500,
+                    color: "#475569",
+                    transition: "border-color 0.2s, color 0.2s",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor =
+                      "var(--canvas-dark)";
+                    (e.currentTarget as HTMLElement).style.color =
+                      "var(--canvas-dark)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor =
+                      "var(--hairline-cloud)";
+                    (e.currentTarget as HTMLElement).style.color = "#475569";
+                  }}
+                >
+                  <span className="skill-tool-name">{tool.name}</span>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

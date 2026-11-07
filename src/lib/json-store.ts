@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// Keep the existing query types while storing all runtime data in local JSON.
-import type { PrismaClient } from "@prisma/client";
+import type { StoreModels } from "./json-store-types";
 import { mkdir, readFile, writeFile, rename, rm } from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
@@ -106,8 +105,33 @@ const delegates = Object.fromEntries(models.map(model => [model, {
   delete: async (args: Row) => mutate(store => { const row = (store.tables[model] || []).find(row => matches(row, args.where)); if (!row) throw new Error("Data tidak ditemukan"); removeRows(store, model, args.where); return row; }),
   deleteMany: async (args?: Row) => mutate(store => removeRows(store, model, args?.where)),
 }]));
-// Only the delegate methods above are supported; no Prisma client is instantiated.
-export const jsonStore = delegates as unknown as Pick<PrismaClient, typeof models[number]>;
+type Model = keyof StoreModels;
+type RelatedModels = {
+  heroContent: { photos: "heroPhoto"; stats: "heroStat"; socials: "socialLink" };
+  project: { screenshots: "projectScreenshot"; tech: "projectTech"; features: "projectFeature"; responsibilities: "projectResponsibility"; highlights: "projectHighlight" };
+  workExperience: { tech: "workExperienceTech" };
+  credential: { skills: "credentialSkill" };
+};
+type Result<M extends Model, A> = A extends { select: infer S }
+  ? Pick<StoreModels[M], Extract<keyof S, keyof StoreModels[M]>>
+  : StoreModels[M] & (A extends { include: infer I }
+    ? M extends keyof RelatedModels
+      ? { [K in keyof I & keyof RelatedModels[M]]: RelatedModels[M][K] extends Model ? StoreModels[RelatedModels[M][K]][] : never }
+      : unknown
+    : unknown);
+interface Delegate<M extends Model> {
+  findMany<A extends Row = Row>(args?: A): Promise<Result<M, A>[]>;
+  findFirst<A extends Row = Row>(args?: A): Promise<Result<M, A> | null>;
+  findUnique<A extends Row = Row>(args?: A): Promise<Result<M, A> | null>;
+  findUniqueOrThrow<A extends Row = Row>(args?: A): Promise<Result<M, A>>;
+  count(args?: Row): Promise<number>;
+  create<A extends Row>(args: A): Promise<Result<M, A>>;
+  createMany(args: Row): Promise<{ count: number }>;
+  update<A extends Row>(args: A): Promise<Result<M, A>>;
+  delete(args: Row): Promise<StoreModels[M]>;
+  deleteMany(args?: Row): Promise<{ count: number }>;
+}
+export const jsonStore = delegates as unknown as { [M in Model]: Delegate<M> };
 export async function reorder(model: "project" | "credential", items: { id: number; order: number }[]) {
   return mutate(store => {
     for (const item of items) {

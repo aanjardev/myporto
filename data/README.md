@@ -20,9 +20,12 @@ JSON lokal tidak otomatis masuk ke Git atau situs lain yang sudah dipublikasikan
 Jika server berhenti paksa saat menyimpan dan menyisakan `portfolio.json.lock`,
 hentikan semua proses aplikasi sebelum menghapus folder lock tersebut.
 
-Prisma lama tetap tersedia sebagai arsip migrasi; halaman dan API aktif menggunakan
-`src/lib/json-store.ts`. Tipe query memakai type-only import yang sudah tersedia,
-tanpa membuat koneksi Prisma saat runtime. Jangan jalankan `db:seed` untuk data JSON.
+Halaman dan API menggunakan `src/lib/json-store.ts` dengan tipe lokal, tanpa Prisma.
+Schema Prisma lama hanya disimpan sebagai referensi historis.
+
+Di Vercel, file JSON bawaan dapat dibaca, tetapi perubahan admin dan upload lokal
+tidak dapat disimpan permanen. Perbarui konten melalui repository lalu redeploy,
+atau gunakan penyimpanan eksternal jika membutuhkan edit admin online.
 
 Empat proyek tambahan dapat diimpor ulang dengan `python scripts/add_portfolio_projects.py`.
 Importer melewati proyek dengan slug atau GitHub URL yang sudah ada, mempertahankan

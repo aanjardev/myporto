@@ -1,7 +1,7 @@
 import { jsonStore } from "@/lib/json-store";
 import { Project } from "@/types/project";
 
-// ─── Helper: map Prisma Project → our Project type ──────────────
+// ─── Helper: map stored Project → our Project type ──────────────
 function mapProject(p: Awaited<ReturnType<typeof getRawProject>>): Project {
   return {
     id: p.id,

@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local portfolio content and uploads (back up the data directory)
+/data/portfolio.json
+/data/portfolio.json.*
+/data/uploads/

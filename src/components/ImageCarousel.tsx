@@ -1,154 +1,135 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
+import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-
+import { PortfolioImage } from "./PortfolioUI";
 interface ImageCarouselProps {
   images: string[];
   title: string;
 }
-
 export default function ImageCarousel({ images, title }: ImageCarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
-
-  const nextImage = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
-  const openLightbox = (index: number) => {
-    setLightboxIndex(index);
-    setIsLightboxOpen(true);
-  };
-
+  const [index, setIndex] = useState(0);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const move = (step: number) =>
+    setIndex((current) => (current + step + images.length) % images.length);
+  const close = () => dialog.current?.close();
+  if (!images.length)
+    return (
+      <div className="portfolio-empty-gallery">No screenshots available</div>
+    );
   return (
-    <>
-      {/* Main Carousel - Full Width 16:9 */}
-      <div className="relative group w-full">
-        {/* Main Image Container - 16:9 Ratio */}
-        <div
-          className="relative w-full bg-gray-100 rounded-2xl overflow-hidden cursor-pointer shadow-xl"
-          style={{ aspectRatio: "16 / 9" }}
-          onClick={() => openLightbox(currentIndex)}
+    <div className="portfolio-gallery">
+      <div className="portfolio-gallery-stage">
+        <button
+          ref={trigger}
+          className="portfolio-gallery-open"
+          onClick={() => dialog.current?.showModal()}
+          aria-label={`Open gallery: ${title}`}
         >
-          <Image
-            src={images[currentIndex]}
-            alt={`${title} - Image ${currentIndex + 1}`}
-            fill
-            className="object-cover hover:scale-105 transition-transform duration-500"
-            priority
+          <PortfolioImage
+            key={images[index]}
+            src={images[index]}
+            alt={`${title} - screenshot ${index + 1}`}
+            contain
+            eager
           />
-
-          {/* Gradient overlay for better visibility of controls */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
-
-          {/* Image Counter Badge */}
-          <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full z-10">
-            {currentIndex + 1} / {images.length}
-          </div>
-        </div>
-
-        {/* Navigation Buttons */}
+        </button>
         {images.length > 1 && (
           <>
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-                prevImage();
-              }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white z-10"
+              className="portfolio-gallery-control portfolio-gallery-prev"
+              onClick={() => move(-1)}
+              aria-label="Previous screenshot"
             >
-              <ChevronLeft className="w-5 h-5 text-gray-700" />
+              <ChevronLeft size={20} />
             </button>
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-                nextImage();
-              }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white z-10"
+              className="portfolio-gallery-control portfolio-gallery-next"
+              onClick={() => move(1)}
+              aria-label="Next screenshot"
             >
-              <ChevronRight className="w-5 h-5 text-gray-700" />
+              <ChevronRight size={20} />
             </button>
           </>
         )}
-
-        {/* Thumbnail Strip */}
+      </div>
+      <div className="portfolio-gallery-bar">
+        <span aria-live="polite">
+          {index + 1} / {images.length}
+        </span>
         {images.length > 1 && (
-          <div className="flex justify-center gap-2 mt-4">
-            {images.map((_, index) => (
+          <div className="portfolio-gallery-dots">
+            {images.map((_, n) => (
               <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`transition-all duration-300 rounded-full ${
-                  currentIndex === index
-                    ? "w-8 h-2 bg-[#1E3A5F]"
-                    : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
-                }`}
+                key={n}
+                onClick={() => setIndex(n)}
+                aria-label={`Show screenshot ${n + 1}`}
+                aria-pressed={index === n}
               />
             ))}
           </div>
         )}
+        <span>Click to expand</span>
       </div>
-
-      {/* Lightbox Modal - Full Screen */}
-      {isLightboxOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
-          onClick={() => setIsLightboxOpen(false)}
-        >
+      <dialog
+        ref={dialog}
+        className="portfolio-lightbox"
+        aria-label={`${title} screenshots`}
+        onClose={() => trigger.current?.focus()}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) close();
+        }}
+        onKeyDown={(event) => {
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            move(-1);
+          }
+          if (event.key === "ArrowRight") {
+            event.preventDefault();
+            move(1);
+          }
+        }}
+      >
+        <div className="portfolio-lightbox-content">
           <button
-            onClick={() => setIsLightboxOpen(false)}
-            className="absolute top-4 right-4 p-2 text-white/70 hover:text-white transition-colors z-20"
+            autoFocus
+            className="portfolio-gallery-control portfolio-gallery-close"
+            onClick={close}
+            aria-label="Close gallery"
           >
-            <X className="w-6 h-6" />
+            <X size={22} />
           </button>
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setLightboxIndex(
-                (prev) => (prev - 1 + images.length) % images.length,
-              );
-            }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white/70 hover:text-white transition-colors z-20"
-          >
-            <ChevronLeft className="w-8 h-8" />
-          </button>
-
-          {/* Lightbox Image - Full Screen dengan object-contain */}
-          <div
-            className="relative w-[90vw] h-[90vh]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={images[lightboxIndex]}
-              alt={`${title} - Full size`}
-              fill
-              className="object-contain"
-              priority
+          <div className="portfolio-lightbox-image">
+            <PortfolioImage
+              key={images[index]}
+              src={images[index]}
+              alt={`${title} - screenshot ${index + 1}`}
+              contain
             />
           </div>
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setLightboxIndex((prev) => (prev + 1) % images.length);
-            }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white/70 hover:text-white transition-colors z-20"
-          >
-            <ChevronRight className="w-8 h-8" />
-          </button>
-
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-sm px-3 py-1 rounded-full z-20">
-            {lightboxIndex + 1} / {images.length}
-          </div>
+          {images.length > 1 && (
+            <>
+              <button
+                className="portfolio-gallery-control portfolio-gallery-prev"
+                onClick={() => move(-1)}
+                aria-label="Previous screenshot"
+              >
+                <ChevronLeft size={22} />
+              </button>
+              <button
+                className="portfolio-gallery-control portfolio-gallery-next"
+                onClick={() => move(1)}
+                aria-label="Next screenshot"
+              >
+                <ChevronRight size={22} />
+              </button>
+            </>
+          )}
+          <span className="portfolio-lightbox-counter" aria-live="polite">
+            {index + 1} / {images.length}
+          </span>
         </div>
-      )}
-    </>
+      </dialog>
+    </div>
   );
 }

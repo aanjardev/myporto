@@ -1,25 +1,20 @@
 import { notFound } from "next/navigation";
-import { projectsData } from "@/data/projectsData";
+import { getProjectBySlug, getAllProjectSlugs, getAllProjects } from "@/lib/db/projects";
 import type { Project } from "@/types/project";
 import ProjectDetailContent from "@/components/ProjectDetailContent";
 
 // Generate static params for all projects
 export async function generateStaticParams() {
-  return projectsData.map((project) => ({
-    slug: project.slug,
-  }));
-}
-
-// Get project by slug
-function getProject(slug: string): Project | undefined {
-  return projectsData.find((project) => project.slug === slug);
+  const slugs = await getAllProjectSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 // Get adjacent projects
-function getAdjacentProjects(currentSlug: string) {
-  const currentIndex = projectsData.findIndex((p) => p.slug === currentSlug);
-  const prev = currentIndex > 0 ? projectsData[currentIndex - 1] : null;
-  const next = currentIndex < projectsData.length - 1 ? projectsData[currentIndex + 1] : null;
+async function getAdjacentProjects(currentSlug: string) {
+  const allProjects = await getAllProjects();
+  const currentIndex = allProjects.findIndex((p) => p.slug === currentSlug);
+  const prev = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
+  const next = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
   return { prev, next };
 }
 
@@ -29,7 +24,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getProjectBySlug(slug);
   if (!project) return { title: "Project Not Found" };
   return {
     title: `${project.title} | Aanjar Portfolio`,
@@ -43,11 +38,11 @@ export default async function ProjectDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getProjectBySlug(slug);
 
   if (!project) notFound();
 
-  const { prev, next } = getAdjacentProjects(slug);
+  const { prev, next } = await getAdjacentProjects(slug);
 
   const carouselImages =
     project.screenshots && project.screenshots.length > 0

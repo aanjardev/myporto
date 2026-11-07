@@ -1,9 +1,8 @@
-"use client";
 import {
   Briefcase, BookOpen, Code, DollarSign, GraduationCap,
   MonitorSmartphone, Calendar, MapPin,
 } from "lucide-react";
-import { experiences } from "../data/workExperienceData";
+import { Experience } from "../data/workExperienceData";
 
 // const ICONS = [
 //   <Briefcase key="b" style={{ width: 16, height: 16 }} />,
@@ -16,7 +15,7 @@ import { experiences } from "../data/workExperienceData";
 
 // const getIcon = (i: number) => ICONS[i % ICONS.length];
 
-export default function WorkExperience() {
+export default function WorkExperience({ experiences }: { experiences: Experience[] }) {
   return (
     <div style={{ position: "relative" }}>
       {/* Timeline line */}

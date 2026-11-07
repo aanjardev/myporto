@@ -35,6 +35,7 @@ export default function Footer() {
             letterSpacing: "-0.01em",
             textDecoration: "none",
           }}
+          className="interaction-link"
         >
           Aanjar<span style={{ color: "var(--accent-navy-mid)" }}>.</span>
         </Link>
@@ -66,12 +67,7 @@ export default function Footer() {
                 textDecoration: "none",
                 transition: "color 0.18s",
               }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "var(--canvas-dark)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "#94a3b8";
-              }}
+              className="interaction-link"
             >
               {item.label}
             </Link>

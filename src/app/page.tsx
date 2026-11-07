@@ -1,23 +1,23 @@
-import Hero from "@/components/Hero";
-import TechStack from "@/components/TechStack";
-import PortfolioPreview from "@/components/PortfolioPreview";
-import Achievement from "@/components/Achievement";
+import HeroServer from "@/components/HeroServer";
+import TechStackServer from "@/components/TechStackServer";
+import PortfolioPreviewServer from "@/components/PortfolioPreviewServer";
+import AchievementServer from "@/components/AchievementServer";
 import WorkExperienceSummary from "@/components/WorkExperienceSummary";
 import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
     <main className="bg-white">
-      <Hero />
+      <HeroServer />
       <WorkExperienceSummary />
       <section id="portfolio">
-        <PortfolioPreview />
+        <PortfolioPreviewServer />
       </section>
       <section id="achievements">
-        <Achievement />
+        <AchievementServer />
       </section>
       <section id="tech">
-        <TechStack />
+        <TechStackServer />
       </section>
       <section id="contact-section">
         <Contact />

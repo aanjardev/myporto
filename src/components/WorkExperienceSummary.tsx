@@ -1,9 +1,10 @@
-"use client";
 import Link from "next/link";
-import { experiences, Experience } from "../data/workExperienceData";
+import { Experience } from "../data/workExperienceData";
 import { Briefcase, ExternalLink, Calendar, MapPin, ArrowRight } from "lucide-react";
+import { getAllExperiences } from "@/lib/db/experiences";
 
-export default function WorkExperienceSummary() {
+export default async function WorkExperienceSummary() {
+  const experiences = await getAllExperiences();
   const summary = experiences.slice(0, 3);
 
   return (

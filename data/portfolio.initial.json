@@ -1,0 +1,4197 @@
+{
+  "tables": {
+    "heroStat": [
+      {
+        "id": 1,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.035Z",
+        "label": "Projects",
+        "value": "8+",
+        "icon": "Briefcase",
+        "heroId": 1,
+        "updatedAt": "2026-11-04T10:02:25.035Z"
+      },
+      {
+        "id": 2,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.035Z",
+        "label": "Clients",
+        "value": "5+",
+        "icon": "Users",
+        "heroId": 1,
+        "updatedAt": "2026-11-04T10:02:25.035Z"
+      },
+      {
+        "id": 3,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.035Z",
+        "label": "Tech Stack",
+        "value": "10+",
+        "icon": "Code",
+        "heroId": 1,
+        "updatedAt": "2026-11-04T10:02:25.035Z"
+      },
+      {
+        "id": 4,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.035Z",
+        "label": "Teaching",
+        "value": "Active",
+        "icon": "BookOpen",
+        "heroId": 1,
+        "updatedAt": "2026-11-04T10:02:25.035Z"
+      }
+    ],
+    "heroPhoto": [
+      {
+        "id": 1,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.035Z",
+        "src": "/images/profil1.jpg",
+        "label": "Casual",
+        "heroId": 1,
+        "updatedAt": "2026-11-04T10:02:25.035Z"
+      },
+      {
+        "id": 2,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.035Z",
+        "src": "/images/profil2.jpg",
+        "label": "Professional",
+        "heroId": 1,
+        "updatedAt": "2026-11-04T10:02:25.035Z"
+      },
+      {
+        "id": 3,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.035Z",
+        "src": "/images/profil3.jpg",
+        "label": "Creative",
+        "heroId": 1,
+        "updatedAt": "2026-11-04T10:02:25.035Z"
+      }
+    ],
+    "socialLink": [
+      {
+        "id": 1,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.035Z",
+        "label": "GitHub",
+        "url": "https://github.com/aanjardev",
+        "icon": "SiGithub",
+        "heroId": 1,
+        "updatedAt": "2026-11-04T10:02:25.035Z"
+      },
+      {
+        "id": 2,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.035Z",
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/aanjardev",
+        "icon": "SiLinkedin",
+        "heroId": 1,
+        "updatedAt": "2026-11-04T10:02:25.035Z"
+      }
+    ],
+    "heroContent": [
+      {
+        "id": 1,
+        "order": 0,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.034Z",
+        "name": "Aan Anjar Setyowati",
+        "nickname": "Aanjar",
+        "tagline": "Full Stack Web Developer & Tutor",
+        "bio": "I craft digital experiences that blend clean code with thoughtful design. Specializing in modern web technologies, I build solutions that are fast, scalable, and user-friendly.",
+        "availability": "Available for freelance",
+        "cvUrl": null,
+        "updatedAt": "2026-11-04T10:02:25.034Z"
+      }
+    ],
+    "projectHighlight": [
+      {
+        "id": 1,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Berhasil mengintegrasikan seluruh proses bisnis dalam satu platform",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 2,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Meningkatkan efisiensi operasional UMKM",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 3,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Successfully solved HTTP to HTTPS proxy issues using Next.js rewrites",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 4,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Implemented debounced search for optimal API usage",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 5,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Created consistent glassmorphic design across all pages",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 6,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Achieved smooth audio playback with fallback mechanisms",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 7,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Digitalisasi operasional yayasan dari proses manual ke sistem terpusat",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 8,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Struktur data lintas program yang konsisten dan mudah diaudit",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 9,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Data quality improvement dengan validasi dan duplicate prevention",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 10,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "text": "Mempermudah customer melihat ketersediaan produk secara realtime",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 11,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "text": "Meningkatkan efisiensi penjualan dengan direct WhatsApp integration",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 12,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "text": "Part of Perempuan Inovasi 2025 program by Markoding",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 13,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "text": "Mengusung isu gender equality dan pemberdayaan perempuan",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 14,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "International community service project (Indonesia - Japan)",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 15,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "Real-time visitor management with smart LED display",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 16,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "QR code integration for quick attendance via WhatsApp & LINE",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 17,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "text": "Realization of AI-generated concept into working application",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 18,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "text": "Membantu efisiensi kerja pengawas sekolah",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 21,
+        "projectId": 11,
+        "text": "Community-service project developed during KKN",
+        "order": 0
+      },
+      {
+        "id": 22,
+        "projectId": 11,
+        "text": "Public information and administration in one application",
+        "order": 1
+      },
+      {
+        "id": 23,
+        "projectId": 12,
+        "text": "Solo full stack delivery",
+        "order": 0
+      },
+      {
+        "id": 24,
+        "projectId": 12,
+        "text": "School information and content management in one application",
+        "order": 1
+      },
+      {
+        "id": 25,
+        "projectId": 13,
+        "text": "Solo full stack development",
+        "order": 0
+      },
+      {
+        "id": 26,
+        "projectId": 13,
+        "text": "Connected waste-bank and cooperative transaction workflows",
+        "order": 1
+      },
+      {
+        "id": 29,
+        "order": 0,
+        "createdAt": "2026-11-04T12:12:38.766Z",
+        "text": "Course project combining classroom cleaning and ethics",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.766Z"
+      },
+      {
+        "id": 30,
+        "order": 1,
+        "createdAt": "2026-11-04T12:12:38.766Z",
+        "text": "Team leadership alongside hands-on game development",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.766Z"
+      },
+      {
+        "id": 31,
+        "projectId": 14,
+        "text": "Katalog publik dan administrasi dalam satu aplikasi",
+        "order": 0
+      },
+      {
+        "id": 32,
+        "projectId": 14,
+        "text": "Quality control untuk operasional toko kamera",
+        "order": 1
+      },
+      {
+        "id": 33,
+        "projectId": 14,
+        "text": "Laporan pembelian dan penjualan dalam PDF dan Excel",
+        "order": 2
+      }
+    ],
+    "projectResponsibility": [
+      {
+        "id": 1,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Memimpin tim pengembangan dan koordinasi dengan stakeholder",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 2,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Merancang arsitektur sistem dan database",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 3,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Mengembangkan modul inventory dan purchase",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 4,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Mengimplementasikan sistem quality control",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 5,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Integrasi antar modul bisnis",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 6,
+        "order": 5,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Memastikan project selesai tepat waktu",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 7,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Designed and developed the entire application from scratch",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 8,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Integrated iTunes API for music preview and artist search",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 9,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Implemented audio playback system with custom controls",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 10,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Created responsive UI with Tailwind CSS and animations",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 11,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Merancang arsitektur data master dan data program berbasis Google Sheets",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 12,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Membangun dashboard admin responsif dengan vanilla HTML/CSS/JavaScript",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 13,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Mengembangkan fitur CRUD master data Anak Yatim dan Duafa",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 14,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Membangun modul program Santunan, Khitan Masal, dan Bedah Rumah",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 15,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Membuat fitur laporan, filter periode, dan ekspor CSV",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 16,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "text": "Mengembangkan fitur katalog produk dengan filtering dan pencarian",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 17,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "text": "Implementasi status stok realtime",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 18,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "text": "Integrasi WhatsApp API untuk direct checkout",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 19,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "text": "Membantu deployment dan maintenance website",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 20,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "text": "Desain UI/UX website",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 21,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "text": "Frontend development dengan HTML, CSS, JavaScript",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 22,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "text": "Membuat konten yang informatif dan empatik",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 23,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "text": "Memastikan website responsif di semua device",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 24,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "Mengembangkan web application untuk visitor registration & login",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 25,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "Membuat admin dashboard untuk CRUD events, attendance, user management",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 26,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "Mengintegrasikan QR code untuk WhatsApp & LINE",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 27,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "Menghubungkan web dengan ESP32 untuk LED board display",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 28,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "Mengimplementasikan API untuk data waktu sholat",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 29,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.209Z",
+        "text": "Membantu pengembangan frontend dengan React + Vite",
+        "projectId": 7,
+        "updatedAt": "2026-11-04T10:02:25.209Z"
+      },
+      {
+        "id": 30,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.209Z",
+        "text": "Memastikan tampilan responsif dan user-friendly",
+        "projectId": 7,
+        "updatedAt": "2026-11-04T10:02:25.209Z"
+      },
+      {
+        "id": 31,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "text": "Merealisasikan konsep dari Gemini AI menjadi aplikasi fungsional",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 32,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "text": "Mengembangkan sistem upload bukti penilaian",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 33,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "text": "Implementasi authentication untuk pengawas dan sekolah",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 38,
+        "projectId": 11,
+        "text": "Led the seven-person KKN project team",
+        "order": 0
+      },
+      {
+        "id": 39,
+        "projectId": 11,
+        "text": "Contributed to planning the village information structure",
+        "order": 1
+      },
+      {
+        "id": 40,
+        "projectId": 11,
+        "text": "Developed public-facing and administrative functionality",
+        "order": 2
+      },
+      {
+        "id": 41,
+        "projectId": 11,
+        "text": "Implemented application features across the full stack",
+        "order": 3
+      },
+      {
+        "id": 42,
+        "projectId": 12,
+        "text": "Independently developed the freelance project",
+        "order": 0
+      },
+      {
+        "id": 43,
+        "projectId": 12,
+        "text": "Implemented public school pages and administrative workflows",
+        "order": 1
+      },
+      {
+        "id": 44,
+        "projectId": 12,
+        "text": "Integrated structured content storage with Prisma and MySQL",
+        "order": 2
+      },
+      {
+        "id": 45,
+        "projectId": 12,
+        "text": "Built content-management and registration functionality",
+        "order": 3
+      },
+      {
+        "id": 46,
+        "projectId": 13,
+        "text": "Independently developed the freelance application",
+        "order": 0
+      },
+      {
+        "id": 47,
+        "projectId": 13,
+        "text": "Implemented member and administrative workflows",
+        "order": 1
+      },
+      {
+        "id": 48,
+        "projectId": 13,
+        "text": "Built deposit, savings, inventory, and sales modules",
+        "order": 2
+      },
+      {
+        "id": 49,
+        "projectId": 13,
+        "text": "Integrated PDF and spreadsheet reporting",
+        "order": 3
+      },
+      {
+        "id": 54,
+        "order": 0,
+        "createdAt": "2026-11-04T12:12:38.766Z",
+        "text": "Led the three-person development team",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.766Z"
+      },
+      {
+        "id": 55,
+        "order": 1,
+        "createdAt": "2026-11-04T12:12:38.766Z",
+        "text": "Conceived the cleaning-and-ethics game idea",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.766Z"
+      },
+      {
+        "id": 56,
+        "order": 2,
+        "createdAt": "2026-11-04T12:12:38.766Z",
+        "text": "Designed game systems and interactions",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.766Z"
+      },
+      {
+        "id": 57,
+        "order": 3,
+        "createdAt": "2026-11-04T12:12:38.766Z",
+        "text": "Contributed to implementation across game systems",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.766Z"
+      }
+    ],
+    "projectFeature": [
+      {
+        "id": 1,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Manajemen inventory realtime",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 2,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Modul pembelian (purchase order)",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 3,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Modul penjualan dan invoice",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 4,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Quality control tracking",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 5,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Laporan keuangan dan operasional",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 6,
+        "order": 5,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "text": "Multi-user role-based access",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 7,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Search and select from various music artists",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 8,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "7-second audio preview from the middle of songs",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 9,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Multiple choice quiz system with 3 options",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 10,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Real-time score tracking (10 rounds total)",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 11,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Progress bar and round counter",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 12,
+        "order": 5,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Audio player with timeline and mute controls",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 13,
+        "order": 6,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Instant visual feedback (green for correct, red for wrong answers)",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 14,
+        "order": 7,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Detailed results page with accuracy and time stats",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 15,
+        "order": 8,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Responsive design with glassmorphism effects",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 16,
+        "order": 9,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "text": "Animated background with floating music notes",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 17,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Login admin dengan session token",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 18,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Master data Anak Yatim & Duafa (CRUD)",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 19,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Manajemen sesi program Santunan, Khitan Masal, Bedah Rumah",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 20,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "text": "Dashboard statistik, laporan, filter, dan ekspor CSV",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 21,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "text": "Katalog produk dengan filtering dan pencarian",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 22,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "text": "Status stok realtime",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 23,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "text": "Direct WhatsApp checkout",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 24,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "text": "Responsive design",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 25,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "text": "Admin panel untuk manajemen produk",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 26,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "text": "Landing page informatif",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 27,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "text": "Desain responsif dan mobile-friendly",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 28,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "text": "Konten tentang dukungan untuk perempuan",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 29,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "text": "Call-to-action untuk bantuan",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 30,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "Visitor registration dengan QR code",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 31,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "Admin dashboard untuk manajemen event",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 32,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "Smart LED board display real-time",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 33,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "Integrasi WhatsApp & LINE untuk absensi cepat",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 34,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "API untuk data waktu sholat",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 35,
+        "order": 5,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "text": "Multi-language support (Indonesia-Japan)",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 36,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.209Z",
+        "text": "Menampilkan berita dari multiple RSS feeds",
+        "projectId": 7,
+        "updatedAt": "2026-11-04T10:02:25.209Z"
+      },
+      {
+        "id": 37,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.209Z",
+        "text": "Filter dan kategori berita",
+        "projectId": 7,
+        "updatedAt": "2026-11-04T10:02:25.209Z"
+      },
+      {
+        "id": 38,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.209Z",
+        "text": "Responsive design",
+        "projectId": 7,
+        "updatedAt": "2026-11-04T10:02:25.209Z"
+      },
+      {
+        "id": 39,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "text": "Sistem upload bukti penilaian",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 40,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "text": "Authentication multi-role (pengawas & sekolah)",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 41,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "text": "Dashboard monitoring real-time",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 42,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "text": "Integrasi dengan Google Sheets",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 48,
+        "projectId": 11,
+        "text": "Village profile and organizational information",
+        "order": 0
+      },
+      {
+        "id": 49,
+        "projectId": 11,
+        "text": "News, announcements, and activity agendas",
+        "order": 1
+      },
+      {
+        "id": 50,
+        "projectId": 11,
+        "text": "Tourism and UMKM listings",
+        "order": 2
+      },
+      {
+        "id": 51,
+        "projectId": 11,
+        "text": "Photo galleries and public documents",
+        "order": 3
+      },
+      {
+        "id": 52,
+        "projectId": 11,
+        "text": "Service information and content administration",
+        "order": 4
+      },
+      {
+        "id": 53,
+        "projectId": 12,
+        "text": "School profile, history, and vision information",
+        "order": 0
+      },
+      {
+        "id": 54,
+        "projectId": 12,
+        "text": "Teacher, program, and curriculum pages",
+        "order": 1
+      },
+      {
+        "id": 55,
+        "projectId": 12,
+        "text": "News and achievement publishing",
+        "order": 2
+      },
+      {
+        "id": 56,
+        "projectId": 12,
+        "text": "Registration and contact pages",
+        "order": 3
+      },
+      {
+        "id": 57,
+        "projectId": 12,
+        "text": "Authenticated school content administration",
+        "order": 4
+      },
+      {
+        "id": 58,
+        "projectId": 13,
+        "text": "Member management and member dashboards",
+        "order": 0
+      },
+      {
+        "id": 59,
+        "projectId": 13,
+        "text": "Waste categories and deposit recording",
+        "order": 1
+      },
+      {
+        "id": 60,
+        "projectId": 13,
+        "text": "Savings and transaction histories",
+        "order": 2
+      },
+      {
+        "id": 61,
+        "projectId": 13,
+        "text": "Inventory and cooperative point of sale",
+        "order": 3
+      },
+      {
+        "id": 62,
+        "projectId": 13,
+        "text": "PDF and spreadsheet report exports",
+        "order": 4
+      },
+      {
+        "id": 68,
+        "order": 0,
+        "createdAt": "2026-11-04T12:12:38.766Z",
+        "text": "Interactive classroom-cleaning tasks",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.766Z"
+      },
+      {
+        "id": 69,
+        "order": 1,
+        "createdAt": "2026-11-04T12:12:38.766Z",
+        "text": "Quest and cleaning-progress tracking",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.766Z"
+      },
+      {
+        "id": 70,
+        "order": 2,
+        "createdAt": "2026-11-04T12:12:38.766Z",
+        "text": "NPC interactions and dialogue",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.766Z"
+      },
+      {
+        "id": 71,
+        "order": 3,
+        "createdAt": "2026-11-04T12:12:38.766Z",
+        "text": "Timer and win/lose screens",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.766Z"
+      },
+      {
+        "id": 72,
+        "order": 4,
+        "createdAt": "2026-11-04T12:12:38.766Z",
+        "text": "Badge collection and persistence",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.766Z"
+      },
+      {
+        "id": 73,
+        "projectId": 14,
+        "text": "Katalog produk dan informasi toko",
+        "order": 0
+      },
+      {
+        "id": 74,
+        "projectId": 14,
+        "text": "Pengelolaan produk, foto, kategori, dan kategori harga",
+        "order": 1
+      },
+      {
+        "id": 75,
+        "projectId": 14,
+        "text": "Pengelolaan pelanggan dan cabang",
+        "order": 2
+      },
+      {
+        "id": 76,
+        "projectId": 14,
+        "text": "Pencatatan pembelian dan penjualan",
+        "order": 3
+      },
+      {
+        "id": 77,
+        "projectId": 14,
+        "text": "Quality control, arsip, dan riwayat",
+        "order": 4
+      },
+      {
+        "id": 78,
+        "projectId": 14,
+        "text": "Ekspor laporan PDF dan Excel",
+        "order": 5
+      },
+      {
+        "id": 79,
+        "projectId": 14,
+        "text": "Pengaturan katalog, testimoni, dan mitra",
+        "order": 6
+      },
+      {
+        "id": 80,
+        "projectId": 14,
+        "text": "Pengelolaan karyawan dan akses berbasis peran",
+        "order": 7
+      }
+    ],
+    "projectTech": [
+      {
+        "id": 1,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "name": "Laravel",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 2,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "name": "Bootstrap",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 3,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "name": "MySQL",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 4,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "name": "JavaScript",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 5,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.085Z",
+        "name": "Next.js",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.085Z"
+      },
+      {
+        "id": 6,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.085Z",
+        "name": "React",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.085Z"
+      },
+      {
+        "id": 7,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.085Z",
+        "name": "Tailwind CSS",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.085Z"
+      },
+      {
+        "id": 8,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.085Z",
+        "name": "iTunes API",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.085Z"
+      },
+      {
+        "id": 9,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.085Z",
+        "name": "Lucide Icons",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.085Z"
+      },
+      {
+        "id": 10,
+        "order": 5,
+        "createdAt": "2026-11-04T10:02:25.085Z",
+        "name": "Vercel",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.085Z"
+      },
+      {
+        "id": 11,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "name": "Google Apps Script",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 12,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "name": "Google Sheets",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 13,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "name": "HTML",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 14,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "name": "CSS",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 15,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "name": "JavaScript",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 16,
+        "order": 5,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "name": "Lucide Icons",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 17,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "name": "Laravel 10",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 18,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "name": "Bootstrap",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 19,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "name": "MySQL",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 20,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "name": "WhatsApp API",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 21,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "name": "HTML5",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 22,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "name": "CSS3",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 23,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "name": "JavaScript",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 24,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "name": "TailwindCSS",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 25,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "name": "Laravel",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 26,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "name": "MySQL",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 27,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "name": "ESP32",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 28,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "name": "LED Display",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 29,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "name": "WhatsApp API",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 30,
+        "order": 5,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "name": "LINE API",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 31,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.209Z",
+        "name": "React",
+        "projectId": 7,
+        "updatedAt": "2026-11-04T10:02:25.209Z"
+      },
+      {
+        "id": 32,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.209Z",
+        "name": "Vite",
+        "projectId": 7,
+        "updatedAt": "2026-11-04T10:02:25.209Z"
+      },
+      {
+        "id": 33,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.209Z",
+        "name": "CSS3",
+        "projectId": 7,
+        "updatedAt": "2026-11-04T10:02:25.209Z"
+      },
+      {
+        "id": 34,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.209Z",
+        "name": "RSS Feed API",
+        "projectId": 7,
+        "updatedAt": "2026-11-04T10:02:25.209Z"
+      },
+      {
+        "id": 35,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "name": "Google Apps Script",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 36,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "name": "HTML",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 37,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "name": "CSS",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 38,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "name": "JavaScript",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 39,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "name": "Google Sheets API",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 44,
+        "projectId": 11,
+        "name": "Laravel",
+        "order": 0
+      },
+      {
+        "id": 45,
+        "projectId": 11,
+        "name": "PHP",
+        "order": 1
+      },
+      {
+        "id": 46,
+        "projectId": 11,
+        "name": "Blade",
+        "order": 2
+      },
+      {
+        "id": 47,
+        "projectId": 11,
+        "name": "JavaScript",
+        "order": 3
+      },
+      {
+        "id": 48,
+        "projectId": 12,
+        "name": "Next.js",
+        "order": 0
+      },
+      {
+        "id": 49,
+        "projectId": 12,
+        "name": "React",
+        "order": 1
+      },
+      {
+        "id": 50,
+        "projectId": 12,
+        "name": "TypeScript",
+        "order": 2
+      },
+      {
+        "id": 51,
+        "projectId": 12,
+        "name": "Tailwind CSS",
+        "order": 3
+      },
+      {
+        "id": 52,
+        "projectId": 12,
+        "name": "Prisma",
+        "order": 4
+      },
+      {
+        "id": 53,
+        "projectId": 12,
+        "name": "MySQL",
+        "order": 5
+      },
+      {
+        "id": 54,
+        "projectId": 13,
+        "name": "Laravel",
+        "order": 0
+      },
+      {
+        "id": 55,
+        "projectId": 13,
+        "name": "PHP",
+        "order": 1
+      },
+      {
+        "id": 56,
+        "projectId": 13,
+        "name": "Blade",
+        "order": 2
+      },
+      {
+        "id": 57,
+        "projectId": 13,
+        "name": "JavaScript",
+        "order": 3
+      },
+      {
+        "id": 58,
+        "projectId": 13,
+        "name": "Dompdf",
+        "order": 4
+      },
+      {
+        "id": 59,
+        "projectId": 13,
+        "name": "PhpSpreadsheet",
+        "order": 5
+      },
+      {
+        "id": 62,
+        "order": 0,
+        "createdAt": "2026-11-04T12:12:38.765Z",
+        "name": "Unity",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.765Z"
+      },
+      {
+        "id": 63,
+        "order": 1,
+        "createdAt": "2026-11-04T12:12:38.765Z",
+        "name": "C#",
+        "projectId": 10,
+        "updatedAt": "2026-11-04T12:12:38.765Z"
+      },
+      {
+        "id": 64,
+        "projectId": 14,
+        "name": "Laravel 10",
+        "order": 0
+      },
+      {
+        "id": 65,
+        "projectId": 14,
+        "name": "PHP",
+        "order": 1
+      },
+      {
+        "id": 66,
+        "projectId": 14,
+        "name": "Blade",
+        "order": 2
+      },
+      {
+        "id": 67,
+        "projectId": 14,
+        "name": "Bootstrap",
+        "order": 3
+      },
+      {
+        "id": 68,
+        "projectId": 14,
+        "name": "JavaScript",
+        "order": 4
+      },
+      {
+        "id": 69,
+        "projectId": 14,
+        "name": "Vite",
+        "order": 5
+      },
+      {
+        "id": 70,
+        "projectId": 14,
+        "name": "Dompdf",
+        "order": 6
+      },
+      {
+        "id": 71,
+        "projectId": 14,
+        "name": "Laravel Excel",
+        "order": 7
+      }
+    ],
+    "projectScreenshot": [
+      {
+        "id": 1,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "src": "/images/projects/2/2.png",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 2,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "src": "/images/projects/2/3.png",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 3,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "src": "/images/projects/2/4.png",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 4,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "src": "/images/projects/2/5.png",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 5,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "src": "/images/projects/2/6.png",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 6,
+        "order": 5,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "src": "/images/projects/2/7.png",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 7,
+        "order": 6,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "src": "/images/projects/2/8.png",
+        "projectId": 1,
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 8,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.085Z",
+        "src": "/images/projects/7/2.png",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.085Z"
+      },
+      {
+        "id": 9,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.086Z",
+        "src": "/images/projects/7/3.png",
+        "projectId": 2,
+        "updatedAt": "2026-11-04T10:02:25.086Z"
+      },
+      {
+        "id": 10,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "src": "/images/projects/8/2.png",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 11,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "src": "/images/projects/8/3.png",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 12,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "src": "/images/projects/8/4.png",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 13,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "src": "/images/projects/8/5.png",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 14,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.109Z",
+        "src": "/images/projects/8/6.png",
+        "projectId": 3,
+        "updatedAt": "2026-11-04T10:02:25.109Z"
+      },
+      {
+        "id": 15,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "src": "/images/projects/1/2.png",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 16,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "src": "/images/projects/1/3.png",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 17,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "src": "/images/projects/1/4.png",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 18,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "src": "/images/projects/1/5.png",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 19,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "src": "/images/projects/1/6.png",
+        "projectId": 4,
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 20,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "src": "/images/projects/3/2.png",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 21,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "src": "/images/projects/3/3.png",
+        "projectId": 5,
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 22,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "src": "/images/projects/4/2.png",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 23,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "src": "/images/projects/4/3.png",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 24,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "src": "/images/projects/4/4.png",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 25,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "src": "/images/projects/4/5.png",
+        "projectId": 6,
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 26,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "src": "/images/projects/6/2.png",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 27,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "src": "/images/projects/6/3.png",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 28,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "src": "/images/projects/6/4.png",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 29,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "src": "/images/projects/6/5.png",
+        "projectId": 8,
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 30,
+        "projectId": 14,
+        "src": "/images/projects/13/2.png",
+        "order": 0
+      },
+      {
+        "id": 31,
+        "projectId": 14,
+        "src": "/images/projects/13/3.png",
+        "order": 1
+      },
+      {
+        "id": 32,
+        "projectId": 14,
+        "src": "/images/projects/13/4.png",
+        "order": 2
+      },
+      {
+        "id": 33,
+        "projectId": 14,
+        "src": "/images/projects/13/5.png",
+        "order": 3
+      },
+      {
+        "id": 34,
+        "projectId": 10,
+        "src": "/images/projects/9/2.png",
+        "order": 0
+      },
+      {
+        "id": 35,
+        "projectId": 10,
+        "src": "/images/projects/9/3.png",
+        "order": 1
+      },
+      {
+        "id": 36,
+        "projectId": 10,
+        "src": "/images/projects/9/4.png",
+        "order": 2
+      },
+      {
+        "id": 37,
+        "projectId": 10,
+        "src": "/images/projects/9/5.png",
+        "order": 3
+      },
+      {
+        "id": 38,
+        "projectId": 10,
+        "src": "/images/projects/9/6.png",
+        "order": 4
+      },
+      {
+        "id": 39,
+        "projectId": 10,
+        "src": "/images/projects/9/7.png",
+        "order": 5
+      },
+      {
+        "id": 40,
+        "projectId": 11,
+        "src": "/images/projects/10/2.png",
+        "order": 0
+      },
+      {
+        "id": 41,
+        "projectId": 11,
+        "src": "/images/projects/10/3.png",
+        "order": 1
+      },
+      {
+        "id": 42,
+        "projectId": 11,
+        "src": "/images/projects/10/4.png",
+        "order": 2
+      },
+      {
+        "id": 43,
+        "projectId": 11,
+        "src": "/images/projects/10/5.png",
+        "order": 3
+      },
+      {
+        "id": 44,
+        "projectId": 11,
+        "src": "/images/projects/10/6.png",
+        "order": 4
+      },
+      {
+        "id": 45,
+        "projectId": 12,
+        "src": "/images/projects/11/2.png",
+        "order": 0
+      },
+      {
+        "id": 46,
+        "projectId": 12,
+        "src": "/images/projects/11/3.png",
+        "order": 1
+      },
+      {
+        "id": 47,
+        "projectId": 12,
+        "src": "/images/projects/11/4.png",
+        "order": 2
+      },
+      {
+        "id": 48,
+        "projectId": 12,
+        "src": "/images/projects/11/5.png",
+        "order": 3
+      },
+      {
+        "id": 49,
+        "projectId": 13,
+        "src": "/images/projects/12/2.png",
+        "order": 0
+      },
+      {
+        "id": 50,
+        "projectId": 13,
+        "src": "/images/projects/12/3.png",
+        "order": 1
+      },
+      {
+        "id": 51,
+        "projectId": 13,
+        "src": "/images/projects/12/4.png",
+        "order": 2
+      },
+      {
+        "id": 52,
+        "projectId": 13,
+        "src": "/images/projects/12/5.png",
+        "order": 3
+      },
+      {
+        "id": 53,
+        "projectId": 13,
+        "src": "/images/projects/12/6.png",
+        "order": 4
+      },
+      {
+        "id": 54,
+        "projectId": 13,
+        "src": "/images/projects/12/7.png",
+        "order": 5
+      },
+      {
+        "id": 55,
+        "projectId": 13,
+        "src": "/images/projects/12/8.png",
+        "order": 6
+      }
+    ],
+    "project": [
+      {
+        "id": 1,
+        "order": 0,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.059Z",
+        "title": "Dinoyo Kamera - Integrated Business Information System",
+        "slug": "dinoyo-kamera-erp-system",
+        "type": "freelance",
+        "category": "ERP / Business Information System",
+        "client": "Dinoyo Kamera",
+        "period": "2025 - 2026",
+        "description": "Sistem informasi terintegrasi untuk seluruh proses bisnis Dinoyo Kamera, dari inventory hingga quality control.",
+        "longDescription": "Sistem informasi bisnis terintegrasi yang mencakup seluruh proses operasional Dinoyo Camera. Sistem ini mengelola inventory, pembelian (purchase), penjualan, quality control, dan pelaporan. Dirancang untuk meningkatkan efisiensi dan akurasi data bisnis.",
+        "challenge": "Proses bisnis Dinoyo Kamera masih terpisah-pisah antara inventory, pembelian, penjualan, dan quality control. Data tidak terintegrasi menyebabkan duplikasi dan kesalahan input.",
+        "solution": "Membangun sistem informasi terintegrasi yang menghubungkan seluruh proses bisnis dalam satu platform. Data mengalir otomatis antar modul, mengurangi kesalahan input dan meningkatkan efisiensi.",
+        "image": "/images/projects/2/1.png",
+        "liveUrl": null,
+        "githubUrl": null,
+        "myRole": "Project Leader & Fullstack Developer",
+        "teamSize": "5 orang",
+        "goal": "Mengintegrasikan seluruh proses bisnis Dinoyo Kamera untuk meningkatkan efisiensi dan akurasi data.",
+        "outcome": "Data bisnis lebih akurat, proses lebih cepat, dan pengambilan keputusan lebih mudah.",
+        "updatedAt": "2026-11-04T10:02:25.059Z"
+      },
+      {
+        "id": 2,
+        "order": 10,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.085Z",
+        "title": "Guess The Song - Music Quiz Game",
+        "slug": "guess-the-song",
+        "type": "side",
+        "category": "Web Game",
+        "client": null,
+        "period": "2026",
+        "description": "Interactive music quiz game where players guess song titles from 7-second audio previews. Built with Next.js and iTunes API.",
+        "longDescription": "Guess The Song is a fun, interactive web game that tests your music knowledge. Players choose their favorite artist, listen to a 7-second audio preview from the middle of a random song, and guess the correct title from three multiple-choice options. The game features a scoring system, progress tracking, and supports 10 rounds per session with stats calculation at the end.",
+        "challenge": "The main challenge was working with the iTunes API which only provides 30-second previews starting from the beginning of songs. The goal was to create a fair 'middle of the song' experience without access to the full track or custom preview points. Additionally, handling HTTP preview URLs on HTTPS websites and ensuring smooth audio playback across different browsers required careful implementation.",
+        "solution": "I implemented a custom audio player with timeline control that attempts to start playback from the 10-second mark. A fallback mechanism automatically plays from the beginning if seeking fails due to CORS restrictions. The iTunes API is proxied through Next.js rewrites to solve HTTPS mixed-content issues. The game also features a debounced search for artists, glassmorphic UI design, and real-time progress tracking to enhance user experience.",
+        "image": "/images/projects/7/1.png",
+        "liveUrl": "https://guess-song.aanjar.web.id",
+        "githubUrl": "https://github.com/aanjardev/guess-song",
+        "myRole": "Solo Developer - Full Stack",
+        "teamSize": "1",
+        "goal": "To build a fun, accessible music quiz game that anyone can play without requiring Spotify or Apple Music subscriptions. The goal was to create an engaging experience that tests music knowledge while maintaining a clean, modern UI.",
+        "outcome": "A fully functional web game that allows users to test their music knowledge across various artists. The game features smooth audio playback, intuitive UI, and comprehensive game statistics. It's deployed and accessible to anyone with an internet connection.",
+        "updatedAt": "2026-11-04T10:02:25.085Z"
+      },
+      {
+        "id": 3,
+        "order": 4,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.108Z",
+        "title": "YBLP Digital Beneficiary & Program Management System",
+        "slug": "yblp-digital-beneficiary-program-management-system",
+        "type": "social",
+        "category": "Social Impact / Web Information System",
+        "client": "Yayasan Bumi Langgat Peduli",
+        "period": "2026",
+        "description": "Sistem pendataan digital untuk manajemen data penerima manfaat dan program sosial yayasan secara terpusat.",
+        "longDescription": "Sistem ini dikembangkan untuk mendigitalisasi proses pendataan di Yayasan Bumi Langgat Peduli, mencakup master data Anak Yatim dan Duafa, pengelolaan sesi program (Santunan, Khitan Masal, Bedah Rumah), manajemen peserta per program, dashboard ringkasan, serta laporan dan ekspor data. Sistem dibangun berbasis Google Apps Script + Google Sheets dengan antarmuka web admin yang responsif.",
+        "challenge": "Proses pendataan sebelumnya rawan duplikasi data, sulit dipantau lintas program, dan tidak efisien saat membuat laporan berkala.",
+        "solution": "Membangun sistem admin terintegrasi dengan autentikasi sesi, struktur data terstandar per program, validasi input, pencegahan duplikasi peserta, serta fitur laporan dan ekspor untuk operasional harian yayasan.",
+        "image": "/images/projects/8/1.png",
+        "liveUrl": null,
+        "githubUrl": "https://github.com/aanjardev/yblp",
+        "myRole": "Fullstack Developer",
+        "teamSize": "Solo",
+        "goal": "Membangun sistem pendataan yayasan yang rapi, cepat, dan minim error untuk mendukung pengambilan keputusan program sosial.",
+        "outcome": "Sistem membantu admin mengelola data penerima dan program secara lebih efisien, mengurangi duplikasi, serta mempercepat pembuatan laporan operasional.",
+        "updatedAt": "2026-11-04T10:02:25.108Z"
+      },
+      {
+        "id": 4,
+        "order": 7,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.133Z",
+        "title": "Dinoyo Kamera - Catalog & Profile Website",
+        "slug": "dinoyo-kamera-catalog-website",
+        "type": "freelance",
+        "category": "E-commerce",
+        "client": "Dinoyo Kamera",
+        "period": "2025",
+        "description": "Website katalog dan profile toko kamera yang memudahkan customer melihat dan mencari produk secara realtime.",
+        "longDescription": "Sebuah website e-commerce katalog untuk Dinoyo Kamera, toko kamera di Malang. Website ini memungkinkan customer untuk melihat dan mencari produk kamera beserta aksesorisnya dengan status ketersediaan realtime. Setiap produk dilengkapi dengan aksi langsung yang mengarahkan customer ke WhatsApp admin untuk proses pembelian.",
+        "challenge": "Toko kamera Dinoyo Kamera mengalami kesulitan dalam menampilkan katalog produk secara digital dan realtime. Customer sering bertanya tentang ketersediaan stok produk, yang memakan waktu admin.",
+        "solution": "Membangun website katalog dengan sistem manajemen produk yang update stok secara realtime. Customer bisa langsung melihat ketersediaan produk dan terhubung ke WhatsApp admin untuk pembelian.",
+        "image": "/images/projects/1/1.png",
+        "liveUrl": "https://dinoyokamera.com",
+        "githubUrl": null,
+        "myRole": "Fullstack Developer",
+        "teamSize": "3 orang",
+        "goal": "Mendigitalisasi katalog produk Dinoyo Kamera agar customer mudah melihat produk dan stok secara realtime.",
+        "outcome": "Customer dapat melihat ketersediaan produk tanpa perlu bertanya admin, meningkatkan efisiensi penjualan.",
+        "updatedAt": "2026-11-04T10:02:25.133Z"
+      },
+      {
+        "id": 5,
+        "order": 12,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.156Z",
+        "title": "Setiap Suara Perempuan Harus Didengar",
+        "slug": "perempuan-suaraku",
+        "type": "social",
+        "category": "Social Campaign",
+        "client": null,
+        "period": "2025",
+        "description": "Website kampanye sosial untuk mendukung dan melindungi suara perempuan korban kekerasan.",
+        "longDescription": "Website statis yang dibuat untuk program Perempuan Inovasi 2025 dari Markoding. Website ini bertujuan untuk menyuarakan dukungan terhadap perempuan korban kekerasan, menyediakan informasi, dan menciptakan ruang aman bagi mereka. Dibangun dengan vanilla HTML, CSS, dan JavaScript murni.",
+        "challenge": "Masih banyak perempuan korban kekerasan yang tidak memiliki akses ke informasi dan dukungan. Perlu platform yang aman dan informatif untuk menyuarakan isu ini.",
+        "solution": "Membangun website kampanye sosial yang informatif dan empatik dengan desain yang menenangkan, menyediakan informasi tentang dukungan yang tersedia.",
+        "image": "/images/projects/3/1.png",
+        "liveUrl": "https://aanjardev.github.io/Challenge-PI-Markoding/",
+        "githubUrl": "https://github.com/aanjardev/Challenge-PI-Markoding",
+        "myRole": "Solo Developer",
+        "teamSize": "1 orang (solo)",
+        "goal": "Menyuarakan dukungan terhadap perempuan korban kekerasan dan menyediakan informasi bantuan.",
+        "outcome": "Meningkatkan kesadaran tentang isu kekerasan terhadap perempuan dan ketersediaan dukungan.",
+        "updatedAt": "2026-11-04T10:02:25.156Z"
+      },
+      {
+        "id": 6,
+        "order": 3,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.177Z",
+        "title": "Ar-Rahman Mosque Visitor Management System",
+        "slug": "mosque-visitor-management-system",
+        "type": "social",
+        "category": "Smart Building / IoT",
+        "client": "Ar-Rahman Mosque Kitakyushu Japan",
+        "period": "2025",
+        "description": "Sistem manajemen pengunjung masjid real-time dengan integrasi smart LED board untuk Masjid Ar-Rahman Kitakyushu, Jepang.",
+        "longDescription": "Sistem manajemen pengunjung real-time yang dikembangkan untuk program pengabdian masyarakat internasional di Masjid Ar-Rahman Kitakyushu, Jepang. Sistem ini terdiri dari web application untuk visitor registration dan admin dashboard, serta smart LED board berbasis ESP32 yang menampilkan informasi real-time.",
+        "challenge": "Masjid Ar-Rahman membutuhkan sistem untuk memantau jumlah pengunjung secara real-time dan memberikan informasi waktu sholat serta event masjid secara digital.",
+        "solution": "Membangun sistem terintegrasi antara web application untuk visitor registration dan admin dashboard, serta smart LED board yang menampilkan informasi real-time dari ESP32.",
+        "image": "/images/projects/4/1.png",
+        "liveUrl": null,
+        "githubUrl": "https://github.com/aanjardev/Visitor-Management-Mosque",
+        "myRole": "Fullstack Web Developer",
+        "teamSize": "Tim Riset",
+        "goal": "Membangun sistem manajemen pengunjung yang modern untuk Masjid Ar-Rahman di Jepang sebagai proyek pengabdian internasional.",
+        "outcome": "Sistem berhasil diimplementasikan dan membantu pengurus masjid memantau pengunjung serta memberikan informasi digital.",
+        "updatedAt": "2026-11-04T10:02:25.177Z"
+      },
+      {
+        "id": 7,
+        "order": 11,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.209Z",
+        "title": "RSS News Aggregator",
+        "slug": "rss-news-aggregator",
+        "type": "freelance",
+        "category": "News / Content Aggregator",
+        "client": null,
+        "period": "2026",
+        "description": "Web aggregator berita dari berbagai sumber menggunakan feed RSS.",
+        "longDescription": "Web application yang mengumpulkan dan menampilkan berita dari berbagai sumber menggunakan teknologi RSS feed. Pengguna dapat melihat berita terbaru dari berbagai sumber dalam satu platform yang terintegrasi.",
+        "challenge": null,
+        "solution": null,
+        "image": "/images/projects/5/1.jpeg",
+        "liveUrl": "https://papua.news",
+        "githubUrl": null,
+        "myRole": "Assistant Frontend Developer",
+        "teamSize": "Team",
+        "goal": null,
+        "outcome": null,
+        "updatedAt": "2026-11-04T10:02:25.209Z"
+      },
+      {
+        "id": 8,
+        "order": 5,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.233Z",
+        "title": "School Supervision Assessment Tool",
+        "slug": "school-supervision-tool",
+        "type": "freelance",
+        "category": "Education / School Management",
+        "client": "Pengawas Sekolah",
+        "period": "2026",
+        "description": "Google Apps Script web app untuk membantu pengawas sekolah memantau upload bukti penilaian dari sekolah binaan.",
+        "longDescription": "Web application berbasis Google Apps Script yang membantu pengawas sekolah dalam memantau upload bukti persyaratan penilaian dari sekolah-sekolah binaan. Awalnya konsep dibuat menggunakan Gemini AI, kemudian saya realisasikan menjadi aplikasi fungsional yang dapat digunakan.",
+        "challenge": "Pengawas sekolah kesulitan memantau upload bukti penilaian dari berbagai sekolah binaan secara manual melalui email dan chat.",
+        "solution": "Membangun aplikasi berbasis Google Apps Script yang terintegrasi dengan Google Sheets, memungkinkan sekolah upload bukti dan pengawas memantau secara real-time.",
+        "image": "/images/projects/6/1.png",
+        "liveUrl": null,
+        "githubUrl": null,
+        "myRole": "Web Developer",
+        "teamSize": "1 orang (solo)",
+        "goal": "Membantu pengawas sekolah dalam memantau upload bukti penilaian dari sekolah binaan secara efisien.",
+        "outcome": "Pengawas sekolah dapat memantau progress upload bukti penilaian secara real-time tanpa manual checking.",
+        "updatedAt": "2026-11-04T10:02:25.233Z"
+      },
+      {
+        "id": 10,
+        "title": "PiketAgain! — Classroom Cleaning & Ethics Game",
+        "slug": "piketagain",
+        "type": "side",
+        "category": "Educational Game",
+        "client": null,
+        "description": "A classroom-cleaning game that brings ethical choices into everyday school responsibilities, developed by a three-person team for a Game Development course.",
+        "longDescription": "PiketAgain! combines classroom-cleaning activities with an emphasis on ethics and responsibility. Players interact with the classroom environment, complete quests, and follow their cleaning progress while responding to situations involving other characters. As team leader, I developed the original concept, designed the game systems, and contributed to implementation alongside two other developers. The team shared implementation work across the game's systems.",
+        "challenge": "The design challenge was to connect cleaning tasks with ethical situations while keeping objectives and interactions understandable to players.",
+        "solution": "The implementation combines interactable classroom objects, quest and progress tracking, NPC dialogue, a timer, and badge systems to support the cleaning-and-ethics concept.",
+        "myRole": "Team Lead & Game Developer",
+        "teamSize": "3 people",
+        "goal": "Encourage players to reflect on responsibility and ethical conduct through an interactive classroom-cleaning game.",
+        "outcome": "Developed as a three-person Game Development course project. A public playable build is not linked yet.",
+        "githubUrl": "https://github.com/aanjardev/piketagain",
+        "liveUrl": null,
+        "period": null,
+        "image": "/images/projects/9/1.png",
+        "order": 9,
+        "isVisible": true,
+        "createdAt": "2026-11-04T12:10:07.394737+00:00",
+        "updatedAt": "2026-11-07T18:32:48.353260+00:00"
+      },
+      {
+        "id": 11,
+        "title": "Village Profile Website — KKN Community Project",
+        "slug": "village-profile-website",
+        "type": "social",
+        "category": "Village Website",
+        "client": null,
+        "description": "A village information website and content-management system developed by a seven-person KKN team to organize village profiles, public information, and local potential.",
+        "longDescription": "Developed as part of a KKN community-service project, this website brings together village identity, organizational information, news, agendas, tourism, UMKM, public documents, and service information. An administrative interface supports content management. I led the seven-person team and worked as a full stack developer. The project was developed but was not adopted by the village; it is presented here as a development project rather than an operational village service.",
+        "challenge": "The information-design challenge was to organize a broad range of village content while giving administrators a practical way to maintain it.",
+        "solution": "A Laravel application separates public information pages from authenticated administration, with content modules for village information, news, agendas, local potential, documents, and services.",
+        "myRole": "Team Lead & Full Stack Developer",
+        "teamSize": "7 people",
+        "goal": "Provide a central place for village information and showcase local tourism and small businesses.",
+        "outcome": "Developed during KKN by a seven-person team. The village did not adopt the website, and no public demo is currently linked.",
+        "githubUrl": "https://github.com/aanjardev/profil-desa",
+        "liveUrl": null,
+        "period": null,
+        "image": "/images/projects/10/1.png",
+        "order": 8,
+        "isVisible": true,
+        "createdAt": "2026-11-04T12:10:07.394916+00:00",
+        "updatedAt": "2026-11-07T18:32:48.353472+00:00"
+      },
+      {
+        "id": 12,
+        "title": "TK ABA 8 Kepanjen — School Profile Website",
+        "slug": "tk-aba-8-kepanjen",
+        "type": "freelance",
+        "category": "School Website",
+        "client": "TK ABA 8 Kepanjen",
+        "description": "A school profile website with an administrative workspace for managing school information, teachers, programs, news, achievements, and registration content.",
+        "longDescription": "A freelance website for TK ABA 8 Kepanjen, developed independently across the full stack. The public website presents school information, programs, teachers, curriculum, news, achievements, and contact details, alongside a registration flow. Administrative pages allow school content to be maintained through a dedicated interface. The application uses Next.js and React, with Prisma and MySQL for structured content management.",
+        "challenge": "The implementation challenge was to present a range of school information clearly while allowing content to be updated through an administrative interface.",
+        "solution": "The application combines public school-information pages with authenticated content-management modules backed by Prisma and MySQL.",
+        "myRole": "Solo Full Stack Developer",
+        "teamSize": "1 person",
+        "goal": "Help families explore the school and provide a practical way to maintain its website content.",
+        "outcome": "Independently developed the school website and administrative application for TK ABA 8 Kepanjen.",
+        "githubUrl": "https://github.com/aanjardev/TK-aba8",
+        "liveUrl": "https://tkaba8kepanjen.sch.id",
+        "period": null,
+        "image": "/images/projects/11/1.png",
+        "order": 6,
+        "isVisible": true,
+        "createdAt": "2026-11-04T12:10:07.395087+00:00",
+        "updatedAt": "2026-11-07T18:32:48.353645+00:00"
+      },
+      {
+        "id": 13,
+        "title": "SIBAS — Waste Bank Management System",
+        "slug": "sibas-waste-bank-management",
+        "type": "freelance",
+        "category": "Web Application",
+        "client": null,
+        "description": "A waste-bank management application covering members, waste deposits, savings, inventory, cooperative purchases, and reporting, with separate member and admin workflows.",
+        "longDescription": "SIBAS is a freelance waste-bank management application that I developed independently. Member-facing pages provide access to deposit history, purchase history, savings, notifications, and reports. Administrative modules handle members, waste categories and deposits, savings, inventory, cooperative sales, and reporting. Laravel powers the application, with PDF and spreadsheet libraries supporting report exports.",
+        "challenge": "The workflow-design challenge was to connect waste deposits, member savings, inventory, and cooperative transactions while keeping member and administrative responsibilities separate.",
+        "solution": "The Laravel application organizes operations into member and admin areas, with dedicated modules for deposits, savings, inventory, checkout, and PDF or spreadsheet report exports.",
+        "myRole": "Solo Full Stack Developer",
+        "teamSize": "1 person",
+        "goal": "Support organized waste-bank operations and give members access to their transaction and savings information.",
+        "outcome": "Independently developed the waste-bank management application and its member and administrative workflows.",
+        "githubUrl": "https://github.com/aanjardev/sibas-app",
+        "liveUrl": "https://sibas.site",
+        "period": null,
+        "image": "/images/projects/12/1.jpeg",
+        "order": 2,
+        "isVisible": true,
+        "createdAt": "2026-11-04T12:10:07.395263+00:00",
+        "updatedAt": "2026-11-07T18:32:48.353812+00:00"
+      },
+      {
+        "id": 14,
+        "title": "SiPuKa - Sistem Informasi Pusat Kamera",
+        "slug": "sipuka-sistem-informasi-pusat-kamera",
+        "type": "freelance",
+        "category": "Web Application",
+        "client": "Pusat Kamera",
+        "description": "Sistem informasi toko kamera yang menghubungkan katalog publik dengan pengelolaan produk, pembelian, penjualan, dan quality control.",
+        "longDescription": "SiPuKa menggabungkan website publik Pusat Kamera dengan pengelolaan operasional toko. Pengunjung dapat menjelajahi katalog, informasi toko, testimoni, dan halaman jual kamera. Area administrasi menyediakan pengelolaan produk dan foto, kategori, pelanggan, cabang, pembelian, penjualan, dan quality control, serta ekspor laporan PDF dan Excel.",
+        "challenge": "Menghubungkan informasi produk untuk pengunjung dengan alur pembelian, penjualan, dan pemeriksaan kualitas toko kamera.",
+        "solution": "Aplikasi Laravel dengan katalog publik, area administrasi terautentikasi, modul operasional, dan pengaturan akses berbasis peran.",
+        "myRole": null,
+        "teamSize": null,
+        "period": null,
+        "goal": "Memusatkan katalog kamera serta pengelolaan produk dan transaksi toko.",
+        "outcome": "Website Pusat Kamera tersedia melalui pusatkamera.id, dengan katalog publik dan modul administrasi operasional.",
+        "githubUrl": "https://github.com/aanjardev/SiPuKa",
+        "liveUrl": "https://pusatkamera.id",
+        "image": "/images/projects/13/1.png",
+        "order": 1,
+        "isVisible": true,
+        "createdAt": "2026-11-07T18:30:51.341266+00:00",
+        "updatedAt": "2026-11-07T18:30:51.341266+00:00"
+      }
+    ],
+    "workExperienceTech": [
+      {
+        "id": 1,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.257Z",
+        "name": "Next.js",
+        "expId": 1,
+        "updatedAt": "2026-11-04T10:02:25.257Z"
+      },
+      {
+        "id": 2,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.257Z",
+        "name": "TailwindCSS",
+        "expId": 1,
+        "updatedAt": "2026-11-04T10:02:25.257Z"
+      },
+      {
+        "id": 3,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.257Z",
+        "name": "Laravel",
+        "expId": 1,
+        "updatedAt": "2026-11-04T10:02:25.257Z"
+      },
+      {
+        "id": 4,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.257Z",
+        "name": "Node.js",
+        "expId": 1,
+        "updatedAt": "2026-11-04T10:02:25.257Z"
+      },
+      {
+        "id": 5,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.257Z",
+        "name": "TypeScript",
+        "expId": 1,
+        "updatedAt": "2026-11-04T10:02:25.257Z"
+      },
+      {
+        "id": 6,
+        "order": 5,
+        "createdAt": "2026-11-04T10:02:25.257Z",
+        "name": "React",
+        "expId": 1,
+        "updatedAt": "2026-11-04T10:02:25.257Z"
+      },
+      {
+        "id": 7,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.279Z",
+        "name": "Curriculum Design",
+        "expId": 2,
+        "updatedAt": "2026-11-04T10:02:25.279Z"
+      },
+      {
+        "id": 8,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.279Z",
+        "name": "Student Assessment",
+        "expId": 2,
+        "updatedAt": "2026-11-04T10:02:25.279Z"
+      },
+      {
+        "id": 9,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.279Z",
+        "name": "One-on-One Teaching",
+        "expId": 2,
+        "updatedAt": "2026-11-04T10:02:25.279Z"
+      },
+      {
+        "id": 10,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.316Z",
+        "name": "Financial Reporting",
+        "expId": 3,
+        "updatedAt": "2026-11-04T10:02:25.316Z"
+      },
+      {
+        "id": 11,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.316Z",
+        "name": "Balance Sheet",
+        "expId": 3,
+        "updatedAt": "2026-11-04T10:02:25.316Z"
+      },
+      {
+        "id": 12,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.316Z",
+        "name": "Cash Flow Management",
+        "expId": 3,
+        "updatedAt": "2026-11-04T10:02:25.316Z"
+      },
+      {
+        "id": 13,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.316Z",
+        "name": "P&L Analysis",
+        "expId": 3,
+        "updatedAt": "2026-11-04T10:02:25.316Z"
+      },
+      {
+        "id": 14,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.362Z",
+        "name": "E-commerce Management",
+        "expId": 4,
+        "updatedAt": "2026-11-04T10:02:25.362Z"
+      },
+      {
+        "id": 15,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.362Z",
+        "name": "Social Media",
+        "expId": 4,
+        "updatedAt": "2026-11-04T10:02:25.362Z"
+      },
+      {
+        "id": 16,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.362Z",
+        "name": "Product Photography",
+        "expId": 4,
+        "updatedAt": "2026-11-04T10:02:25.362Z"
+      },
+      {
+        "id": 17,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.362Z",
+        "name": "Content Creation",
+        "expId": 4,
+        "updatedAt": "2026-11-04T10:02:25.362Z"
+      },
+      {
+        "id": 18,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.414Z",
+        "name": ".NET",
+        "expId": 5,
+        "updatedAt": "2026-11-04T10:02:25.414Z"
+      },
+      {
+        "id": 19,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.414Z",
+        "name": "TypeScript",
+        "expId": 5,
+        "updatedAt": "2026-11-04T10:02:25.414Z"
+      },
+      {
+        "id": 20,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.414Z",
+        "name": "FastReport",
+        "expId": 5,
+        "updatedAt": "2026-11-04T10:02:25.414Z"
+      },
+      {
+        "id": 21,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.414Z",
+        "name": "Serenity Framework",
+        "expId": 5,
+        "updatedAt": "2026-11-04T10:02:25.414Z"
+      },
+      {
+        "id": 22,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.414Z",
+        "name": "Database Integration",
+        "expId": 5,
+        "updatedAt": "2026-11-04T10:02:25.414Z"
+      }
+    ],
+    "workExperience": [
+      {
+        "id": 1,
+        "order": 0,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.257Z",
+        "title": "Freelance Web Developer",
+        "company": "Self-employed",
+        "period": "2023 - Present",
+        "description": "Build responsive websites for small businesses and individual clients. Handle full project lifecycle from design to deployment, delivering high-quality solutions that meet client needs and deadlines.",
+        "updatedAt": "2026-11-04T10:02:25.257Z"
+      },
+      {
+        "id": 2,
+        "order": 1,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.278Z",
+        "title": "Math & English Tutor",
+        "company": "Private Tutoring",
+        "period": "2025 - Present",
+        "description": "Teach students from elementary to high school level. Create personalized learning materials and track progress. Help students improve their academic performance and build confidence in both math and English.",
+        "updatedAt": "2026-11-04T10:02:25.278Z"
+      },
+      {
+        "id": 3,
+        "order": 2,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.316Z",
+        "title": "Finance Staff",
+        "company": "Dinoyo Kamera",
+        "period": "August 2024 – July 2025",
+        "description": "Managed full-scope financial reporting including daily, monthly, and annual reports. Handled balance sheets, cash flow statements, and profit & loss statements. Monitored financial discrepancies, ensured transaction accuracy, and compiled income and expense records with high attention to detail.",
+        "updatedAt": "2026-11-04T10:02:25.316Z"
+      },
+      {
+        "id": 4,
+        "order": 3,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.361Z",
+        "title": "Web & Social Media Admin",
+        "company": "Dinoyo Kamera",
+        "period": "August 2023 – July 2024",
+        "description": "Managed customer service on social media and e-commerce platforms (Shopee, Instagram, WhatsApp). Uploaded and maintained product listings on company website and marketplaces. Handled product photography, video editing, and designed marketing visuals to improve brand engagement.",
+        "updatedAt": "2026-11-04T10:02:25.361Z"
+      },
+      {
+        "id": 5,
+        "order": 4,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.414Z",
+        "title": "Software Engineering Intern",
+        "company": "PT Universal Big Data",
+        "period": "May – October 2022",
+        "description": "Built web applications using Serenity Framework (.NET, TypeScript). Designed approximately 60 FastReport templates integrated with enterprise database systems. Contributed to educational, reporting, and development teams simultaneously.",
+        "updatedAt": "2026-11-04T10:02:25.414Z"
+      }
+    ],
+    "credentialSkill": [
+      {
+        "id": 1,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.461Z",
+        "name": "Database Management",
+        "credentialId": 1,
+        "updatedAt": "2026-11-04T10:02:25.461Z"
+      },
+      {
+        "id": 2,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.461Z",
+        "name": "UMKM Digitalization",
+        "credentialId": 1,
+        "updatedAt": "2026-11-04T10:02:25.461Z"
+      },
+      {
+        "id": 3,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.461Z",
+        "name": "Copyright",
+        "credentialId": 1,
+        "updatedAt": "2026-11-04T10:02:25.461Z"
+      },
+      {
+        "id": 4,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.461Z",
+        "name": "Intellectual Property",
+        "credentialId": 1,
+        "updatedAt": "2026-11-04T10:02:25.461Z"
+      },
+      {
+        "id": 5,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.527Z",
+        "name": "Web Development",
+        "credentialId": 2,
+        "updatedAt": "2026-11-04T10:02:25.527Z"
+      },
+      {
+        "id": 6,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.527Z",
+        "name": "Information System",
+        "credentialId": 2,
+        "updatedAt": "2026-11-04T10:02:25.527Z"
+      },
+      {
+        "id": 7,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.527Z",
+        "name": "Business Process Automation",
+        "credentialId": 2,
+        "updatedAt": "2026-11-04T10:02:25.527Z"
+      },
+      {
+        "id": 8,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.527Z",
+        "name": "UMKM",
+        "credentialId": 2,
+        "updatedAt": "2026-11-04T10:02:25.527Z"
+      },
+      {
+        "id": 9,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.554Z",
+        "name": "Public Speaking",
+        "credentialId": 3,
+        "updatedAt": "2026-11-04T10:02:25.554Z"
+      },
+      {
+        "id": 10,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.554Z",
+        "name": "Research Presentation",
+        "credentialId": 3,
+        "updatedAt": "2026-11-04T10:02:25.554Z"
+      },
+      {
+        "id": 11,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.554Z",
+        "name": "Information Technology",
+        "credentialId": 3,
+        "updatedAt": "2026-11-04T10:02:25.554Z"
+      },
+      {
+        "id": 12,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.694Z",
+        "name": "Public Speaking",
+        "credentialId": 4,
+        "updatedAt": "2026-11-04T10:02:25.694Z"
+      },
+      {
+        "id": 13,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.694Z",
+        "name": "Research",
+        "credentialId": 4,
+        "updatedAt": "2026-11-04T10:02:25.694Z"
+      },
+      {
+        "id": 14,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.694Z",
+        "name": "Electrical Engineering",
+        "credentialId": 4,
+        "updatedAt": "2026-11-04T10:02:25.694Z"
+      },
+      {
+        "id": 15,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.731Z",
+        "name": "Smart City",
+        "credentialId": 5,
+        "updatedAt": "2026-11-04T10:02:25.731Z"
+      },
+      {
+        "id": 16,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.731Z",
+        "name": "Innovation",
+        "credentialId": 5,
+        "updatedAt": "2026-11-04T10:02:25.731Z"
+      },
+      {
+        "id": 17,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.731Z",
+        "name": "Project Development",
+        "credentialId": 5,
+        "updatedAt": "2026-11-04T10:02:25.731Z"
+      },
+      {
+        "id": 18,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.752Z",
+        "name": "Data Transformation",
+        "credentialId": 6,
+        "updatedAt": "2026-11-04T10:02:25.752Z"
+      },
+      {
+        "id": 19,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.752Z",
+        "name": "Data Visualization",
+        "credentialId": 6,
+        "updatedAt": "2026-11-04T10:02:25.752Z"
+      },
+      {
+        "id": 20,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.752Z",
+        "name": "Excel",
+        "credentialId": 6,
+        "updatedAt": "2026-11-04T10:02:25.752Z"
+      },
+      {
+        "id": 21,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.752Z",
+        "name": "Data Analysis",
+        "credentialId": 6,
+        "updatedAt": "2026-11-04T10:02:25.752Z"
+      },
+      {
+        "id": 22,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:25.752Z",
+        "name": "Document Management",
+        "credentialId": 6,
+        "updatedAt": "2026-11-04T10:02:25.752Z"
+      },
+      {
+        "id": 23,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.775Z",
+        "name": "English Proficiency",
+        "credentialId": 7,
+        "updatedAt": "2026-11-04T10:02:25.775Z"
+      },
+      {
+        "id": 24,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.775Z",
+        "name": "Listening",
+        "credentialId": 7,
+        "updatedAt": "2026-11-04T10:02:25.775Z"
+      },
+      {
+        "id": 25,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.775Z",
+        "name": "Reading",
+        "credentialId": 7,
+        "updatedAt": "2026-11-04T10:02:25.775Z"
+      },
+      {
+        "id": 26,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.775Z",
+        "name": "Grammar",
+        "credentialId": 7,
+        "updatedAt": "2026-11-04T10:02:25.775Z"
+      },
+      {
+        "id": 27,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.847Z",
+        "name": "English Proficiency",
+        "credentialId": 8,
+        "updatedAt": "2026-11-04T10:02:25.847Z"
+      },
+      {
+        "id": 28,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.847Z",
+        "name": "Listening",
+        "credentialId": 8,
+        "updatedAt": "2026-11-04T10:02:25.847Z"
+      },
+      {
+        "id": 29,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.847Z",
+        "name": "Reading",
+        "credentialId": 8,
+        "updatedAt": "2026-11-04T10:02:25.847Z"
+      },
+      {
+        "id": 30,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:25.847Z",
+        "name": "Grammar",
+        "credentialId": 8,
+        "updatedAt": "2026-11-04T10:02:25.847Z"
+      },
+      {
+        "id": 31,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.895Z",
+        "name": "Scientific Writing",
+        "credentialId": 9,
+        "updatedAt": "2026-11-04T10:02:25.895Z"
+      },
+      {
+        "id": 32,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.895Z",
+        "name": "Research",
+        "credentialId": 9,
+        "updatedAt": "2026-11-04T10:02:25.895Z"
+      },
+      {
+        "id": 33,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.895Z",
+        "name": "Critical Thinking",
+        "credentialId": 9,
+        "updatedAt": "2026-11-04T10:02:25.895Z"
+      },
+      {
+        "id": 34,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:25.932Z",
+        "name": "Scientific Paper",
+        "credentialId": 10,
+        "updatedAt": "2026-11-04T10:02:25.932Z"
+      },
+      {
+        "id": 35,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:25.932Z",
+        "name": "International Competition",
+        "credentialId": 10,
+        "updatedAt": "2026-11-04T10:02:25.932Z"
+      },
+      {
+        "id": 36,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:25.932Z",
+        "name": "Green Technology",
+        "credentialId": 10,
+        "updatedAt": "2026-11-04T10:02:25.932Z"
+      },
+      {
+        "id": 37,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.013Z",
+        "name": "Public Speaking",
+        "credentialId": 11,
+        "updatedAt": "2026-11-04T10:02:26.013Z"
+      },
+      {
+        "id": 38,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.013Z",
+        "name": "Event Moderation",
+        "credentialId": 11,
+        "updatedAt": "2026-11-04T10:02:26.013Z"
+      },
+      {
+        "id": 39,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.013Z",
+        "name": "Communication",
+        "credentialId": 11,
+        "updatedAt": "2026-11-04T10:02:26.013Z"
+      },
+      {
+        "id": 40,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:26.013Z",
+        "name": "Leadership",
+        "credentialId": 11,
+        "updatedAt": "2026-11-04T10:02:26.013Z"
+      },
+      {
+        "id": 41,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.063Z",
+        "name": "Essay Writing",
+        "credentialId": 12,
+        "updatedAt": "2026-11-04T10:02:26.063Z"
+      },
+      {
+        "id": 42,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.063Z",
+        "name": "Statistics",
+        "credentialId": 12,
+        "updatedAt": "2026-11-04T10:02:26.063Z"
+      },
+      {
+        "id": 43,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.063Z",
+        "name": "Data Science",
+        "credentialId": 12,
+        "updatedAt": "2026-11-04T10:02:26.063Z"
+      },
+      {
+        "id": 44,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:26.063Z",
+        "name": "Team Collaboration",
+        "credentialId": 12,
+        "updatedAt": "2026-11-04T10:02:26.063Z"
+      },
+      {
+        "id": 45,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.160Z",
+        "name": "WordPress",
+        "credentialId": 13,
+        "updatedAt": "2026-11-04T10:02:26.160Z"
+      },
+      {
+        "id": 46,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.160Z",
+        "name": "Web Design",
+        "credentialId": 13,
+        "updatedAt": "2026-11-04T10:02:26.160Z"
+      },
+      {
+        "id": 47,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.160Z",
+        "name": "Plugins",
+        "credentialId": 13,
+        "updatedAt": "2026-11-04T10:02:26.160Z"
+      },
+      {
+        "id": 48,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:26.160Z",
+        "name": "Responsive Design",
+        "credentialId": 13,
+        "updatedAt": "2026-11-04T10:02:26.160Z"
+      },
+      {
+        "id": 49,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.176Z",
+        "name": "Academic Excellence",
+        "credentialId": 14,
+        "updatedAt": "2026-11-04T10:02:26.176Z"
+      },
+      {
+        "id": 50,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.176Z",
+        "name": "Consistency",
+        "credentialId": 14,
+        "updatedAt": "2026-11-04T10:02:26.176Z"
+      },
+      {
+        "id": 51,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.176Z",
+        "name": "Dedication",
+        "credentialId": 14,
+        "updatedAt": "2026-11-04T10:02:26.176Z"
+      },
+      {
+        "id": 52,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.194Z",
+        "name": "Teaching",
+        "credentialId": 15,
+        "updatedAt": "2026-11-04T10:02:26.194Z"
+      },
+      {
+        "id": 53,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.194Z",
+        "name": "Web Programming",
+        "credentialId": 15,
+        "updatedAt": "2026-11-04T10:02:26.194Z"
+      },
+      {
+        "id": 54,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.194Z",
+        "name": "Mentoring",
+        "credentialId": 15,
+        "updatedAt": "2026-11-04T10:02:26.194Z"
+      },
+      {
+        "id": 55,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:26.194Z",
+        "name": "HTML/CSS/JS",
+        "credentialId": 15,
+        "updatedAt": "2026-11-04T10:02:26.194Z"
+      },
+      {
+        "id": 56,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.214Z",
+        "name": "Entrepreneurship",
+        "credentialId": 16,
+        "updatedAt": "2026-11-04T10:02:26.214Z"
+      },
+      {
+        "id": 57,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.214Z",
+        "name": "Digital Platform",
+        "credentialId": 16,
+        "updatedAt": "2026-11-04T10:02:26.214Z"
+      },
+      {
+        "id": 58,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.214Z",
+        "name": "MSME Empowerment",
+        "credentialId": 16,
+        "updatedAt": "2026-11-04T10:02:26.214Z"
+      },
+      {
+        "id": 59,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:26.214Z",
+        "name": "Web Development",
+        "credentialId": 16,
+        "updatedAt": "2026-11-04T10:02:26.214Z"
+      },
+      {
+        "id": 60,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.237Z",
+        "name": "Proposal Writing",
+        "credentialId": 17,
+        "updatedAt": "2026-11-04T10:02:26.237Z"
+      },
+      {
+        "id": 61,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.237Z",
+        "name": "Research",
+        "credentialId": 17,
+        "updatedAt": "2026-11-04T10:02:26.237Z"
+      },
+      {
+        "id": 62,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.237Z",
+        "name": "Public Presentation",
+        "credentialId": 17,
+        "updatedAt": "2026-11-04T10:02:26.237Z"
+      },
+      {
+        "id": 63,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:26.237Z",
+        "name": "Sustainable Development Goals",
+        "credentialId": 17,
+        "updatedAt": "2026-11-04T10:02:26.237Z"
+      },
+      {
+        "id": 64,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.258Z",
+        "name": "Vanilla CSS",
+        "credentialId": 18,
+        "updatedAt": "2026-11-04T10:02:26.258Z"
+      },
+      {
+        "id": 65,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.258Z",
+        "name": "Bootstrap",
+        "credentialId": 18,
+        "updatedAt": "2026-11-04T10:02:26.258Z"
+      },
+      {
+        "id": 66,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.258Z",
+        "name": "JavaScript",
+        "credentialId": 18,
+        "updatedAt": "2026-11-04T10:02:26.258Z"
+      },
+      {
+        "id": 67,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:26.258Z",
+        "name": "Laravel",
+        "credentialId": 18,
+        "updatedAt": "2026-11-04T10:02:26.258Z"
+      },
+      {
+        "id": 68,
+        "order": 4,
+        "createdAt": "2026-11-04T10:02:26.258Z",
+        "name": "Vue.js",
+        "credentialId": 18,
+        "updatedAt": "2026-11-04T10:02:26.258Z"
+      },
+      {
+        "id": 69,
+        "order": 5,
+        "createdAt": "2026-11-04T10:02:26.258Z",
+        "name": "REST API",
+        "credentialId": 18,
+        "updatedAt": "2026-11-04T10:02:26.258Z"
+      },
+      {
+        "id": 70,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.282Z",
+        "name": "Digital Empowerment",
+        "credentialId": 19,
+        "updatedAt": "2026-11-04T10:02:26.282Z"
+      },
+      {
+        "id": 71,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.282Z",
+        "name": "Gender Equality",
+        "credentialId": 19,
+        "updatedAt": "2026-11-04T10:02:26.282Z"
+      },
+      {
+        "id": 72,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.282Z",
+        "name": "Social Innovation",
+        "credentialId": 19,
+        "updatedAt": "2026-11-04T10:02:26.282Z"
+      },
+      {
+        "id": 73,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:26.282Z",
+        "name": "Tech for Good",
+        "credentialId": 19,
+        "updatedAt": "2026-11-04T10:02:26.282Z"
+      },
+      {
+        "id": 74,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.313Z",
+        "name": "Design Thinking",
+        "credentialId": 20,
+        "updatedAt": "2026-11-04T10:02:26.313Z"
+      },
+      {
+        "id": 75,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.313Z",
+        "name": "Innovation",
+        "credentialId": 20,
+        "updatedAt": "2026-11-04T10:02:26.313Z"
+      },
+      {
+        "id": 76,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.313Z",
+        "name": "Problem Solving",
+        "credentialId": 20,
+        "updatedAt": "2026-11-04T10:02:26.313Z"
+      },
+      {
+        "id": 77,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:26.313Z",
+        "name": "Social Impact",
+        "credentialId": 20,
+        "updatedAt": "2026-11-04T10:02:26.313Z"
+      },
+      {
+        "id": 78,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.351Z",
+        "name": "Web Development",
+        "credentialId": 21,
+        "updatedAt": "2026-11-04T10:02:26.351Z"
+      },
+      {
+        "id": 79,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.351Z",
+        "name": "HTML",
+        "credentialId": 21,
+        "updatedAt": "2026-11-04T10:02:26.351Z"
+      },
+      {
+        "id": 80,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.351Z",
+        "name": "CSS",
+        "credentialId": 21,
+        "updatedAt": "2026-11-04T10:02:26.351Z"
+      },
+      {
+        "id": 81,
+        "order": 3,
+        "createdAt": "2026-11-04T10:02:26.351Z",
+        "name": "JavaScript",
+        "credentialId": 21,
+        "updatedAt": "2026-11-04T10:02:26.351Z"
+      },
+      {
+        "id": 82,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.390Z",
+        "name": "JavaScript",
+        "credentialId": 22,
+        "updatedAt": "2026-11-04T10:02:26.390Z"
+      },
+      {
+        "id": 83,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.390Z",
+        "name": "Programming Basics",
+        "credentialId": 22,
+        "updatedAt": "2026-11-04T10:02:26.390Z"
+      },
+      {
+        "id": 84,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.390Z",
+        "name": "Web Development",
+        "credentialId": 22,
+        "updatedAt": "2026-11-04T10:02:26.390Z"
+      },
+      {
+        "id": 85,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.444Z",
+        "name": "CSS",
+        "credentialId": 23,
+        "updatedAt": "2026-11-04T10:02:26.444Z"
+      },
+      {
+        "id": 86,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.444Z",
+        "name": "Styling",
+        "credentialId": 23,
+        "updatedAt": "2026-11-04T10:02:26.444Z"
+      },
+      {
+        "id": 87,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.444Z",
+        "name": "Responsive Design",
+        "credentialId": 23,
+        "updatedAt": "2026-11-04T10:02:26.444Z"
+      },
+      {
+        "id": 88,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.480Z",
+        "name": "HTML",
+        "credentialId": 24,
+        "updatedAt": "2026-11-04T10:02:26.480Z"
+      },
+      {
+        "id": 89,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.480Z",
+        "name": "Web Structure",
+        "credentialId": 24,
+        "updatedAt": "2026-11-04T10:02:26.480Z"
+      },
+      {
+        "id": 90,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.480Z",
+        "name": "Semantic HTML",
+        "credentialId": 24,
+        "updatedAt": "2026-11-04T10:02:26.480Z"
+      },
+      {
+        "id": 91,
+        "order": 0,
+        "createdAt": "2026-11-04T10:02:26.514Z",
+        "name": "Python",
+        "credentialId": 25,
+        "updatedAt": "2026-11-04T10:02:26.514Z"
+      },
+      {
+        "id": 92,
+        "order": 1,
+        "createdAt": "2026-11-04T10:02:26.514Z",
+        "name": "Artificial Intelligence",
+        "credentialId": 25,
+        "updatedAt": "2026-11-04T10:02:26.514Z"
+      },
+      {
+        "id": 93,
+        "order": 2,
+        "createdAt": "2026-11-04T10:02:26.514Z",
+        "name": "Programming",
+        "credentialId": 25,
+        "updatedAt": "2026-11-04T10:02:26.514Z"
+      },
+      {
+        "id": 94,
+        "credentialId": 26,
+        "name": "Conversational AI",
+        "order": 0
+      },
+      {
+        "id": 95,
+        "credentialId": 26,
+        "name": "Public Service Innovation",
+        "order": 1
+      },
+      {
+        "id": 96,
+        "credentialId": 26,
+        "name": "WhatsApp Integration",
+        "order": 2
+      },
+      {
+        "id": 97,
+        "credentialId": 26,
+        "name": "Team Collaboration",
+        "order": 3
+      },
+      {
+        "id": 98,
+        "credentialId": 27,
+        "name": "Sustainable Waste Management",
+        "order": 0
+      },
+      {
+        "id": 99,
+        "credentialId": 27,
+        "name": "Risk Assessment",
+        "order": 1
+      },
+      {
+        "id": 100,
+        "credentialId": 27,
+        "name": "System Dynamics",
+        "order": 2
+      },
+      {
+        "id": 101,
+        "credentialId": 27,
+        "name": "Landfill Load Forecasting",
+        "order": 3
+      },
+      {
+        "id": 102,
+        "credentialId": 27,
+        "name": "Team Collaboration",
+        "order": 4
+      },
+      {
+        "id": 103,
+        "credentialId": 28,
+        "name": "Computer Hardware",
+        "order": 0
+      },
+      {
+        "id": 104,
+        "credentialId": 28,
+        "name": "Networking",
+        "order": 1
+      }
+    ],
+    "credential": [
+      {
+        "id": 27,
+        "title": "Gold Award — International Innovation & Invention Competition 2026 (IIICe2026)",
+        "slug": "iiice2026-gold-award",
+        "type": "award",
+        "issuer": "Universiti Tun Hussein Onn Malaysia (UTHM)",
+        "date": "2026-08-05",
+        "credentialId": "UTHM.FKEE.AF/1242/2026",
+        "credentialUrl": null,
+        "description": "Awarded Gold at the International Innovation & Invention Competition 2026 (IIICe2026) on August 5, 2026, for the team project Sustainable Waste Management System Based on Integrated Risk Assessment and System Dynamics for Net Landfill Load Forecasting at Butus Landfill. Associated with Universitas Negeri Malang, the project focuses on sustainable waste management by integrating risk assessment and system dynamics to forecast landfill loads. The certificate recognizes a five-person team including Aan Anjar Setyowati.",
+        "image": "/images/credentials/iiice2026-gold-award.jpg",
+        "expiryDate": null,
+        "isVisible": true,
+        "order": 0,
+        "createdAt": "2026-11-04T15:15:17.337587+00:00",
+        "updatedAt": "2026-11-04T15:15:17.337587+00:00"
+      },
+      {
+        "id": 1,
+        "order": 1,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.461Z",
+        "title": "Hak Cipta - Database Management System for Dinoyo Camera",
+        "slug": "hak-cipta-database-dinoyo-camera",
+        "type": "certification",
+        "issuer": "Kementerian Hukum dan HAM RI",
+        "date": "2025-05-20",
+        "expiryDate": null,
+        "credentialId": "EC002025052325",
+        "credentialUrl": null,
+        "description": "Sistem Manajemen Database Terintegrasi untuk Dinoyo Camera sebagai Langkah Mendukung Teknologi UMKM di Indonesia dengan Digitalisasi. Berlaku selama 50 tahun sejak pertama kali diumumkan (16 April 2025). Registered Copyright.",
+        "image": "/images/credentials/hak-cipta-database.png",
+        "updatedAt": "2026-11-04T10:02:25.461Z"
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.527Z",
+        "title": "Hak Cipta - Web-Based Integrated Information System",
+        "slug": "hak-cipta-web-information-system",
+        "type": "certification",
+        "issuer": "Kementerian Hukum dan HAM RI",
+        "date": "2025-12-18",
+        "expiryDate": null,
+        "credentialId": "EC002025220238",
+        "credentialUrl": null,
+        "description": "PENGEMBANGAN SISTEM INFORMASI TERINTEGRASI BERBASIS WEB UNTUK OTOMATISASI PROSES BISNIS UMKM DINOYO KAMERA. Berlaku selama 50 tahun sejak pertama kali diumumkan (14 Desember 2025). Registered Copyright.",
+        "image": "/images/credentials/hak-cipta-web-system.png",
+        "updatedAt": "2026-11-04T10:02:25.527Z"
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.554Z",
+        "title": "Presenter - 15th International Conference on ICTS 2025",
+        "slug": "icts-2025-presenter",
+        "type": "achievement",
+        "issuer": "Department of Informatics, Institut Teknologi Sepuluh Nopember",
+        "date": "2025-11-13",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Presented at the 15th International Conference on Information, Communication Technology and System (ICTS) held in Bali, November 12-13, 2025.",
+        "image": "/images/credentials/icts-2025.png",
+        "updatedAt": "2026-11-04T10:02:25.554Z"
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.694Z",
+        "title": "Presenter - 9th International Conference on ICEEIE 2025",
+        "slug": "iceeie-2025-presenter",
+        "type": "achievement",
+        "issuer": "ICEEIE Organizing Committee, Universitas Negeri Malang",
+        "date": "2025-09-03",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Presented research at the 9th International Conference on Electrical, Electronics, and Information Engineering (ICEEIE) 2025.",
+        "image": "/images/credentials/iceeie-2025.png",
+        "updatedAt": "2026-11-04T10:02:25.694Z"
+      },
+      {
+        "id": 26,
+        "title": "1st Place — APTIKOMFEST 2026 Hackathon, East Java",
+        "slug": "aptikomfest-2026-hackathon-east-java-1st-place",
+        "type": "award",
+        "issuer": "Asosiasi Pendidikan Tinggi Informatika dan Komputer (APTIKOM)",
+        "date": "2026-10-04",
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Awarded 1st Place at the East Java provincial level in the APTIKOM Hackathon category of APTIKOMFEST 2026, representing Universitas Negeri Malang. Our three-person team developed LaporPak — an orchestration platform for village public services and complaints using conversational AI through WhatsApp. The certificate names Muhammad Farel Alfathir, Aan Anjar Setyowati, and Ferdiansyah Dwana Putra Santoso as the project team. The competition took place from September 1 to October 4, 2026.",
+        "image": "/images/credentials/aptikomfest-2026-east-java.jpg",
+        "expiryDate": null,
+        "isVisible": true,
+        "order": 5,
+        "createdAt": "2026-11-04T15:15:17.337412+00:00",
+        "updatedAt": "2026-11-04T15:15:17.337412+00:00"
+      },
+      {
+        "id": 5,
+        "order": 6,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.731Z",
+        "title": "Finalist - GEMASTIK 2025 (Smart City Category)",
+        "slug": "gemastik-2025-finalist",
+        "type": "competition",
+        "issuer": "Puspresnas - Kementerian Pendidikan",
+        "date": "2025-10-30",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Selected as a finalist in the national GEMASTIK competition (Smart City category). Successfully passed university selection and advanced to the government final round.",
+        "image": "/images/credentials/gemastik-2025.jpeg",
+        "updatedAt": "2026-11-04T10:02:25.731Z"
+      },
+      {
+        "id": 12,
+        "order": 7,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.062Z",
+        "title": "1st Place - FESMARO 2025 Essay Competition",
+        "slug": "fesmaro-2025-1st-place",
+        "type": "award",
+        "issuer": "Department of Electrical Engineering and Informatics, Universitas Negeri Malang",
+        "date": "2025-04-21",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Part of the winning team in the FESMARO 2025 essay competition. Explored the role of statistics and data science in integrating science, technology, and industry for Society 5.0.",
+        "image": "/images/credentials/fesmaro-2025.png",
+        "updatedAt": "2026-11-04T10:02:26.062Z"
+      },
+      {
+        "id": 16,
+        "order": 8,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.214Z",
+        "title": "Winner - Entrepreneurship Funding Competition (GERAIKITA)",
+        "slug": "geraikita-entrepreneurship-winner",
+        "type": "award",
+        "issuer": "Fakultas Teknik, Universitas Negeri Malang",
+        "date": "2025-07-01",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Selected as one of the 5 winning teams in an entrepreneurship funding competition with the digital product GERAIKITA, a web-based digital empowerment platform designed to support rural MSMEs.",
+        "image": "/images/credentials/geraikita.jpg",
+        "updatedAt": "2026-11-04T10:02:26.214Z"
+      },
+      {
+        "id": 9,
+        "order": 9,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.895Z",
+        "title": "1st Honorable Mention - LKTIEN 2025",
+        "slug": "lktien-2025-honorable-mention",
+        "type": "award",
+        "issuer": "Formadiksi, Universitas Negeri Malang",
+        "date": "2025-09-01",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Achieved 1st Honorable Mention in the National Scientific Paper Competition (LKTIEN) organized by Formadiksi Universitas Negeri Malang 2025.",
+        "image": "/images/credentials/lktien-2025.jpg",
+        "updatedAt": "2026-11-04T10:02:25.895Z"
+      },
+      {
+        "id": 10,
+        "order": 10,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.932Z",
+        "title": "2nd Honorable Mention - IGSC 2025",
+        "slug": "igsc-2025-honorable-mention",
+        "type": "award",
+        "issuer": "enerC, Fakultas Teknik, Universitas Negeri Semarang",
+        "date": "2025-08-23",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Achieved 2nd Honorable Mention at the International Green Scientific Competition (IGSC) Vol. XII, organized by Engineering Research Club, Faculty of Engineering, Universitas Negeri Semarang.",
+        "image": "/images/credentials/igsc-2025.png",
+        "updatedAt": "2026-11-04T10:02:25.932Z"
+      },
+      {
+        "id": 17,
+        "order": 11,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.237Z",
+        "title": "Finalist - Techpioneers Innovation Challenge 2024",
+        "slug": "techpioneers-2024-finalist",
+        "type": "competition",
+        "issuer": "Faculty of Engineering, Universitas Negeri Malang",
+        "date": "2024-11-01",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Selected as a finalist in the Techpioneers Innovation Challenge 2024 under PKM-RSH category. Submitted a research-based proposal and presented in the final round.",
+        "image": "/images/credentials/techpioneers-2024.jpg",
+        "updatedAt": "2026-11-04T10:02:26.237Z"
+      },
+      {
+        "id": 13,
+        "order": 12,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.160Z",
+        "title": "2nd Place - Web Technologies Competition (Kabupaten Malang)",
+        "slug": "lks-web-tech-2nd-place",
+        "type": "award",
+        "issuer": "Lomba Kompetensi Siswa (LKS) 2023 - Kabupaten Malang",
+        "date": "2023-03-07",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Achieved 2nd place in the Web Technologies category at LKS 2023 for Kabupaten Malang. Built dynamic websites using WordPress CMS with various plugins and responsive design.",
+        "image": "/images/credentials/lks-kabupaten-2023.png",
+        "updatedAt": "2026-11-04T10:02:26.160Z"
+      },
+      {
+        "id": 18,
+        "order": 13,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.258Z",
+        "title": "Participant - Web Technologies Competition (East Java Province)",
+        "slug": "lks-provinsi-web-tech",
+        "type": "competition",
+        "issuer": "Lomba Kompetensi Siswa (LKS) 2023 - East Java Province",
+        "date": "2023-05-01",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Represented Kabupaten Malang in the East Java provincial round of LKS 2023, Web Technologies category. Tasks included Vanilla CSS/Bootstrap layout, JavaScript mini-game, and Laravel+Vue.js full-stack application.",
+        "image": "/images/credentials/lks-provinsi-2023.png",
+        "updatedAt": "2026-11-04T10:02:26.258Z"
+      },
+      {
+        "id": 28,
+        "title": "IT Essentials",
+        "slug": "cisco-it-essentials-2026",
+        "type": "certification",
+        "issuer": "Cisco Networking Academy",
+        "date": "2026-07-21",
+        "credentialId": null,
+        "credentialUrl": "https://www.credly.com/badges/3194209f-0369-4a98-a41f-17e455bf921f",
+        "description": "Completed IT Essentials 8 through Cisco Networking Academy, offered by Universitas Negeri Malang, on July 21, 2026. Achieved a final class grade of 95.97%.",
+        "image": "/images/credentials/cisco-it-essentials-2026.jpg",
+        "expiryDate": null,
+        "isVisible": true,
+        "order": 14,
+        "createdAt": "2026-11-04T15:15:17.337800+00:00",
+        "updatedAt": "2026-11-04T15:15:17.337800+00:00"
+      },
+      {
+        "id": 6,
+        "order": 15,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.752Z",
+        "title": "Certified Data Analyst - Microsoft Excel",
+        "slug": "data-analyst-excel-certified",
+        "type": "certification",
+        "issuer": "IBLU ACADEMY",
+        "date": "2025-07-25",
+        "expiryDate": null,
+        "credentialId": "sVGM-HwZ0",
+        "credentialUrl": null,
+        "description": "Passed with a score of 963/1000 (minimum passing score: 700). Competency: Basic Data Transformation (100%), Calculation Preparation (100%), Data Visualization (58%), Document Management (100%), Data Interpretation (100%), Data Connection (100%).",
+        "image": "/images/credentials/data-analyst-excel.png",
+        "updatedAt": "2026-11-04T10:02:25.752Z"
+      },
+      {
+        "id": 7,
+        "order": 16,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.775Z",
+        "title": "English Proficiency Test (UKBIng) 2025",
+        "slug": "ukb-ing-2025",
+        "type": "certification",
+        "issuer": "Universitas Negeri Malang",
+        "date": "2025-07-10",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Achieved a score of 510 (Advanced level). Breakdown: Listening (57), Structure (41), Reading (55).",
+        "image": "/images/credentials/ukb-ing-2025.png",
+        "updatedAt": "2026-11-04T10:02:25.775Z"
+      },
+      {
+        "id": 8,
+        "order": 17,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:25.847Z",
+        "title": "English Proficiency Test (UKBIng) 2024",
+        "slug": "ukb-ing-2024",
+        "type": "certification",
+        "issuer": "Universitas Negeri Malang",
+        "date": "2024-08-29",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Achieved a score of 510 (Advanced level). Breakdown: Listening (50), Structure (47), Reading (58).",
+        "image": "/images/credentials/ukb-ing-2024.png",
+        "updatedAt": "2026-11-04T10:02:25.847Z"
+      },
+      {
+        "id": 14,
+        "order": 18,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.176Z",
+        "title": "Top 3 Graduate - Class of 2023",
+        "slug": "top-3-graduate-2023",
+        "type": "achievement",
+        "issuer": "SMKN 2 Singosari",
+        "date": "2023-05-05",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Awarded 3rd place overall (Top 3 parallel) across all majors at SMK Negeri 2 Singosari upon graduation, honoring academic excellence and consistency throughout the final year.",
+        "image": "/images/credentials/top-3-graduate.png",
+        "updatedAt": "2026-11-04T10:02:26.176Z"
+      },
+      {
+        "id": 15,
+        "order": 19,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.194Z",
+        "title": "Teaching Assistant - Web Programming",
+        "slug": "teaching-assistant-web-programming",
+        "type": "achievement",
+        "issuer": "Department of Electrical Engineering and Informatics, Universitas Negeri Malang",
+        "date": "2025-12-21",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Served as a Teaching Assistant for the Web Programming course (September - December 2025). Assisted students in learning web development concepts and practical assignments.",
+        "image": "/images/credentials/ta-web-programming.jpg",
+        "updatedAt": "2026-11-04T10:02:26.194Z"
+      },
+      {
+        "id": 20,
+        "order": 20,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.313Z",
+        "title": "Samsung Solve for Tomorrow 2025 - Design Thinking Workshop",
+        "slug": "samsung-solve-for-tomorrow-2025",
+        "type": "achievement",
+        "issuer": "Samsung Electronics Indonesia",
+        "date": "2025-10-01",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Completed the Design Thinking Workshop as part of Samsung Solve for Tomorrow 2025 program, focused on developing innovative solutions for a better future.",
+        "image": "/images/credentials/samsung-solve-2025.png",
+        "updatedAt": "2026-11-04T10:02:26.313Z"
+      },
+      {
+        "id": 11,
+        "order": 21,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.013Z",
+        "title": "Master of Ceremony - Guest Lecture on Reinforcement Learning",
+        "slug": "mc-guest-lecture-reinforcement-learning",
+        "type": "achievement",
+        "issuer": "Fakultas Teknik, Universitas Negeri Malang & University of Malaya Malaysia",
+        "date": "2025-09-11",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Served as Master of Ceremony for the Guest Lecture titled 'Reinforcement Learning Approaches for Gas Concentration Mapping and Source Localization using Autonomous UAVs', organized by Faculty of Engineering, Universitas Negeri Malang in collaboration with University of Malaya, Malaysia.",
+        "image": "/images/credentials/mc-guest-lecture.png",
+        "updatedAt": "2026-11-04T10:02:26.013Z"
+      },
+      {
+        "id": 19,
+        "order": 22,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.282Z",
+        "title": "Perempuan Inovasi 2025 - Basic Course Graduate",
+        "slug": "perempuan-inovasi-2025",
+        "type": "course",
+        "issuer": "Markoding, Magnifique Indonesia & Dian Sastrowardoyo Foundation",
+        "date": "2025-10-01",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Completed the Basic Course stage in the Perempuan Inovasi 2025 program, a digital skills training scholarship for underprivileged young women in Indonesia. Focused on addressing gender-related issues through technology.",
+        "image": "/images/credentials/perempuan-inovasi-2025.png",
+        "updatedAt": "2026-11-04T10:02:26.282Z"
+      },
+      {
+        "id": 21,
+        "order": 23,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.351Z",
+        "title": "Web Development Pemula - Special Challenge (Gold)",
+        "slug": "web-dev-pemula-gold",
+        "type": "course",
+        "issuer": "Skilvul",
+        "date": "2025-06-01",
+        "expiryDate": "2027-06-01",
+        "credentialId": "a1mxVi9lTragVfpEqDklcA",
+        "credentialUrl": null,
+        "description": "Completion Certificate for Web Development Pemula - Special Challenge with Gold achievement.",
+        "image": "/images/credentials/web-dev-pemula.png",
+        "updatedAt": "2026-11-04T10:02:26.351Z"
+      },
+      {
+        "id": 22,
+        "order": 24,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.390Z",
+        "title": "JavaScript Dasar (Gold)",
+        "slug": "javascript-dasar-gold",
+        "type": "course",
+        "issuer": "Skilvul",
+        "date": "2025-06-01",
+        "expiryDate": "2027-06-01",
+        "credentialId": "8ncOzq49RdixpGa4g-gQfA",
+        "credentialUrl": null,
+        "description": "Completion Certificate for JavaScript Dasar with Gold achievement.",
+        "image": "/images/credentials/javascript-dasar.png",
+        "updatedAt": "2026-11-04T10:02:26.390Z"
+      },
+      {
+        "id": 23,
+        "order": 25,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.444Z",
+        "title": "CSS Dasar (Gold)",
+        "slug": "css-dasar-gold",
+        "type": "course",
+        "issuer": "Skilvul",
+        "date": "2025-06-01",
+        "expiryDate": "2027-06-01",
+        "credentialId": "CTgeOutwTGiTEFPEMCqqbA",
+        "credentialUrl": null,
+        "description": "Completion Certificate for CSS Dasar with Gold achievement.",
+        "image": "/images/credentials/css-dasar.png",
+        "updatedAt": "2026-11-04T10:02:26.444Z"
+      },
+      {
+        "id": 24,
+        "order": 26,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.479Z",
+        "title": "HTML Dasar (Gold)",
+        "slug": "html-dasar-gold",
+        "type": "course",
+        "issuer": "Skilvul",
+        "date": "2025-05-01",
+        "expiryDate": "2027-05-01",
+        "credentialId": "dSIjtcJ9RSOlq7AfdSRDfA",
+        "credentialUrl": null,
+        "description": "Completion Certificate for HTML Dasar with Gold achievement.",
+        "image": "/images/credentials/html-dasar.png",
+        "updatedAt": "2026-11-04T10:02:26.479Z"
+      },
+      {
+        "id": 25,
+        "order": 27,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:02:26.514Z",
+        "title": "Python with AI - Completion",
+        "slug": "python-ai-dqlab",
+        "type": "course",
+        "issuer": "DQLab",
+        "date": "2025-08-01",
+        "expiryDate": null,
+        "credentialId": null,
+        "credentialUrl": null,
+        "description": "Guide to Learn Python with AI course completion.",
+        "image": "/images/credentials/python-ai-dqlab.png",
+        "updatedAt": "2026-11-04T10:02:26.514Z"
+      }
+    ],
+    "techStackItem": [
+      {
+        "id": 15,
+        "order": 1,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.522Z",
+        "name": "Next.js",
+        "icon": "SiNextdotjs",
+        "category": "Frontend & UI",
+        "experience": ">1 years",
+        "projects": "3+ projects",
+        "updatedAt": "2026-11-04T10:03:15.522Z"
+      },
+      {
+        "id": 16,
+        "order": 2,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "React",
+        "icon": "SiReact",
+        "category": "Frontend & UI",
+        "experience": "1+ years",
+        "projects": "3+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 17,
+        "order": 3,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "TailwindCSS",
+        "icon": "SiTailwindcss",
+        "category": "Frontend & UI",
+        "experience": "2+ years",
+        "projects": "4+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 18,
+        "order": 4,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "TypeScript",
+        "icon": "SiTypescript",
+        "category": "Frontend & UI",
+        "experience": "1+ years",
+        "projects": "3+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 19,
+        "order": 5,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "JavaScript",
+        "icon": "SiJavascript",
+        "category": "Frontend & UI",
+        "experience": "3+ years",
+        "projects": "10+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 20,
+        "order": 6,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "Figma",
+        "icon": "SiFigma",
+        "category": "Frontend & UI",
+        "experience": "2+ years",
+        "projects": "5+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 21,
+        "order": 7,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "Laravel",
+        "icon": "SiLaravel",
+        "category": "Backend & DB",
+        "experience": "3+ years",
+        "projects": "6+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 22,
+        "order": 8,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "Node.js",
+        "icon": "SiNodedotjs",
+        "category": "Backend & DB",
+        "experience": "2+ years",
+        "projects": "3+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 23,
+        "order": 9,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "PHP",
+        "icon": "SiPhp",
+        "category": "Backend & DB",
+        "experience": "3+ years",
+        "projects": "5+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 24,
+        "order": 10,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "MySQL",
+        "icon": "SiMysql",
+        "category": "Backend & DB",
+        "experience": "3+ years",
+        "projects": "10+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 25,
+        "order": 11,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "Firebase / Supabase",
+        "icon": "SiFirebase",
+        "category": "Backend & DB",
+        "experience": "2+ years",
+        "projects": "7+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 26,
+        "order": 12,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "Python",
+        "icon": "SiPython",
+        "category": "Backend & DB",
+        "experience": "2+ years",
+        "projects": "2+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 27,
+        "order": 13,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "Git & GitHub",
+        "icon": "SiGithub",
+        "category": "Tools & Others",
+        "experience": "3+ years",
+        "projects": "15+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 28,
+        "order": 14,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "WordPress",
+        "icon": "SiWordpress",
+        "category": "Tools & Others",
+        "experience": "3+ years",
+        "projects": "7+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 29,
+        "order": 15,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "Sheets & Apps Script",
+        "icon": "SiGooglesheets",
+        "category": "Tools & Others",
+        "experience": "2+ years",
+        "projects": "9+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 30,
+        "order": 16,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "ESP32 / IoT",
+        "icon": "SiEspressif",
+        "category": "Tools & Others",
+        "experience": "1+ years",
+        "projects": "3+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 31,
+        "order": 17,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "Java",
+        "icon": "SiOpenjdk",
+        "category": "Tools & Others",
+        "experience": "1+ years",
+        "projects": "2+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      },
+      {
+        "id": 32,
+        "order": 18,
+        "isVisible": true,
+        "createdAt": "2026-11-04T10:03:15.523Z",
+        "name": "C++",
+        "icon": "SiCplusplus",
+        "category": "Tools & Others",
+        "experience": "1+ years",
+        "projects": "1+ projects",
+        "updatedAt": "2026-11-04T10:03:15.523Z"
+      }
+    ],
+    "familiarTech": [
+      {
+        "id": 1,
+        "order": 1,
+        "createdAt": "2026-11-04T10:03:15.539Z",
+        "name": "RESTful APIs",
+        "updatedAt": "2026-11-04T10:03:15.539Z"
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "createdAt": "2026-11-04T10:03:15.539Z",
+        "name": "JWT Authentication",
+        "updatedAt": "2026-11-04T10:03:15.539Z"
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "createdAt": "2026-11-04T10:03:15.539Z",
+        "name": "IoT (ESP32)",
+        "updatedAt": "2026-11-04T10:03:15.539Z"
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "createdAt": "2026-11-04T10:03:15.539Z",
+        "name": "Google Apps Script",
+        "updatedAt": "2026-11-04T10:03:15.539Z"
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "createdAt": "2026-11-04T10:03:15.539Z",
+        "name": "WordPress Dev",
+        "updatedAt": "2026-11-04T10:03:15.539Z"
+      },
+      {
+        "id": 6,
+        "order": 6,
+        "createdAt": "2026-11-04T10:03:15.539Z",
+        "name": "Firebase Integration",
+        "updatedAt": "2026-11-04T10:03:15.539Z"
+      }
+    ]
+  },
+  "sequences": {
+    "heroContent": 1,
+    "heroPhoto": 3,
+    "heroStat": 4,
+    "socialLink": 2,
+    "project": 14,
+    "projectTech": 71,
+    "projectScreenshot": 55,
+    "projectFeature": 80,
+    "projectResponsibility": 57,
+    "projectHighlight": 33,
+    "workExperience": 5,
+    "workExperienceTech": 22,
+    "credential": 28,
+    "credentialSkill": 104,
+    "techStackItem": 32,
+    "familiarTech": 6
+  }
+}

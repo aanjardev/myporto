@@ -4,35 +4,33 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { ArrowRight, Briefcase, Users, Code, BookOpen, Star, Calendar } from "lucide-react";
 import { SiGithub } from "react-icons/si";
-
-// ─── Foto slideshow — sementara pakai 1 foto, tambah profil2.jpg & profil3.jpg di public/images/
-const PHOTOS = [
-  { src: "/images/profil1.jpg", label: "Casual" },
-  { src: "/images/profil2.jpg", label: "Professional" },
-  { src: "/images/profil3.jpg", label: "Creative" },
-];
+import { FaLinkedin } from "react-icons/fa";
+import type { HeroData } from "@/lib/db/hero";
 
 const SLIDE_INTERVAL = 4000; // ms
 
-const Hero = () => {
-  const [current, setCurrent] = useState(0);
-  const [imageErrors, setImageErrors] = useState<boolean[]>([false, false, false]);
+// Icon map for dynamic icons from DB
+const STAT_ICONS: Record<string, React.ReactNode> = {
+  Briefcase: <Briefcase style={{ width: 14, height: 14 }} />,
+  Users:     <Users style={{ width: 14, height: 14 }} />,
+  Code:      <Code style={{ width: 14, height: 14 }} />,
+  BookOpen:  <BookOpen style={{ width: 14, height: 14 }} />,
+  Star:      <Star style={{ width: 14, height: 14 }} />,
+  Calendar:  <Calendar style={{ width: 14, height: 14 }} />,
+};
 
-  // Auto-slideshow
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % PHOTOS.length);
-    }, SLIDE_INTERVAL);
-    return () => clearInterval(timer);
-  }, []);
+const SOCIAL_ICONS: Record<string, React.ReactNode> = {
+  SiGithub:   <SiGithub style={{ fontSize: 18 }} />,
+  SiLinkedin: <FaLinkedin style={{ fontSize: 18 }} />,
+};
 
-  const handleImageError = (idx: number) => {
-    setImageErrors((prev) => {
-      const next = [...prev];
-      next[idx] = true;
-      return next;
-    });
+const Hero = ({ hero }: { hero: HeroData }) => {
+  // Use first photo or fallback to profil1.jpg / profil.jpg
+  const mainPhoto = hero.photos?.[0] || {
+    src: "/images/profil1.jpg",
+    label: "Professional",
   };
+  const [imageError, setImageError] = useState(false);
 
   return (
     <section
@@ -149,7 +147,7 @@ const Hero = () => {
                     padding: "0 14px",
                   }}
                 >
-                  Aanjar
+                  {hero.nickname}
                 </span>
               </h1>
 
@@ -163,7 +161,7 @@ const Hero = () => {
                     margin: 0,
                   }}
                 >
-                  Web Developer & Private Tutor
+                  {hero.tagline}
                 </h2>
               </div>
             </div>
@@ -208,8 +206,7 @@ const Hero = () => {
                 animationDelay: "0.22s",
               }}
             >
-              I build websites for clients and create fun interactive tools that
-              anyone can use for free.
+              {hero.bio}
             </p>
 
             {/* Buttons */}
@@ -226,15 +223,18 @@ const Hero = () => {
                 See My Work
                 <ArrowRight style={{ width: 16, height: 16 }} />
               </Link>
-              <Link
-                href="https://github.com/aanjardev"
-                target="_blank"
-                className="btn-ghost-dark"
-                style={{ textDecoration: "none" }}
-              >
-                <SiGithub style={{ width: 16, height: 16 }} />
-                GitHub
-              </Link>
+              {hero.socials.map((social) => (
+                <Link
+                  key={social.label}
+                  href={social.url}
+                  target="_blank"
+                  className="btn-ghost-dark"
+                  style={{ textDecoration: "none" }}
+                >
+                  {SOCIAL_ICONS[social.icon] ?? null}
+                  {social.label}
+                </Link>
+              ))}
             </div>
 
             {/* Stats */}
@@ -291,7 +291,7 @@ const Hero = () => {
             </div> */}
           </div>
 
-          {/* ── RIGHT: Photo Slideshow ── */}
+          {/* ── RIGHT: Single Portrait Photo ── */}
           <div
             className="animate-fade-in hero-photo-col"
             style={{
@@ -310,123 +310,120 @@ const Hero = () => {
                 position: "relative",
               }}
             >
+              {/* Outer ambient glow */}
+              <div
+                aria-hidden
+                style={{
+                  position: "absolute",
+                  inset: -12,
+                  background:
+                    "radial-gradient(circle, rgba(45, 90, 142, 0.45) 0%, transparent 70%)",
+                  filter: "blur(20px)",
+                  zIndex: 0,
+                  pointerEvents: "none",
+                }}
+              />
+
               {/* Decorative back layers */}
               <div
                 aria-hidden
                 style={{
                   position: "absolute",
-                  top: -20,
-                  left: -20,
-                  right: 20,
-                  bottom: 20,
-                  border: "1px solid rgba(255,255,255,0.32)",
+                  top: -16,
+                  left: -16,
+                  right: 16,
+                  bottom: 16,
+                  border: "1px solid rgba(255, 255, 255, 0.22)",
                   borderRadius: "var(--r-xxl)",
                   pointerEvents: "none",
+                  zIndex: 1,
                 }}
               />
               <div
                 aria-hidden
                 style={{
                   position: "absolute",
-                  top: -10,
-                  left: -10,
-                  right: 10,
-                  bottom: 10,
-                  border: "1px solid rgba(255, 255, 255, 0.32)",
+                  top: -8,
+                  left: -8,
+                  right: 8,
+                  bottom: 8,
+                  border: "1px solid rgba(255, 255, 255, 0.35)",
                   borderRadius: "var(--r-xxl)",
                   pointerEvents: "none",
+                  zIndex: 1,
                 }}
               />
 
               {/* Photo container */}
               <div
-                className="hero-photo-container"
+                className="hero-photo-container group"
                 style={{
                   position: "relative",
                   width: "100%",
                   borderRadius: "var(--r-xxl)",
                   overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.12)",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                  boxShadow: "0 20px 40px -15px rgba(0,0,0,0.5)",
                   background: "var(--canvas-night)",
+                  zIndex: 2,
                 }}
               >
-                {PHOTOS.map((photo, idx) => (
+                {imageError ? (
                   <div
-                    key={photo.src}
                     style={{
-                      position: "absolute",
-                      inset: 0,
-                      opacity: current === idx ? 1 : 0,
-                      transition: "opacity 0.001s ease-in-out",
-                      zIndex: current === idx ? 2 : 1,
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 12,
+                      color: "var(--on-dark-muted)",
                     }}
                   >
-                    {imageErrors[idx] ? (
-                      <div
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          gap: 12,
-                          color: "var(--on-dark-muted)",
-                        }}
-                      >
-                        <div
-                          style={{
-                            width: 64,
-                            height: 64,
-                            borderRadius: "50%",
-                            background: "var(--on-dark-faint)",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            fontSize: 28,
-                          }}
-                        >
-                          📸
-                        </div>
-                        <span style={{ fontSize: 13 }}>Aanjar</span>
-                      </div>
-                    ) : (
-                      <Image
-                        src={photo.src}
-                        alt={`Aanjar — ${photo.label}`}
-                        fill
-                        className="object-cover object-top"
-                        onError={() => handleImageError(idx)}
-                        priority={idx === 0}
-                        sizes="440px"
-                      />
-                    )}
+                    <div
+                      style={{
+                        width: 64,
+                        height: 64,
+                        borderRadius: "50%",
+                        background: "var(--on-dark-faint)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: 28,
+                      }}
+                    >
+                      📸
+                    </div>
+                    <span style={{ fontSize: 13 }}>{hero.nickname}</span>
                   </div>
-                ))}
+                ) : (
+                  <>
+                    <Image
+                      src={mainPhoto.src}
+                      alt={`${hero.nickname} — ${mainPhoto.label || "Profile"}`}
+                      fill
+                      className="object-cover object-top transition-transform duration-700 ease-out hover:scale-105"
+                      onError={() => setImageError(true)}
+                      priority
+                      sizes="(max-width: 768px) 300px, 440px"
+                    />
+                    {/* Subtle bottom gradient overlay for depth */}
+                    <div
+                      aria-hidden
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                          "linear-gradient(to top, rgba(8, 23, 46, 0.7) 0%, rgba(8, 23, 46, 0) 40%)",
+                        pointerEvents: "none",
+                      }}
+                    />
+
+                  </>
+                )}
               </div>
             </div>
-
-            {/* Dot indicators */}
-            {/* <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-              {PHOTOS.map((_, idx) => (
-                <button
-                  key={idx}
-                  id={`hero-dot-${idx}`}
-                  aria-label={`Photo ${idx + 1}`}
-                  onClick={() => setCurrent(idx)}
-                  style={{
-                    width: current === idx ? 24 : 8,
-                    height: 8,
-                    borderRadius: "var(--r-full)",
-                    background: current === idx ? "var(--on-dark)" : "rgba(255,255,255,0.25)",
-                    border: "none",
-                    cursor: "pointer",
-                    padding: 0,
-                    transition: "width 0.3s ease, background 0.3s ease",
-                  }}
-                />
-              ))}
-            </div> */}
           </div>
         </div>
       </div>

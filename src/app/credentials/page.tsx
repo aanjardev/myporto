@@ -1,14 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
-import {
-  Search,
-  X,
-  ChevronDown,
-  Award,
-  Trophy,
-  BookOpen,
-  Target,
-} from "lucide-react";
+import { Search, X, ChevronDown } from "lucide-react";
 import CredentialCard from "@/components/CredentialCard";
 import { credentialsData } from "@/data/credentialsData";
 import { Credential } from "@/types/credential";
@@ -69,16 +61,19 @@ export default function CredentialsPage() {
 
   // Type filter pills
   const typePills = [
-    { value: "all", label: "All", icon: null },
-    { value: "certification", label: "Certifications", icon: Award },
-    { value: "award", label: "Awards", icon: Trophy },
-    { value: "achievement", label: "Achievements", icon: Target },
-    { value: "competition", label: "Competitions", icon: Trophy },
-    { value: "course", label: "Courses", icon: BookOpen },
+    { value: "all", label: "All" },
+    { value: "certification", label: "Certifications" },
+    { value: "award", label: "Awards" },
+    { value: "achievement", label: "Achievements" },
+    { value: "competition", label: "Competitions" },
+    { value: "course", label: "Courses" },
   ];
 
   return (
-    <main style={{ minHeight: "100vh", background: "var(--canvas-press)" }}>
+    <main
+      className="portfolio-list"
+      style={{ minHeight: "100vh", background: "var(--canvas-press)" }}
+    >
       {/* Hero Banner */}
       {/* <section
         style={{
@@ -133,13 +128,27 @@ export default function CredentialsPage() {
       </section> */}
 
       {/* Search & Filter Section */}
-      <section style={{ position: "sticky", top: 64, zIndex: 20, background: "rgba(255,255,255,0.97)", backdropFilter: "blur(8px)", borderBottom: "1px solid var(--hairline-cloud)", boxShadow: "0 1px 8px rgba(0,0,0,0.06)" }}>
-        <div className="px-6 lg:px-0 py-4" style={{ maxWidth: 1152, margin: "0 auto" }}>
+      <section
+        style={{
+          position: "sticky",
+          top: 64,
+          zIndex: 20,
+          background: "rgba(255,255,255,0.97)",
+          backdropFilter: "blur(8px)",
+          borderBottom: "1px solid var(--hairline-cloud)",
+          boxShadow: "0 1px 8px rgba(0,0,0,0.06)",
+        }}
+      >
+        <div
+          className="px-6 lg:px-0 py-4"
+          style={{ maxWidth: 1152, margin: "0 auto" }}
+        >
           <div className="flex flex-col md:flex-row gap-4">
             {/* Search Bar */}
             <div className="flex-1 relative">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
+                aria-label="Search credentials"
                 type="text"
                 placeholder="Search by title, issuer, or skill..."
                 value={searchQuery}
@@ -159,11 +168,11 @@ export default function CredentialsPage() {
             {/* Type Filters - Compact Pills */}
             <div className="flex flex-wrap gap-2 items-center">
               {typePills.map((pill) => {
-                const Icon = pill.icon;
                 const isActive = selectedType === pill.value;
                 return (
                   <button
                     key={pill.value}
+                    aria-pressed={selectedType === pill.value}
                     onClick={() =>
                       setSelectedType(pill.value as "all" | Credential["type"])
                     }
@@ -173,7 +182,6 @@ export default function CredentialsPage() {
                         : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                     }`}
                   >
-                    {Icon && <Icon className="w-3.5 h-3.5" />}
                     {pill.label}
                   </button>
                 );
@@ -181,8 +189,9 @@ export default function CredentialsPage() {
 
               {/* Skills Filter Toggle Button */}
               <button
+                aria-expanded={isFilterOpen}
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
-                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`portfolio-filter-toggle inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium transition-all ${
                   selectedSkills.length > 0
                     ? "bg-[#1E3A5F] text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -227,29 +236,17 @@ export default function CredentialsPage() {
       {/* Results Section */}
       <section style={{ padding: "40px 24px 80px" }}>
         <div style={{ maxWidth: 1152, margin: "0 auto" }}>
-          {/* Results Header */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
-            <p className="text-gray-500 text-sm">
-              Showing{" "}
-              <span className="font-semibold text-gray-900">
-                {filteredCredentials.length}
-              </span>{" "}
-              of{" "}
-              <span className="font-semibold text-gray-900">
-                {credentialsData.length}
-              </span>{" "}
-              credentials
-            </p>
-            {hasActiveFilters && (
-              <button
-                onClick={clearAllFilters}
-                className="text-sm text-[#1E3A5F] hover:text-[#152C48] font-medium inline-flex items-center gap-1"
-              >
-                <X className="w-3.5 h-3.5" />
-                Clear all filters
-              </button>
-            )}
-          </div>
+          {hasActiveFilters && (
+            <div className="active-filter-bar" aria-label="Active filters">
+              <span className="active-filter-label">Filtered by</span>
+              <div className="active-filter-chips">
+                {searchQuery && <button className="active-filter-chip" onClick={() => setSearchQuery("")} aria-label="Remove search filter"><span>Search: {searchQuery}</span><X size={12} aria-hidden="true" /></button>}
+                {selectedType !== "all" && <button className="active-filter-chip" onClick={() => setSelectedType("all")} aria-label="Remove credential type filter"><span>{selectedType.charAt(0).toUpperCase() + selectedType.slice(1)}</span><X size={12} aria-hidden="true" /></button>}
+                {selectedSkills.map(skill => <button key={skill} className="active-filter-chip" onClick={() => handleSkillToggle(skill)} aria-label={`Remove ${skill} filter`}><span>{skill}</span><X size={12} aria-hidden="true" /></button>)}
+              </div>
+              <button className="active-filter-clear" onClick={clearAllFilters} aria-label="Clear all filters">Clear all</button>
+            </div>
+          )}
 
           {/* Credentials Grid */}
           {filteredCredentials.length > 0 ? (

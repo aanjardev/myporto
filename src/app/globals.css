@@ -258,10 +258,7 @@ img {
   box-shadow: var(--shadow-1);
   transition: box-shadow 0.3s, transform 0.3s;
 }
-.card-light:hover {
-  box-shadow: var(--shadow-2);
-  transform: translateY(-2px);
-}
+
 
 .card-dark {
   background-color: var(--canvas-night);
@@ -365,6 +362,8 @@ img {
   gap: 6px;
 }
 .portfolio-card {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -378,13 +377,17 @@ img {
     box-shadow 0.2s,
     transform 0.2s ease;
 }
-@media (hover: hover) and (pointer: fine) {
-  .portfolio-card:hover {
-    border-color: #a9bbd0;
-    box-shadow: 0 6px 18px #0c1f3f0d;
-    transform: translateY(-2px);
-  }
+.portfolio-card-primary-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
+.portfolio-card .interaction-icon {
+  position: relative;
+  z-index: 2;
+}
+
 .portfolio-card-image {
   display: block;
   position: relative;
@@ -1095,30 +1098,28 @@ img {
 
 /* Public interaction language: editorial links, tactile actions. */
 .portfolio-interactions :is(.interaction-link, .interaction-contact) { position: relative; }
-.portfolio-interactions :is(.interaction-link, .interaction-contact)::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; pointer-events: none; }
+.portfolio-interactions :is(.interaction-link, .interaction-contact)::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 100%; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; pointer-events: none; }
 .portfolio-interactions .interaction-nav::after { left: 14px; right: 14px; width: auto; bottom: 2px; }
 .portfolio-interactions .interaction-contact::after { width: 24px; }
-.portfolio-interactions :is(.btn-primary,.btn-inverted,.btn-ghost-dark,.portfolio-button) { transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease; }
-.portfolio-interactions .interaction-arrow { display: inline-block; transition: transform 180ms ease; }
-.portfolio-interactions :is(.interaction-icon,.portfolio-gallery-control) { transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease; }
-.portfolio-interactions :is(.interaction-icon,.portfolio-gallery-control) svg { transition: translate 180ms ease; }
-.portfolio-interactions :is(.portfolio-list button[aria-pressed],.portfolio-filter-toggle) { transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease; }
+.portfolio-interactions :is(.btn-primary,.btn-inverted,.btn-ghost-dark,.portfolio-button) { transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease, border-color 220ms ease; }
+.portfolio-interactions .interaction-arrow { display: inline-block; transition: transform 220ms ease; }
+.portfolio-interactions :is(.interaction-icon,.portfolio-gallery-control) svg { transition: translate 220ms ease; }
+.portfolio-interactions :is(.portfolio-list button[aria-pressed],.portfolio-filter-toggle) { transition: border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease; }
 .portfolio-interactions .portfolio-project-tabs button { position: relative; }
-.portfolio-interactions .portfolio-project-tabs button::after { content:""; position:absolute; bottom:-2px; height:2px; left:0; right:0; background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform 180ms ease; }
+.portfolio-interactions .portfolio-project-tabs button::after { content:""; position:absolute; bottom:-2px; height:2px; left:0; right:0; background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform 220ms ease; }
 .portfolio-interactions .portfolio-project-tabs button[aria-selected=true]::after { transform:scaleX(1); }
 .portfolio-interactions :is(a,button,input,[role=tabpanel]):focus-visible { outline:2px solid #658bb9; outline-offset:4px; }
 .portfolio-interactions :is(.interaction-link,.interaction-contact):focus-visible::after { transform:scaleX(1); }
 .portfolio-interactions :is(.btn-primary,.btn-inverted,.btn-ghost-dark,.portfolio-button):focus-visible { box-shadow:2px 2px 0 #7088a6; }
 @media(hover:hover) and (pointer:fine) {
  .portfolio-interactions :is(.interaction-link,.interaction-contact):hover::after { transform:scaleX(1); }
- .portfolio-interactions :is(.btn-primary,.btn-inverted,.btn-ghost-dark,.portfolio-button):hover { transform:translate(-1px,-1px); box-shadow:2px 2px 0 #7088a6; }
+ .portfolio-interactions :is(.btn-primary,.btn-inverted,.btn-ghost-dark,.portfolio-button):hover { transform:translateY(-2px); box-shadow:0 8px 20px #0c1f3f33; }
  .portfolio-interactions :is(.btn-ghost-dark,.portfolio-button-secondary):hover { border-color:#7088a6; }
  .portfolio-interactions .portfolio-card:hover .portfolio-card-footer > a { color:var(--accent-navy-mid); }
  .portfolio-interactions .portfolio-card h3 a:hover { text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; }
- .portfolio-interactions :is(a,button):hover > .interaction-arrow { transform:translateX(2px); }
- .portfolio-interactions :is(.interaction-icon,.portfolio-gallery-control):hover { background-color:#e8eef6 !important; border-color:#91a8c4 !important; color:var(--ink) !important; }
- .portfolio-interactions :is(.interaction-next,.portfolio-gallery-next):hover svg { translate:2px 0; }
- .portfolio-interactions :is(.interaction-prev,.portfolio-gallery-prev):hover svg { translate:-2px 0; }
+ .portfolio-interactions :is(a,button):hover > .interaction-arrow { transform:translateX(4px); }
+ .portfolio-interactions :is(.interaction-next,.portfolio-gallery-next):hover svg { translate:4px 0; }
+ .portfolio-interactions :is(.interaction-prev,.portfolio-gallery-prev):hover svg { translate:-4px 0; }
  .portfolio-interactions :is(.portfolio-list button[aria-pressed],.portfolio-filter-toggle):hover { border-color:#91a8c4 !important; box-shadow:inset 0 -2px 0 #91a8c4 !important; }
  .portfolio-interactions .portfolio-filter-toggle:hover svg { color:var(--ink); }
  .portfolio-interactions .portfolio-project-tabs button:hover::after { transform:scaleX(1); }
@@ -1141,6 +1142,106 @@ img {
 .portfolio-interactions .portfolio-gallery-control.portfolio-gallery-close:hover { background:#fff !important; border-color:#dce3eb !important; }
 @media(hover:none) {
  .portfolio-interactions :is(.btn-primary,.btn-inverted,.btn-ghost-dark,.portfolio-button):hover { transform:none; box-shadow:none; }
+}
+
+/* Shared public hover treatment. Keep overlays clear of card navigation. */
+.portfolio-interactions {
+  --hover-border: #6986aa;
+  --hover-shadow: 0 14px 30px -8px #0c1f3f40, 0 4px 10px #0c1f3f0f;
+}
+.portfolio-interactions :is(.portfolio-card, .card-light, .home-credential-preview) {
+  transition: transform 250ms ease, border-color 220ms ease, box-shadow 250ms ease;
+}
+.portfolio-interactions :is(.portfolio-card h3 a, .interaction-link, .interaction-contact, .skill-project-link) {
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+.portfolio-interactions .portfolio-project-card .portfolio-card-image img {
+  transition: transform 250ms ease;
+}
+.portfolio-interactions :is(.interaction-contact, .skill-project-link) {
+  border-radius: var(--r-md);
+}
+.portfolio-interactions .interaction-contact {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.portfolio-interactions .interaction-contact > div {
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+.portfolio-interactions .skill-project-pill {
+  border: 1px solid var(--hairline-cloud);
+  background: var(--canvas-light);
+  color: #475569;
+}
+.portfolio-interactions .marquee-track .skill-project-link { color: #64748b; }
+.portfolio-interactions :is(.portfolio-card, .card-light, .home-credential-preview):focus-within {
+  border-color: var(--hover-border);
+  box-shadow: var(--hover-shadow);
+}
+.portfolio-interactions .portfolio-card-primary-link:focus-visible::after {
+  outline: 3px solid #467cbe;
+  outline-offset: -3px;
+  border-radius: inherit;
+}
+.portfolio-interactions :is(.interaction-contact, .skill-project-link):focus-visible {
+  background-color: #0c1f3f0d;
+}
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-interactions :is(.portfolio-card, .home-credential-preview):hover {
+    transform: translateY(-5px);
+    border-color: var(--hover-border);
+    box-shadow: var(--hover-shadow);
+  }
+  .portfolio-interactions .card-light:hover {
+    border-color: var(--hover-border);
+    box-shadow: var(--hover-shadow);
+  }
+  .portfolio-interactions .portfolio-project-card:hover .portfolio-card-image img { transform: scale(1.04); }
+  .portfolio-interactions .portfolio-card:hover h3 a { color: var(--accent-navy-mid); }
+  .portfolio-interactions .portfolio-card:hover .portfolio-card-footer > a .interaction-arrow { transform: translateX(4px); }
+  .portfolio-interactions .interaction-link:hover { color: var(--accent-navy-mid) !important; }
+  .portfolio-interactions :is(.interaction-contact, .skill-project-link):hover {
+    background-color: #0c1f3f0d;
+    color: var(--accent-navy-mid) !important;
+  }
+  .portfolio-interactions .skill-project-pill:hover { border-color: var(--hover-border); }
+  .portfolio-interactions .interaction-contact:hover > div {
+    background: #dce7f4 !important;
+    border-color: var(--hover-border) !important;
+    color: var(--canvas-dark) !important;
+    box-shadow: 0 4px 12px #0c1f3f1a;
+  }
+  .portfolio-interactions .interaction-contact:hover > span { color: var(--accent-navy-mid) !important; }
+  .portfolio-interactions :is(.interaction-icon, .portfolio-gallery-control):hover {
+    transform: translateY(-2px);
+    background-color: #d5e2f2 !important;
+    border-color: var(--hover-border) !important;
+    color: var(--ink) !important;
+    box-shadow: 0 5px 12px #0c1f3f26;
+  }
+  .portfolio-interactions :is(.btn-primary, .portfolio-button:not(.portfolio-button-secondary)):hover { background-color: var(--accent-navy-mid); }
+  .portfolio-interactions .btn-inverted:hover { background-color: #dce7f4; }
+  .portfolio-interactions .btn-ghost-dark:hover { background-color: #ffffff40; }
+  .portfolio-interactions .portfolio-button-secondary:hover { background-color: #dce7f4; }
+}
+.portfolio-interactions :is(.interaction-icon, .portfolio-gallery-control) {
+  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease, border-color 220ms ease, color 220ms ease;
+}
+@media (hover: none) {
+  .portfolio-interactions :is(.portfolio-card, .home-credential-preview):active {
+    border-color: var(--hover-border);
+    box-shadow: var(--hover-shadow);
+  }
+  .portfolio-interactions :is(.interaction-link, .interaction-contact, .skill-project-link, .interaction-icon, .portfolio-gallery-control):active {
+    background-color: #0c1f3f14;
+  }
+  .portfolio-interactions :is(.btn-primary, .btn-inverted, .btn-ghost-dark, .portfolio-button):active { filter: brightness(0.9); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-interactions :is(.portfolio-card, .card-light, .home-credential-preview, .skill-project-link, .interaction-contact, .interaction-contact > div, .portfolio-project-card .portfolio-card-image img) { transition: none !important; }
+  .portfolio-interactions :is(.portfolio-card, .home-credential-preview, .interaction-icon, .portfolio-gallery-control):hover,
+  .portfolio-interactions .portfolio-project-card:hover .portfolio-card-image img,
+  .portfolio-interactions .portfolio-card:hover .interaction-arrow { transform: none !important; }
 }
 
 /* Homepage credentials retain their image-only slider presentation. */
@@ -1183,9 +1284,14 @@ img {
 .portfolio-detail-header + .portfolio-detail-body { padding-top: 24px; }
 
 /* Descriptions use the space left by shorter project titles and metadata. */
-.portfolio-project-card .portfolio-card-description {
+.portfolio-project-card .portfolio-card-description-slot {
   flex: 1 0 18px;
   min-height: 18px;
+  width: 100%;
+  overflow: hidden;
+}
+.portfolio-project-card .portfolio-card-description {
+  max-height: calc(var(--description-lines, 1) * 1lh);
   -webkit-line-clamp: var(--description-lines, 1);
 }
 .portfolio-project-card .portfolio-card-body > .portfolio-tags:last-of-type,

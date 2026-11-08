@@ -17,7 +17,11 @@ export default function ProjectCard({ project }: { project: Project }) {
         className="portfolio-card-image"
         aria-label={`View ${project.title}`}
       >
-        <PortfolioImage src={project.image} alt={project.title} />
+        <PortfolioImage
+          src={project.image}
+          alt={project.title}
+          sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 400px"
+        />
         <span className="portfolio-card-overlay">
           <PortfolioBadge>{projectTypeLabel(project.type)}</PortfolioBadge>
         </span>
@@ -32,7 +36,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <ProjectCardDescription>{project.description}</ProjectCardDescription>
         <PortfolioTags tags={project.tech} limit={2} />
         <footer className="portfolio-card-footer">
-          <Link href={`/projects/${project.slug}`}>
+          <Link href={`/projects/${project.slug}`} className="portfolio-card-primary-link" aria-label={`View details: ${project.title}`}>
             View details{" "}
             <span className="interaction-arrow" aria-hidden="true">
               &rarr;

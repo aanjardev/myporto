@@ -32,6 +32,7 @@ export default function ImageCarousel({ images, title }: ImageCarouselProps) {
             alt={`${title} - screenshot ${index + 1}`}
             contain
             eager
+            sizes="(max-width: 800px) calc(100vw - 40px), (max-width: 1152px) calc(100vw - 48px), 1104px"
           />
         </button>
         {images.length > 1 && (
@@ -105,6 +106,8 @@ export default function ImageCarousel({ images, title }: ImageCarouselProps) {
               src={images[index]}
               alt={`${title} - screenshot ${index + 1}`}
               contain
+              original
+              sizes="96vw"
             />
           </div>
           {images.length > 1 && (

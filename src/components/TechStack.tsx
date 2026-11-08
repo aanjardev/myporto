@@ -193,17 +193,7 @@ export default function TechStack({ techs, familiars }: TechStackProps) {
                         alignItems: "center",
                         gap: 8,
                         margin: "0 24px",
-                        color: "var(--hairline-cool)",
                         cursor: "pointer",
-                        transition: "color 0.25s",
-                      }}
-                      onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLElement).style.color =
-                          "var(--canvas-dark)";
-                      }}
-                      onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLElement).style.color =
-                          "var(--hairline-cool)";
                       }}
                     >
                       {getIcon(tech.icon, 32)}
@@ -290,16 +280,7 @@ export default function TechStack({ techs, familiars }: TechStackProps) {
                       justifyContent: "space-between",
                       padding: "8px 10px",
                       borderRadius: "var(--r-md)",
-                      transition: "background 0.18s",
                       cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.background =
-                        "var(--canvas-press)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.background =
-                        "transparent";
                     }}
                   >
                     <div
@@ -371,29 +352,14 @@ export default function TechStack({ techs, familiars }: TechStackProps) {
               {familiars.map((tool) => (
                 <Link
                   href={`/projects?stack=${encodeURIComponent(tool.name)}`}
-                  className="skill-project-link"
+                  className="skill-project-link skill-project-pill"
                   key={tool.id}
                   style={{
                     padding: "5px 14px",
                     borderRadius: "var(--r-full)",
-                    border: "1px solid var(--hairline-cloud)",
-                    background: "var(--canvas-light)",
                     fontSize: 12,
                     fontWeight: 500,
-                    color: "#475569",
-                    transition: "border-color 0.2s, color 0.2s",
                     cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor =
-                      "var(--canvas-dark)";
-                    (e.currentTarget as HTMLElement).style.color =
-                      "var(--canvas-dark)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor =
-                      "var(--hairline-cloud)";
-                    (e.currentTarget as HTMLElement).style.color = "#475569";
                   }}
                 >
                   <span className="skill-tool-name">{tool.name}</span>

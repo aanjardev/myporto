@@ -22,7 +22,10 @@ export const metadata: Metadata = {
     siteName: "Aanjar Portfolio",
     images: [{ url: "/images/profil1.jpg", width: 800, height: 800, alt: "Aan Anjar Setyowati Profile Picture" }],
   },
-  icons: { icon: "/icon.svg" },
+  icons: {
+    icon: { url: "/icon.svg?v=3", type: "image/svg+xml", sizes: "any" },
+    apple: { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+  },
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

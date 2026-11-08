@@ -45,7 +45,7 @@ export default function CredentialCard({
           </Link>
         </h3>
         <footer className="portfolio-card-footer">
-          <Link href={`/credentials/${credential.slug}`}>
+          <Link href={`/credentials/${credential.slug}`} className="portfolio-card-primary-link" aria-label={`View details: ${credential.title}`}>
             View details{" "}
             <span className="interaction-arrow" aria-hidden="true">
               &rarr;
